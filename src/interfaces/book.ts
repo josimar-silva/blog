@@ -1,16 +1,32 @@
-import { type Author } from "./author";
+export enum BookType {
+  PAPER,
+  BOOK,
+}
 
-export type Post = {
+export enum BookStatus {
+    READING,
+    COMPLETED,
+    DROPPED,
+}
+
+export type Book = {
+  id: string;
   slug: string;
   title: string;
-  date: string;
+  type: BookType;
+  author: string;
+  dateRead: string;
   coverImage: string;
-  author: Author;
-  excerpt: string;
-  image: string;
-  content: string;
-  featured: true;
-  readTime: string;
+  rating: number;
+  status: BookStatus;
+  pages: number;
+  notes: string;
+  keyTakeaways: string[];
   category: string;
-  tags: string[];
+  links: {
+      amazon?: string,
+      goodreads?: string,
+      arxiv?: string,
+      paperswithcode?: string,
+  };
 };
