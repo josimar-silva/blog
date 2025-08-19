@@ -56,6 +56,11 @@ export function BlogFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/bookshelf" className="text-muted-foreground hover:text-foreground">
+                    Bookshelf
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-muted-foreground hover:text-foreground">
                   Contact
                 </Link>
@@ -117,7 +122,7 @@ export function BlogFooter() {
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} John Doe. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Josimar Silva. All rights reserved.</p>
         </div>
       </div>
     </footer>
