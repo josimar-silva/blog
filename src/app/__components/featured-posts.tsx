@@ -3,7 +3,7 @@ import { Badge } from "@/app/__components/ui/badge"
 import { Calendar, Clock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { getFeaturedPosts } from "@/lib/api"
+import { getFeaturedPosts } from "@/lib/posts"
 
 export async function FeaturedPosts() {
   const featuredPosts = await getFeaturedPosts();

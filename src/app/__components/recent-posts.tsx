@@ -4,7 +4,7 @@ import { Button } from "@/app/__components/ui/button"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { getAllPosts } from "@/lib/api"
+import { getAllPosts } from "@/lib/posts"
 
 export async function RecentPosts() {
   const recentPosts = await getAllPosts(['title', 'date', 'readTime', 'slug', 'author', 'content', 'tags', 'category', 'excerpt', 'image'])

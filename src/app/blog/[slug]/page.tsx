@@ -1,7 +1,7 @@
 import { BlogHeader } from "@/app/__components/blog-header"
 import { BlogPost } from "@/app/__components/blog-post"
 import { BlogFooter } from "@/app/__components/blog-footer"
-import { getPostBySlug, markdownToHtml, getAllPosts } from "@/lib/api"  
+import { getPostBySlug, markdownToHtml, getAllPosts } from "@/lib/posts"
 import { notFound } from "next/navigation"
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {  
