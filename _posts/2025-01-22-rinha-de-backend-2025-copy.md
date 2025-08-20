@@ -6,7 +6,7 @@ readTime: "8 min read"
 category: "Development"
 tags: ["Rust", "Backend", "AI", "LLMs", "Development Tools"]
 author: "John Doe"
-image: "/placeholder.svg?height=400&width=800"
+image: "/assets/blog/posts/placeholder.svg?height=400&width=800"
 featured: true
 ---
 
