@@ -7,6 +7,7 @@ import { Button } from "@/app/__components/ui/button"
 import { Input } from "@/app/__components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/app/__components/ui/sheet"
 import { Menu, Search, Moon, Sun } from "lucide-react"
+import Image from "next/image";
 
 export function BlogHeader() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -37,9 +38,9 @@ export function BlogHeader() {
         <div className="flex items-center space-x-4">
           <Link href="/" className="flex items-center space-x-2">
             <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">JD</span>
+              <span className="text-primary-foreground font-bold text-sm">JS</span>
             </div>
-            <span className="font-bold text-xl">John Doe</span>
+            <span className="font-bold text-xl">Josimar Silva</span>
           </Link>
         </div>
 

@@ -21,10 +21,10 @@ export async function FeaturedPosts() {
         </div>
         <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
           {featuredPosts.map((post) => (
-            <Card key={post.id} className="overflow-hidden">
+            <Card key={post.slug} className="overflow-hidden">
               <Link href={`/blog/${post.slug}`}>
                 <Image
-                  src={post.image || "/assets/placeholder.svg"}
+                  src={post.image || "/assets/blog/posts/placeholder.svg"}
                   alt={post.title}
                   width={400}
                   height={200}

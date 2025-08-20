@@ -11,7 +11,6 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <FeaturedPosts />
-        <RecentPosts />
       </main>
       <BlogFooter />
     </div>

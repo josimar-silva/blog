@@ -1,15 +1,26 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/app/__components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
+export const viewport: Viewport = {
+  themeColor: 'purple',
+  width: 'device-width',
+  initialScale: 1
+}
+
 export const metadata: Metadata = {
-  title: "John Doe - Personal Blog",
-  description: "Full-stack developer, writer, and creator sharing insights about web development and technology.",
-    generator: 'v0.dev'
+  title: "Josimar Silva",
+  description: "Sharing my notes and insights about software engineering",
+  keywords: ["software", "engineering", "tech", "blog"],
+  authors: [{ name: "Josimar Silva" }],
+  icons: {
+    icon: "/favicon/favicon.png",
+    apple: "/favicon/apple-touch-icon.png",
+  },
 }
 
 export default function RootLayout({
