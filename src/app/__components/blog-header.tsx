@@ -33,7 +33,7 @@ export function BlogHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center space-x-4">
           <Link href="/" className="flex items-center space-x-2">
@@ -93,7 +93,7 @@ export function BlogHeader() {
 
       {/* Search Bar */}
       {isSearchOpen && (
-        <div className="border-t bg-background/95 backdrop-blur">
+        <div className="border-t bg-background/95 backdrop-blur-sm">
           <div className="container py-4">
             <div className="relative max-w-md">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />

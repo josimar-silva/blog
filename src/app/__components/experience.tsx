@@ -108,7 +108,7 @@ export function Experience() {
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement, achIndex) => (
                       <li key={achIndex} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                         <span className="text-sm">{achievement}</span>
                       </li>
                     ))}

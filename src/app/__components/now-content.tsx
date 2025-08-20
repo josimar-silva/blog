@@ -81,23 +81,23 @@ export function NowContent() {
               <h2 className="text-2xl font-bold mb-4">Goals for 2025</h2>
               <ul className="space-y-2 text-lg text-muted-foreground">
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 shrink-0" />
                   <span>Publish at least 12 technical blog posts</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 shrink-0" />
                   <span>Release 2 open-source projects</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 shrink-0" />
                   <span>Speak at a technical conference</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 shrink-0" />
                   <span>Learn Rust well enough to build a production application</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 shrink-0" />
                   <span>Cycle 500 miles throughout the year</span>
                 </li>
               </ul>

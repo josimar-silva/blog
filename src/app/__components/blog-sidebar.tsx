@@ -91,7 +91,7 @@ export function BlogSidebar({ posts }: BlogSidebarProps) {
                 alt={post.title}
                 width={60}
                 height={60}
-                className="aspect-square rounded object-cover flex-shrink-0"
+                className="aspect-square rounded object-cover shrink-0"
               />
               <div className="space-y-1">
                 <Link href={`/blog/${post.slug}`}>

@@ -81,7 +81,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
                     <ul className="space-y-2">
                       {project.highlights.map((highlight, highlightIndex) => (
                         <li key={highlightIndex} className="flex items-start gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
                           <span className="text-muted-foreground">{highlight}</span>
                         </li>
                       ))}
