@@ -1,8 +1,6 @@
 import fs from 'fs/promises';
 import {join} from 'path';
 import matter from 'gray-matter';
-import {remark} from 'remark';
-import html from 'remark-html';
 
 const postsDirectory = join(process.cwd(), '_posts');
 
@@ -45,9 +43,4 @@ export async function getAllPosts(fields: string[] = []) {
 
 export async function getFeaturedPosts(fields: string[] = ["featured", "id", "slug", "title", "image", "readTime", "excerpt", "date", "category"]) {
     return (await getAllPosts(fields)).filter(post => post.featured);
-}
-
-export async function markdownToHtml(markdown: string) {
-  const result = await remark().use(html).process(markdown);
-  return result.toString();
 }
