@@ -1,17 +1,33 @@
-import React from "react";
+"use client"
+
+import React, { useState, useEffect } from "react";
 import Markdown from "react-markdown";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { materialDark, materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { useTheme } from "next-themes";
 
 interface BlogPostContentProps {
     content: string;
 }
 
 export default function BlogPostContent({ content }: BlogPostContentProps) {
+    const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) {
+        return null; // Render nothing on the server to prevent hydration mismatch
+    }
+
+    const codeStyle = theme === "dark" ? materialDark : materialLight;
+
     return (
         <div className="prose prose-gray max-w-none dark:prose-invert lg:prose-lg markdown-content">
             <Markdown
@@ -24,7 +40,7 @@ export default function BlogPostContent({ content }: BlogPostContentProps) {
                         return match ? (
                             <SyntaxHighlighter
                                 // @ts-ignore
-                                style={materialDark}
+                                style={codeStyle}
                                 PreTag="div"
                                 language={match[1]}
                                 {...props}
