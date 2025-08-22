@@ -7,7 +7,6 @@ import { Button } from "@/app/__components/ui/button"
 import { Input } from "@/app/__components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/app/__components/ui/sheet"
 import { Menu, Search, Moon, Sun } from "lucide-react"
-import Image from "next/image";
 
 export function BlogHeader() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
