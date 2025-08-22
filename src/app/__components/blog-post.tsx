@@ -1,5 +1,6 @@
 import { Badge } from "@/app/__components/ui/badge"
 import { Button } from "@/app/__components/ui/button"
+import BlogPostContent from "@/app/__components/blog-post-content"
 import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -90,9 +91,7 @@ export function BlogPost({ post }: BlogPostProps) {
         </div>
 
         {/* Content */}
-        <div className="prose prose-gray max-w-none dark:prose-invert lg:prose-lg">
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        </div>
+        <BlogPostContent content={post.content} />
       </div>
     </article>
   )

@@ -1,7 +1,7 @@
 import { BlogHeader } from "@/app/__components/blog-header"
 import { BlogPost } from "@/app/__components/blog-post"
 import { BlogFooter } from "@/app/__components/blog-footer"
-import { getPostBySlug, markdownToHtml, getAllPosts } from "@/lib/posts"
+import { getPostBySlug, getAllPosts } from "@/lib/posts"
 import { notFound } from "next/navigation"
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {  
@@ -11,12 +11,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     return notFound()
   }
 
-  const contentHtml = await markdownToHtml(post.content || '')
-
   return (
     <div className="min-h-screen bg-background">
       <BlogHeader />
-      <BlogPost post={{ ...post, content: contentHtml }} />
+      <BlogPost post={{ ...post, content: post.content }} />
       <BlogFooter />
     </div>
   )
