@@ -1,6 +1,8 @@
 "use client";
 
+import { Filter, Grid, List } from "lucide-react";
 import { useState } from "react";
+
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import {
@@ -10,7 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/app/__components/ui/select";
-import { Filter, Grid, List } from "lucide-react";
 
 const categories = [
     "All",

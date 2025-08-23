@@ -1,7 +1,8 @@
-import { Button } from "@/app/__components/ui/button";
-import { Input } from "@/app/__components/ui/input";
-import { Card, CardContent } from "@/app/__components/ui/card";
 import { Mail } from "lucide-react";
+
+import { Button } from "@/app/__components/ui/button";
+import { Card, CardContent } from "@/app/__components/ui/card";
+import { Input } from "@/app/__components/ui/input";
 
 export function Newsletter() {
   return (

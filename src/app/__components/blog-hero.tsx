@@ -1,7 +1,8 @@
-import { Badge } from "@/app/__components/ui/badge";
 import { Search } from "lucide-react";
-import { Input } from "@/app/__components/ui/input";
+
+import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
+import { Input } from "@/app/__components/ui/input";
 
 export function BlogHero() {
   return (

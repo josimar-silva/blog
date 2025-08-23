@@ -1,8 +1,9 @@
+import { notFound } from "next/navigation";
+
+import { BlogFooter } from "@/app/__components/blog-footer";
 import { BlogHeader } from "@/app/__components/blog-header";
 import { BlogPost } from "@/app/__components/blog-post";
-import { BlogFooter } from "@/app/__components/blog-footer";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
-import { notFound } from "next/navigation";
 
 export default async function BlogPostPage({
   params,

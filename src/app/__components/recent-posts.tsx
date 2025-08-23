@@ -1,9 +1,10 @@
-import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
 import { getAllPosts } from "@/lib/posts";
 
 export async function RecentPosts() {

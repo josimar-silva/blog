@@ -1,8 +1,9 @@
-import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
-import { Badge } from "@/app/__components/ui/badge";
 import { Calendar, Clock } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
+import { Badge } from "@/app/__components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
 import { getFeaturedPosts } from "@/lib/posts";
 
 export async function FeaturedPosts() {

@@ -1,6 +1,3 @@
-import { Badge } from "@/app/__components/ui/badge";
-import { Button } from "@/app/__components/ui/button";
-import { Card, CardContent } from "@/app/__components/ui/card";
 import {
   ArrowLeft,
   BarChart3,
@@ -12,6 +9,10 @@ import {
   Star,
 } from "lucide-react";
 import Link from "next/link";
+
+import { Badge } from "@/app/__components/ui/badge";
+import { Button } from "@/app/__components/ui/button";
+import { Card, CardContent } from "@/app/__components/ui/card";
 
 interface BookReviewProps {
   book: {

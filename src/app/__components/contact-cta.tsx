@@ -1,7 +1,8 @@
-import { Button } from "@/app/__components/ui/button";
-import { Card, CardContent } from "@/app/__components/ui/card";
 import { Mail } from "lucide-react";
 import Link from "next/link";
+
+import { Button } from "@/app/__components/ui/button";
+import { Card, CardContent } from "@/app/__components/ui/card";
 
 export function ContactCTA() {
   return (

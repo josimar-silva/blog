@@ -1,13 +1,14 @@
+import { Calendar, ExternalLink, MapPin } from "lucide-react";
+import Link from "next/link";
+
+import { Badge } from "@/app/__components/ui/badge";
+import { Button } from "@/app/__components/ui/button";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@/app/__components/ui/card";
-import { Badge } from "@/app/__components/ui/badge";
-import { Calendar, ExternalLink, MapPin } from "lucide-react";
-import { Button } from "@/app/__components/ui/button";
-import Link from "next/link";
 
 const experiences = [
   {

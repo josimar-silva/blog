@@ -1,7 +1,8 @@
+import { notFound } from "next/navigation";
+
+import { BlogFooter } from "@/app/__components/blog-footer";
 import { BlogHeader } from "@/app/__components/blog-header";
 import { BookReview } from "@/app/__components/book-review";
-import { BlogFooter } from "@/app/__components/blog-footer";
-import { notFound } from "next/navigation";
 import { getBookBySlug, getBooks } from "@/lib/books";
 
 export async function generateStaticParams() {

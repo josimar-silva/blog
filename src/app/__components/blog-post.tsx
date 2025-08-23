@@ -1,9 +1,10 @@
+import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+import BlogPostContent from "@/app/__components/blog-post-content";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
-import BlogPostContent from "@/app/__components/blog-post-content";
-import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
 
 interface BlogPostProps {
   post: {
