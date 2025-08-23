@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
@@ -15,8 +15,8 @@ interface BlogPostContentProps {
 }
 
 export default function BlogPostContent({ content }: BlogPostContentProps) {
-    const { theme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+    const { theme } = useTheme(),
+     [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -34,6 +34,7 @@ export default function BlogPostContent({ content }: BlogPostContentProps) {
                 remarkPlugins={[remarkFrontmatter, remarkGfm, remarkMath]}
                 rehypePlugins={[rehypeRaw]}
                 components={{
+                    // @ts-ignore
                     code({ node, className, children: codeChildren, ...props }) {
                         const match = /language-(\w+)/.exec(className || "");
 

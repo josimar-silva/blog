@@ -81,6 +81,4 @@ export const getBookBySlug = async (slug: string) => {
   return Promise.resolve(book || null)
 }
 
-export const getBooks = async () => {
-  return Promise.resolve(books)
-}
+export const getBooks = async () => Promise.resolve(books)

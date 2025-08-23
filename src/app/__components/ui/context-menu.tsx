@@ -6,19 +6,19 @@ import { Check, ChevronRight, Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const ContextMenu = ContextMenuPrimitive.Root
+const ContextMenu = ContextMenuPrimitive.Root,
 
-const ContextMenuTrigger = ContextMenuPrimitive.Trigger
+ ContextMenuTrigger = ContextMenuPrimitive.Trigger,
 
-const ContextMenuGroup = ContextMenuPrimitive.Group
+ ContextMenuGroup = ContextMenuPrimitive.Group,
 
-const ContextMenuPortal = ContextMenuPrimitive.Portal
+ ContextMenuPortal = ContextMenuPrimitive.Portal,
 
-const ContextMenuSub = ContextMenuPrimitive.Sub
+ ContextMenuSub = ContextMenuPrimitive.Sub,
 
-const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup
+ ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup,
 
-const ContextMenuSubTrigger = React.forwardRef<
+ ContextMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof ContextMenuPrimitive.SubTrigger>,
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubTrigger> & {
     inset?: boolean
@@ -168,8 +168,7 @@ ContextMenuSeparator.displayName = ContextMenuPrimitive.Separator.displayName
 const ContextMenuShortcut = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
-  return (
+}: React.HTMLAttributes<HTMLSpanElement>) => (
     <span
       className={cn(
         "ml-auto text-xs tracking-widest text-muted-foreground",
@@ -178,7 +177,6 @@ const ContextMenuShortcut = ({
       {...props}
     />
   )
-}
 ContextMenuShortcut.displayName = "ContextMenuShortcut"
 
 export {

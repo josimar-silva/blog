@@ -32,9 +32,9 @@ const skillCategories = [
       { name: "Jest", level: 80, years: "3 years" },
     ],
   },
-]
+],
 
-const certifications = [
+ certifications = [
   "AWS Certified Developer",
   "Google Analytics Certified",
   "React Developer Certification",

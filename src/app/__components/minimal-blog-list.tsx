@@ -19,13 +19,13 @@ interface MinimalBlogListProps {
 }
 
 export function MinimalBlogList({ posts }: MinimalBlogListProps) {
-  const [selectedCategory, setSelectedCategory] = useState("All")
+  const [selectedCategory, setSelectedCategory] = useState("All"),
 
   // Get unique categories from posts
-  const categories = ["All", ...Array.from(new Set(posts.map((post) => post.category)))]
+   categories = ["All", ...Array.from(new Set(posts.map((post) => post.category)))],
 
   // Filter posts based on selected category
-  const filteredPosts = selectedCategory === "All" ? posts : posts.filter((post) => post.category === selectedCategory)
+   filteredPosts = selectedCategory === "All" ? posts : posts.filter((post) => post.category === selectedCategory)
 
   return (
     <section className="pb-16 md:pb-20">

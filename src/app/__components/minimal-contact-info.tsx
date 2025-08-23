@@ -1,4 +1,4 @@
-import { Mail, MapPin, Github, Twitter, Linkedin } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react"
 import Link from "next/link"
 
 export function MinimalContactInfo() {

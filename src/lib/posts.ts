@@ -5,10 +5,10 @@ import matter from 'gray-matter';
 const postsDirectory = join(process.cwd(), '__posts');
 
 export async function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
-  const fileContents = await fs.readFile(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
+  const realSlug = slug.replace(/\.md$/, ''),
+   fullPath = join(postsDirectory, `${realSlug}.md`),
+   fileContents = await fs.readFile(fullPath, 'utf8'),
+   { data, content } = matter(fileContents);
 
   type Items = {
     [key: string]: string;
@@ -34,8 +34,8 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
 }
 
 export async function getAllPosts(fields: string[] = []) {
-  const slugs = await fs.readdir(postsDirectory);
-  const posts = await Promise.all(
+  const slugs = await fs.readdir(postsDirectory),
+   posts = await Promise.all(
     slugs.map(async (slug) => await getPostBySlug(slug, fields))
   );
   return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));

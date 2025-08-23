@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/app/__components/ui/card"
 import { Badge } from "@/app/__components/ui/badge"
 import { Button } from "@/app/__components/ui/button"
-import { Calendar, Clock, ArrowRight } from "lucide-react"
+import { ArrowRight, Calendar, Clock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { getAllPosts } from "@/lib/posts"

@@ -8,13 +8,13 @@ import { Input } from "@/app/__components/ui/input"
 import { Textarea } from "@/app/__components/ui/textarea"
 import { Label } from "@/app/__components/ui/label"
 import { Card, CardContent } from "@/app/__components/ui/card"
-import { Send, CheckCircle } from "lucide-react"
+import { CheckCircle, Send } from "lucide-react"
 
 export function ContactForm() {
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false),
+   [isLoading, setIsLoading] = useState(false),
 
-  const handleSubmit = async (e: React.FormEvent) => {
+   handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
 

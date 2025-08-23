@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/app/__components/ui/
 import { Badge } from "@/app/__components/ui/badge"
 import { Button } from "@/app/__components/ui/button"
 import { Input } from "@/app/__components/ui/input"
-import { Calendar, TrendingUp, Tag, Mail, Rss } from "lucide-react"
+import { Calendar, Mail, Rss, Tag, TrendingUp } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -25,23 +25,23 @@ interface BlogSidebarProps {
 
 export function BlogSidebar({ posts }: BlogSidebarProps) {
   // Get recent posts (last 5)
-  const recentPosts = posts.slice(0, 5)
+  const recentPosts = posts.slice(0, 5),
 
   // Get popular categories
-  const categoryCount = posts.reduce(
+   categoryCount = posts.reduce(
     (acc, post) => {
       acc[post.category] = (acc[post.category] || 0) + 1
       return acc
     },
     {} as Record<string, number>,
-  )
+  ),
 
-  const popularCategories = Object.entries(categoryCount)
+   popularCategories = Object.entries(categoryCount)
     .sort(([, a], [, b]) => b - a)
-    .slice(0, 6)
+    .slice(0, 6),
 
   // Get popular tags
-  const tagCount = posts.reduce(
+   tagCount = posts.reduce(
     (acc, post) => {
       post.tags.forEach((tag) => {
         acc[tag] = (acc[tag] || 0) + 1
@@ -49,9 +49,9 @@ export function BlogSidebar({ posts }: BlogSidebarProps) {
       return acc
     },
     {} as Record<string, number>,
-  )
+  ),
 
-  const popularTags = Object.entries(tagCount)
+   popularTags = Object.entries(tagCount)
     .sort(([, a], [, b]) => b - a)
     .slice(0, 12)
 
