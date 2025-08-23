@@ -22,8 +22,8 @@ export function HeroSection() {
           {/* Content - appears second on mobile, first on desktop */}
           <div className="flex flex-col justify-center space-y-4 order-2 lg:order-1">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I'm John Doe</h1>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl">
+              <h1 data-testid="hero-title" className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I'm John Doe</h1>
+              <p data-testid="hero-subtitle" className="max-w-[600px] text-muted-foreground md:text-xl">
                 Full-stack developer, writer, and creator. I write about web development, technology, and building
                 products that matter.
               </p>
