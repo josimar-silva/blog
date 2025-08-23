@@ -1,0 +1,268 @@
+name: Continuous Integration
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-24.04
+    steps:
+      - name: 🛡️ Harden the runner
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        with:
+          egress-policy: audit
+
+      - name: 📦 Checkout
+        if: github.event_name != 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Checkout
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: 🇳 Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.18.0'
+
+      - name: 💾 Cache Node.js modules
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+
+      - name: ⚒️ Setup just
+        uses: extractions/setup-just@v3
+        with:
+          just-version: '1.40.0'
+
+      - name: ⚙️ Install dependencies
+        run: just ci
+
+      - name: 📝 Check lints and formatting
+        run: just check
+
+  test:
+    name: Test
+    runs-on: ubuntu-24.04
+    steps:
+      - name: 🛡️ Harden the runner
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        with:
+          egress-policy: audit
+
+      - name: 📦 Checkout
+        if: github.event_name != 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Checkout
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: 🇳 Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.18.0'
+
+      - name: 💾 Cache Node.js modules
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+
+      - name: ⚒️ Setup just
+        uses: extractions/setup-just@v3
+        with:
+          just-version: '1.40.0'
+
+      - name: ⚙️ Install dependencies
+        run: just ci
+
+      - name: 🧪 Run tests
+        run: just test
+
+      - name: ⬆️ Upload coverage report
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4
+        with:
+          name: test-coverage
+          path: coverage/
+
+  test-ui:
+    name: Test UI
+    runs-on: ubuntu-24.04
+    steps:
+      - name: 🛡️ Harden the runner
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        with:
+          egress-policy: audit
+
+      - name: 📦 Checkout
+        if: github.event_name != 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Checkout
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: 🇳 Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.18.0'
+
+      - name: 💾 Cache Node.js modules
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+
+      - name: ⚒️ Setup just
+        uses: extractions/setup-just@v3
+        with:
+          just-version: '1.40.0'
+
+      - name: ⚙️ Install dependencies
+        run: just ci
+
+      - name: 💾 Cache Playwright browsers
+        id: cache-playwright-browsers
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: ⚙️ Setup Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: 🧪 Run tests
+        run: just test-ui
+
+      - name: ⬆️ Upload coverage report
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4
+        with:
+          name: test-ui-coverage
+          path: ui-tests-report/
+
+  sonar:
+    needs: [test, test-ui]
+    name: Sonar
+    runs-on: ubuntu-24.04
+    steps:
+      - name: 🛡️ Harden the runner
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        with:
+          egress-policy: audit
+
+      - name: 📦 Checkout
+        if: github.event_name != 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Checkout
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: ⬇️ Download test coverage report
+        uses: actions/download-artifact@v5
+        with:
+          name: test-coverage
+          path: coverage/
+
+      - name: ⬇️ Download test-ui coverage report
+        uses: actions/download-artifact@v5
+        with:
+          name: test-ui-coverage
+          path: ui-tests-report/
+
+      - name: 💾 Cache SonarCloud packages
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: 🔍 SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@8c71dc039c2dd71d3821e89a2b58ecc7fee6ced9 # v5.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  build:
+    needs: [test, test-ui, check, sonar]
+    name: Build
+    runs-on: ubuntu-24.04
+    steps:
+      - name: 🛡️ Harden the runner
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        with:
+          egress-policy: audit
+
+      - name: 📦 Checkout
+        if: github.event_name != 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Checkout
+        if: github.event_name == 'pull_request'
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: 🇳 Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.18.0'
+
+      - name: 💾 Cache Node.js modules
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+
+      - name: ⚒️ Setup just
+        uses: extractions/setup-just@v3
+        with:
+          just-version: '1.40.0'
+
+      - name: ⚙️ Install dependencies
+        run: just ci
+
+      - name: 🏗️ Build production output
+        run: just build
+
+      - name: ⬆️ Upload static website artifact
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4
+        with:
+          name: blog-${{ github.sha }}
+          path: dist/blog
