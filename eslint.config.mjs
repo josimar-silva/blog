@@ -15,6 +15,13 @@ export default defineConfig([{
     extends: compat.extends("next/core-web-vitals", "eslint:recommended"),
     rules: {
         "react/no-unescaped-entities": "off",
+        "no-unused-vars": [
+            "error",
+            {
+                argsIgnorePattern: "^_",
+                varsIgnorePattern: "^_"
+            }
+        ]
     },
 }, {
     files: ["src/**/*.test.{js,jsx,ts,tsx}"], languageOptions: {
