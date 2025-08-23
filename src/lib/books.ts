@@ -74,4 +74,13 @@ export const books = [
       paperswithcode: "https://paperswithcode.com/paper/attention-is-all-you-need",
     },
   },
-]
+];
+
+export const getBookBySlug = async (slug: string) => {
+  const book = books.find((book) => book.slug === slug)
+  return Promise.resolve(book || null)
+}
+
+export const getBooks = async () => {
+  return Promise.resolve(books)
+}
