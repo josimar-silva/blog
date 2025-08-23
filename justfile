@@ -4,6 +4,10 @@
 install:
 	npm install
 
+# Install dependencies for CI environment
+ci:
+    npm ci --frozen-lockfile --legacy-peer-deps
+
 # Start the development server
 dev:
 	npm run dev
