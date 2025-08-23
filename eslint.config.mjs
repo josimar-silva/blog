@@ -22,7 +22,7 @@ export default defineConfig([
       "prettier",
     ),
     plugins: {
-        "simple-import-sort": simpleImportSort,
+      "simple-import-sort": simpleImportSort,
     },
     rules: {
       "react/no-unescaped-entities": "off",

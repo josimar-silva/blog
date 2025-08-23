@@ -7,12 +7,12 @@ on:
     tags:
       - "v*.*.*"
     paths:
-      - 'src/**'
-      - 'Dockerfile'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'nginx.conf'
-      - '__posts'
+      - "src/**"
+      - "Dockerfile"
+      - "package.json"
+      - "package-lock.json"
+      - "nginx.conf"
+      - "__posts"
   schedule:
     - cron: "0 03 * * 1-5"
 
