@@ -26,4 +26,4 @@ const Popover = PopoverPrimitive.Root,
   ));
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-export { Popover, PopoverContent,PopoverTrigger };
+export { Popover, PopoverContent, PopoverTrigger };
