@@ -12,6 +12,7 @@ dev:
 build:
 	npm run build
 
+# Build the app docker image
 build-image:
     docker build -t blog:dev .
 
@@ -19,6 +20,7 @@ build-image:
 start:
 	npm run start
 
+# Start the dockerized application
 start-container:
     docker run -p 3000:3000 blog:dev
 
@@ -26,10 +28,12 @@ start-container:
 lint:
 	npm run lint
 
+# Checks code for linting and formatting issues
 check:
     just lint
     npx prettier . --check
 
+# Format the source code using prettier
 format:
     npx prettier . --write
 
@@ -41,15 +45,3 @@ test:
 test-ui:
 	npm run test-ui
 
-# Default recipe: list available commands
-default:
-	@echo "Available commands:"
-	@echo "  install - Install dependencies"
-	@echo "  dev     - Start the development server"
-	@echo "  build   - Build the project for production"
-	@echo "  build-image - Build the docker image"
-	@echo "  start   - Start the production server"
-	@echo "  start-container - Start the docker container"
-	@echo "  lint    - Run linting"
-	@echo "  test    - Run unit tests"
-	@echo "  test-ui - Run UI tests"
