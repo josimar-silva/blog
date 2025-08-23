@@ -1,8 +1,9 @@
+import { ExternalLink, Github, Package } from "lucide-react";
+import Link from "next/link";
+
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent } from "@/app/__components/ui/card";
-import { ExternalLink, Github, Package } from "lucide-react";
-import Link from "next/link";
 
 interface Project {
   id: number;

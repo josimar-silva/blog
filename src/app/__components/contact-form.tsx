@@ -1,14 +1,14 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
-import { Button } from "@/app/__components/ui/button";
-import { Input } from "@/app/__components/ui/input";
-import { Textarea } from "@/app/__components/ui/textarea";
-import { Label } from "@/app/__components/ui/label";
-import { Card, CardContent } from "@/app/__components/ui/card";
 import { CheckCircle, Send } from "lucide-react";
+import type React from "react";
+import { useState } from "react";
+
+import { Button } from "@/app/__components/ui/button";
+import { Card, CardContent } from "@/app/__components/ui/card";
+import { Input } from "@/app/__components/ui/input";
+import { Label } from "@/app/__components/ui/label";
+import { Textarea } from "@/app/__components/ui/textarea";
 
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false),

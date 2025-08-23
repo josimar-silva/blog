@@ -1,8 +1,9 @@
-import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
-import { Badge } from "@/app/__components/ui/badge";
 import { Calendar, Clock, Star } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
+import { Badge } from "@/app/__components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
 
 interface BlogPost {
   id: number;

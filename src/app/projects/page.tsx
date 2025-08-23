@@ -1,7 +1,7 @@
+import { BlogFooter } from "@/app/__components/blog-footer";
 import { BlogHeader } from "@/app/__components/blog-header";
 import { ProjectsHero } from "@/app/__components/projects-hero";
 import { ProjectsList } from "@/app/__components/projects-list";
-import { BlogFooter } from "@/app/__components/blog-footer";
 
 const projects = [
   {

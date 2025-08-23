@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
+
 import { Badge } from "@/app/__components/ui/badge";
 
 interface BlogPost {

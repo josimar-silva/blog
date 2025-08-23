@@ -1,17 +1,17 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import Markdown from "react-markdown";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
-import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   materialDark,
   materialLight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useTheme } from "next-themes";
+import rehypeRaw from "rehype-raw";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 
 interface BlogPostContentProps {
   content: string;

@@ -1,7 +1,8 @@
-import { Card, CardContent } from "@/app/__components/ui/card";
-import { Button } from "@/app/__components/ui/button";
 import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react";
 import Link from "next/link";
+
+import { Button } from "@/app/__components/ui/button";
+import { Card, CardContent } from "@/app/__components/ui/card";
 
 export function ContactInfo() {
   return (

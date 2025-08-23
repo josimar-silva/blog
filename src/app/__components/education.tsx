@@ -1,11 +1,12 @@
+import { Award, Calendar, MapPin } from "lucide-react";
+
+import { Badge } from "@/app/__components/ui/badge";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "@/app/__components/ui/card";
-import { Badge } from "@/app/__components/ui/badge";
-import { Award, Calendar, MapPin } from "lucide-react";
 
 const education = [
     {
