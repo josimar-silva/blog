@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Github, Linkedin, Mail, Twitter } from "lucide-react"
+import Link from "next/link";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
 export function BlogFooter() {
   return (
@@ -9,24 +9,39 @@ export function BlogFooter() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">JD</span>
+                <span className="text-primary-foreground font-bold text-sm">
+                  JD
+                </span>
               </div>
               <span className="font-bold text-xl">John Doe</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Full-stack developer sharing insights about web development, technology, and building great products.
+              Full-stack developer sharing insights about web development,
+              technology, and building great products.
             </p>
             <div className="flex space-x-4">
-              <Link href="https://github.com" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="https://github.com"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Github className="h-5 w-5" />
               </Link>
-              <Link href="https://twitter.com" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="https://twitter.com"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Twitter className="h-5 w-5" />
               </Link>
-              <Link href="https://linkedin.com" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="https://linkedin.com"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Linkedin className="h-5 w-5" />
               </Link>
-              <Link href="mailto:hello@johndoe.com" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="mailto:hello@johndoe.com"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Mail className="h-5 w-5" />
               </Link>
             </div>
@@ -36,32 +51,50 @@ export function BlogFooter() {
             <h3 className="font-semibold">Navigation</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/about"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/blog"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/projects"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   Projects
                 </Link>
               </li>
               <li>
-                <Link href="/bookshelf" className="text-muted-foreground hover:text-foreground">
-                    Bookshelf
+                <Link
+                  href="/bookshelf"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  Bookshelf
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/contact"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   Contact
                 </Link>
               </li>
@@ -72,27 +105,42 @@ export function BlogFooter() {
             <h3 className="font-semibold">Categories</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/blog/category/react" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/blog/category/react"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   React
                 </Link>
               </li>
               <li>
-                <Link href="/blog/category/nextjs" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/blog/category/nextjs"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   Next.js
                 </Link>
               </li>
               <li>
-                <Link href="/blog/category/typescript" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/blog/category/typescript"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   TypeScript
                 </Link>
               </li>
               <li>
-                <Link href="/blog/category/css" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/blog/category/css"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   CSS
                 </Link>
               </li>
               <li>
-                <Link href="/blog/category/nodejs" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/blog/category/nodejs"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   Node.js
                 </Link>
               </li>
@@ -103,17 +151,26 @@ export function BlogFooter() {
             <h3 className="font-semibold">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/privacy" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/privacy"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/terms"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/rss" className="text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/rss"
+                  className="text-muted-foreground hover:text-foreground"
+                >
                   RSS Feed
                 </Link>
               </li>
@@ -122,9 +179,12 @@ export function BlogFooter() {
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Josimar Silva. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Josimar Silva. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

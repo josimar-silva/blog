@@ -1,29 +1,28 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/app/__components/ui/button"
-import { Input } from "@/app/__components/ui/input"
-import { Textarea } from "@/app/__components/ui/textarea"
-import { Label } from "@/app/__components/ui/label"
-import { Card, CardContent } from "@/app/__components/ui/card"
-import { CheckCircle, Send } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/app/__components/ui/button";
+import { Input } from "@/app/__components/ui/input";
+import { Textarea } from "@/app/__components/ui/textarea";
+import { Label } from "@/app/__components/ui/label";
+import { Card, CardContent } from "@/app/__components/ui/card";
+import { CheckCircle, Send } from "lucide-react";
 
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false),
-   [isLoading, setIsLoading] = useState(false),
+    [isLoading, setIsLoading] = useState(false),
+    handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setIsLoading(true);
 
-   handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
+      // Simulate form submission
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    setIsLoading(false)
-    setIsSubmitted(true)
-  }
+      setIsLoading(false);
+      setIsSubmitted(true);
+    };
 
   if (isSubmitted) {
     return (
@@ -35,13 +34,15 @@ export function ContactForm() {
             </div>
           </div>
           <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
-          <p className="text-muted-foreground mb-4">Thanks for reaching out. I'll get back to you within 24 hours.</p>
+          <p className="text-muted-foreground mb-4">
+            Thanks for reaching out. I'll get back to you within 24 hours.
+          </p>
           <Button variant="outline" onClick={() => setIsSubmitted(false)}>
             Send Another Message
           </Button>
         </CardContent>
       </Card>
-    )
+    );
   }
 
   return (
@@ -55,7 +56,12 @@ export function ContactForm() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="your@email.com" required />
+              <Input
+                id="email"
+                type="email"
+                placeholder="your@email.com"
+                required
+              />
             </div>
           </div>
 
@@ -87,5 +93,5 @@ export function ContactForm() {
         </form>
       </CardContent>
     </Card>
-  )
+  );
 }

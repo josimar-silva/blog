@@ -1,26 +1,26 @@
-import { Badge } from "@/app/__components/ui/badge"
-import { Button } from "@/app/__components/ui/button"
-import { Card, CardContent } from "@/app/__components/ui/card"
-import { ExternalLink, Github, Package } from "lucide-react"
-import Link from "next/link"
+import { Badge } from "@/app/__components/ui/badge";
+import { Button } from "@/app/__components/ui/button";
+import { Card, CardContent } from "@/app/__components/ui/card";
+import { ExternalLink, Github, Package } from "lucide-react";
+import Link from "next/link";
 
 interface Project {
-  id: number
-  title: string
-  description: string
-  technologies: string[]
-  status: string
-  year: string
+  id: number;
+  title: string;
+  description: string;
+  technologies: string[];
+  status: string;
+  year: string;
   links: {
-    live?: string
-    github?: string
-    npm?: string
-  }
-  highlights: string[]
+    live?: string;
+    github?: string;
+    npm?: string;
+  };
+  highlights: string[];
 }
 
 interface ProjectsListProps {
-  projects: Project[]
+  projects: Project[];
 }
 
 export function ProjectsList({ projects }: ProjectsListProps) {
@@ -35,11 +35,19 @@ export function ProjectsList({ projects }: ProjectsListProps) {
                   {/* Header */}
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
-                      <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+                      <h2 className="text-2xl font-bold mb-2">
+                        {project.title}
+                      </h2>
                       <div className="flex items-center gap-3 text-sm text-muted-foreground">
                         <span>{project.year}</span>
                         <span>•</span>
-                        <Badge variant={project.status === "Live" ? "default" : "secondary"}>{project.status}</Badge>
+                        <Badge
+                          variant={
+                            project.status === "Live" ? "default" : "secondary"
+                          }
+                        >
+                          {project.status}
+                        </Badge>
                       </div>
                     </div>
 
@@ -47,7 +55,11 @@ export function ProjectsList({ projects }: ProjectsListProps) {
                     <div className="flex items-center gap-2">
                       {project.links.live && (
                         <Button variant="outline" size="sm" asChild>
-                          <Link href={project.links.live} target="_blank" rel="noopener noreferrer">
+                          <Link
+                            href={project.links.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <ExternalLink className="mr-2 h-4 w-4" />
                             Live Demo
                           </Link>
@@ -55,7 +67,11 @@ export function ProjectsList({ projects }: ProjectsListProps) {
                       )}
                       {project.links.github && (
                         <Button variant="outline" size="sm" asChild>
-                          <Link href={project.links.github} target="_blank" rel="noopener noreferrer">
+                          <Link
+                            href={project.links.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Github className="mr-2 h-4 w-4" />
                             Code
                           </Link>
@@ -63,7 +79,11 @@ export function ProjectsList({ projects }: ProjectsListProps) {
                       )}
                       {project.links.npm && (
                         <Button variant="outline" size="sm" asChild>
-                          <Link href={project.links.npm} target="_blank" rel="noopener noreferrer">
+                          <Link
+                            href={project.links.npm}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Package className="mr-2 h-4 w-4" />
                             NPM
                           </Link>
@@ -73,16 +93,25 @@ export function ProjectsList({ projects }: ProjectsListProps) {
                   </div>
 
                   {/* Description */}
-                  <p className="text-lg text-muted-foreground leading-relaxed">{project.description}</p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
 
                   {/* Highlights */}
                   <div>
-                    <h3 className="font-semibold mb-3">Key Features & Achievements:</h3>
+                    <h3 className="font-semibold mb-3">
+                      Key Features & Achievements:
+                    </h3>
                     <ul className="space-y-2">
                       {project.highlights.map((highlight, highlightIndex) => (
-                        <li key={highlightIndex} className="flex items-start gap-2">
+                        <li
+                          key={highlightIndex}
+                          className="flex items-start gap-2"
+                        >
                           <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                          <span className="text-muted-foreground">{highlight}</span>
+                          <span className="text-muted-foreground">
+                            {highlight}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -102,7 +131,9 @@ export function ProjectsList({ projects }: ProjectsListProps) {
                 </div>
               </CardContent>
 
-              {index < projects.length - 1 && <div className="border-b border-border/50" />}
+              {index < projects.length - 1 && (
+                <div className="border-b border-border/50" />
+              )}
             </Card>
           ))}
         </div>
@@ -110,7 +141,8 @@ export function ProjectsList({ projects }: ProjectsListProps) {
         {/* Footer */}
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-4">
-            Interested in working together or have questions about any of these projects?
+            Interested in working together or have questions about any of these
+            projects?
           </p>
           <Button asChild>
             <Link href="/contact">Get In Touch</Link>
@@ -118,5 +150,5 @@ export function ProjectsList({ projects }: ProjectsListProps) {
         </div>
       </div>
     </section>
-  )
+  );
 }

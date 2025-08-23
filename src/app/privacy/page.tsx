@@ -1,6 +1,6 @@
-import { BlogHeader } from "@/app/__components/blog-header"
-import { PrivacyPolicy } from "@/app/__components/privacy-policy"
-import { BlogFooter } from "@/app/__components/blog-footer"
+import { BlogHeader } from "@/app/__components/blog-header";
+import { PrivacyPolicy } from "@/app/__components/privacy-policy";
+import { BlogFooter } from "@/app/__components/blog-footer";
 
 export default function PrivacyPage() {
   return (
@@ -11,5 +11,5 @@ export default function PrivacyPage() {
       </main>
       <BlogFooter />
     </div>
-  )
+  );
 }

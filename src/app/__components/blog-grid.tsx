@@ -1,25 +1,25 @@
-import { Card, CardContent, CardHeader } from "@/app/__components/ui/card"
-import { Badge } from "@/app/__components/ui/badge"
-import { Calendar, Clock, Star } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
+import { Badge } from "@/app/__components/ui/badge";
+import { Calendar, Clock, Star } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface BlogPost {
-  id: number
-  title: string
-  excerpt: string
-  image: string
-  category: string
-  tags: string[]
-  date: string
-  readTime: string
-  slug: string
-  featured: boolean
+  id: number;
+  title: string;
+  excerpt: string;
+  image: string;
+  category: string;
+  tags: string[];
+  date: string;
+  readTime: string;
+  slug: string;
+  featured: boolean;
 }
 
 interface BlogGridProps {
-  featuredPosts: BlogPost[]
-  regularPosts: BlogPost[]
+  featuredPosts: BlogPost[];
+  regularPosts: BlogPost[];
 }
 
 export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
@@ -35,7 +35,10 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
 
           <div className="grid gap-8 md:grid-cols-2">
             {featuredPosts.map((post) => (
-              <Card key={post.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
+              <Card
+                key={post.id}
+                className="overflow-hidden group hover:shadow-lg transition-shadow"
+              >
                 <Link href={`/blog/${post.slug}`}>
                   <div className="relative">
                     <Image
@@ -69,7 +72,9 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
                   </Link>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
+                  <p className="text-muted-foreground line-clamp-3 mb-4">
+                    {post.excerpt}
+                  </p>
                   <div className="flex flex-wrap gap-1">
                     {post.tags.slice(0, 3).map((tag) => (
                       <Badge key={tag} variant="outline" className="text-xs">
@@ -90,7 +95,10 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {regularPosts.map((post) => (
-            <Card key={post.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
+            <Card
+              key={post.id}
+              className="overflow-hidden group hover:shadow-lg transition-shadow"
+            >
               <Link href={`/blog/${post.slug}`}>
                 <Image
                   src={post.image || "/assets/placeholder.svg"}
@@ -109,11 +117,15 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
                   </div>
                 </div>
                 <Link href={`/blog/${post.slug}`}>
-                  <h3 className="font-bold hover:text-primary transition-colors line-clamp-2">{post.title}</h3>
+                  <h3 className="font-bold hover:text-primary transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
                 </Link>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{post.excerpt}</p>
+                <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+                  {post.excerpt}
+                </p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-1 text-xs text-muted-foreground">
                     <Clock className="h-3 w-3" />
@@ -133,5 +145,5 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
         </div>
       </section>
     </div>
-  )
+  );
 }

@@ -1,48 +1,61 @@
-import { Badge } from "@/app/__components/ui/badge"
-import { Button } from "@/app/__components/ui/button"
-import { Card, CardContent } from "@/app/__components/ui/card"
-import { ArrowLeft, BarChart3, BookOpen, Calendar, Clock, ExternalLink, FileText, Star } from "lucide-react"
-import Link from "next/link"
+import { Badge } from "@/app/__components/ui/badge";
+import { Button } from "@/app/__components/ui/button";
+import { Card, CardContent } from "@/app/__components/ui/card";
+import {
+  ArrowLeft,
+  BarChart3,
+  BookOpen,
+  Calendar,
+  Clock,
+  ExternalLink,
+  FileText,
+  Star,
+} from "lucide-react";
+import Link from "next/link";
 
 interface BookReviewProps {
   book: {
-    title: string
-    author: string
-    type: "Book" | "Paper"
-    category: string
-    dateRead: string
-    rating: number
-    status: "Completed" | "In Progress" | "Abandoned"
-    pages: number
-    isbn?: string
-    publisher?: string
-    yearPublished?: number
-    venue?: string
-    citations?: string
-    notes: string
-    keyTakeaways: string[]
-    recommendedFor: string
-    difficulty: string
-    timeToRead: string
+    title: string;
+    author: string;
+    type: "Book" | "Paper";
+    category: string;
+    dateRead: string;
+    rating: number;
+    status: "Completed" | "In Progress" | "Abandoned";
+    pages: number;
+    isbn?: string;
+    publisher?: string;
+    yearPublished?: number;
+    venue?: string;
+    citations?: string;
+    notes: string;
+    keyTakeaways: string[];
+    recommendedFor: string;
+    difficulty: string;
+    timeToRead: string;
     links: {
-      amazon?: string
-      goodreads?: string
-      arxiv?: string
-      paperswithcode?: string
-      publisher?: string
-      github?: string
-      online?: string
-    }
-    relatedBooks?: string[]
-    relatedPapers?: string[]
-    quotes?: string[]
-  }
+      amazon?: string;
+      goodreads?: string;
+      arxiv?: string;
+      paperswithcode?: string;
+      publisher?: string;
+      github?: string;
+      online?: string;
+    };
+    relatedBooks?: string[];
+    relatedPapers?: string[];
+    quotes?: string[];
+  };
 }
 
 export function BookReview({ book }: BookReviewProps) {
-  const renderStars = (rating: number) => Array.from({ length: 5 }, (_, i) => (
-      <Star key={i} className={`h-5 w-5 ${i < rating ? "fill-primary text-primary" : "text-muted-foreground"}`} />
-    ))
+  const renderStars = (rating: number) =>
+    Array.from({ length: 5 }, (_, i) => (
+      <Star
+        key={i}
+        className={`h-5 w-5 ${i < rating ? "fill-primary text-primary" : "text-muted-foreground"}`}
+      />
+    ));
 
   return (
     <article className="py-8">
@@ -69,15 +82,23 @@ export function BookReview({ book }: BookReviewProps) {
             <Badge variant="secondary">{book.category}</Badge>
             <Badge
               variant={
-                book.status === "Completed" ? "default" : book.status === "In Progress" ? "secondary" : "destructive"
+                book.status === "Completed"
+                  ? "default"
+                  : book.status === "In Progress"
+                    ? "secondary"
+                    : "destructive"
               }
             >
               {book.status}
             </Badge>
           </div>
 
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl mb-4">{book.title}</h1>
-          <p className="text-2xl text-muted-foreground mb-6">by {book.author}</p>
+          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl mb-4">
+            {book.title}
+          </h1>
+          <p className="text-2xl text-muted-foreground mb-6">
+            by {book.author}
+          </p>
 
           {/* Metadata Grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-6">
@@ -85,7 +106,9 @@ export function BookReview({ book }: BookReviewProps) {
               <Calendar className="h-4 w-4 text-muted-foreground" />
               <div>
                 <p className="text-sm font-medium">Date Read</p>
-                <p className="text-sm text-muted-foreground">{new Date(book.dateRead).toLocaleDateString()}</p>
+                <p className="text-sm text-muted-foreground">
+                  {new Date(book.dateRead).toLocaleDateString()}
+                </p>
               </div>
             </div>
 
@@ -93,7 +116,9 @@ export function BookReview({ book }: BookReviewProps) {
               <BookOpen className="h-4 w-4 text-muted-foreground" />
               <div>
                 <p className="text-sm font-medium">Length</p>
-                <p className="text-sm text-muted-foreground">{book.pages} pages</p>
+                <p className="text-sm text-muted-foreground">
+                  {book.pages} pages
+                </p>
               </div>
             </div>
 
@@ -101,7 +126,9 @@ export function BookReview({ book }: BookReviewProps) {
               <Clock className="h-4 w-4 text-muted-foreground" />
               <div>
                 <p className="text-sm font-medium">Time to Read</p>
-                <p className="text-sm text-muted-foreground">{book.timeToRead}</p>
+                <p className="text-sm text-muted-foreground">
+                  {book.timeToRead}
+                </p>
               </div>
             </div>
 
@@ -109,14 +136,18 @@ export function BookReview({ book }: BookReviewProps) {
               <BarChart3 className="h-4 w-4 text-muted-foreground" />
               <div>
                 <p className="text-sm font-medium">Difficulty</p>
-                <p className="text-sm text-muted-foreground">{book.difficulty}</p>
+                <p className="text-sm text-muted-foreground">
+                  {book.difficulty}
+                </p>
               </div>
             </div>
           </div>
 
           {/* Rating */}
           <div className="flex items-center gap-4 mb-6">
-            <div className="flex items-center gap-1">{renderStars(book.rating)}</div>
+            <div className="flex items-center gap-1">
+              {renderStars(book.rating)}
+            </div>
             <span className="text-lg font-medium">{book.rating}/5</span>
           </div>
 
@@ -142,7 +173,11 @@ export function BookReview({ book }: BookReviewProps) {
           <div className="flex flex-wrap gap-2">
             {book.links.amazon && (
               <Button variant="outline" size="sm" asChild>
-                <Link href={book.links.amazon} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={book.links.amazon}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Amazon
                 </Link>
@@ -150,7 +185,11 @@ export function BookReview({ book }: BookReviewProps) {
             )}
             {book.links.goodreads && (
               <Button variant="outline" size="sm" asChild>
-                <Link href={book.links.goodreads} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={book.links.goodreads}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Goodreads
                 </Link>
@@ -158,7 +197,11 @@ export function BookReview({ book }: BookReviewProps) {
             )}
             {book.links.arxiv && (
               <Button variant="outline" size="sm" asChild>
-                <Link href={book.links.arxiv} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={book.links.arxiv}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   arXiv
                 </Link>
@@ -166,7 +209,11 @@ export function BookReview({ book }: BookReviewProps) {
             )}
             {book.links.github && (
               <Button variant="outline" size="sm" asChild>
-                <Link href={book.links.github} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={book.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   GitHub
                 </Link>
@@ -174,7 +221,11 @@ export function BookReview({ book }: BookReviewProps) {
             )}
             {book.links.publisher && (
               <Button variant="outline" size="sm" asChild>
-                <Link href={book.links.publisher} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={book.links.publisher}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Publisher
                 </Link>
@@ -182,7 +233,11 @@ export function BookReview({ book }: BookReviewProps) {
             )}
             {book.links.online && (
               <Button variant="outline" size="sm" asChild>
-                <Link href={book.links.online} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={book.links.online}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Read Online
                 </Link>
@@ -219,7 +274,9 @@ export function BookReview({ book }: BookReviewProps) {
                   {book.keyTakeaways.map((takeaway, index) => (
                     <li key={index} className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                      <span className="text-sm text-muted-foreground leading-relaxed">{takeaway}</span>
+                      <span className="text-sm text-muted-foreground leading-relaxed">
+                        {takeaway}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -230,7 +287,9 @@ export function BookReview({ book }: BookReviewProps) {
             <Card>
               <CardContent className="p-6">
                 <h3 className="font-semibold text-lg mb-4">Recommended For</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{book.recommendedFor}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {book.recommendedFor}
+                </p>
               </CardContent>
             </Card>
 
@@ -258,7 +317,9 @@ export function BookReview({ book }: BookReviewProps) {
               (book.relatedPapers && book.relatedPapers.length > 0)) && (
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-4">Related Reading</h3>
+                  <h3 className="font-semibold text-lg mb-4">
+                    Related Reading
+                  </h3>
                   <div className="space-y-2">
                     {book.relatedBooks?.map((relatedBook, index) => (
                       <p key={index} className="text-sm text-muted-foreground">
@@ -278,5 +339,5 @@ export function BookReview({ book }: BookReviewProps) {
         </div>
       </div>
     </article>
-  )
+  );
 }

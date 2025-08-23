@@ -1,14 +1,27 @@
-import { BlogHeader } from "@/app/__components/blog-header"
-import { BlogPost } from "@/app/__components/blog-post"
-import { BlogFooter } from "@/app/__components/blog-footer"
-import { getAllPosts, getPostBySlug } from "@/lib/posts"
-import { notFound } from "next/navigation"
+import { BlogHeader } from "@/app/__components/blog-header";
+import { BlogPost } from "@/app/__components/blog-post";
+import { BlogFooter } from "@/app/__components/blog-footer";
+import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import { notFound } from "next/navigation";
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {  
-  const post = await getPostBySlug(params.slug, ['title', 'date', 'readTime', 'slug', 'author', 'content', 'tags', 'category']) 
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPostBySlug(params.slug, [
+    "title",
+    "date",
+    "readTime",
+    "slug",
+    "author",
+    "content",
+    "tags",
+    "category",
+  ]);
 
   if (!post) {
-    return notFound()
+    return notFound();
   }
 
   return (
@@ -17,12 +30,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
       <BlogPost post={{ ...post, content: post.content }} />
       <BlogFooter />
     </div>
-  )
+  );
 }
 
 export async function generateStaticParams() {
-  const posts = await getAllPosts(['slug'])
+  const posts = await getAllPosts(["slug"]);
   return posts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }

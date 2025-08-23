@@ -1,5 +1,5 @@
 export function NowContent() {
-  const lastUpdated = "January 2025"
+  const lastUpdated = "January 2025";
 
   return (
     <section className="pb-16 md:pb-20">
@@ -10,13 +10,16 @@ export function NowContent() {
             <div>
               <h2 className="text-2xl font-bold mb-4">Work</h2>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm currently working as a Senior Full-Stack Developer at TechCorp, leading a team of 4 developers on a
-                major product redesign that serves over 100k users. We're rebuilding the entire frontend with React and
-                TypeScript while modernizing our Node.js backend infrastructure.
+                I'm currently working as a Senior Full-Stack Developer at
+                TechCorp, leading a team of 4 developers on a major product
+                redesign that serves over 100k users. We're rebuilding the
+                entire frontend with React and TypeScript while modernizing our
+                Node.js backend infrastructure.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                On the side, I'm exploring opportunities in the AI/ML space and considering a transition into developer
-                relations or technical writing roles.
+                On the side, I'm exploring opportunities in the AI/ML space and
+                considering a transition into developer relations or technical
+                writing roles.
               </p>
             </div>
 
@@ -24,12 +27,15 @@ export function NowContent() {
             <div>
               <h2 className="text-2xl font-bold mb-4">Learning</h2>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm diving deep into Rust after participating in the Rinha de Backend challenge. The language's
-                performance characteristics and memory safety model have me excited about systems programming again.
+                I'm diving deep into Rust after participating in the Rinha de
+                Backend challenge. The language's performance characteristics
+                and memory safety model have me excited about systems
+                programming again.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm also experimenting with AI-assisted development using tools like GitHub Copilot and Gemini CLI,
-                trying to understand how to use these tools effectively without becoming dependent on them.
+                I'm also experimenting with AI-assisted development using tools
+                like GitHub Copilot and Gemini CLI, trying to understand how to
+                use these tools effectively without becoming dependent on them.
               </p>
             </div>
 
@@ -37,12 +43,13 @@ export function NowContent() {
             <div>
               <h2 className="text-2xl font-bold mb-4">Current Projects</h2>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Working on a new open-source rate limiting library for Node.js that I hope to release this quarter. It's
-                designed to be more flexible and performant than existing solutions.
+                Working on a new open-source rate limiting library for Node.js
+                that I hope to release this quarter. It's designed to be more
+                flexible and performant than existing solutions.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm also redesigning this website to better showcase my writing and projects, with a focus on
-                performance and accessibility.
+                I'm also redesigning this website to better showcase my writing
+                and projects, with a focus on performance and accessibility.
               </p>
             </div>
 
@@ -50,12 +57,14 @@ export function NowContent() {
             <div>
               <h2 className="text-2xl font-bold mb-4">Reading</h2>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Currently reading "Designing Data-Intensive Applications" by Martin Kleppmann for the second time - it's
-                one of those books that reveals new insights on each read.
+                Currently reading "Designing Data-Intensive Applications" by
+                Martin Kleppmann for the second time - it's one of those books
+                that reveals new insights on each read.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm also following the latest developments in React Server Components and the evolving JavaScript
-                ecosystem through various newsletters and technical blogs.
+                I'm also following the latest developments in React Server
+                Components and the evolving JavaScript ecosystem through various
+                newsletters and technical blogs.
               </p>
             </div>
 
@@ -63,16 +72,20 @@ export function NowContent() {
             <div>
               <h2 className="text-2xl font-bold mb-4">Life</h2>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Living in San Francisco and really enjoying the tech community here. I've been attending more local
-                meetups and conferences, which has been great for networking and learning from other developers.
+                Living in San Francisco and really enjoying the tech community
+                here. I've been attending more local meetups and conferences,
+                which has been great for networking and learning from other
+                developers.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                I've gotten back into cycling and try to ride around the city on weekends. It's a great way to explore
-                different neighborhoods and get some exercise away from the computer.
+                I've gotten back into cycling and try to ride around the city on
+                weekends. It's a great way to explore different neighborhoods
+                and get some exercise away from the computer.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Trying to maintain a better work-life balance by setting boundaries around work hours and being more
-                intentional about how I spend my free time.
+                Trying to maintain a better work-life balance by setting
+                boundaries around work hours and being more intentional about
+                how I spend my free time.
               </p>
             </div>
 
@@ -94,7 +107,9 @@ export function NowContent() {
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 shrink-0" />
-                  <span>Learn Rust well enough to build a production application</span>
+                  <span>
+                    Learn Rust well enough to build a production application
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary mt-3 shrink-0" />
@@ -125,5 +140,5 @@ export function NowContent() {
         </div>
       </div>
     </section>
-  )
+  );
 }

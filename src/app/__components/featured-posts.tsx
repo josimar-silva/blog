@@ -1,9 +1,9 @@
-import { Card, CardContent, CardHeader } from "@/app/__components/ui/card"
-import { Badge } from "@/app/__components/ui/badge"
-import { Calendar, Clock } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { getFeaturedPosts } from "@/lib/posts"
+import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
+import { Badge } from "@/app/__components/ui/badge";
+import { Calendar, Clock } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { getFeaturedPosts } from "@/lib/posts";
 
 export async function FeaturedPosts() {
   const featuredPosts = await getFeaturedPosts();
@@ -13,9 +13,12 @@ export async function FeaturedPosts() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Featured Posts</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              Featured Posts
+            </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              My most popular and recent articles on web development and technology.
+              My most popular and recent articles on web development and
+              technology.
             </p>
           </div>
         </div>
@@ -48,7 +51,9 @@ export async function FeaturedPosts() {
               </CardHeader>
               <CardContent>
                 <Link href={`/blog/${post.slug}`}>
-                  <h3 className="text-xl font-bold hover:text-primary transition-colors">{post.title}</h3>
+                  <h3 className="text-xl font-bold hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
                 </Link>
                 <p className="text-muted-foreground mt-2">{post.excerpt}</p>
               </CardContent>
@@ -57,5 +62,5 @@ export async function FeaturedPosts() {
         </div>
       </div>
     </section>
-  )
+  );
 }

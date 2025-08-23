@@ -1,7 +1,7 @@
-import { Button } from "@/app/__components/ui/button"
-import { Input } from "@/app/__components/ui/input"
-import { Card, CardContent } from "@/app/__components/ui/card"
-import { Mail } from "lucide-react"
+import { Button } from "@/app/__components/ui/button";
+import { Input } from "@/app/__components/ui/input";
+import { Card, CardContent } from "@/app/__components/ui/card";
+import { Mail } from "lucide-react";
 
 export function Newsletter() {
   return (
@@ -16,16 +16,24 @@ export function Newsletter() {
             </div>
             <h2 className="text-2xl font-bold mb-2">Stay Updated</h2>
             <p className="text-muted-foreground mb-6">
-              Get the latest posts and updates delivered directly to your inbox. No spam, unsubscribe at any time.
+              Get the latest posts and updates delivered directly to your inbox.
+              No spam, unsubscribe at any time.
             </p>
             <form className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
-              <Input type="email" placeholder="Enter your email" className="flex-1" required />
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1"
+                required
+              />
               <Button type="submit">Subscribe</Button>
             </form>
-            <p className="text-xs text-muted-foreground mt-4">Join 1,000+ developers who read my newsletter weekly.</p>
+            <p className="text-xs text-muted-foreground mt-4">
+              Join 1,000+ developers who read my newsletter weekly.
+            </p>
           </CardContent>
         </Card>
       </div>
     </section>
-  )
+  );
 }

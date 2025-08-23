@@ -1,32 +1,42 @@
-import {defineConfig} from "eslint/config";
+import { defineConfig } from "eslint/config";
 import path from "node:path";
-import {fileURLToPath} from "node:url";
+import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
-import {FlatCompat} from "@eslint/eslintrc";
+import { FlatCompat } from "@eslint/eslintrc";
 import globals from "globals";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname, recommendedConfig: js.configs.recommended, allConfig: js.configs.all
+  baseDirectory: __dirname,
+  recommendedConfig: js.configs.recommended,
+  allConfig: js.configs.all,
 });
 
-export default defineConfig([{
-    extends: compat.extends("next/core-web-vitals", "eslint:recommended"),
+export default defineConfig([
+  {
+    extends: compat.extends(
+      "next/core-web-vitals",
+      "eslint:recommended",
+      "prettier",
+    ),
     rules: {
-        "react/no-unescaped-entities": "off",
-        "no-unused-vars": [
-            "error",
-            {
-                argsIgnorePattern: "^_",
-                varsIgnorePattern: "^_"
-            }
-        ]
+      "react/no-unescaped-entities": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
     },
-}, {
-    files: ["src/**/*.test.{js,jsx,ts,tsx}"], languageOptions: {
-        globals: {
-            ...globals.jest
-        }
-    }
-}]);
+  },
+  {
+    files: ["src/**/*.test.{js,jsx,ts,tsx}"],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+  },
+]);
