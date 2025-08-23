@@ -1,12 +1,14 @@
-export enum BookType {
-  PAPER,
-  BOOK,
+/*eslint no-unused-vars: "off" */
+
+export const enum BookType {
+  PAPER = "Paper",
+  BOOK = "Book",
 }
 
-export enum BookStatus {
-    READING,
-    COMPLETED,
-    DROPPED,
+export const enum BookStatus {
+    READING = "Reading",
+    COMPLETED = "Completed",
+    DROPPED = "Dropped",
 }
 
 export type Book = {

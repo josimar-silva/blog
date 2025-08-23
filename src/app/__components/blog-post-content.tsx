@@ -34,8 +34,7 @@ export default function BlogPostContent({ content }: BlogPostContentProps) {
                 remarkPlugins={[remarkFrontmatter, remarkGfm, remarkMath]}
                 rehypePlugins={[rehypeRaw]}
                 components={{
-                    // @ts-ignore
-                    code({ node, className, children: codeChildren, ...props }) {
+                    code({ _node, className, children: codeChildren, ...props }) {
                         const match = /language-(\w+)/.exec(className || "");
 
                         return match ? (

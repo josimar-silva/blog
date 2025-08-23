@@ -32,13 +32,6 @@ const skillCategories = [
       { name: "Jest", level: 80, years: "3 years" },
     ],
   },
-],
-
- certifications = [
-  "AWS Certified Developer",
-  "Google Analytics Certified",
-  "React Developer Certification",
-  "Node.js Certified Developer",
 ]
 
 export function Skills() {
