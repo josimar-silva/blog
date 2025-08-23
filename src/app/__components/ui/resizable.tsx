@@ -16,11 +16,11 @@ const ResizablePanelGroup = ({
     )}
     {...props}
   />
-)
+),
 
-const ResizablePanel = ResizablePrimitive.Panel
+ ResizablePanel = ResizablePrimitive.Panel,
 
-const ResizableHandle = ({
+ ResizableHandle = ({
   withHandle,
   className,
   ...props

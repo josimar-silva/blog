@@ -6,12 +6,12 @@ import { Button } from "@/app/__components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/app/__components/ui/select"
 import { Filter, Grid, List } from "lucide-react"
 
-const categories = ["All", "React", "Next.js", "TypeScript", "Node.js", "CSS", "JavaScript", "Database", "Development"]
-const sortOptions = ["Newest First", "Oldest First", "Most Popular", "A-Z", "Z-A"]
+const categories = ["All", "React", "Next.js", "TypeScript", "Node.js", "CSS", "JavaScript", "Database", "Development"],
+ sortOptions = ["Newest First", "Oldest First", "Most Popular", "A-Z", "Z-A"]
 
 export function BlogFilters() {
-  const [selectedCategory, setSelectedCategory] = useState("All")
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
+  const [selectedCategory, setSelectedCategory] = useState("All"),
+   [viewMode, setViewMode] = useState<"grid" | "list">("grid")
 
   return (
     <div className="space-y-6">

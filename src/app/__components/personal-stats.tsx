@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/app/__components/ui/card"
-import { Code, Users, Coffee, Award } from "lucide-react"
+import { Award, Code, Coffee, Users } from "lucide-react"
 
 const stats = [
   {

@@ -1,7 +1,7 @@
 import { Badge } from "@/app/__components/ui/badge"
 import { Button } from "@/app/__components/ui/button"
 import { Card, CardContent } from "@/app/__components/ui/card"
-import { Star, Calendar, BookOpen, FileText, ExternalLink, ArrowLeft, Clock, BarChart3 } from "lucide-react"
+import { ArrowLeft, BarChart3, BookOpen, Calendar, Clock, ExternalLink, FileText, Star } from "lucide-react"
 import Link from "next/link"
 
 interface BookReviewProps {
@@ -40,11 +40,9 @@ interface BookReviewProps {
 }
 
 export function BookReview({ book }: BookReviewProps) {
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
+  const renderStars = (rating: number) => Array.from({ length: 5 }, (_, i) => (
       <Star key={i} className={`h-5 w-5 ${i < rating ? "fill-primary text-primary" : "text-muted-foreground"}`} />
     ))
-  }
 
   return (
     <article className="py-8">

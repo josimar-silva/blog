@@ -1,17 +1,17 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import { Button } from "@/app/__components/ui/button"
 import { Input } from "@/app/__components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/app/__components/ui/sheet"
-import { Menu, Search, Moon, Sun } from "lucide-react"
+import { Menu, Moon, Search, Sun } from "lucide-react"
 
 export function BlogHeader() {
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [isSearchOpen, setIsSearchOpen] = useState(false),
+   [mounted, setMounted] = useState(false),
+   { theme, setTheme } = useTheme()
 
   // Ensure component is mounted before rendering theme-dependent content
   useEffect(() => {
@@ -25,9 +25,9 @@ export function BlogHeader() {
     { name: "Bookshelf", href: "/bookshelf" },
     { name: "Now", href: "/now" },
     { name: "Contact", href: "/contact" },
-  ]
+  ],
 
-  const toggleTheme = () => {
+   toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark")
   }
 

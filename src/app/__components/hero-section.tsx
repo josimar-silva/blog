@@ -1,5 +1,5 @@
 import { Button } from "@/app/__components/ui/button"
-import { ArrowRight, Github, Twitter, Linkedin } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 

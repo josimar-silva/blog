@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Badge } from "@/app/__components/ui/badge"
 import { Button } from "@/app/__components/ui/button"
 import { Card, CardContent } from "@/app/__components/ui/card"
-import { Star, Calendar, BookOpen, FileText, ExternalLink } from "lucide-react"
+import { BookOpen, Calendar, ExternalLink, FileText, Star } from "lucide-react"
 import Link from "next/link"
 
 interface Book {
@@ -35,22 +35,20 @@ interface BookshelfListProps {
 }
 
 export function BookshelfList({ books }: BookshelfListProps) {
-  const [selectedCategory, setSelectedCategory] = useState("All")
+  const [selectedCategory, setSelectedCategory] = useState("All"),
 
   // Get unique categories
-  const categories = ["All", ...Array.from(new Set(books.map((book) => book.category)))]
+   categories = ["All", ...Array.from(new Set(books.map((book) => book.category)))],
 
   // Filter books by category
-  const filteredBooks = selectedCategory === "All" ? books : books.filter((book) => book.category === selectedCategory)
+   filteredBooks = selectedCategory === "All" ? books : books.filter((book) => book.category === selectedCategory),
 
   // Sort by date read (most recent first)
-  const sortedBooks = filteredBooks.sort((a, b) => new Date(b.dateRead).getTime() - new Date(a.dateRead).getTime())
+   sortedBooks = filteredBooks.sort((a, b) => new Date(b.dateRead).getTime() - new Date(a.dateRead).getTime()),
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
+   renderStars = (rating: number) => Array.from({ length: 5 }, (_, i) => (
       <Star key={i} className={`h-4 w-4 ${i < rating ? "fill-primary text-primary" : "text-muted-foreground"}`} />
     ))
-  }
 
   return (
     <section className="pb-16 md:pb-20">

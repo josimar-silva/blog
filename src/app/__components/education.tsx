@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/__components/ui/card"
 import { Badge } from "@/app/__components/ui/badge"
-import { Calendar, MapPin, Award } from "lucide-react"
+import { Award, Calendar, MapPin } from "lucide-react"
 
 const education = [
   {
@@ -21,9 +21,9 @@ const education = [
     ],
     achievements: ["Dean's List (6 semesters)", "Computer Science Honor Society", "Best Capstone Project Award"],
   },
-]
+],
 
-const certifications = [
+ certifications = [
   {
     name: "AWS Certified Developer - Associate",
     issuer: "Amazon Web Services",
