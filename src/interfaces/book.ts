@@ -6,9 +6,9 @@ export const enum BookType {
 }
 
 export const enum BookStatus {
-    READING = "Reading",
-    COMPLETED = "Completed",
-    DROPPED = "Dropped",
+  READING = "Reading",
+  COMPLETED = "Completed",
+  DROPPED = "Dropped",
 }
 
 export type Book = {
@@ -26,9 +26,9 @@ export type Book = {
   keyTakeaways: string[];
   category: string;
   links: {
-      amazon?: string,
-      goodreads?: string,
-      arxiv?: string,
-      paperswithcode?: string,
+    amazon?: string;
+    goodreads?: string;
+    arxiv?: string;
+    paperswithcode?: string;
   };
 };

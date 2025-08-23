@@ -1,7 +1,7 @@
-import { Badge } from "@/app/__components/ui/badge"
-import { Search } from "lucide-react"
-import { Input } from "@/app/__components/ui/input"
-import { Button } from "@/app/__components/ui/button"
+import { Badge } from "@/app/__components/ui/badge";
+import { Search } from "lucide-react";
+import { Input } from "@/app/__components/ui/input";
+import { Button } from "@/app/__components/ui/button";
 
 export function BlogHero() {
   return (
@@ -12,9 +12,12 @@ export function BlogHero() {
             <Badge variant="secondary" className="mb-4">
               Latest Articles
             </Badge>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Developer Blog</h1>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+              Developer Blog
+            </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Insights, tutorials, and thoughts on web development, technology, and building great software.
+              Insights, tutorials, and thoughts on web development, technology,
+              and building great software.
             </p>
           </div>
 
@@ -47,5 +50,5 @@ export function BlogHero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

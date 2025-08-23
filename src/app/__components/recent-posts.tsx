@@ -1,20 +1,33 @@
-import { Card, CardContent, CardHeader } from "@/app/__components/ui/card"
-import { Badge } from "@/app/__components/ui/badge"
-import { Button } from "@/app/__components/ui/button"
-import { ArrowRight, Calendar, Clock } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { getAllPosts } from "@/lib/posts"
+import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
+import { Badge } from "@/app/__components/ui/badge";
+import { Button } from "@/app/__components/ui/button";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { getAllPosts } from "@/lib/posts";
 
 export async function RecentPosts() {
-  const recentPosts = await getAllPosts(['title', 'date', 'readTime', 'slug', 'author', 'content', 'tags', 'category', 'excerpt', 'image'])
+  const recentPosts = await getAllPosts([
+    "title",
+    "date",
+    "readTime",
+    "slug",
+    "author",
+    "content",
+    "tags",
+    "category",
+    "excerpt",
+    "image",
+  ]);
 
   return (
     <section className="py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Recent Posts</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              Recent Posts
+            </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Latest articles and tutorials from my blog.
             </p>
@@ -53,7 +66,9 @@ export async function RecentPosts() {
                         {post.title}
                       </h3>
                     </Link>
-                    <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{post.excerpt}</p>
+                    <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
+                      {post.excerpt}
+                    </p>
                   </CardContent>
                 </div>
               </div>
@@ -70,5 +85,5 @@ export async function RecentPosts() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,5 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/app/__components/ui/card"
-import { Progress } from "@/app/__components/ui/progress"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/app/__components/ui/card";
+import { Progress } from "@/app/__components/ui/progress";
 
 const skillCategories = [
   {
@@ -32,14 +37,16 @@ const skillCategories = [
       { name: "Jest", level: 80, years: "3 years" },
     ],
   },
-]
+];
 
 export function Skills() {
   return (
     <section className="py-8 md:py-12 bg-muted/50">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">Skills & Expertise</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+            Skills & Expertise
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
@@ -56,7 +63,9 @@ export function Skills() {
                   <div key={skillIndex} className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.years}</span>
+                      <span className="text-sm text-muted-foreground">
+                        {skill.years}
+                      </span>
                     </div>
                     <Progress value={skill.level} className="h-2" />
                   </div>
@@ -67,5 +76,5 @@ export function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }

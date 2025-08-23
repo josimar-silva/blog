@@ -1,25 +1,24 @@
-import { Badge } from "@/app/__components/ui/badge"
-import { Button } from "@/app/__components/ui/button"
-import BlogPostContent from "@/app/__components/blog-post-content"
-import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import { Badge } from "@/app/__components/ui/badge";
+import { Button } from "@/app/__components/ui/button";
+import BlogPostContent from "@/app/__components/blog-post-content";
+import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface BlogPostProps {
   post: {
-    title: string
-    content: string
-    date: string
-    readTime: string
-    category: string
-    author: string
-    image: string
-    tags: string[]
-  }
+    title: string;
+    content: string;
+    date: string;
+    readTime: string;
+    category: string;
+    author: string;
+    image: string;
+    tags: string[];
+  };
 }
 
 export function BlogPost({ post }: BlogPostProps) {
-
   return (
     <article className="py-8">
       <div className="container px-4 md:px-6 max-w-4xl">
@@ -38,12 +37,17 @@ export function BlogPost({ post }: BlogPostProps) {
           {/* Tags at the top */}
           <div className="flex flex-wrap gap-2 mb-4">
             <Badge>{post.category}</Badge>
-            {post.tags && post.tags.map((tag) => (
-              <Badge key={tag} variant="secondary">{tag}</Badge>
-            ))}
+            {post.tags &&
+              post.tags.map((tag) => (
+                <Badge key={tag} variant="secondary">
+                  {tag}
+                </Badge>
+              ))}
           </div>
 
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl mb-4">{post.title}</h1>
+          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl mb-4">
+            {post.title}
+          </h1>
 
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-4">
@@ -94,5 +98,5 @@ export function BlogPost({ post }: BlogPostProps) {
         <BlogPostContent content={post.content} />
       </div>
     </article>
-  )
+  );
 }

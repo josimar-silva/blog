@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/app/__components/ui/card"
-import { Award, Code, Coffee, Users } from "lucide-react"
+import { Card, CardContent } from "@/app/__components/ui/card";
+import { Award, Code, Coffee, Users } from "lucide-react";
 
 const stats = [
   {
@@ -26,7 +26,7 @@ const stats = [
     label: "Open Source",
     description: "Contributions to projects",
   },
-]
+];
 
 export function PersonalStats() {
   return (
@@ -43,12 +43,14 @@ export function PersonalStats() {
                 </div>
                 <div className="text-3xl font-bold mb-2">{stat.value}</div>
                 <div className="font-semibold mb-1">{stat.label}</div>
-                <div className="text-sm text-muted-foreground">{stat.description}</div>
+                <div className="text-sm text-muted-foreground">
+                  {stat.description}
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

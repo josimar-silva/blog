@@ -1,17 +1,33 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Badge } from "@/app/__components/ui/badge"
-import { Button } from "@/app/__components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/app/__components/ui/select"
-import { Filter, Grid, List } from "lucide-react"
+import { useState } from "react";
+import { Badge } from "@/app/__components/ui/badge";
+import { Button } from "@/app/__components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/app/__components/ui/select";
+import { Filter, Grid, List } from "lucide-react";
 
-const categories = ["All", "React", "Next.js", "TypeScript", "Node.js", "CSS", "JavaScript", "Database", "Development"],
- sortOptions = ["Newest First", "Oldest First", "Most Popular", "A-Z", "Z-A"]
+const categories = [
+    "All",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "CSS",
+    "JavaScript",
+    "Database",
+    "Development",
+  ],
+  sortOptions = ["Newest First", "Oldest First", "Most Popular", "A-Z", "Z-A"];
 
 export function BlogFilters() {
   const [selectedCategory, setSelectedCategory] = useState("All"),
-   [viewMode, setViewMode] = useState<"grid" | "list">("grid")
+    [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   return (
     <div className="space-y-6">
@@ -54,14 +70,22 @@ export function BlogFilters() {
 
         <div className="flex items-center gap-2">
           <span className="text-sm text-muted-foreground">View:</span>
-          <Button variant={viewMode === "grid" ? "default" : "ghost"} size="sm" onClick={() => setViewMode("grid")}>
+          <Button
+            variant={viewMode === "grid" ? "default" : "ghost"}
+            size="sm"
+            onClick={() => setViewMode("grid")}
+          >
             <Grid className="h-4 w-4" />
           </Button>
-          <Button variant={viewMode === "list" ? "default" : "ghost"} size="sm" onClick={() => setViewMode("list")}>
+          <Button
+            variant={viewMode === "list" ? "default" : "ghost"}
+            size="sm"
+            onClick={() => setViewMode("list")}
+          >
             <List className="h-4 w-4" />
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import { BlogHeader } from "@/app/__components/blog-header"
-import { ProjectsHero } from "@/app/__components/projects-hero"
-import { ProjectsList } from "@/app/__components/projects-list"
-import { BlogFooter } from "@/app/__components/blog-footer"
+import { BlogHeader } from "@/app/__components/blog-header";
+import { ProjectsHero } from "@/app/__components/projects-hero";
+import { ProjectsList } from "@/app/__components/projects-list";
+import { BlogFooter } from "@/app/__components/blog-footer";
 
 const projects = [
   {
@@ -9,7 +9,14 @@ const projects = [
     title: "E-Commerce Platform",
     description:
       "A full-stack e-commerce solution built with Next.js, TypeScript, and Stripe. Features include product management, shopping cart, payment processing, and admin dashboard.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "PostgreSQL", "Prisma"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Stripe",
+      "PostgreSQL",
+      "Prisma",
+    ],
     status: "Live",
     year: "2024",
     links: {
@@ -28,7 +35,14 @@ const projects = [
     title: "Task Management App",
     description:
       "A collaborative task management application with real-time updates, team collaboration features, and advanced project tracking capabilities.",
-    technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Express", "JWT"],
+    technologies: [
+      "React",
+      "Node.js",
+      "Socket.io",
+      "MongoDB",
+      "Express",
+      "JWT",
+    ],
     status: "Live",
     year: "2024",
     links: {
@@ -47,7 +61,13 @@ const projects = [
     title: "Weather Dashboard",
     description:
       "A beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics. Built with modern web technologies.",
-    technologies: ["React", "TypeScript", "Chart.js", "OpenWeather API", "Vercel"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Chart.js",
+      "OpenWeather API",
+      "Vercel",
+    ],
     status: "Live",
     year: "2023",
     links: {
@@ -111,9 +131,14 @@ const projects = [
       live: "https://johndoe.dev",
       github: "https://github.com/johndoe/portfolio",
     },
-    highlights: ["100/100 Lighthouse score", "Dark/light mode support", "MDX-powered blog", "Fully responsive design"],
+    highlights: [
+      "100/100 Lighthouse score",
+      "Dark/light mode support",
+      "MDX-powered blog",
+      "Fully responsive design",
+    ],
   },
-]
+];
 
 export default function ProjectsPage() {
   return (
@@ -125,5 +150,5 @@ export default function ProjectsPage() {
       </main>
       <BlogFooter />
     </div>
-  )
+  );
 }

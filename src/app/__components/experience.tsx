@@ -1,8 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/app/__components/ui/card"
-import { Badge } from "@/app/__components/ui/badge"
-import { Calendar, ExternalLink, MapPin } from "lucide-react"
-import { Button } from "@/app/__components/ui/button"
-import Link from "next/link"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/app/__components/ui/card";
+import { Badge } from "@/app/__components/ui/badge";
+import { Calendar, ExternalLink, MapPin } from "lucide-react";
+import { Button } from "@/app/__components/ui/button";
+import Link from "next/link";
 
 const experiences = [
   {
@@ -19,7 +24,14 @@ const experiences = [
       "Implemented CI/CD pipeline reducing deployment time by 60%",
       "Mentored junior developers and conducted code reviews",
     ],
-    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS", "Docker"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "AWS",
+      "Docker",
+    ],
     website: "https://techcorp.com",
   },
   {
@@ -56,14 +68,16 @@ const experiences = [
     technologies: ["JavaScript", "React", "SCSS", "WordPress", "PHP"],
     website: "https://digitalagencypro.com",
   },
-]
+];
 
 export function Experience() {
   return (
     <section className="py-8 md:py-12">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">Work Experience</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+            Work Experience
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             My professional journey and key accomplishments
           </p>
@@ -75,12 +89,18 @@ export function Experience() {
               <CardHeader>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div>
-                    <CardTitle className="text-xl mb-2">{exp.position}</CardTitle>
+                    <CardTitle className="text-xl mb-2">
+                      {exp.position}
+                    </CardTitle>
                     <div className="flex items-center gap-2 text-lg font-semibold text-primary">
                       <span>{exp.company}</span>
                       {exp.website && (
                         <Button variant="ghost" size="sm" asChild>
-                          <Link href={exp.website} target="_blank" rel="noopener noreferrer">
+                          <Link
+                            href={exp.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <ExternalLink className="h-4 w-4" />
                           </Link>
                         </Button>
@@ -101,7 +121,9 @@ export function Experience() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-6">
-                <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {exp.description}
+                </p>
 
                 <div>
                   <h4 className="font-semibold mb-3">Key Achievements:</h4>
@@ -131,5 +153,5 @@ export function Experience() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import { Button } from "@/app/__components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { Button } from "@/app/__components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function BlogPagination() {
   return (
@@ -34,5 +34,5 @@ export function BlogPagination() {
         </Button>
       </div>
     </div>
-  )
+  );
 }

@@ -26,6 +26,13 @@ start-container:
 lint:
 	npm run lint
 
+check:
+    just lint
+    npx prettier . --check
+
+format:
+    npx prettier . --write
+
 # Run unit tests
 test:
 	npm run test

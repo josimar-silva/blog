@@ -1,59 +1,60 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/app/__components/ui/card"
-import { Badge } from "@/app/__components/ui/badge"
-import { Button } from "@/app/__components/ui/button"
-import { Input } from "@/app/__components/ui/input"
-import { Calendar, Mail, Rss, Tag, TrendingUp } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/app/__components/ui/card";
+import { Badge } from "@/app/__components/ui/badge";
+import { Button } from "@/app/__components/ui/button";
+import { Input } from "@/app/__components/ui/input";
+import { Calendar, Mail, Rss, Tag, TrendingUp } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface BlogPost {
-  id: number
-  title: string
-  excerpt: string
-  image: string
-  category: string
-  tags: string[]
-  date: string
-  readTime: string
-  slug: string
-  featured: boolean
+  id: number;
+  title: string;
+  excerpt: string;
+  image: string;
+  category: string;
+  tags: string[];
+  date: string;
+  readTime: string;
+  slug: string;
+  featured: boolean;
 }
 
 interface BlogSidebarProps {
-  posts: BlogPost[]
+  posts: BlogPost[];
 }
 
 export function BlogSidebar({ posts }: BlogSidebarProps) {
   // Get recent posts (last 5)
   const recentPosts = posts.slice(0, 5),
-
-  // Get popular categories
-   categoryCount = posts.reduce(
-    (acc, post) => {
-      acc[post.category] = (acc[post.category] || 0) + 1
-      return acc
-    },
-    {} as Record<string, number>,
-  ),
-
-   popularCategories = Object.entries(categoryCount)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 6),
-
-  // Get popular tags
-   tagCount = posts.reduce(
-    (acc, post) => {
-      post.tags.forEach((tag) => {
-        acc[tag] = (acc[tag] || 0) + 1
-      })
-      return acc
-    },
-    {} as Record<string, number>,
-  ),
-
-   popularTags = Object.entries(tagCount)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 12)
+    // Get popular categories
+    categoryCount = posts.reduce(
+      (acc, post) => {
+        acc[post.category] = (acc[post.category] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
+    ),
+    popularCategories = Object.entries(categoryCount)
+      .sort(([, a], [, b]) => b - a)
+      .slice(0, 6),
+    // Get popular tags
+    tagCount = posts.reduce(
+      (acc, post) => {
+        post.tags.forEach((tag) => {
+          acc[tag] = (acc[tag] || 0) + 1;
+        });
+        return acc;
+      },
+      {} as Record<string, number>,
+    ),
+    popularTags = Object.entries(tagCount)
+      .sort(([, a], [, b]) => b - a)
+      .slice(0, 12);
 
   return (
     <aside className="space-y-6">
@@ -66,12 +67,16 @@ export function BlogSidebar({ posts }: BlogSidebarProps) {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <p className="text-sm text-muted-foreground">Get the latest posts delivered directly to your inbox.</p>
+          <p className="text-sm text-muted-foreground">
+            Get the latest posts delivered directly to your inbox.
+          </p>
           <div className="space-y-2">
             <Input placeholder="Your email address" type="email" />
             <Button className="w-full">Subscribe</Button>
           </div>
-          <p className="text-xs text-muted-foreground">Join 1,000+ developers. No spam, unsubscribe anytime.</p>
+          <p className="text-xs text-muted-foreground">
+            Join 1,000+ developers. No spam, unsubscribe anytime.
+          </p>
         </CardContent>
       </Card>
 
@@ -99,7 +104,9 @@ export function BlogSidebar({ posts }: BlogSidebarProps) {
                     {post.title}
                   </h4>
                 </Link>
-                <p className="text-xs text-muted-foreground">{new Date(post.date).toLocaleDateString()}</p>
+                <p className="text-xs text-muted-foreground">
+                  {new Date(post.date).toLocaleDateString()}
+                </p>
               </div>
             </div>
           ))}
@@ -144,7 +151,10 @@ export function BlogSidebar({ posts }: BlogSidebarProps) {
           <div className="flex flex-wrap gap-2">
             {popularTags.map(([tag, count]) => (
               <Link key={tag} href={`/blog/tag/${tag.toLowerCase()}`}>
-                <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">
+                <Badge
+                  variant="outline"
+                  className="hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
                   {tag} ({count})
                 </Badge>
               </Link>
@@ -165,5 +175,5 @@ export function BlogSidebar({ posts }: BlogSidebarProps) {
         </CardContent>
       </Card>
     </aside>
-  )
+  );
 }

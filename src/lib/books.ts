@@ -18,7 +18,8 @@ export const books = [
       "The importance of thinking about data as streams rather than static entities",
       "Why most 'NoSQL' solutions eventually reinvent SQL-like features",
     ],
-    recommendedFor: "Backend engineers, system architects, anyone working with distributed data",
+    recommendedFor:
+      "Backend engineers, system architects, anyone working with distributed data",
     links: {
       amazon: "https://amazon.com/dp/1449373321",
       goodreads: "https://goodreads.com/book/show/23463279",
@@ -46,7 +47,8 @@ export const books = [
     recommendedFor: "All developers, especially those early in their careers",
     links: {
       amazon: "https://amazon.com/dp/020161622X",
-      goodreads: "https://goodreads.com/book/show/4099.The_Pragmatic_Programmer",
+      goodreads:
+        "https://goodreads.com/book/show/4099.The_Pragmatic_Programmer",
     },
   },
   {
@@ -68,17 +70,19 @@ export const books = [
       "Multi-head attention allows the model to focus on different aspects simultaneously",
       "Position encoding is crucial for sequence understanding without recurrence",
     ],
-    recommendedFor: "ML engineers, researchers interested in NLP and transformer architectures",
+    recommendedFor:
+      "ML engineers, researchers interested in NLP and transformer architectures",
     links: {
       arxiv: "https://arxiv.org/abs/1706.03762",
-      paperswithcode: "https://paperswithcode.com/paper/attention-is-all-you-need",
+      paperswithcode:
+        "https://paperswithcode.com/paper/attention-is-all-you-need",
     },
   },
 ];
 
 export const getBookBySlug = async (slug: string) => {
-  const book = books.find((book) => book.slug === slug)
-  return Promise.resolve(book || null)
-}
+  const book = books.find((book) => book.slug === slug);
+  return Promise.resolve(book || null);
+};
 
-export const getBooks = async () => Promise.resolve(books)
+export const getBooks = async () => Promise.resolve(books);

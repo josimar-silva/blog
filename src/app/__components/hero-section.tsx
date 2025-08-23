@@ -1,7 +1,7 @@
-import { Button } from "@/app/__components/ui/button"
-import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import { Button } from "@/app/__components/ui/button";
+import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -22,10 +22,18 @@ export function HeroSection() {
           {/* Content - appears second on mobile, first on desktop */}
           <div className="flex flex-col justify-center space-y-4 order-2 lg:order-1">
             <div className="space-y-2">
-              <h1 data-testid="hero-title" className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I'm John Doe</h1>
-              <p data-testid="hero-subtitle" className="max-w-[600px] text-muted-foreground md:text-xl">
-                Full-stack developer, writer, and creator. I write about web development, technology, and building
-                products that matter.
+              <h1
+                data-testid="hero-title"
+                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
+              >
+                Hi, I'm John Doe
+              </h1>
+              <p
+                data-testid="hero-subtitle"
+                className="max-w-[600px] text-muted-foreground md:text-xl"
+              >
+                Full-stack developer, writer, and creator. I write about web
+                development, technology, and building products that matter.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -40,15 +48,24 @@ export function HeroSection() {
               </Button>
             </div>
             <div className="flex items-center space-x-4 pt-4">
-              <Link href="https://github.com" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="https://github.com"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
-              <Link href="https://twitter.com" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="https://twitter.com"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
-              <Link href="https://linkedin.com" className="text-muted-foreground hover:text-foreground">
+              <Link
+                href="https://linkedin.com"
+                className="text-muted-foreground hover:text-foreground"
+              >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
@@ -57,5 +74,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

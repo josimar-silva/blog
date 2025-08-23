@@ -1,55 +1,65 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/app/__components/ui/card"
-import { Badge } from "@/app/__components/ui/badge"
-import { Award, Calendar, MapPin } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/app/__components/ui/card";
+import { Badge } from "@/app/__components/ui/badge";
+import { Award, Calendar, MapPin } from "lucide-react";
 
 const education = [
-  {
-    institution: "University of California, Berkeley",
-    degree: "Bachelor of Science in Computer Science",
-    location: "Berkeley, CA",
-    period: "2015 - 2019",
-    gpa: "3.8/4.0",
-    description:
-      "Focused on software engineering, algorithms, and data structures. Completed senior capstone project building a full-stack web application for student course planning.",
-    coursework: [
-      "Data Structures & Algorithms",
-      "Software Engineering",
-      "Database Systems",
-      "Computer Networks",
-      "Web Development",
-      "Machine Learning",
-    ],
-    achievements: ["Dean's List (6 semesters)", "Computer Science Honor Society", "Best Capstone Project Award"],
-  },
-],
-
- certifications = [
-  {
-    name: "AWS Certified Developer - Associate",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    credentialId: "AWS-DEV-2023-001",
-  },
-  {
-    name: "React Developer Certification",
-    issuer: "Meta",
-    date: "2022",
-    credentialId: "META-REACT-2022-456",
-  },
-  {
-    name: "Google Analytics Certified",
-    issuer: "Google",
-    date: "2022",
-    credentialId: "GA-CERT-2022-789",
-  },
-]
+    {
+      institution: "University of California, Berkeley",
+      degree: "Bachelor of Science in Computer Science",
+      location: "Berkeley, CA",
+      period: "2015 - 2019",
+      gpa: "3.8/4.0",
+      description:
+        "Focused on software engineering, algorithms, and data structures. Completed senior capstone project building a full-stack web application for student course planning.",
+      coursework: [
+        "Data Structures & Algorithms",
+        "Software Engineering",
+        "Database Systems",
+        "Computer Networks",
+        "Web Development",
+        "Machine Learning",
+      ],
+      achievements: [
+        "Dean's List (6 semesters)",
+        "Computer Science Honor Society",
+        "Best Capstone Project Award",
+      ],
+    },
+  ],
+  certifications = [
+    {
+      name: "AWS Certified Developer - Associate",
+      issuer: "Amazon Web Services",
+      date: "2023",
+      credentialId: "AWS-DEV-2023-001",
+    },
+    {
+      name: "React Developer Certification",
+      issuer: "Meta",
+      date: "2022",
+      credentialId: "META-REACT-2022-456",
+    },
+    {
+      name: "Google Analytics Certified",
+      issuer: "Google",
+      date: "2022",
+      credentialId: "GA-CERT-2022-789",
+    },
+  ];
 
 export function Education() {
   return (
     <section className="py-8 md:py-12 bg-muted/50">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">Education & Certifications</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+            Education & Certifications
+          </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Academic background and professional certifications
           </p>
@@ -64,7 +74,9 @@ export function Education() {
                 <CardHeader>
                   <CardTitle className="text-xl">{edu.degree}</CardTitle>
                   <div className="space-y-2">
-                    <div className="text-lg font-semibold text-primary">{edu.institution}</div>
+                    <div className="text-lg font-semibold text-primary">
+                      {edu.institution}
+                    </div>
                     <div className="flex flex-col sm:flex-row gap-2 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
                         <Calendar className="h-4 w-4" />
@@ -120,8 +132,12 @@ export function Education() {
                         <Award className="h-5 w-5 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-semibold text-lg mb-1">{cert.name}</h4>
-                        <p className="text-muted-foreground mb-2">{cert.issuer}</p>
+                        <h4 className="font-semibold text-lg mb-1">
+                          {cert.name}
+                        </h4>
+                        <p className="text-muted-foreground mb-2">
+                          {cert.issuer}
+                        </p>
                         <div className="flex items-center gap-4 text-sm">
                           <div className="flex items-center gap-1">
                             <Calendar className="h-3 w-3" />
@@ -141,5 +157,5 @@ export function Education() {
         </div>
       </div>
     </section>
-  )
+  );
 }

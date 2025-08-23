@@ -1,7 +1,7 @@
-import { Button } from "@/app/__components/ui/button"
-import { Calendar, Download, MapPin } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { Button } from "@/app/__components/ui/button";
+import { Calendar, Download, MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export function AboutHero() {
   return (
@@ -10,9 +10,12 @@ export function AboutHero() {
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <div className="flex flex-col justify-center space-y-6">
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">About Me</h1>
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                About Me
+              </h1>
               <p className="text-xl text-muted-foreground">
-                Full-stack developer with a passion for creating exceptional digital experiences
+                Full-stack developer with a passion for creating exceptional
+                digital experiences
               </p>
               <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
@@ -28,14 +31,16 @@ export function AboutHero() {
 
             <div className="space-y-4">
               <p className="text-lg leading-relaxed">
-                I&apos;m a passionate full-stack developer who loves building products that make a difference. With over 5
-                years of experience in web development, I specialize in React, TypeScript, and Node.js, creating
-                scalable applications that users love.
+                I&apos;m a passionate full-stack developer who loves building
+                products that make a difference. With over 5 years of experience
+                in web development, I specialize in React, TypeScript, and
+                Node.js, creating scalable applications that users love.
               </p>
               <p className="text-lg leading-relaxed">
-                When I&apos;m not coding, you&apos;ll find me writing technical articles, contributing to open source, or
-                exploring the latest technologies. I believe in continuous learning and sharing knowledge with the
-                developer community.
+                When I&apos;m not coding, you&apos;ll find me writing technical
+                articles, contributing to open source, or exploring the latest
+                technologies. I believe in continuous learning and sharing
+                knowledge with the developer community.
               </p>
             </div>
 
@@ -65,5 +70,5 @@ export function AboutHero() {
         </div>
       </div>
     </section>
-  )
+  );
 }
