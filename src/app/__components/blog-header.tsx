@@ -65,6 +65,7 @@ export function BlogHeader() {
             size="sm"
             onClick={() => setIsSearchOpen(!isSearchOpen)}
             className="hidden sm:flex"
+            aria-label="Search"
           >
             <Search className="h-4 w-4" />
           </Button>
@@ -84,7 +85,7 @@ export function BlogHeader() {
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="sm" className="md:hidden">
+              <Button variant="ghost" size="sm" className="md:hidden" aria-label="Menu">
                 <Menu className="h-4 w-4" />
               </Button>
             </SheetTrigger>

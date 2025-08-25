@@ -23,24 +23,28 @@ export function BlogFooter() {
               <Link
                 href="https://github.com"
                 className="text-muted-foreground hover:text-foreground"
+                aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
               </Link>
               <Link
                 href="https://twitter.com"
                 className="text-muted-foreground hover:text-foreground"
+                aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
               <Link
                 href="https://linkedin.com"
                 className="text-muted-foreground hover:text-foreground"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link
                 href="mailto:hello@johndoe.com"
                 className="text-muted-foreground hover:text-foreground"
+                aria-label="Mail"
               >
                 <Mail className="h-5 w-5" />
               </Link>

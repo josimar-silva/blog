@@ -19,7 +19,7 @@ interface MinimalBlogListProps {
   posts: BlogPost[];
 }
 
-export function MinimalBlogList({ posts }: MinimalBlogListProps) {
+export function BlogList({ posts }: MinimalBlogListProps) {
   const [selectedCategory, setSelectedCategory] = useState("All"),
     // Get unique categories from posts
     categories = [
