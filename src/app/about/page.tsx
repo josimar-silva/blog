@@ -1,4 +1,4 @@
-import { AboutHero } from "@/app/__components/about-hero";
+import { AboutHero } from "@/app/__components/about/about-hero";
 import { ContactCTA } from "@/app/__components/contact-cta";
 import { Education } from "@/app/__components/education";
 import { Experience } from "@/app/__components/experience";
