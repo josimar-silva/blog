@@ -85,7 +85,12 @@ export function BlogHeader() {
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="sm" className="md:hidden" aria-label="Menu">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="md:hidden"
+                aria-label="Menu"
+              >
                 <Menu className="h-4 w-4" />
               </Button>
             </SheetTrigger>
