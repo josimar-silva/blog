@@ -15,11 +15,11 @@ interface BlogPost {
   slug: string;
 }
 
-interface MinimalBlogListProps {
+interface BlogListProps {
   posts: BlogPost[];
 }
 
-export function BlogList({ posts }: MinimalBlogListProps) {
+export function BlogList({ posts }: BlogListProps) {
   const [selectedCategory, setSelectedCategory] = useState("All"),
     // Get unique categories from posts
     categories = [
