@@ -80,6 +80,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           run_id: ${{ github.event.workflow_run.id }}
 
+      - name: 📝 Add licenses
+        run: |
+          cp LICENSE-MIT dist/LICENSE-MIT
+          cp LICENSE-CC-BY-NC dist/LICENSE-CC-BY-NC
+
       - name: 📦 Create archive
         run: |
           tar -czvf blog-${{ env.RELEASE_VERSION }}.tar.gz -C dist .
