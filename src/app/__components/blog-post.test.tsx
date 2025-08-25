@@ -1,0 +1,80 @@
+
+import { render, screen, fireEvent } from "@testing-library/react";
+import { BlogPost } from "./blog-post";
+
+// Mock next/image
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: (props: any) => {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img {...props} />;
+  },
+}));
+
+// Mock next/link
+jest.mock("next/link", () => ({
+  __esModule: true,
+  default: ({ children, href }: { children: React.ReactNode; href: string }) => (
+    <a href={href}>{children}</a>
+  ),
+}));
+
+// Mock BlogPostContent as it's a separate component
+jest.mock("./blog-post-content", () => ({
+  __esModule: true,
+  default: ({ content }: { content: string }) => (
+    <div data-testid="blog-post-content">{content}</div>
+  ),
+}));
+
+const mockPost = {
+  title: "Test Blog Post Title",
+  content: "This is the content of the test blog post.",
+  date: "2025-08-25T10:00:00Z",
+  readTime: "10 min read",
+  category: "Technology",
+  author: "John Doe",
+  image: "/assets/test-image.jpg",
+  tags: ["React", "Next.js", "Testing"],
+};
+
+describe("BlogPost", () => {
+  it("renders blog post details correctly", () => {
+    render(<BlogPost post={mockPost} />);
+
+    expect(screen.getByText(mockPost.title)).toBeInTheDocument();
+    expect(screen.getByText(mockPost.author)).toBeInTheDocument();
+    expect(screen.getByText("Author")).toBeInTheDocument();
+    expect(screen.getByText("Technology")).toBeInTheDocument(); // Category badge
+    expect(screen.getByText("React")).toBeInTheDocument(); // Tag badge
+    expect(screen.getByText("Next.js")).toBeInTheDocument(); // Tag badge
+    expect(screen.getByText("Testing")).toBeInTheDocument(); // Tag badge
+    expect(screen.getByText("8/25/2025")).toBeInTheDocument(); // Formatted date
+    expect(screen.getByText(mockPost.readTime)).toBeInTheDocument();
+
+    const postImage = screen.getByAltText(mockPost.title);
+    expect(postImage).toBeInTheDocument();
+    expect(postImage).toHaveAttribute("src", mockPost.image);
+
+    const authorImage = screen.getByAltText(mockPost.author);
+    expect(authorImage).toBeInTheDocument();
+    expect(authorImage).toHaveAttribute("src", "/assets/placeholder.svg?height=40&width=40");
+
+    expect(screen.getByTestId("blog-post-content")).toHaveTextContent(mockPost.content);
+  });
+
+  it("navigates back to blog page when 'Back to Blog' button is clicked", () => {
+    render(<BlogPost post={mockPost} />);
+
+    const backButton = screen.getByRole("link", { name: /Back to Blog/i });
+    expect(backButton).toBeInTheDocument();
+    expect(backButton).toHaveAttribute("href", "/blog");
+  });
+
+  it("displays the Share button", () => {
+    render(<BlogPost post={mockPost} />);
+
+    const shareButton = screen.getByRole("button", { name: /Share/i });
+    expect(shareButton).toBeInTheDocument();
+  });
+});

@@ -1,0 +1,133 @@
+import { fireEvent, render, screen, within } from "@testing-library/react";
+
+import { BlogList } from "./blog-list";
+
+const mockPosts = [
+  {
+    id: 1,
+    title: "Post 1",
+    excerpt: "Excerpt 1",
+    category: "Category A",
+    date: "2025-01-01",
+    readTime: "5 min read",
+    slug: "post-1",
+  },
+  {
+    id: 2,
+    title: "Post 2",
+    excerpt: "Excerpt 2",
+    category: "Category B",
+    date: "2025-01-02",
+    readTime: "7 min read",
+    slug: "post-2",
+  },
+  {
+    id: 3,
+    title: "Post 3",
+    excerpt: "Excerpt 3",
+    category: "Category A",
+    date: "2025-01-03",
+    readTime: "3 min read",
+    slug: "post-3",
+  },
+];
+
+describe("BlogList", () => {
+  it("renders all posts by default", () => {
+    render(<BlogList posts={mockPosts} />);
+    expect(screen.getByText("Post 1")).toBeInTheDocument();
+    expect(screen.getByText("Post 2")).toBeInTheDocument();
+    expect(screen.getByText("Post 3")).toBeInTheDocument();
+    expect(
+      screen.getByText(`Showing all ${mockPosts.length} articles`),
+    ).toBeInTheDocument();
+  });
+
+  it("filters posts by category when a category badge is clicked", () => {
+    render(<BlogList posts={mockPosts} />);
+
+    fireEvent.click(
+      screen.getByText("Category A", { selector: "div.inline-flex" }),
+    );
+
+    expect(screen.getByText("Post 1")).toBeInTheDocument();
+    expect(screen.getByText("Post 3")).toBeInTheDocument();
+    expect(screen.queryByText("Post 2")).not.toBeInTheDocument();
+    expect(
+      screen.getByText(`Showing 2 articles in "Category A"`),
+    ).toBeInTheDocument();
+  });
+
+  it("displays 'No posts found' message when a category has no posts", () => {
+    render(<BlogList posts={mockPosts} />);
+
+    fireEvent.click(
+      screen.getByText("Category B", { selector: "div.inline-flex" }),
+    );
+    fireEvent.click(
+      screen.getByText("Category A", { selector: "div.inline-flex" }),
+    ); // Click back to Category A to ensure it works
+    fireEvent.click(
+      screen.getByText("Category B", { selector: "div.inline-flex" }),
+    ); // Click Category B again
+
+    expect(screen.getByText("Post 2")).toBeInTheDocument();
+    expect(screen.queryByText("Post 1")).not.toBeInTheDocument();
+    expect(screen.queryByText("Post 3")).not.toBeInTheDocument();
+    expect(
+      screen.getByText(`Showing 1 article in "Category B"`),
+    ).toBeInTheDocument();
+  });
+
+  it("displays 'No posts found' message when initially no posts are provided", () => {
+    render(<BlogList posts={[]} />);
+    expect(
+      screen.getByText('No posts found in the "All" category.'),
+    ).toBeInTheDocument();
+  });
+
+  it("displays correct category counts", () => {
+    render(<BlogList posts={mockPosts} />);
+
+    expect(screen.getByText("All")).toBeInTheDocument();
+    expect(screen.getByText("(3)")).toBeInTheDocument(); // All posts
+
+    expect(
+      screen.getByText("Category A", { selector: "div.inline-flex" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("(2)")).toBeInTheDocument(); // Category A posts
+
+    expect(
+      screen.getByText("Category B", { selector: "div.inline-flex" }),
+    ).toBeInTheDocument();
+    expect(screen.getByText("(1)")).toBeInTheDocument(); // Category B posts
+  });
+
+  it("displays correct post details", () => {
+    render(<BlogList posts={mockPosts} />);
+
+    const post1Title = screen.getByText("Post 1");
+    const post1Article = post1Title.closest("article");
+    expect(post1Title).toBeInTheDocument();
+    expect(within(post1Article).getByText("Excerpt 1")).toBeInTheDocument();
+    expect(
+      within(post1Article).getByText("January 1, 2025"),
+    ).toBeInTheDocument();
+    expect(
+      within(post1Article).getByText("Category A", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(within(post1Article).getByText("5 min read")).toBeInTheDocument();
+
+    const post2Title = screen.getByText("Post 2");
+    const post2Article = post2Title.closest("article");
+    expect(post2Title).toBeInTheDocument();
+    expect(within(post2Article).getByText("Excerpt 2")).toBeInTheDocument();
+    expect(
+      within(post2Article).getByText("January 2, 2025"),
+    ).toBeInTheDocument();
+    expect(
+      within(post2Article).getByText("Category B", { selector: "span" }),
+    ).toBeInTheDocument();
+    expect(within(post2Article).getByText("7 min read")).toBeInTheDocument();
+  });
+});
