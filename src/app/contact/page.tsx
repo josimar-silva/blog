@@ -1,15 +1,15 @@
 import { BlogFooter } from "@/app/__components/blog-footer";
 import { BlogHeader } from "@/app/__components/blog-header";
-import { MinimalContactHero } from "@/app/__components/minimal-contact-hero";
-import { MinimalContactInfo } from "@/app/__components/minimal-contact-info";
+import { ContactHero } from "@/app/__components/contact-hero";
+import { ContactInfo } from "@/app/__components/contact-info";
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <BlogHeader />
       <main>
-        <MinimalContactHero />
-        <MinimalContactInfo />
+        <ContactHero />
+        <ContactInfo />
       </main>
       <BlogFooter />
     </div>

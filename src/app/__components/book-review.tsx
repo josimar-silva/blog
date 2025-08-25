@@ -31,7 +31,6 @@ interface BookReviewProps {
     citations?: string;
     notes: string;
     keyTakeaways: string[];
-    recommendedFor: string;
     difficulty: string;
     timeToRead: string;
     links: {
@@ -283,35 +282,6 @@ export function BookReview({ book }: BookReviewProps) {
                 </ul>
               </CardContent>
             </Card>
-
-            {/* Recommended For */}
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-lg mb-4">Recommended For</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {book.recommendedFor}
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Quotes */}
-            {book.quotes && book.quotes.length > 0 && (
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-4">Notable Quotes</h3>
-                  <div className="space-y-4">
-                    {book.quotes.map((quote, index) => (
-                      <blockquote
-                        key={index}
-                        className="border-l-4 border-primary/20 pl-4 italic text-sm text-muted-foreground"
-                      >
-                        "{quote}"
-                      </blockquote>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            )}
 
             {/* Related Reading */}
             {((book.relatedBooks && book.relatedBooks.length > 0) ||

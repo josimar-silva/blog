@@ -1,82 +1,85 @@
 import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "@/app/__components/ui/button";
-import { Card, CardContent } from "@/app/__components/ui/card";
-
 export function ContactInfo() {
   return (
-    <div className="space-y-6">
-      {/* Contact Details */}
-      <Card>
-        <CardContent className="p-6 space-y-4">
-          <h3 className="font-semibold text-lg mb-4">Contact Information</h3>
-
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-muted-foreground" />
-              <div>
-                <p className="text-sm font-medium">Email</p>
-                <Link
-                  href="mailto:hello@johndoe.com"
-                  className="text-sm text-muted-foreground hover:text-primary"
-                >
-                  hello@johndoe.com
-                </Link>
+    <section className="pb-16 md:pb-20">
+      <div className="container px-4 md:px-6 max-w-2xl">
+        <div className="space-y-12">
+          {/* Primary Contact */}
+          <div className="text-center space-y-4">
+            <div className="space-y-2">
+              <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                <Mail className="h-4 w-4" />
+                <span className="text-sm">Email</span>
               </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <MapPin className="h-4 w-4 text-muted-foreground" />
-              <div>
-                <p className="text-sm font-medium">Location</p>
-                <p className="text-sm text-muted-foreground">
-                  San Francisco, CA
-                </p>
-              </div>
+              <Link
+                href="mailto:hello@johndoe.com"
+                className="text-2xl md:text-3xl font-medium hover:text-primary transition-colors"
+              >
+                hello@johndoe.com
+              </Link>
             </div>
           </div>
-        </CardContent>
-      </Card>
 
-      {/* Social Links */}
-      <Card>
-        <CardContent className="p-6">
-          <h3 className="font-semibold text-lg mb-4">Connect With Me</h3>
-          <div className="space-y-2">
-            <Button variant="ghost" className="w-full justify-start" asChild>
+          {/* Divider */}
+          <div className="border-b border-border/50" />
+
+          {/* Secondary Info */}
+          <div className="grid gap-8 md:grid-cols-1">
+            {/* Location */}
+            <div className="text-center space-y-2">
+              <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                <MapPin className="h-4 w-4" />
+                <span className="text-sm">Location</span>
+              </div>
+              <p className="text-lg">San Francisco, CA</p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-b border-border/50" />
+
+          {/* Social Links */}
+          <div className="text-center space-y-6">
+            <div className="text-muted-foreground">
+              <span className="text-sm">Find me on</span>
+            </div>
+
+            <div className="flex justify-center gap-8">
               <Link
                 href="https://github.com/johndoe"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
               >
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
+                <Github className="h-6 w-6" />
+                <span className="text-sm">GitHub</span>
               </Link>
-            </Button>
-            <Button variant="ghost" className="w-full justify-start" asChild>
+
               <Link
                 href="https://twitter.com/johndoe"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
               >
-                <Twitter className="mr-2 h-4 w-4" />
-                Twitter
+                <Twitter className="h-6 w-6" />
+                <span className="text-sm">Twitter</span>
               </Link>
-            </Button>
-            <Button variant="ghost" className="w-full justify-start" asChild>
+
               <Link
                 href="https://linkedin.com/in/johndoe"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
               >
-                <Linkedin className="mr-2 h-4 w-4" />
-                LinkedIn
+                <Linkedin className="h-6 w-6" />
+                <span className="text-sm">LinkedIn</span>
               </Link>
-            </Button>
+            </div>
           </div>
-        </CardContent>
-      </Card>
-    </div>
+        </div>
+      </div>
+    </section>
   );
 }

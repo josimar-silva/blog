@@ -1,7 +1,7 @@
 import { BlogFooter } from "@/app/__components/blog-footer";
 import { BlogHeader } from "@/app/__components/blog-header";
-import { MinimalBlogHero } from "@/app/__components/minimal-blog-hero";
-import { MinimalBlogList } from "@/app/__components/minimal-blog-list";
+import { BlogHero } from "@/app/__components/blog-hero";
+import { BlogList } from "@/app/__components/blog-list";
 import { getAllPosts } from "@/lib/posts";
 
 export default async function BlogPage() {
@@ -22,8 +22,8 @@ export default async function BlogPage() {
     <div className="min-h-screen bg-background">
       <BlogHeader />
       <main>
-        <MinimalBlogHero />
-        <MinimalBlogList posts={allPosts} />
+        <BlogHero />
+        <BlogList posts={allPosts} />
       </main>
       <BlogFooter />
     </div>
