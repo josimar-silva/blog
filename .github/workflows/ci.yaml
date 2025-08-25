@@ -171,7 +171,7 @@ jobs:
           path: ui-tests-report/
 
   sonar:
-    needs: [test, test-ui]
+    needs: [test, test-ui, check]
     name: Sonar
     runs-on: ubuntu-24.04
     steps:
@@ -219,7 +219,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
-    needs: [test, test-ui, check, sonar]
+    needs: [test, test-ui, check]
     name: Build
     runs-on: ubuntu-24.04
     steps:
