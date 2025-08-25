@@ -60,7 +60,7 @@ This constraint actually improved my development process. Instead of asking the 
 
 What continues to fascinate me about Rinha de Backend is the diversity of approaches that emerge from the community. Despite having the same performance requirements and constraints, engineers from different backgrounds and experience levels come up with remarkably varied solutions.
 
-This edition saw everything from traditional Java Spring Boot applications to cutting-edge Rust services, from simple monolithic architectures to complex microservice deployments. Each approach represents a different set of trade-offs and priorities, reflecting the rich ecosystem of backend development in 2025.
+This edition saw everything from traditional Java Spring Boot applications to cutting-edge Rust services, from simple monolithic architectures to complex micro-service deployments. Each approach represents a different set of trade-offs and priorities, reflecting the rich ecosystem of backend development in 2025.
 
 The challenge serves as a beautiful reminder that there's rarely a single "correct" solution to complex engineering problems. Context, team expertise, operational requirements, and personal preferences all play roles in determining the best approach for any given situation.
 
