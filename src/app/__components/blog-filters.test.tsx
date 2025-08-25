@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { BlogFilters } from "./blog-filters.tsx";
+import { BlogFilters } from "./blog-filters";
 
 describe("BlogFilters", () => {
   it("should render all filter elements correctly", () => {
