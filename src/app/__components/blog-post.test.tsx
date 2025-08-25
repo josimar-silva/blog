@@ -1,5 +1,6 @@
+import { render, screen } from "@testing-library/react";
+import React from "react";
 
-import { render, screen, fireEvent } from "@testing-library/react";
 import { BlogPost } from "./blog-post";
 
 // Mock next/image
@@ -7,16 +8,20 @@ jest.mock("next/image", () => ({
   __esModule: true,
   default: (props: any) => {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img {...props} />;
+    return <img alt={props.alt || ""} {...props} />;
   },
 }));
 
 // Mock next/link
 jest.mock("next/link", () => ({
   __esModule: true,
-  default: ({ children, href }: { children: React.ReactNode; href: string }) => (
-    <a href={href}>{children}</a>
-  ),
+  default: ({
+    children,
+    href,
+  }: {
+    children: React.ReactNode;
+    href: string;
+  }) => <a href={href}>{children}</a>,
 }));
 
 // Mock BlogPostContent as it's a separate component
@@ -58,9 +63,14 @@ describe("BlogPost", () => {
 
     const authorImage = screen.getByAltText(mockPost.author);
     expect(authorImage).toBeInTheDocument();
-    expect(authorImage).toHaveAttribute("src", "/assets/placeholder.svg?height=40&width=40");
+    expect(authorImage).toHaveAttribute(
+      "src",
+      "/assets/placeholder.svg?height=40&width=40",
+    );
 
-    expect(screen.getByTestId("blog-post-content")).toHaveTextContent(mockPost.content);
+    expect(screen.getByTestId("blog-post-content")).toHaveTextContent(
+      mockPost.content,
+    );
   });
 
   it("navigates back to blog page when 'Back to Blog' button is clicked", () => {
