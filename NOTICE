@@ -1,0 +1,16 @@
+NOTICE
+------
+
+This repository contains two types of material, each with different licenses:
+
+1. Website Content (blog posts, articles, images, and other media)
+   - Licensed under: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+   - See: LICENSE-CC-BY-NC for full text.
+
+2. Website Source Code (themes, frontend, and other code)
+   - Licensed under: MIT License
+   - See LICENSE-MIT.md for full text.
+
+Summary:
+- You may share and adapt the content for non-commercial use with attribution.
+- You may freely use, modify, and distribute the source code under MIT.
