@@ -1,5 +1,5 @@
-import { ContactHero } from "@/app/__components/contact-hero";
-import { ContactInfo } from "@/app/__components/contact-info";
+import { ContactHero } from "@/app/__components/contact/contact-hero";
+import { ContactInfo } from "@/app/__components/contact/contact-info";
 import { Footer } from "@/app/__components/footer";
 import { Header } from "@/app/__components/header";
 
