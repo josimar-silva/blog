@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 
 import { render, screen } from "@testing-library/react";
 
-import { BlogFooter } from "./blog-footer.tsx";
+import { BlogFooter } from "./blog-footer";
 
 describe("BlogFooter", () => {
   it("should render the footer with correct content and links", () => {

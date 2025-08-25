@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 
-import { BlogGrid } from "./blog-grid.tsx";
+import { BlogGrid } from "./blog-grid";
 
 // Mock next/image
 jest.mock("next/image", () => ({

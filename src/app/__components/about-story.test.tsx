@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 
 import { render, screen } from "@testing-library/react";
 
-import { AboutStory } from "./about-story.tsx";
+import { AboutStory } from "./about-story";
 
 describe("AboutStory", () => {
   it("should render the story section with correct content", () => {
