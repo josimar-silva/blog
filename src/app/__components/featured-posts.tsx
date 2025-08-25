@@ -1,8 +1,9 @@
-import { Calendar, Clock } from "lucide-react";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Badge } from "@/app/__components/ui/badge";
+import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
 import { getFeaturedPosts } from "@/lib/posts";
 
@@ -60,6 +61,14 @@ export async function FeaturedPosts() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="flex justify-center">
+          <Button asChild>
+            <Link href="/blog">
+              View All Posts
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
