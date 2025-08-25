@@ -23,6 +23,7 @@ export function Header() {
       { name: "Home", href: "/" },
       { name: "About", href: "/about" },
       { name: "Blog", href: "/blog" },
+      { name: "Projects", href: "/projects" },
       { name: "Bookshelf", href: "/bookshelf" },
       { name: "Now", href: "/now" },
       { name: "Contact", href: "/contact" },
