@@ -7,6 +7,7 @@ on:
       - "__posts/**"
       - "README.md"
       - "RELEASING.md"
+      - "GEMINI.md"
   push:
     branches:
       - main
@@ -14,6 +15,7 @@ on:
       - "__posts/**"
       - "README.md"
       - "RELEASING.md"
+      - "GEMINI.md"
 
 permissions:
   contents: read
