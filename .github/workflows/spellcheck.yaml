@@ -6,12 +6,14 @@ on:
     paths:
       - "__posts/**"
       - "README.md"
+      - "RELEASING.md"
   push:
     branches:
       - main
     paths:
       - "__posts/**"
       - "README.md"
+      - "RELEASING.md"
 
 permissions:
   contents: read

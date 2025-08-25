@@ -25,3 +25,4 @@ matrix:
     sources:
       - "__posts/**/*.md"
       - "README.md"
+      - "RELEASING.md"
