@@ -1,6 +1,5 @@
 module.exports = {
   testEnvironment: "jsdom",
-  modulePaths: ["<rootDir>"],
   testPathIgnorePatterns: ["/node_modules/", "/.next/", "/ui-tests/"],
   testMatch: ["<rootDir>/src/(app|hooks|interfaces|lib)/**/*.test.(ts|tsx)"],
   moduleNameMapper: {
