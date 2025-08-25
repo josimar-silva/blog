@@ -37,7 +37,7 @@ export default defineConfig([
       ],
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
-      "license-header/header": ["error", "./license-header.js"],
+      "license-header/header": ["error", "./resources/license-header.js"],
     },
   },
   {

@@ -14,6 +14,6 @@ Copyright (C) 2025 Josimar Silva
 
 Unless otherwise specified:
 
-*   **SourceCode:** This project's code is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-*   **Content:** All content, including blog posts (`__posts/`), book reviews, and similar creative works, is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) License](https://creativecommons.org/licenses/by-nc/4.0/).
+*   **Source Code:** This project's code is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+*   **Content:** All content, including blog posts (`__posts/`), book reviews, and similar creative works, is licensed under the [Creative Commons Attribution-Non Commercial 4.0 International (CC BY-NC 4.0) License](https://creativecommons.org/licenses/by-nc/4.0/).
 
