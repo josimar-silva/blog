@@ -4,7 +4,7 @@
   "private": true,
   "license": "(MIT OR CC-BY-NC-4.0)",
   "scripts": {
-    "build": "next build",
+    "build": "next build && node scripts/generate-rss.mjs",
     "dev": "next dev --turbopack",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint src/**/*.{js,jsx,ts,tsx} --fix",
@@ -61,6 +61,7 @@
     "remark-frontmatter": "5.0.0",
     "remark-gfm": "4.0.1",
     "remark-math": "6.0.0",
+    "rss": "1.2.2",
     "sonner": "2.0.7",
     "tailwind-merge": "3.3.1",
     "vaul": "1.1.2"
@@ -81,6 +82,7 @@
     "@types/node": "22.18.0",
     "@types/react": "19.1.11",
     "@types/react-dom": "19.1.7",
+    "@types/rss": "0.0.32",
     "eslint": "9.34.0",
     "eslint-config-next": "15.5.0",
     "eslint-config-prettier": "10.1.8",

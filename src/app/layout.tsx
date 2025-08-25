@@ -47,6 +47,11 @@ export const metadata: Metadata = {
     icon: "/favicon/favicon.png",
     apple: "/favicon/apple-touch-icon.png",
   },
+  alternates: {
+    types: {
+      "application/rss+xml": "/rss.xml",
+    },
+  },
 };
 
 export default function RootLayout({
