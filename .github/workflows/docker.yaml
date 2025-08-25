@@ -61,7 +61,7 @@ jobs:
             echo "IS_SNAPSHOT=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: 🐳 Docker meta
+      - name: 🐳 Build Docker metadata
         id: meta
         uses: docker/metadata-action@v5
         with:
