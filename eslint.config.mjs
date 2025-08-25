@@ -5,6 +5,7 @@ import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
 import globals from "globals";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
+import licenseHeader from "eslint-plugin-license-header";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,6 +24,7 @@ export default defineConfig([
     ),
     plugins: {
       "simple-import-sort": simpleImportSort,
+      "license-header": licenseHeader,
     },
     rules: {
       "react/no-unescaped-entities": "off",
@@ -35,6 +37,7 @@ export default defineConfig([
       ],
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
+      "license-header/header": ["error", "./license-header.js"],
     },
   },
   {
