@@ -56,7 +56,7 @@ export function BlogFooter() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/"
+                  href="/public"
                   className="text-muted-foreground hover:text-foreground"
                 >
                   Home
