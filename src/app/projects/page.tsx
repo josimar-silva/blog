@@ -1,7 +1,7 @@
 import { Footer } from "@/app/__components/footer";
 import { Header } from "@/app/__components/header";
-import { ProjectsHero } from "@/app/__components/projects-hero";
-import { ProjectsList } from "@/app/__components/projects-list";
+import { ProjectsHero } from "@/app/__components/projects/projects-hero";
+import { ProjectsList } from "@/app/__components/projects/projects-list";
 
 const projects = [
   {
