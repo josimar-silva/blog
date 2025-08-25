@@ -1,6 +1,6 @@
 import { Footer } from "@/app/__components/footer";
 import { Header } from "@/app/__components/header";
-import { PrivacyPolicy } from "@/app/__components/privacy-policy";
+import { PrivacyPolicy } from "@/app/__components/legal/privacy-policy";
 
 export default function PrivacyPage() {
   return (
