@@ -1,7 +1,7 @@
 import { Footer } from "@/app/__components/footer";
 import { Header } from "@/app/__components/header";
-import { NowContent } from "@/app/__components/now-content";
-import { NowHero } from "@/app/__components/now-hero";
+import { NowContent } from "@/app/__components/now/now-content";
+import { NowHero } from "@/app/__components/now/now-hero";
 
 export default function NowPage() {
   return (
