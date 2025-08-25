@@ -1,7 +1,7 @@
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 
-export function BlogFooter() {
+export function Footer() {
   return (
     <footer className="border-t bg-background">
       <div className="container px-4 md:px-6 py-12">
@@ -56,7 +56,7 @@ export function BlogFooter() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/public"
+                  href="/"
                   className="text-muted-foreground hover:text-foreground"
                 >
                   Home
