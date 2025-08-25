@@ -1,5 +1,5 @@
 import { AboutHero } from "@/app/__components/about/about-hero";
-import { ContactCTA } from "@/app/__components/contact-cta";
+import { ContactCTA } from "@/app/__components/contact/contact-cta";
 import { Education } from "@/app/__components/education";
 import { Experience } from "@/app/__components/experience";
 import { Footer } from "@/app/__components/footer";
