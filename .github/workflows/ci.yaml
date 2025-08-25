@@ -46,7 +46,7 @@ jobs:
           restore-keys: |
 
       - name: ⚒️ Setup just
-        uses: extractions/setup-just@v3
+        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3
         with:
           just-version: "1.40.0"
 
@@ -91,7 +91,7 @@ jobs:
           restore-keys: |
 
       - name: ⚒️ Setup just
-        uses: extractions/setup-just@v3
+        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3
         with:
           just-version: "1.40.0"
 
@@ -142,7 +142,7 @@ jobs:
           restore-keys: |
 
       - name: ⚒️ Setup just
-        uses: extractions/setup-just@v3
+        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3
         with:
           just-version: "1.40.0"
 
@@ -194,13 +194,13 @@ jobs:
           fetch-depth: 0
 
       - name: ⬇️ Download test coverage report
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
           name: test-coverage
           path: coverage/
 
       - name: ⬇️ Download test-ui coverage report
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
           name: test-ui-coverage
           path: ui-tests-report/
@@ -254,7 +254,7 @@ jobs:
           restore-keys: |
 
       - name: ⚒️ Setup just
-        uses: extractions/setup-just@v3
+        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3
         with:
           just-version: "1.40.0"
 
