@@ -55,7 +55,7 @@ jobs:
         id: check_snapshot
         run: |
           VERSION="${{ steps.get_package_version.outputs.VERSION }}"
-          if [[ "$VERSION" == *"-snapshot"* ]]; then
+          if [[ "$VERSION" == *"-SNAPSHOT"* ]]; then
             echo "IS_SNAPSHOT=true" >> $GITHUB_OUTPUT
           else
             echo "IS_SNAPSHOT=false" >> $GITHUB_OUTPUT

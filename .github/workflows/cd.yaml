@@ -35,13 +35,13 @@ jobs:
 
       - name: 🏷️ Get package version
         id: get_version
-        run: echo "VERSION=$(node -p "require('''./package.json''').version")" >> $GITHUB_OUTPUT
+        run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
       - name: 🔍 Check if version is SNAPSHOT
         id: check_snapshot
         run: |
           VERSION="${{ steps.get_version.outputs.VERSION }}"
-          if [[ "$VERSION" == *"-snapshot"* ]]; then
+          if [[ "$VERSION" == *"-SNAPSHOT"* ]]; then
             echo "RELEASE=false" >> $GITHUB_OUTPUT
           else
             echo "RELEASE=true" >> $GITHUB_OUTPUT
@@ -55,6 +55,7 @@ jobs:
 
     permissions:
       contents: write
+      actions: read
 
     env:
       RELEASE_VERSION: ${{ needs.fetch-version.outputs.release_version }}
@@ -71,12 +72,13 @@ jobs:
           node-version: "22.18.0"
 
       - name: ⬇️ Download build artifact
-        uses: dawidd6/action-download-artifact@v3
+        uses: dawidd6/action-download-artifact@v11
         with:
           workflow: ci.yaml
           name: blog-${{ github.event.workflow_run.head_sha }}
           path: dist
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          run_id: ${{ github.event.workflow_run.id }}
 
       - name: 📦 Create archive
         run: |
@@ -117,7 +119,7 @@ jobs:
           MINOR=$(echo ${{ env.RELEASE_VERSION }} | cut -d. -f2)
           PATCH=$(echo ${{ env.RELEASE_VERSION }} | cut -d. -f3)
           PATCH=$((PATCH + 1))
-          NEXT_PACKAGE_VERSION="$MAJOR.$MINOR.$PATCH-snapshot"
+          NEXT_PACKAGE_VERSION="$MAJOR.$MINOR.$PATCH-SNAPSHOT"
           echo "Next Version will be: ${NEXT_PACKAGE_VERSION}"
           echo "NEXT_PACKAGE_VERSION=${NEXT_PACKAGE_VERSION}" >> $GITHUB_ENV
 
@@ -129,5 +131,5 @@ jobs:
           git config user.name "radagastbot[bot]"
           git config user.email "radagastbot[bot]@users.noreply.github.com"
           git add package.json package-lock.json
-          git commit -m "chore(release): set next snapshot version"
+          git commit -m "chore(release): set next SNAPSHOT version"
           git push
