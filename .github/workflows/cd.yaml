@@ -1,0 +1,133 @@
+name: Continuous Delivery
+
+on:
+  workflow_run:
+    workflows: ["Continuous Integration"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  fetch-version:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-24.04
+    outputs:
+      release_version: ${{ steps.get_version.outputs.VERSION }}
+      is_release: ${{ steps.check_snapshot.outputs.RELEASE }}
+
+    steps:
+      - name: 🛡️ Harden the runner
+        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
+        with:
+          egress-policy: audit
+
+      - name: 📦 Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: 🇳 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.18.0"
+
+      - name: 🏷️ Get package version
+        id: get_version
+        run: echo "VERSION=$(node -p "require('''./package.json''').version")" >> $GITHUB_OUTPUT
+
+      - name: 🔍 Check if version is SNAPSHOT
+        id: check_snapshot
+        run: |
+          VERSION="${{ steps.get_version.outputs.VERSION }}"
+          if [[ "$VERSION" == *"-snapshot"* ]]; then
+            echo "RELEASE=false" >> $GITHUB_OUTPUT
+          else
+            echo "RELEASE=true" >> $GITHUB_OUTPUT
+          fi
+          echo "Release Version: $VERSION"
+
+  release:
+    needs: [fetch-version]
+    if: ${{ github.event.workflow_run.conclusion == 'success' && needs.fetch-version.outputs.is_release == 'true' }}
+    runs-on: ubuntu-24.04
+
+    permissions:
+      contents: write
+
+    env:
+      RELEASE_VERSION: ${{ needs.fetch-version.outputs.release_version }}
+
+    steps:
+      - name: 📦 Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: 🇳 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.18.0"
+
+      - name: ⬇️ Download build artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow: ci.yaml
+          name: blog-${{ github.event.workflow_run.head_sha }}
+          path: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 📦 Create archive
+        run: |
+          tar -czvf blog-${{ env.RELEASE_VERSION }}.tar.gz -C dist .
+          shasum -a 512 blog-${{ env.RELEASE_VERSION }}.tar.gz > blog-${{ env.RELEASE_VERSION }}.tar.gz.sha512
+
+      - name: 🔖 Create Git Tag
+        run: |
+          git config user.name "radagastbot[bot]"
+          git config user.email "radagastbot[bot]@users.noreply.github.com"
+          git tag "v${{ env.RELEASE_VERSION }}"
+          git push origin "v${{ env.RELEASE_VERSION }}"
+
+      - name: 📝 Generate changelog
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: -vv --latest --strip header
+        env:
+          OUTPUT: CHANGELOG.md
+          GITHUB_REPO: ${{ github.repository }}
+
+      - name: 🚀 Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            blog-${{ env.RELEASE_VERSION }}.tar.gz
+            blog-${{ env.RELEASE_VERSION }}.tar.gz.sha512
+          tag_name: v${{ env.RELEASE_VERSION }}
+          name: Release v${{ env.RELEASE_VERSION }}
+          body_path: CHANGELOG.md
+          draft: false
+          prerelease: true
+
+      - name: 🔢 Generate next package Version
+        run: |
+          MAJOR=$(echo ${{ env.RELEASE_VERSION }} | cut -d. -f1)
+          MINOR=$(echo ${{ env.RELEASE_VERSION }} | cut -d. -f2)
+          PATCH=$(echo ${{ env.RELEASE_VERSION }} | cut -d. -f3)
+          PATCH=$((PATCH + 1))
+          NEXT_PACKAGE_VERSION="$MAJOR.$MINOR.$PATCH-snapshot"
+          echo "Next Version will be: ${NEXT_PACKAGE_VERSION}"
+          echo "NEXT_PACKAGE_VERSION=${NEXT_PACKAGE_VERSION}" >> $GITHUB_ENV
+
+      - name: ⬆️ Increment package version
+        run: npm version ${{ env.NEXT_PACKAGE_VERSION }} --no-git-tag-version
+
+      - name: 📤 Push new package version to repo
+        run: |
+          git config user.name "radagastbot[bot]"
+          git config user.email "radagastbot[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git commit -m "chore(release): set next snapshot version"
+          git push
