@@ -1,5 +1,5 @@
-import { Footer } from "@/app/__components/footer";
-import { Header } from "@/app/__components/header";
+import { Footer } from "@/app/__components/common/footer";
+import { Header } from "@/app/__components/common/header";
 import { NowContent } from "@/app/__components/now/now-content";
 import { NowHero } from "@/app/__components/now/now-hero";
 
