@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 
 import { BlogPost } from "@/app/__components/blog/blog-post";
-import { BlogFooter } from "@/app/__components/blog-footer";
-import { BlogHeader } from "@/app/__components/blog-header";
+import { Footer } from "@/app/__components/footer";
+import { Header } from "@/app/__components/header";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 
 export default async function BlogPostPage({
@@ -27,9 +27,9 @@ export default async function BlogPostPage({
 
   return (
     <div className="min-h-screen bg-background">
-      <BlogHeader />
+      <Header />
       <BlogPost post={{ ...post, content: post.content }} />
-      <BlogFooter />
+      <Footer />
     </div>
   );
 }

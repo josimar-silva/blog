@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 
-import { BlogFooter } from "@/app/__components/blog-footer";
-import { BlogHeader } from "@/app/__components/blog-header";
 import { BookReview } from "@/app/__components/book-review";
+import { Footer } from "@/app/__components/footer";
+import { Header } from "@/app/__components/header";
 import { getBookBySlug, getBooks } from "@/lib/books";
 
 export async function generateStaticParams() {
@@ -23,9 +23,9 @@ export default async function BookReviewPage({
 
   return (
     <div className="min-h-screen bg-background">
-      <BlogHeader />
+      <Header />
       <BookReview book={book} />
-      <BlogFooter />
+      <Footer />
     </div>
   );
 }

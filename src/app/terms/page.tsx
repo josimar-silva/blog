@@ -1,15 +1,15 @@
-import { BlogFooter } from "@/app/__components/blog-footer";
-import { BlogHeader } from "@/app/__components/blog-header";
+import { Footer } from "@/app/__components/footer";
+import { Header } from "@/app/__components/header";
 import { TermsOfService } from "@/app/__components/terms-of-service";
 
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-background">
-      <BlogHeader />
+      <Header />
       <main>
         <TermsOfService />
       </main>
-      <BlogFooter />
+      <Footer />
     </div>
   );
 }

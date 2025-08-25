@@ -1,5 +1,5 @@
-import { BlogFooter } from "@/app/__components/blog-footer";
-import { BlogHeader } from "@/app/__components/blog-header";
+import { Footer } from "@/app/__components/footer";
+import { Header } from "@/app/__components/header";
 import { ProjectsHero } from "@/app/__components/projects-hero";
 import { ProjectsList } from "@/app/__components/projects-list";
 
@@ -143,12 +143,12 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-background">
-      <BlogHeader />
+      <Header />
       <main>
         <ProjectsHero />
         <ProjectsList projects={projects} />
       </main>
-      <BlogFooter />
+      <Footer />
     </div>
   );
 }

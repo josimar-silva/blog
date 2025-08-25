@@ -1,7 +1,7 @@
-import { BlogFooter } from "@/app/__components/blog-footer";
-import { BlogHeader } from "@/app/__components/blog-header";
 import { BookshelfHero } from "@/app/__components/bookshelf-hero";
 import { BookshelfList } from "@/app/__components/bookshelf-list";
+import { Footer } from "@/app/__components/footer";
+import { Header } from "@/app/__components/header";
 import { getBooks } from "@/lib/books";
 
 export default async function BookshelfPage() {
@@ -9,12 +9,12 @@ export default async function BookshelfPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <BlogHeader />
+      <Header />
       <main>
         <BookshelfHero />
         <BookshelfList books={books} />
       </main>
-      <BlogFooter />
+      <Footer />
     </div>
   );
 }

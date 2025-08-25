@@ -9,7 +9,7 @@ import { Button } from "@/app/__components/ui/button";
 import { Input } from "@/app/__components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/app/__components/ui/sheet";
 
-export function BlogHeader() {
+export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false),
     [mounted, setMounted] = useState(false),
     { theme, setTheme } = useTheme();

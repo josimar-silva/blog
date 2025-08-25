@@ -2,11 +2,11 @@ import "@testing-library/jest-dom";
 
 import { render, screen } from "@testing-library/react";
 
-import { BlogFooter } from "./blog-footer";
+import { Footer } from "./footer";
 
-describe("BlogFooter", () => {
+describe("Footer", () => {
   it("should render the footer with correct content and links", () => {
-    render(<BlogFooter />);
+    render(<Footer />);
 
     // Check copyright text
     expect(
