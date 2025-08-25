@@ -1,5 +1,5 @@
-import { BookshelfHero } from "@/app/__components/bookshelf-hero";
-import { BookshelfList } from "@/app/__components/bookshelf-list";
+import { BookshelfHero } from "@/app/__components/bookshelf/bookshelf-hero";
+import { BookshelfList } from "@/app/__components/bookshelf/bookshelf-list";
 import { Footer } from "@/app/__components/footer";
 import { Header } from "@/app/__components/header";
 import { getBooks } from "@/lib/books";
