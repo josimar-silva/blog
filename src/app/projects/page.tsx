@@ -1,5 +1,5 @@
-import { Footer } from "@/app/__components/footer";
-import { Header } from "@/app/__components/header";
+import { Footer } from "@/app/__components/common/footer";
+import { Header } from "@/app/__components/common/header";
 import { ProjectsHero } from "@/app/__components/projects/projects-hero";
 import { ProjectsList } from "@/app/__components/projects/projects-list";
 

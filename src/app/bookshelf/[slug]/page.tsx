@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 
 import { BookReview } from "@/app/__components/bookshelf/book-review";
-import { Footer } from "@/app/__components/footer";
-import { Header } from "@/app/__components/header";
+import { Footer } from "@/app/__components/common/footer";
+import { Header } from "@/app/__components/common/header";
 import { getBookBySlug, getBooks } from "@/lib/books";
 
 export async function generateStaticParams() {

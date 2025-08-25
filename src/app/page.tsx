@@ -1,7 +1,7 @@
+import { Footer } from "@/app/__components/common/footer";
+import { Header } from "@/app/__components/common/header";
+import { HeroSection } from "@/app/__components/common/hero-section";
 import { FeaturedPosts } from "@/app/__components/featured-posts";
-import { Footer } from "@/app/__components/footer";
-import { Header } from "@/app/__components/header";
-import { HeroSection } from "@/app/__components/hero-section";
 
 export default function HomePage() {
   return (

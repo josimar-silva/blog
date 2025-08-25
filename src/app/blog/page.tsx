@@ -1,7 +1,7 @@
 import { BlogHero } from "@/app/__components/blog/blog-hero";
 import { BlogList } from "@/app/__components/blog/blog-list";
-import { Footer } from "@/app/__components/footer";
-import { Header } from "@/app/__components/header";
+import { Footer } from "@/app/__components/common/footer";
+import { Header } from "@/app/__components/common/header";
 import { getAllPosts } from "@/lib/posts";
 
 export default async function BlogPage() {
