@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 
 import { render, screen } from "@testing-library/react";
 
-import { AboutHero } from "@/app/__components/about-hero";
+import { AboutHero } from "./about-hero.tsx";
 
 // Mock next/image
 jest.mock("next/image", () => ({

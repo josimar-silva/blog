@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { ContactForm } from "@/app/__components/contact-form";
+import { ContactForm } from "./contact-form.tsx";
 
 describe("ContactForm", () => {
   it("should render the form correctly", () => {

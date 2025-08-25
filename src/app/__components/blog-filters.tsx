@@ -24,7 +24,7 @@ const categories = [
     "Database",
     "Development",
   ],
-  sortOptions = ["Newest First", "Oldest First", "Most Popular", "A-Z", "Z-A"];
+  sortOptions = ["Newest First", "Oldest First", "A-Z", "Z-A"];
 
 export function BlogFilters() {
   const [selectedCategory, setSelectedCategory] = useState("All"),
@@ -75,6 +75,7 @@ export function BlogFilters() {
             variant={viewMode === "grid" ? "default" : "ghost"}
             size="sm"
             onClick={() => setViewMode("grid")}
+            aria-label="Grid view"
           >
             <Grid className="h-4 w-4" />
           </Button>
@@ -82,6 +83,7 @@ export function BlogFilters() {
             variant={viewMode === "list" ? "default" : "ghost"}
             size="sm"
             onClick={() => setViewMode("list")}
+            aria-label="List view"
           >
             <List className="h-4 w-4" />
           </Button>
