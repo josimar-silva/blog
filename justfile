@@ -49,3 +49,37 @@ test:
 test-ui:
 	npm run test-ui
 
+# Prepare for a new release
+pre-release:
+    #!/usr/bin/env bash
+    set -e
+
+    if [[ -n $(git status --porcelain) ]]; then
+      echo "Git working directory is not clean. Please commit or stash your changes."
+      exit 1
+    fi
+
+    echo "Running checks and tests..."
+    just check
+    just test
+    just test-ui
+
+    current_version=$(node -p "require('./package.json').version")
+    echo "Current version is ${current_version}"
+
+    if [[ $current_version != *"-SNAPSHOT"* ]]; then
+      echo "Error: Current version is not a SNAPSHOT version."
+      exit 1
+    fi
+
+    new_version=$(echo ${current_version} | sed 's/-SNAPSHOT//')
+    echo "Bumping version to ${new_version}..."
+    npm version --no-git-tag-version ${new_version}
+
+    echo "Committing version bump..."
+    git add package.json package-lock.json
+    git commit -m "chore(release): prepare for release v${new_version}"
+
+    echo "Pre-release for version ${new_version} is ready."
+    echo "You can now push the changes to trigger the release workflow."
+
