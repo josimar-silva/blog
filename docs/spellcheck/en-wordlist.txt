@@ -4,6 +4,8 @@ Backend
 Backend's
 balancer
 CLI
+ci
+cd
 Confraria
 CloudNativePG
 DNS
@@ -20,15 +22,18 @@ LLMs
 Lenovo
 LoadBalancer
 Moraes
+mit
 NAS
 NFS
 NVMe
 OpenSSF
 OPNsense
 QNAP
+QL
 Rinha
 SSD
 Sata
+uptime
 TLS
 Talos
 VLANs
