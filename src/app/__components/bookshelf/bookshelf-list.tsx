@@ -97,6 +97,7 @@ export function BookshelfList({ books }: BookshelfListProps) {
                 }
                 className="cursor-pointer hover:bg-primary/80 transition-colors px-4 py-2"
                 onClick={() => setSelectedCategory(category)}
+                data-testid={`category-filter-${category}`}
               >
                 {category}
                 <span className="ml-2 text-xs opacity-70">

@@ -53,6 +53,13 @@ The project follows a standard Next.js structure with:
 3. Lint and Format
 4. Implement
 5. Run tests
+6. Commit
+
+## Commits
+
+Commits should follow the "Atomic Commits" approach.
+
+Commit messages follow https://www.conventionalcommits.org with scopes defined on cliff.toml.
 
 ### Git Commands
 
