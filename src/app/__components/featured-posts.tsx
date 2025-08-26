@@ -35,14 +35,23 @@ export async function FeaturedPosts() {
   const featuredPosts = await getFeaturedPosts();
 
   return (
-    <section className="py-12 md:py-24 lg:py-32 bg-muted/50">
+    <section
+      className="py-12 md:py-24 lg:py-32 bg-muted/50"
+      data-testid="featured-posts"
+    >
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            <h2
+              data-testid="featured-posts-title"
+              className="text-3xl font-bold tracking-tighter sm:text-5xl"
+            >
               Featured Posts
             </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <p
+              data-testid="featured-posts-subtitle"
+              className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
+            >
               My most popular and recent articles on web development and
               technology.
             </p>
@@ -50,7 +59,11 @@ export async function FeaturedPosts() {
         </div>
         <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
           {featuredPosts.map((post) => (
-            <Card key={post.slug} className="overflow-hidden">
+            <Card
+              key={post.slug}
+              className="overflow-hidden"
+              data-testid="featured-post-item"
+            >
               <Link href={`/blog/${post.slug}`}>
                 <Image
                   src={post.image || "/assets/blog/posts/placeholder.svg"}
@@ -86,7 +99,7 @@ export async function FeaturedPosts() {
             </Card>
           ))}
         </div>
-        <div className="flex justify-center">
+        <div data-testid="all-posts-button" className="flex justify-center">
           <Button asChild>
             <Link href="/blog">
               View All Posts
