@@ -14,6 +14,7 @@
 /coverage
 test-results/
 ui-tests-report/
+monocart-report/
 
 # next.js
 /.next/
