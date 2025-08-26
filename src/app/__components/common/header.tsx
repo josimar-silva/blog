@@ -31,7 +31,13 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/app/__components/ui/button";
 import { Input } from "@/app/__components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/app/__components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/app/__components/ui/sheet";
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false),
@@ -120,6 +126,10 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+              <SheetDescription className="sr-only">
+                Navigation links for mobile devices.
+              </SheetDescription>
               <nav className="flex flex-col space-y-4 mt-8">
                 {navigation.map((item) => (
                   <Link
