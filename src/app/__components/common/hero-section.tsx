@@ -36,7 +36,7 @@ export function HeroSection() {
           {/* Photo - appears first on mobile, second on desktop */}
           <div className="flex items-center justify-center order-1 lg:order-2">
             <Image
-              src="/assets/placeholder.svg?height=300&width=300"
+              src="/assets/placeholder.svg"
               alt="John Doe"
               width={300}
               height={300}
