@@ -46,11 +46,15 @@ format:
 test:
 	npm run test
 
-# Run UI tests
-test-e2e:
-	rm -rf test-results # Clean test results
-	just build
+# Run UI tests for all browsers
+test-e2e: build
+	rm -rf test-results
 	npm run test-e2e # Run playwright test
+
+# Run UI tests on a specific
+test-e2e-on BROWSER:
+	rm -rf test-results
+	npm run test-e2e -- --project="{{BROWSER}}"
 
 # Prepare for a new release
 pre-release:
