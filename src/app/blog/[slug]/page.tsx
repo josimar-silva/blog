@@ -43,6 +43,8 @@ export default async function BlogPostPage({
     "content",
     "tags",
     "category",
+    "previousPost",
+    "nextPost",
   ]);
 
   if (!post) {
@@ -52,7 +54,7 @@ export default async function BlogPostPage({
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <BlogPost post={{ ...post, content: post.content }} />
+      <BlogPost post={post} />
       <Footer />
     </div>
   );

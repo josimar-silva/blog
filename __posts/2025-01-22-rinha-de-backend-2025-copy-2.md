@@ -10,8 +10,6 @@ image: "/assets/blog/posts/placeholder.svg?height=400&width=800"
 featured: false
 ---
 
-# Lessons from Rinha de Backend 2025: LLMs as Power Tools and the Art of Problem Solving
-
 The third edition of Rinha de Backend presented another fascinating opportunity to dive deep into backend architecture and performance optimization. This time around, I chose Rust as my weapon of choice, partly inspired by recent conversations about the language and partly driven by curiosity about how modern AI tools could assist in the development process.
 
 ## Why Rust?
