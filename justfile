@@ -47,10 +47,10 @@ test:
 	npm run test
 
 # Run UI tests
-test-ui:
+test-e2e:
 	rm -rf test-results # Clean test results
 	just build
-	npm run test-ui # Run playwright test
+	npm run test-e2e # Run playwright test
 
 # Prepare for a new release
 pre-release:
@@ -65,7 +65,7 @@ pre-release:
     echo "Running checks and tests..."
     just check
     just test
-    just test-ui
+    just test-e2e
 
     current_version=$(node -p "require('./package.json').version")
     echo "Current version is ${current_version}"

@@ -13,7 +13,7 @@
 # testing
 /coverage
 test-results/
-ui-tests-report/
+e2e-tests-report/
 monocart-report/
 
 # next.js

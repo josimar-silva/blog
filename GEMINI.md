@@ -39,7 +39,7 @@ The project follows a standard Next.js structure with:
 *   `src/app`: Contains application pages, layouts, and components.
 *   `__posts`: Stores blog posts written in Markdown format.
 *   `public`: Holds static assets like images and favicons.
-*   `ui-tests`: Contains Playwright end-to-end tests.
+*   `e2e-tests`: Contains Playwright end-to-end tests.
 *   `src/interfaces`: Defines TypeScript interfaces for data structures.
 *   `src/lib`: Contains utility functions and data fetching logic.
 *   `src/hooks`: Custom React hooks.
@@ -91,7 +91,7 @@ The following scripts are available via `npm run` (from `package.json`) or `just
 *   `lint` / `just lint`: Runs ESLint.
 *   `lint:fix`: Runs ESLint with auto-fix.
 *   `test` / `just test`: Runs unit tests with Jest.
-*   `test-ui` / `just test-ui`: Runs UI tests with Playwright.
+*   `test-e2e` / `just test-e2e`: Runs UI tests with Playwright.
 *   `just install`: Installs Node.js dependencies.
 *   `just ci`: Installs Node.js dependencies for CI environments.
 *   `just build-image`: Builds the Docker image for the application.
@@ -111,9 +111,9 @@ The project utilizes two testing frameworks:
     *   Test files: Located in `src/(app|hooks|interfaces|lib)/**/*.test.(ts|tsx)`
 
 *   **UI Tests (Playwright):**
-    *   Command: `npm run test-ui` or `just test-ui`
+    *   Command: `npm run test-e2e` or `just test-e2e`
     *   Configuration: `playwright.config.ts`
-    *   Test files: Located in `ui-tests/`
+    *   Test files: Located in `e2e-tests/`
 
 
 ## Validation
@@ -122,5 +122,5 @@ Code quality and functionality are validated through a combination of linting, f
 
 *   **`just check`**: This command performs static analysis by running ESLint and Prettier checks.
 *   **`just test`**: Executes all unit tests using Jest, ensuring individual components and functions work as expected.
-*   **`just test-ui`**: Runs end-to-end UI tests with Playwright, verifying the application's behavior from a user's perspective.
-*   **`just pre-release`**: This command acts as a comprehensive validation step before a release, executing `just check`, `just test`, and `just test-ui` to ensure the codebase is stable and ready for deployment.
+*   **`just test-e2e`**: Runs end-to-end UI tests with Playwright, verifying the application's behavior from a user's perspective.
+*   **`just pre-release`**: This command acts as a comprehensive validation step before a release, executing `just check`, `just test`, and `just test-e2e` to ensure the codebase is stable and ready for deployment.

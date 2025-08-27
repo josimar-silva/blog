@@ -10,7 +10,7 @@ import { defineConfig, devices } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "./ui-tests",
+  testDir: "./e2e-tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -27,7 +27,7 @@ export default defineConfig({
       "monocart-reporter",
       {
         name: "UI Coverage",
-        outputFile: "./ui-tests-report/index.html",
+        outputFile: "./e2e-tests-report/index.html",
         // global coverage report options
         coverage: {
           reports: [["lcovonly", { file: "ui-lcov.info" }]],
