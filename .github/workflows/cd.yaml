@@ -55,6 +55,8 @@ jobs:
 
     permissions:
       contents: write
+      id-token: write
+      attestations: write
       actions: read
 
     env:
@@ -89,6 +91,11 @@ jobs:
         run: |
           tar -czvf blog-${{ env.RELEASE_VERSION }}.tar.gz -C dist .
           shasum -a 512 blog-${{ env.RELEASE_VERSION }}.tar.gz > blog-${{ env.RELEASE_VERSION }}.tar.gz.sha512
+
+      - name: 📝 Attest release provenance
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: '${{ github.workspace }}/blog-${{ env.RELEASE_VERSION }}.tar.gz'
 
       - name: 🔖 Create Git Tag
         run: |
