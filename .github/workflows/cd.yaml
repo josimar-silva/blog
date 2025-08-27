@@ -95,7 +95,7 @@ jobs:
       - name: 📝 Attest release provenance
         uses: actions/attest-build-provenance@v2
         with:
-          subject-path: '${{ github.workspace }}/blog-${{ env.RELEASE_VERSION }}.tar.gz'
+          subject-path: "${{ github.workspace }}/blog-${{ env.RELEASE_VERSION }}.tar.gz"
 
       - name: 🔖 Create Git Tag
         run: |
