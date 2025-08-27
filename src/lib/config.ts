@@ -22,63 +22,12 @@
  * SOFTWARE.
  */
 
-import { jest } from "@jest/globals";
-
-const fs = jest.createMockFromModule("fs/promises");
-
-const MOCK_MANIFEST = [
-  {
-    slug: "post-c",
-    title: "Post C",
-    date: "2025-01-23",
-    nextPost: null,
-    previousPost: { slug: "post-a", title: "Post A" },
-  },
-  {
-    slug: "post-a",
-    title: "Post A",
-    date: "2025-01-22",
-    nextPost: { slug: "post-c", title: "Post C" },
-    previousPost: { slug: "post-b", title: "Post B" },
-  },
-  {
-    slug: "post-b",
-    title: "Post B",
-    date: "2025-01-21",
-    nextPost: { slug: "post-a", title: "Post A" },
-    previousPost: null,
-  },
-];
-
-const MOCK_FILE_INFO = {
-  "posts-manifest.json": JSON.stringify(MOCK_MANIFEST),
-  "post-a.md": `---
-title: Post A
-date: 2025-01-22
----
-Content A`,
-  "post-b.md": `---
-title: Post B
-date: 2025-01-21
----
-Content B`,
-  "post-c.md": `---
-title: Post C
-date: 2025-01-23
----
-Content C`,
+const postsConfig = {
+  postsManifestFile: "src/lib/data/posts-manifest.json",
 };
 
-async function readFile(path) {
-  const file = path.split("/").pop();
-  return MOCK_FILE_INFO[file] || "";
-}
+const config = {
+  posts: postsConfig,
+};
 
-async function readdir() {
-  return []; // Not needed anymore for getAllPosts
-}
-
-fs.readFile = readFile;
-fs.readdir = readdir;
-
-module.exports = fs;
+export default config;
