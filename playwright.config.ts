@@ -75,21 +75,21 @@ export default defineConfig({
 
     /* Test against mobile viewports. */
     {
-      name: "Mobile Chrome",
+      name: "mobile-chrome",
       use: { ...devices["Pixel 5"] },
     },
     {
-      name: "Mobile Safari",
+      name: "mobile-safari",
       use: { ...devices["iPhone 12"] },
     },
 
     /* Test against branded browsers. */
     {
-      name: "Microsoft Edge",
+      name: "microsoft-edge",
       use: { ...devices["Desktop Edge"], channel: "msedge" },
     },
     {
-      name: "Google Chrome",
+      name: "google-chrome",
       use: { ...devices["Desktop Chrome"], channel: "chrome" },
     },
   ],
