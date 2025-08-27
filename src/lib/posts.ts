@@ -26,31 +26,41 @@ import fs from "fs/promises";
 import matter from "gray-matter";
 import { join } from "path";
 
+import config from "./config";
+
 const postsDirectory = join(process.cwd(), "__posts");
 
 export async function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, ""),
-    fullPath = join(postsDirectory, `${realSlug}.md`),
-    fileContents = await fs.readFile(fullPath, "utf8"),
-    { data, content } = matter(fileContents);
+  const manifestContents = await fs.readFile(
+    config.posts.postsManifestFile,
+    "utf8",
+  );
+  const posts = JSON.parse(manifestContents);
+  const postFromManifest = posts.find((p: { slug: string }) => p.slug === slug);
 
-  type Items = {
-    [key: string]: string;
+  if (!postFromManifest) {
+    return {};
+  }
+
+  const fullPath = join(postsDirectory, `${postFromManifest.slug}.md`);
+  const fileContents = await fs.readFile(fullPath, "utf8");
+  const { data, content } = matter(fileContents);
+
+  const allData = {
+    ...data,
+    ...postFromManifest,
+    content,
+    slug: postFromManifest.slug,
   };
 
-  const items: Items = {};
+  if (fields.length === 0) {
+    return allData;
+  }
 
-  // Ensure only the minimal needed data is exposed
+  const items = {};
   fields.forEach((field) => {
-    if (field === "slug") {
-      items[field] = realSlug;
-    }
-    if (field === "content") {
-      items[field] = content;
-    }
-
-    if (typeof data[field] !== "undefined") {
-      items[field] = data[field];
+    if (allData[field] !== undefined) {
+      items[field] = allData[field];
     }
   });
 
@@ -58,11 +68,30 @@ export async function getPostBySlug(slug: string, fields: string[] = []) {
 }
 
 export async function getAllPosts(fields: string[] = []) {
-  const slugs = await fs.readdir(postsDirectory),
-    posts = await Promise.all(
-      slugs.map(async (slug) => await getPostBySlug(slug, fields)),
+  try {
+    const fileContents = await fs.readFile(
+      config.posts.postsManifestFile,
+      "utf8",
     );
-  return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+    const posts = JSON.parse(fileContents);
+
+    if (fields.length === 0) {
+      return posts;
+    }
+
+    return posts.map((post: { [x: string]: any }) => {
+      const items = {};
+      fields.forEach((field) => {
+        if (post[field] !== undefined) {
+          items[field] = post[field];
+        }
+      });
+      return items;
+    });
+  } catch {
+    console.error("posts not found");
+    return [];
+  }
 }
 
 export async function getFeaturedPosts(

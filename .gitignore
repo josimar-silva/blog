@@ -24,6 +24,9 @@ monocart-report/
 /build
 /dist
 
+# dynamically generated
+src/lib/data/posts-manifest.json
+
 # misc
 .DS_Store
 *.pem
