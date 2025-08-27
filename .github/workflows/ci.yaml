@@ -159,6 +159,7 @@ jobs:
             ${{ runner.os }}-playwright-
 
       - name: ⚙️ Setup Playwright Browsers
+        if: steps.cache-playwright-browsers.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
       - name: 🧪 Run tests
@@ -222,7 +223,7 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@8c71dc039c2dd71d3821e89a2b58ecc7fee6ced9 # v5.3.0
         with:
           args: >
-            -Dsonar.scm.revision=${{ github.event.workflow_run.head_sha }}
+            -Dsonar.scm.revision=${{ github.sha }}
             -Dsonar.projectVersion=${{ steps.get_version.outputs.VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
