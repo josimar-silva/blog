@@ -39,6 +39,7 @@ check:
 
 # Format the source code using prettier
 format:
+    npm run lint:fix
     npx prettier . --write
 
 # Run unit tests
@@ -47,7 +48,9 @@ test:
 
 # Run UI tests
 test-ui:
-	npm run test-ui
+	rm -rf test-results # Clean test results
+	just build
+	npm run test-ui # Run playwright test
 
 # Prepare for a new release
 pre-release:
