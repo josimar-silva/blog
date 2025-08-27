@@ -27,8 +27,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 import BlogPostContent from "@/app/__components/blog/blog-post-content";
+import { BlogPostNavigation } from "@/app/__components/blog/blog-post-navigation";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
+
+interface PostNavigationProps {
+  slug: string;
+  title: string;
+}
 
 interface BlogPostProps {
   post: {
@@ -40,6 +46,8 @@ interface BlogPostProps {
     author: string;
     image: string;
     tags: string[];
+    previousPost?: PostNavigationProps | null;
+    nextPost?: PostNavigationProps | null;
   };
 }
 
@@ -59,17 +67,6 @@ export function BlogPost({ post }: BlogPostProps) {
 
         {/* Header */}
         <header className="mb-8">
-          {/* Tags at the top */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            <Badge>{post.category}</Badge>
-            {post.tags &&
-              post.tags.map((tag) => (
-                <Badge key={tag} variant="secondary">
-                  {tag}
-                </Badge>
-              ))}
-          </div>
-
           <h1 className="text-4xl font-bold tracking-tight lg:text-5xl mb-4">
             {post.title}
           </h1>
@@ -119,8 +116,26 @@ export function BlogPost({ post }: BlogPostProps) {
           />
         </div>
 
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          <Badge>{post.category}</Badge>
+          {post.tags &&
+            post.tags.map((tag) => (
+              <Badge key={tag} variant="secondary">
+                {tag}
+              </Badge>
+            ))}
+        </div>
         {/* Content */}
         <BlogPostContent content={post.content} />
+
+        {/* Navigation */}
+        <div className="mt-12">
+          <BlogPostNavigation
+            previousPost={post.previousPost}
+            nextPost={post.nextPost}
+          />
+        </div>
       </div>
     </article>
   );
