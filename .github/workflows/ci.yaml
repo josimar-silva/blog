@@ -149,9 +149,6 @@ jobs:
       - name: ⚙️ Install dependencies
         run: just ci
 
-      - name: ⚙️ Setup Playwright Browsers
-        run: npx playwright install --with-deps
-
       - name: 💾 Cache Playwright browsers
         id: cache-playwright-browsers
         uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
@@ -160,6 +157,9 @@ jobs:
           key: ${{ runner.os }}-playwright-${{ hashFiles('**/package.json') }}
           restore-keys: |
             ${{ runner.os }}-playwright-
+
+      - name: ⚙️ Setup Playwright Browsers
+        run: npx playwright install --with-deps
 
       - name: 🧪 Run tests
         run: just test-ui
