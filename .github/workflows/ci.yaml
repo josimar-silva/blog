@@ -154,11 +154,12 @@ jobs:
         uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package.json') }}
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/playwright.config.ts') }}
           restore-keys: |
             ${{ runner.os }}-playwright-
 
       - name: ⚙️ Setup Playwright Browsers
+        if: steps.cache-playwright-browsers.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
       - name: 🧪 Run E2E tests
