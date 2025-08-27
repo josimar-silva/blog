@@ -12,15 +12,15 @@
   </a>
   <!-- Blog Health -->
   <a href="https://josimar-silva.com/">
-    <img src="https://status.from-gondor.com/api/v1/endpoints/external_blog/health/badge.svg" alt="Blog Health" />
+    <img src="https://status.from-gondor.com/api/v1/endpoints/external_personal-website/health/badge.svg" alt="Blog Health" />
   </a>
   <!-- Blog uptime -->
   <a href="https://josimar-silva.com/">
-    <img src="https://status.from-gondor.com/api/v1/endpoints/external_blog/uptimes/30d/badge.svg" alt="Blog uptime" />
+    <img src="https://status.from-gondor.com/api/v1/endpoints/external_personal-website/uptimes/30d/badge.svg" alt="Blog uptime" />
   </a>
   <!-- Blog Response Time -->
   <a href="https://josimar-silva.com/">
-    <img src="https://status.from-gondor.com/api/v1/endpoints/external_blog/response-times/30d/badge.svg" alt="Blog response time" />
+    <img src="https://status.from-gondor.com/api/v1/endpoints/external_personal-website/response-times/30d/badge.svg" alt="Blog response time" />
   </a>
   <!-- Sonar Quality Gate -->
   <a href="https://sonarcloud.io/summary/new_code?id=josimar-silva_blog">
