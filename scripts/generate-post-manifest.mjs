@@ -1,10 +1,12 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import config from "../src/lib/config";
 
 const postsDirectory = path.join(process.cwd(), "__posts");
-const manifestPath = path.join(process.cwd(), config.posts.postsManifestFile);
+const manifestPath = path.join(
+  process.cwd(),
+  "src/lib/data/posts-manifest.json",
+);
 
 async function getPosts() {
   const slugs = await fs.readdir(postsDirectory);
