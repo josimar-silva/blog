@@ -67,7 +67,7 @@ export function PrivacyPolicy() {
                 activity and ensuring reliable content delivery.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                For more details on what Cloudflare collects, please review {" "}
+                For more details on what Cloudflare collects, please review{" "}
                 <a
                   href="https://www.cloudflare.com/privacypolicy/"
                   target="_blank"

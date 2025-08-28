@@ -2,7 +2,6 @@
 title: "Test code"
 excerpt: "Reflections on building a backend challenge solution with Rust and Gemini CLI, exploring how LLMs can be powerful development tools when used wisely."
 date: "2025-01-21"
-readTime: "8 min read"
 category: "Development"
 tags: ["Rust", "Backend", "AI", "LLMs", "Development Tools"]
 author: "John Doe"

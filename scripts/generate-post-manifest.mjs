@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import { readingTime } from "reading-time-estimator";
 
 const postsDirectory = path.join(process.cwd(), "__posts");
 const manifestPath = path.join(
@@ -15,11 +16,13 @@ async function getPosts() {
       const realSlug = slug.replace(/\.md$/, "");
       const fullPath = path.join(postsDirectory, slug);
       const fileContents = await fs.readFile(fullPath, "utf8");
-      const { data } = matter(fileContents);
+      const { data, content } = matter(fileContents);
+      const readTime = readingTime(content);
 
       return {
         ...data,
         slug: realSlug,
+        readTime: readTime.text,
       };
     }),
   );
