@@ -9,7 +9,7 @@ test.describe("Homepage", () => {
   test("should have greetings and subtitle", async ({ page }) => {
     await expect(page).toHaveTitle(/Josimar Silva/);
     await expect(
-      page.getByTestId("hero-title", { name: "Hi, I'm John Doe" }),
+      page.getByTestId("hero-title", { name: "Hi, I'm Josimar Silva" }),
     ).toBeVisible();
     await expect(
       page.getByTestId("hero-subtitle", {

@@ -89,8 +89,8 @@ export function AboutHero() {
           <div className="flex items-center justify-center">
             <div className="relative">
               <Image
-                src="/assets/placeholder.svg?height=500&width=400"
-                alt="John Doe - Professional Photo"
+                src="/assets/me.jpg"
+                alt="Josimar Silva - Professional Photo"
                 width={400}
                 height={500}
                 className="aspect-4/5 overflow-hidden rounded-2xl object-cover"

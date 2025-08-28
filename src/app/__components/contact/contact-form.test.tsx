@@ -47,7 +47,7 @@ describe("ContactForm", () => {
     render(<ContactForm />);
 
     // Fill out the form
-    await user.type(screen.getByLabelText(/name/i), "John Doe");
+    await user.type(screen.getByLabelText(/name/i), "Josimar Silva");
     await user.type(screen.getByLabelText(/email/i), "john.doe@example.com");
     await user.type(screen.getByLabelText(/subject/i), "Test Subject");
     await user.type(

@@ -108,7 +108,7 @@ export function PrivacyPolicy() {
                 contact me:
               </p>
               <ul className="space-y-2 text-muted-foreground">
-                <li>• Email: me@josimar-silva.com</li>
+                <li>Email: me@josimar-silva.com</li>
               </ul>
             </div>
           </div>

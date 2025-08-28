@@ -28,7 +28,7 @@ import { BookReview } from "./book-review";
 
 const mockBook = {
   title: "Sample Book",
-  author: "John Doe",
+  author: "Josimar Silva",
   type: "Book" as const,
   category: "Software Engineering",
   dateRead: "2025-08-15T00:00:00.000Z",
@@ -91,7 +91,7 @@ describe("BookReview", () => {
       expect(
         screen.getByRole("heading", { name: "Sample Book" }),
       ).toBeInTheDocument();
-      expect(screen.getByText("by John Doe")).toBeInTheDocument();
+      expect(screen.getByText("by Josimar Silva")).toBeInTheDocument();
     });
 
     it("renders book-specific metadata", () => {
