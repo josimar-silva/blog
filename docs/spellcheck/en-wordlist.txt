@@ -1,4 +1,5 @@
 APIs
+authorPhoto
 Acknowledgements
 Backend
 Backend's
@@ -50,6 +51,7 @@ silva
 sm
 stateful
 svg
+png
 viele
 VLAN
 Mischa
