@@ -62,7 +62,7 @@ const mockPost = {
   date: "2025-08-25T10:00:00Z",
   readTime: "10 min read",
   category: "Technology",
-  author: "John Doe",
+  author: "Josimar Silva",
   image: "/assets/test-image.jpg",
   tags: ["React", "Next.js", "Testing"],
 };
@@ -87,10 +87,9 @@ describe("BlogPost", () => {
 
     const authorImage = screen.getByAltText(mockPost.author);
     expect(authorImage).toBeInTheDocument();
-    expect(authorImage).toHaveAttribute(
-      "src",
-      "/assets/placeholder.svg?height=40&width=40",
-    );
+    expect(authorImage).toHaveAttribute("src", "/assets/placeholder.svg");
+    expect(authorImage).toHaveAttribute("height", "40");
+    expect(authorImage).toHaveAttribute("width", "40");
 
     expect(screen.getByTestId("blog-post-content")).toHaveTextContent(
       mockPost.content,

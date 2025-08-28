@@ -44,6 +44,7 @@ interface BlogPostProps {
     readTime: string;
     category: string;
     author: string;
+    authorPhoto: string;
     image: string;
     tags: string[];
     previousPost?: PostNavigationProps | null;
@@ -74,7 +75,7 @@ export function BlogPost({ post }: BlogPostProps) {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center space-x-4">
               <Image
-                src="/assets/placeholder.svg?height=40&width=40"
+                src={post.authorPhoto || "/assets/placeholder.svg"}
                 alt={post.author}
                 width={40}
                 height={40}

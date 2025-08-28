@@ -40,6 +40,7 @@ export default async function BlogPostPage({
     "readTime",
     "slug",
     "author",
+    "authorPhoto",
     "content",
     "tags",
     "category",
@@ -62,7 +63,7 @@ export default async function BlogPostPage({
 
 export async function generateStaticParams() {
   const posts = await getAllPosts(["slug"]);
-  return posts.map((post) => ({
+  return posts.map((post: { slug: string }) => ({
     slug: post.slug,
   }));
 }

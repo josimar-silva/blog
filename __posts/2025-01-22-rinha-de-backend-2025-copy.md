@@ -4,8 +4,9 @@ excerpt: "Reflections on building a backend challenge solution with Rust and Gem
 date: "2025-01-21"
 category: "Development"
 tags: ["Rust", "Backend", "AI", "LLMs", "Development Tools"]
-author: "John Doe"
-image: "/assets/blog/posts/placeholder.svg?height=400&width=800"
+author: "Josimar Silva"
+authorPhoto: "/assets/blog/authors/josimar-silva.png"
+image: "/assets/blog/posts/placeholder.svg"
 featured: true
 ---
 
