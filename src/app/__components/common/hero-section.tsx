@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,8 +36,8 @@ export function HeroSection() {
           {/* Photo - appears first on mobile, second on desktop */}
           <div className="flex items-center justify-center order-1 lg:order-2">
             <Image
-              src="/assets/placeholder.svg"
-              alt="John Doe"
+              src="/assets/me.jpg"
+              alt="Josimar Silva"
               width={300}
               height={300}
               className="aspect-square overflow-hidden rounded-full object-cover"
@@ -51,14 +51,14 @@ export function HeroSection() {
                 data-testid="hero-title"
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
               >
-                Hi, I'm John Doe
+                Hi, I'm Josimar Silva
               </h1>
               <p
                 data-testid="hero-subtitle"
                 className="max-w-[600px] text-muted-foreground md:text-xl"
               >
-                Full-stack developer, writer, and creator. I write about web
-                development, technology, and building products that matter.
+                Curious Software Engineer, homelabber and casual runner. I write
+                about software engineering, homelab, and more.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -74,25 +74,25 @@ export function HeroSection() {
             </div>
             <div className="flex items-center space-x-4 pt-4">
               <Link
-                href="https://github.com"
+                href="https://github.com/josimar-silva"
                 className="text-muted-foreground hover:text-foreground"
               >
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://twitter.com"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/josimar-silvx"
                 className="text-muted-foreground hover:text-foreground"
               >
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
+              </Link>
+              <Link
+                href="mailto:me@josimar-silva.com"
+                className="text-muted-foreground hover:text-foreground"
+              >
+                <Mail className="h-5 w-5" />
+                <span className="sr-only">E-mail</span>
               </Link>
             </div>
           </div>

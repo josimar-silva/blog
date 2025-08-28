@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 
 export function ContactInfo() {
@@ -38,10 +38,10 @@ export function ContactInfo() {
                 <span className="text-sm">Email</span>
               </div>
               <Link
-                href="mailto:hello@johndoe.com"
+                href="mailto:me@josimar-silva.com"
                 className="text-2xl md:text-3xl font-medium hover:text-primary transition-colors"
               >
-                hello@johndoe.com
+                me@josimar-silva.com
               </Link>
             </div>
           </div>
@@ -57,7 +57,7 @@ export function ContactInfo() {
                 <MapPin className="h-4 w-4" />
                 <span className="text-sm">Location</span>
               </div>
-              <p className="text-lg">San Francisco, CA</p>
+              <p className="text-lg">Germany</p>
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export function ContactInfo() {
 
             <div className="flex justify-center gap-8">
               <Link
-                href="https://github.com/johndoe"
+                href="https://github.com/josimar-silva"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
@@ -82,17 +82,7 @@ export function ContactInfo() {
               </Link>
 
               <Link
-                href="https://twitter.com/johndoe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
-              >
-                <Twitter className="h-6 w-6" />
-                <span className="text-sm">Twitter</span>
-              </Link>
-
-              <Link
-                href="https://linkedin.com/in/johndoe"
+                href="https://www.linkedin.com/in/josimar-silvx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"

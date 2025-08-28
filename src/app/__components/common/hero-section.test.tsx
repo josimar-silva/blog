@@ -31,7 +31,7 @@ describe("HeroSection", () => {
     render(<HeroSection />);
 
     expect(screen.getByTestId("hero-title")).toHaveTextContent(
-      "Hi, I'm John Doe",
+      "Hi, I'm Josimar Silva",
     );
     expect(screen.getByTestId("hero-subtitle")).toBeInTheDocument();
   });
@@ -53,15 +53,15 @@ describe("HeroSection", () => {
 
     expect(screen.getByRole("link", { name: /GitHub/i })).toHaveAttribute(
       "href",
-      "https://github.com",
-    );
-    expect(screen.getByRole("link", { name: /Twitter/i })).toHaveAttribute(
-      "href",
-      "https://twitter.com",
+      "https://github.com/josimar-silva",
     );
     expect(screen.getByRole("link", { name: /LinkedIn/i })).toHaveAttribute(
       "href",
-      "https://linkedin.com",
+      "https://www.linkedin.com/in/josimar-silvx",
+    );
+    expect(screen.getByRole("link", { name: /E-mail/i })).toHaveAttribute(
+      "href",
+      "mailto:me@josimar-silva.com",
     );
   });
 });

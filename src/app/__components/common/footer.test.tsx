@@ -62,19 +62,15 @@ describe("Footer", () => {
     // Check social media links
     expect(screen.getByRole("link", { name: /github/i })).toHaveAttribute(
       "href",
-      "https://github.com",
-    );
-    expect(screen.getByRole("link", { name: /twitter/i })).toHaveAttribute(
-      "href",
-      "https://twitter.com",
+      "https://github.com/josimar-silva",
     );
     expect(screen.getByRole("link", { name: /linkedin/i })).toHaveAttribute(
       "href",
-      "https://linkedin.com",
+      "https://www.linkedin.com/in/josimar-silvx",
     );
     expect(screen.getByRole("link", { name: /mail/i })).toHaveAttribute(
       "href",
-      "mailto:hello@johndoe.com",
+      "mailto:me@josimar-silva.com",
     );
 
     // Check category links (sample a few)

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -37,7 +37,7 @@ export function Footer() {
                   JD
                 </span>
               </div>
-              <span className="font-bold text-xl">John Doe</span>
+              <span className="font-bold text-xl">Josimar Silva</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Full-stack developer sharing insights about web development,
@@ -45,28 +45,21 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="https://github.com"
+                href="https://github.com/josimar-silva"
                 className="text-muted-foreground hover:text-foreground"
                 aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
               </Link>
               <Link
-                href="https://twitter.com"
-                className="text-muted-foreground hover:text-foreground"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/josimar-silvx"
                 className="text-muted-foreground hover:text-foreground"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link
-                href="mailto:hello@johndoe.com"
+                href="mailto:me@josimar-silva.com"
                 className="text-muted-foreground hover:text-foreground"
                 aria-label="Mail"
               >

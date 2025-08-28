@@ -32,15 +32,15 @@ describe("ContactInfo", () => {
 
     expect(screen.getByText(/Email/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /hello@johndoe.com/i }),
-    ).toHaveAttribute("href", "mailto:hello@johndoe.com");
+      screen.getByRole("link", { name: /me@josimar-silva.com/i }),
+    ).toHaveAttribute("href", "mailto:me@josimar-silva.com");
   });
 
   it("renders the location information", () => {
     render(<ContactInfo />);
 
     expect(screen.getByText(/Location/i)).toBeInTheDocument();
-    expect(screen.getByText(/San Francisco, CA/i)).toBeInTheDocument();
+    expect(screen.getByText(/Germany/i)).toBeInTheDocument();
   });
 
   it("renders social media links", () => {
@@ -49,15 +49,11 @@ describe("ContactInfo", () => {
     expect(screen.getByText(/Find me on/i)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /GitHub/i })).toHaveAttribute(
       "href",
-      "https://github.com/johndoe",
-    );
-    expect(screen.getByRole("link", { name: /Twitter/i })).toHaveAttribute(
-      "href",
-      "https://twitter.com/johndoe",
+      "https://github.com/josimar-silva",
     );
     expect(screen.getByRole("link", { name: /LinkedIn/i })).toHaveAttribute(
       "href",
-      "https://linkedin.com/in/johndoe",
+      "https://www.linkedin.com/in/josimar-silvx",
     );
   });
 });
