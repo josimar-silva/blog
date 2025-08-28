@@ -35,18 +35,21 @@ describe("PrivacyPolicy", () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole("heading", { name: /Information I Collect/i, level: 2 }),
-    ).toBeInTheDocument();
-
-    expect(
       screen.getByRole("heading", {
-        name: /How I Use Your Information/i,
+        name: /No Information Collected/i,
         level: 2,
       }),
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole("heading", { name: /Information Sharing/i, level: 2 }),
+      screen.getByRole("heading", {
+        name: /Third-Party Services \(Cloudflare\)/i,
+        level: 2,
+      }),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("heading", { name: /Cookies/i, level: 2 }),
     ).toBeInTheDocument();
 
     expect(
@@ -57,7 +60,7 @@ describe("PrivacyPolicy", () => {
   it("renders the last updated date", () => {
     render(<PrivacyPolicy />);
     expect(
-      screen.getByText(/Last updated: January 21, 2025/i),
+      screen.getByText(/Last updated: August 28, 2025/i),
     ).toBeInTheDocument();
   });
 });
