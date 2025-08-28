@@ -35,22 +35,26 @@ describe("TermsOfService", () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole("heading", { name: /Acceptance of Terms/i, level: 2 }),
+      screen.getByRole("heading", { name: /Content Licensing/i, level: 2 }),
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole("heading", { name: /Use License/i, level: 2 }),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole("heading", {
-        name: /Content and Intellectual Property/i,
-        level: 2,
-      }),
+      screen.getByRole("heading", { name: /Code Licensing/i, level: 2 }),
     ).toBeInTheDocument();
 
     expect(
       screen.getByRole("heading", { name: /Disclaimer/i, level: 2 }),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("heading", { name: /Limitations/i, level: 2 }),
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole("heading", {
+        name: /Changes to These Terms/i,
+        level: 2,
+      }),
     ).toBeInTheDocument();
 
     expect(
@@ -61,7 +65,7 @@ describe("TermsOfService", () => {
   it("renders the last updated date", () => {
     render(<TermsOfService />);
     expect(
-      screen.getByText(/Last updated: January 21, 2025/i),
+      screen.getByText(/Last updated: August 28, 2025/i),
     ).toBeInTheDocument();
   });
 });

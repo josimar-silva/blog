@@ -34,9 +34,11 @@ export function PrivacyPolicy() {
               Privacy Policy
             </h1>
             <p className="text-xl text-muted-foreground">
-              Your privacy is important to me. I believe such information is yours and yours alone.
-              This blog does not collect any personal information from its users or transmit your personal details,
-              nor do we include any advertising or analytics software that talks to third parties.
+              Your privacy is important to me. I believe such information is
+              yours and yours alone. This blog does not collect any personal
+              information from its users or transmit your personal details, nor
+              do we include any advertising or analytics software that talks to
+              third parties.
             </p>
             <p className="text-sm text-muted-foreground">
               Last updated: {lastUpdated}
