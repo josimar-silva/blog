@@ -51,12 +51,13 @@ describe("AboutHero", () => {
 
     // Check for details
     expect(screen.getByText(/san francisco, ca/i)).toBeInTheDocument();
-    expect(screen.getByText(/5\+ years experience/i)).toBeInTheDocument();
+    expect(screen.getByText(/10\+ years experience/i)).toBeInTheDocument();
 
     // Check for buttons
-    expect(
-      screen.getByRole("button", { name: /download resume/i }),
-    ).toBeInTheDocument();
+    const downloadLink = screen.getByRole("link", { name: /download resume/i });
+    expect(downloadLink).toBeInTheDocument();
+    expect(downloadLink).toHaveAttribute("href", "/docs/resume.pdf");
+    expect(downloadLink).toHaveAttribute("download");
     const contactLink = screen.getByRole("link", { name: /get in touch/i });
     expect(contactLink).toBeInTheDocument();
     expect(contactLink).toHaveAttribute("href", "/contact");

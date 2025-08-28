@@ -49,7 +49,7 @@ export function AboutHero() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
-                  <span>5+ years experience</span>
+                  <span>10+ years experience</span>
                 </div>
               </div>
             </div>
@@ -70,9 +70,15 @@ export function AboutHero() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button>
-                <Download className="mr-2 h-4 w-4" />
-                Download Resume
+              <Button asChild>
+                <Link
+                  href="/docs/resume.pdf"
+                  download
+                  className="flex items-center"
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Resume
+                </Link>
               </Button>
               <Button variant="outline" asChild>
                 <Link href="/contact">Get In Touch</Link>
