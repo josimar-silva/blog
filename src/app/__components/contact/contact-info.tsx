@@ -22,8 +22,10 @@
  * SOFTWARE.
  */
 
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import Link from "next/link";
+
+import { SocialLinks } from "../common/social-links";
 
 export function ContactInfo() {
   return (
@@ -70,27 +72,7 @@ export function ContactInfo() {
               <span className="text-sm">Find me on</span>
             </div>
 
-            <div className="flex justify-center gap-8">
-              <Link
-                href="https://github.com/josimar-silva"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
-              >
-                <Github className="h-6 w-6" />
-                <span className="text-sm">GitHub</span>
-              </Link>
-
-              <Link
-                href="https://www.linkedin.com/in/josimar-silvx"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
-              >
-                <Linkedin className="h-6 w-6" />
-                <span className="text-sm">LinkedIn</span>
-              </Link>
-            </div>
+            <SocialLinks className="flex justify-center gap-8" />
           </div>
         </div>
       </div>

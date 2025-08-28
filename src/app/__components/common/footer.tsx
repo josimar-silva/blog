@@ -22,8 +22,9 @@
  * SOFTWARE.
  */
 
-import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+
+import { SocialLinks } from "./social-links";
 
 export function Footer() {
   return (
@@ -43,29 +44,7 @@ export function Footer() {
               Full-stack developer sharing insights about web development,
               technology, and building great products.
             </p>
-            <div className="flex space-x-4">
-              <Link
-                href="https://github.com/josimar-silva"
-                className="text-muted-foreground hover:text-foreground"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/josimar-silvx"
-                className="text-muted-foreground hover:text-foreground"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </Link>
-              <Link
-                href="mailto:me@josimar-silva.com"
-                className="text-muted-foreground hover:text-foreground"
-                aria-label="Mail"
-              >
-                <Mail className="h-5 w-5" />
-              </Link>
-            </div>
+            <SocialLinks />
           </div>
 
           <div className="space-y-4">

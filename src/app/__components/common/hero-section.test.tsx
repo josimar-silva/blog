@@ -59,7 +59,7 @@ describe("HeroSection", () => {
       "href",
       "https://www.linkedin.com/in/josimar-silvx",
     );
-    expect(screen.getByRole("link", { name: /E-mail/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /Mail/i })).toHaveAttribute(
       "href",
       "mailto:me@josimar-silva.com",
     );

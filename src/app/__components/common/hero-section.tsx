@@ -22,11 +22,13 @@
  * SOFTWARE.
  */
 
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/app/__components/ui/button";
+
+import { SocialLinks } from "./social-links";
 
 export function HeroSection() {
   return (
@@ -72,29 +74,7 @@ export function HeroSection() {
                 <Link href="/about">About Me</Link>
               </Button>
             </div>
-            <div className="flex items-center space-x-4 pt-4">
-              <Link
-                href="https://github.com/josimar-silva"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/josimar-silvx"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link
-                href="mailto:me@josimar-silva.com"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <Mail className="h-5 w-5" />
-                <span className="sr-only">E-mail</span>
-              </Link>
-            </div>
+            <SocialLinks className="pt-4" />
           </div>
         </div>
       </div>
