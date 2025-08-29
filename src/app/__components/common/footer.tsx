@@ -25,6 +25,8 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
+import CategoriesList from "@/app/__components/common/categories-list";
+
 export function Footer() {
   return (
     <footer className="border-t bg-background">
@@ -48,6 +50,7 @@ export function Footer() {
                 href="https://github.com/josimar-silva"
                 className="text-muted-foreground hover:text-foreground"
                 aria-label="GitHub"
+                data-testid="github-link"
               >
                 <Github className="h-5 w-5" />
               </Link>
@@ -55,6 +58,7 @@ export function Footer() {
                 href="https://www.linkedin.com/in/josimar-silvx"
                 className="text-muted-foreground hover:text-foreground"
                 aria-label="LinkedIn"
+                data-testid="linkedin-link"
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
@@ -62,6 +66,7 @@ export function Footer() {
                 href="mailto:me@josimar-silva.com"
                 className="text-muted-foreground hover:text-foreground"
                 aria-label="Mail"
+                data-testid="mail-link"
               >
                 <Mail className="h-5 w-5" />
               </Link>
@@ -124,48 +129,7 @@ export function Footer() {
 
           <div className="space-y-4">
             <h3 className="font-semibold">Categories</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link
-                  href="/blog/category/react"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  React
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog/category/nextjs"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Next.js
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog/category/typescript"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  TypeScript
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog/category/css"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  CSS
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog/category/nodejs"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Node.js
-                </Link>
-              </li>
-            </ul>
+            <CategoriesList max={5} />
           </div>
 
           <div className="space-y-4">
