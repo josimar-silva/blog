@@ -31,9 +31,10 @@ import CategoriesList from "./categories-list";
 // Mock the getCategories function
 jest.mock("@/lib/categories", () => ({
   getCategories: jest.fn(() => [
-    { name: "TypeScript", count: 8 },
-    { name: "React", count: 5 },
-    { name: "Next.js", count: 3 },
+    { key: "typescript", name: "TypeScript", count: 8 },
+    { key: "react", name: "React", count: 5 },
+    { key: "next.js", name: "Next.js", count: 3 },
+    { key: "software-engineering", name: "Software Engineering", count: 1 },
   ]),
 }));
 
@@ -42,7 +43,7 @@ describe("CategoriesList", () => {
     render(<CategoriesList />);
 
     const listItems = screen.getAllByRole("listitem");
-    expect(listItems).toHaveLength(3);
+    expect(listItems).toHaveLength(4);
   });
 
   it("renders categories in the correct order", () => {
@@ -51,14 +52,19 @@ describe("CategoriesList", () => {
     const links = screen.getAllByRole("link");
     const texts = links.map((link) => link.textContent);
 
-    expect(texts).toEqual(["TypeScript", "React", "Next.js"]);
+    expect(texts).toEqual([
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Software Engineering",
+    ]);
   });
 
   it("renders links with correct hrefs", () => {
     render(<CategoriesList />);
 
-    const link = screen.getByText("React");
-    expect(link).toHaveAttribute("href", "/blog/category/react");
+    const link = screen.getByText("Software Engineering");
+    expect(link).toHaveAttribute("href", "/blog?category=software-engineering");
   });
 
   it("should call getCategories with the max property", () => {

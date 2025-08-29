@@ -32,9 +32,9 @@ const CategoriesList = ({ max }: { max?: number }) => {
   return (
     <ul className="space-y-2 text-sm">
       {categories.map((category) => (
-        <li key={category.name}>
+        <li key={category.key}>
           <Link
-            href={`/blog/category/${category.name.toLowerCase()}`}
+            href={`/blog?category=${category.key}`}
             className="text-muted-foreground hover:text-foreground"
           >
             {category.name}
