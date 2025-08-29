@@ -25,11 +25,13 @@
 import { getCategories } from "./categories";
 
 // Mock the categories manifest
-jest.mock("@/lib/data/categories-manifest.json", () => [
-  { name: "React", count: 5 },
-  { name: "Next.js", count: 3 },
-  { name: "TypeScript", count: 8 },
-]);
+jest.mock("@/lib/data/categories", () => ({
+  categories: [
+    { key: "react", name: "React", count: 5 },
+    { key: "next.js", name: "Next.js", count: 3 },
+    { key: "typescript", name: "TypeScript", count: 8 },
+  ],
+}));
 
 describe("getCategories", () => {
   it("should return categories sorted by count in descending order", () => {

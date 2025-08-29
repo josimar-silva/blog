@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import categories from "@/lib/data/categories-manifest.json";
+import { categories } from "@/lib/data/categories";
 
 export const getCategories = (max?: number) => {
   const sorted = [...categories].sort((a, b) => b.count - a.count);
