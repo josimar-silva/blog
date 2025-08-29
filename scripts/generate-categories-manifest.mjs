@@ -11,12 +11,12 @@ const manifestPath = path.join(
 async function getPosts() {
   const slugs = await fs.readdir(postsDirectory);
   return Promise.all(
-      slugs.map(async (slug) => {
-          const fullPath = path.join(postsDirectory, slug);
-          const fileContents = await fs.readFile(fullPath, "utf8");
-          const {data} = matter(fileContents);
-          return data;
-      }),
+    slugs.map(async (slug) => {
+      const fullPath = path.join(postsDirectory, slug);
+      const fileContents = await fs.readFile(fullPath, "utf8");
+      const { data } = matter(fileContents);
+      return data;
+    }),
   );
 }
 
