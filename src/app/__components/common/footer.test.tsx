@@ -25,19 +25,65 @@
 import "@testing-library/jest-dom";
 
 import { render, screen } from "@testing-library/react";
+import Link from "next/link";
+import React from "react";
 
 import { Footer } from "./footer";
 
-describe("Footer", () => {
-  it("should render the footer with correct content and links", () => {
-    render(<Footer />);
+jest.mock("next/link", () => {
+  const MockLink = ({
+    href,
+    children,
+    ...props
+  }: {
+    href: string;
+    children: React.ReactNode;
+  }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  );
+  MockLink.displayName = "MockLink";
+  return MockLink;
+});
 
-    // Check copyright text
+jest.mock("@/app/__components/common/categories-list", () => {
+  const MockCategoriesList = () => (
+    <ul>
+      <li>
+        <Link
+          href="/blog/category/react"
+          className="text-muted-foreground hover:text-foreground"
+        >
+          React
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/blog/category/next.js"
+          className="text-muted-foreground hover:text-foreground"
+        >
+          Next.js
+        </Link>
+      </li>
+    </ul>
+  );
+  MockCategoriesList.displayName = "MockCategoriesList";
+  return MockCategoriesList;
+});
+
+describe("Footer", () => {
+  beforeEach(() => {
+    render(<Footer />);
+  });
+
+  it("should contain copyright text", () => {
     expect(
       screen.getByText(/josimar silva\. all rights reserved\./i),
     ).toBeInTheDocument();
+  });
 
-    // Check navigation links
+  it("should contain navigation links", () => {
     expect(screen.getByRole("link", { name: /home/i })).toHaveAttribute(
       "href",
       "/",
@@ -58,38 +104,44 @@ describe("Footer", () => {
       "href",
       "/contact",
     );
+  });
 
-    // Check social media links
-    expect(screen.getByRole("link", { name: /github/i })).toHaveAttribute(
+  it("should contain social media links", () => {
+    expect(screen.getByTestId("github-link")).toHaveAttribute(
       "href",
       "https://github.com/josimar-silva",
     );
-    expect(screen.getByRole("link", { name: /linkedin/i })).toHaveAttribute(
+    expect(screen.getByTestId("linkedin-link")).toHaveAttribute(
       "href",
       "https://www.linkedin.com/in/josimar-silvx",
     );
-    expect(screen.getByRole("link", { name: /mail/i })).toHaveAttribute(
+    expect(screen.getByTestId("mail-link")).toHaveAttribute(
       "href",
       "mailto:me@josimar-silva.com",
     );
+  });
 
-    // Check category links (sample a few)
+  it("should contain category links", () => {
     expect(screen.getByRole("link", { name: /react/i })).toHaveAttribute(
       "href",
       "/blog/category/react",
     );
     expect(screen.getByRole("link", { name: /next\.js/i })).toHaveAttribute(
       "href",
-      "/blog/category/nextjs",
+      "/blog/category/next.js",
     );
+  });
 
-    // Check legal links
+  it("should contain legal links", () => {
     expect(
       screen.getByRole("link", { name: /privacy policy/i }),
     ).toHaveAttribute("href", "/privacy");
     expect(
       screen.getByRole("link", { name: /terms of service/i }),
     ).toHaveAttribute("href", "/terms");
+  });
+
+  it("should contain rss feed link", () => {
     expect(screen.getByRole("link", { name: /rss feed/i })).toHaveAttribute(
       "href",
       "/rss",
