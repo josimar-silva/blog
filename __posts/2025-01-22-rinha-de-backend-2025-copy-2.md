@@ -2,7 +2,7 @@
 title: "Lessons from Rinha de Backend 2025: LLMs as Power Tools and the Art of Problem Solving"
 excerpt: "Reflections on building a backend challenge solution with Rust and Gemini CLI, exploring how LLMs can be powerful development tools when used wisely."
 date: "2025-01-21"
-category: "Development"
+category: "Software Engineering"
 tags: ["Rust", "Backend", "AI", "LLMs", "Development Tools"]
 author: "Josimar Silva"
 authorPhoto: "/assets/blog/authors/josimar-silva.png"
