@@ -2,12 +2,12 @@
 title: "Lessons from Rinha de Backend 2025: LLMs as Power Tools and the Art of Problem Solving"
 excerpt: "Reflections on building a backend challenge solution with Rust and Gemini CLI, exploring how LLMs can be powerful development tools when used wisely."
 date: "2025-01-21"
-category: "Development"
+category: "AI"
 tags: ["Rust", "Backend", "AI", "LLMs", "Development Tools"]
 author: "Josimar Silva"
 authorPhoto: "/assets/blog/authors/josimar-silva.png"
 image: "/assets/blog/posts/placeholder.svg"
-featured: true
+featured: false
 ---
 
 The third edition of Rinha de Backend presented another fascinating opportunity to dive deep into backend architecture and performance optimization. This time around, I chose Rust as my weapon of choice, partly inspired by recent conversations about the language and partly driven by curiosity about how modern AI tools could assist in the development process.

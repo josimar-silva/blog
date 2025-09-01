@@ -1,13 +1,13 @@
 ---
 title: "Test code"
-excerpt: "Reflections on building a backend challenge solution with Rust and Gemini CLI, exploring how LLMs can be powerful development tools when used wisely."
+excerpt: "Text code"
 date: "2025-01-21"
-category: "Development"
+category: "Programming"
 tags: ["Rust", "Backend", "AI", "LLMs", "Development Tools"]
 author: "Josimar Silva"
 authorPhoto: "/assets/blog/authors/josimar-silva.png"
 image: "/assets/blog/posts/placeholder.svg"
-featured: false
+featured: true
 ---
 
 
