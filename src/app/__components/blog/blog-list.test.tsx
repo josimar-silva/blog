@@ -56,6 +56,20 @@ const mockPosts = [
   },
 ];
 
+jest.mock("next/navigation", () => ({
+  useSearchParams: () => ({
+    get: () => null,
+  }),
+}));
+
+jest.mock("@/lib/categories", () => ({
+  getCategories: () => [
+    { key: "category-a", name: "Category A", count: 2 },
+    { key: "category-b", name: "Category B", count: 1 },
+    { key: "category-c", name: "Category C", count: 0 },
+  ],
+}));
+
 describe("BlogList", () => {
   it("renders all posts by default", () => {
     render(<BlogList posts={mockPosts} />);
@@ -153,5 +167,41 @@ describe("BlogList", () => {
       within(post2Article).getByText("Category B", { selector: "span" }),
     ).toBeInTheDocument();
     expect(within(post2Article).getByText("7 min read")).toBeInTheDocument();
+  });
+
+  it("filters posts by category from URL", () => {
+    jest.spyOn(require("next/navigation"), "useSearchParams").mockReturnValue({
+      get: () => "category-a",
+    });
+    render(<BlogList posts={mockPosts} />);
+    expect(screen.getByText("Post 1")).toBeInTheDocument();
+    expect(screen.getByText("Post 3")).toBeInTheDocument();
+    expect(screen.queryByText("Post 2")).not.toBeInTheDocument();
+    expect(
+      screen.getByText(`Showing 2 articles in "Category A"`),
+    ).toBeInTheDocument();
+  });
+
+  it('shows all posts after clicking "View all posts"', () => {
+    render(<BlogList posts={mockPosts} />);
+
+    // Click on a category with no posts
+    fireEvent.click(screen.getByText("Category C"));
+
+    // Check that the "no posts" message is shown
+    expect(
+      screen.getByText('No posts found in the "Category C" category.'),
+    ).toBeInTheDocument();
+
+    // Click the "View all posts" button
+    fireEvent.click(screen.getByText("View all posts"));
+
+    // Check that all posts are shown again
+    expect(screen.getByText("Post 1")).toBeInTheDocument();
+    expect(screen.getByText("Post 2")).toBeInTheDocument();
+    expect(screen.getByText("Post 3")).toBeInTheDocument();
+    expect(
+      screen.getByText(`Showing all ${mockPosts.length} articles`),
+    ).toBeInTheDocument();
   });
 });

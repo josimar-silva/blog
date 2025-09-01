@@ -25,9 +25,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 
 import { Badge } from "@/app/__components/ui/badge";
+import { getCategories } from "@/lib/categories";
 
 interface BlogPost {
   id: number;
@@ -43,18 +45,39 @@ interface BlogListProps {
   posts: BlogPost[];
 }
 
-export function BlogList({ posts }: BlogListProps) {
-  const [selectedCategory, setSelectedCategory] = useState("All"),
-    // Get unique categories from posts
-    categories = [
-      "All",
-      ...Array.from(new Set(posts.map((post) => post.category))),
-    ],
+function BlogListComponent({ posts }: Readonly<BlogListProps>) {
+  const searchParams = useSearchParams();
+  const categoryKey = searchParams.get("category");
+
+  const getInitialCategory = () => {
+    if (!categoryKey) {
+      return "All";
+    }
+    const categories = getCategories();
+    const category = categories.find((c) => c.key === categoryKey);
+    return category ? category.name : "All";
+  };
+
+  const [selectedCategory, setSelectedCategory] =
+    useState(getInitialCategory());
+
+  useEffect(() => {
+    setSelectedCategory(getInitialCategory());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categoryKey]);
+
+  const categories = getCategories()
+      .map((category) => category.name)
+      .concat("All"),
     // Filter posts based on selected category
     filteredPosts =
       selectedCategory === "All"
         ? posts
         : posts.filter((post) => post.category === selectedCategory);
+
+  function formattedArticle() {
+    return `article${filteredPosts.length !== 1 ? "s" : ""}`;
+  }
 
   return (
     <section className="pb-16 md:pb-20">
@@ -144,10 +167,18 @@ export function BlogList({ posts }: BlogListProps) {
           <p className="text-muted-foreground">
             {selectedCategory === "All"
               ? `Showing all ${posts.length} articles`
-              : `Showing ${filteredPosts.length} article${filteredPosts.length !== 1 ? "s" : ""} in "${selectedCategory}"`}
+              : `Showing ${filteredPosts.length} ${formattedArticle()} in "${selectedCategory}"`}
           </p>
         </div>
       </div>
     </section>
+  );
+}
+
+export function BlogList(props: Readonly<BlogListProps>) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BlogListComponent {...props} />
+    </Suspense>
   );
 }
