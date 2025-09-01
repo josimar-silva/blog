@@ -247,59 +247,14 @@ jobs:
           HOME: /root
 
       - name: ⬆️ Upload coverage report
+        if: matrix.browser == 'chromium'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: test-e2e-coverage-${{ matrix.browser }}
           path: e2e-tests-report/coverage/ui-lcov.info
 
-  e2e-coverage:
-    name: Merge E2E Coverage
-    runs-on: ubuntu-24.04
-    needs: test-e2e
-    steps:
-      - name: 🛡️ Harden the runner
-        uses: step-security/harden-runner@ec9f2d5744a09debf3a187a3f4f675c53b671911 # v2.13.0
-        with:
-          egress-policy: audit
-
-      - name: 📦 Checkout
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
-        with:
-          fetch-depth: 0
-
-      - name: 🇳 Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
-        with:
-          node-version: "22.19.0"
-
-      - name: 💾 Cache Node.js modules
-        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-
-      - name: ⚙️ Install dependencies
-        run: npm install lcov-result-merger
-
-      - name: ⬇️ Download all E2E coverage reports
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
-        with:
-          path: coverage-artifacts
-
-      - name: 🔄 Merge E2E coverage reports
-        run: |
-          mkdir -p e2e-tests-report
-          find coverage-artifacts -name "ui-lcov.info" -print0 | xargs -0 npx lcov-result-merger > e2e-tests-report/ui-lcov.info
-
-      - name: ⬆️ Upload merged E2E coverage report
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: test-e2e-coverage-merged
-          path: e2e-tests-report/ui-lcov.info
-
   sonar:
-    needs: [test, e2e-coverage, check]
+    needs: [test, test-e2e, check]
     name: Sonar
     runs-on: ubuntu-24.04
     steps:
@@ -330,7 +285,7 @@ jobs:
       - name: ⬇️ Download test-e2e coverage report
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
-          name: test-e2e-coverage-merged
+          name: test-e2e-coverage-chromium
           path: e2e-tests-report/coverage
 
       - name: 💾 Cache SonarCloud packages
