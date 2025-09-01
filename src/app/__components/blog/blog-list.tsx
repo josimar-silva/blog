@@ -127,7 +127,7 @@ function BlogListComponent({ posts }: Readonly<BlogListProps>) {
                         })}
                       </time>
                       <span>•</span>
-                      <span>{post.category}</span>
+                      <span data-testid="post-category">{post.category}</span>
                       <span>•</span>
                       <span>{post.readTime}</span>
                     </div>

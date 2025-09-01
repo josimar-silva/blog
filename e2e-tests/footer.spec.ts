@@ -22,28 +22,31 @@
  * SOFTWARE.
  */
 
-import Link from "next/link";
+import { test } from "./_shared/fixtures";
+import { expect } from "@playwright/test";
 
-import { getCategories } from "@/lib/categories";
+test.describe("Footer", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/");
+  });
 
-const CategoriesList = ({ max }: { max?: number }) => {
-  const categories = getCategories(max);
+  test.describe("Categories section", () => {
+    test("should navigate with to posts filtered by selected category", async ({
+      page,
+    }) => {
+      await page.getByTestId("category-development").click();
+      await page.waitForURL("**/blog?category=development");
 
-  return (
-    <ul className="space-y-2 text-sm">
-      {categories.map((category) => (
-        <li key={category.key}>
-          <Link
-            href={`/blog?category=${category.key}`}
-            className="text-muted-foreground hover:text-foreground"
-            data-testid={`category-${category.key}`}
-          >
-            {category.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-};
+      await expect(page).toHaveURL("/blog?category=development");
+      await expect(page).toHaveTitle("Josimar Silva");
 
-export default CategoriesList;
+      const posts = await page.locator("article").all();
+      expect(posts.length).toBeGreaterThan(0);
+
+      for (const post of posts) {
+        const category = await post.getByTestId("post-category").textContent();
+        expect(category).toBe("Development");
+      }
+    });
+  });
+});
