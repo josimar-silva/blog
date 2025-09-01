@@ -61,7 +61,7 @@ export async function FeaturedPosts() {
           {featuredPosts.map((post) => (
             <Card
               key={post.slug}
-              className="overflow-hidden"
+              className="overflow-hidden flex flex-col"
               data-testid="featured-post-item"
             >
               <Link href={`/blog/${post.slug}`}>
@@ -88,13 +88,15 @@ export async function FeaturedPosts() {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <Link href={`/blog/${post.slug}`}>
-                  <h3 className="text-xl font-bold hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold hover:text-primary transition-colors line-clamp-1">
                     {post.title}
                   </h3>
                 </Link>
-                <p className="text-muted-foreground mt-2">{post.excerpt}</p>
+                <p className="text-muted-foreground mt-2 line-clamp-1">
+                  {post.excerpt}
+                </p>
               </CardContent>
             </Card>
           ))}
