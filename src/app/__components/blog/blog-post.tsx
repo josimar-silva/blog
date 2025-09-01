@@ -120,12 +120,11 @@ export function BlogPost({ post }: BlogPostProps) {
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
           <Badge>{post.category}</Badge>
-          {post.tags &&
-            post.tags.map((tag) => (
-              <Badge key={tag} variant="secondary">
-                {tag}
-              </Badge>
-            ))}
+          {post.tags?.map((tag) => (
+            <Badge key={tag} variant="secondary">
+              {tag}
+            </Badge>
+          ))}
         </div>
         {/* Content */}
         <BlogPostContent content={post.content} />

@@ -13,7 +13,8 @@
     "start": "next start",
     "pretest": "node scripts/prebuild.mjs",
     "test": "jest --coverage",
-    "test-e2e": "playwright test"
+    "test-e2e": "playwright test",
+    "serve": "serve dist/blog"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "1.2.12",
