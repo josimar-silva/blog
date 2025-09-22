@@ -31,35 +31,13 @@ import { useState } from "react";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent } from "@/app/__components/ui/card";
-
-interface Book {
-  id: number;
-  title: string;
-  author: string;
-  type: "Book" | "Paper";
-  category: string;
-  dateRead: string;
-  rating: number;
-  status: "Completed" | "In Progress" | "Abandoned";
-  pages: number;
-  notes: string;
-  keyTakeaways: string[];
-  recommendedFor: string;
-  slug: string;
-  links: {
-    amazon?: string;
-    goodreads?: string;
-    arxiv?: string;
-    paperswithcode?: string;
-    online?: string;
-  };
-}
+import { Book, BookStatus } from "@/interfaces/book";
 
 interface BookshelfListProps {
   books: Book[];
 }
 
-export function BookshelfList({ books }: BookshelfListProps) {
+export function BookshelfList({ books }: Readonly<BookshelfListProps>) {
   const [selectedCategory, setSelectedCategory] = useState("All"),
     // Get unique categories
     categories = [
@@ -115,7 +93,11 @@ export function BookshelfList({ books }: BookshelfListProps) {
         {/* Books List */}
         <div className="space-y-8">
           {sortedBooks.map((book) => (
-            <Card key={book.id} className="overflow-hidden">
+            <Card
+              key={book.id}
+              data-testid="book-card"
+              className="overflow-hidden"
+            >
               <CardContent className="p-8">
                 <div className="space-y-6">
                   {/* Header */}
@@ -131,9 +113,9 @@ export function BookshelfList({ books }: BookshelfListProps) {
                         <Badge variant="secondary">{book.category}</Badge>
                         <Badge
                           variant={
-                            book.status === "Completed"
+                            book.status === BookStatus.COMPLETED
                               ? "default"
-                              : book.status === "In Progress"
+                              : book.status === BookStatus.READING
                                 ? "secondary"
                                 : "destructive"
                           }
@@ -219,7 +201,7 @@ export function BookshelfList({ books }: BookshelfListProps) {
                   {/* Notes Preview */}
                   <div>
                     <p className="text-muted-foreground leading-relaxed">
-                      {book.notes.substring(0, 200)}...
+                      {book.notesPreview}...
                     </p>
                   </div>
 
