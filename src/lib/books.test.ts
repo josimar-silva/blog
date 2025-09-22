@@ -23,66 +23,69 @@
  */
 
 import fs from "fs/promises";
-import { getBookBySlug, getBooks } from "./books";
+
 import { books as mockBooks } from "@/lib/data/books";
 
+import { getBookBySlug, getBooks } from "./books";
+
 jest.mock("@/lib/data/books", () => ({
-    books: [
-        {
-            id: "1",
-            slug: "mock-book-1",
-            title: "Mock Book 1",
-            notes: "",
-        },
-        {
-            id: "2",
-            slug: "mock-book-2",
-            title: "Mock Book 2",
-            notes: "",
-        },
-    ],
+  books: [
+    {
+      id: "1",
+      slug: "mock-book-1",
+      title: "Mock Book 1",
+      notes: "",
+    },
+    {
+      id: "2",
+      slug: "mock-book-2",
+      title: "Mock Book 2",
+      notes: "",
+    },
+  ],
 }));
 
 jest.mock("fs/promises", () => ({
-    readFile: jest.fn(),
+  readFile: jest.fn(),
 }));
 
 describe("books library", () => {
-    afterEach(() => {
-        jest.clearAllMocks();
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  describe("getBooks", () => {
+    it("should return all books from the manifest", async () => {
+      const allBooks = await getBooks();
+      expect(allBooks.length).toBe(mockBooks.length);
+      expect(allBooks[0].slug).toBe("mock-book-1");
+    });
+  });
+
+  describe("getBookBySlug", () => {
+    it("should return a single book with its content", async () => {
+      const slug = "mock-book-1";
+      const mockFileContent =
+        "---\ntitle: Mock Book 1\n---\n\nThis is the note content.";
+      (fs.readFile as jest.Mock).mockResolvedValue(mockFileContent);
+
+      const book = await getBookBySlug(slug);
+
+      expect(book).not.toBeNull();
+      expect(book?.slug).toBe(slug);
+      expect(book?.title).toBe("Mock Book 1");
+      expect(book?.notes).toBe("\nThis is the note content.");
+      expect(fs.readFile).toHaveBeenCalledWith(
+        expect.stringContaining("__books/mock-book-1.md"),
+        "utf8",
+      );
     });
 
-    describe("getBooks", () => {
-        it("should return all books from the manifest", async () => {
-            const allBooks = await getBooks();
-            expect(allBooks.length).toBe(mockBooks.length);
-            expect(allBooks[0].slug).toBe("mock-book-1");
-        });
+    it("should return null if the book is not in the manifest", async () => {
+      const slug = "non-existent-slug";
+      const book = await getBookBySlug(slug);
+      expect(book).toBeNull();
+      expect(fs.readFile).not.toHaveBeenCalled();
     });
-
-    describe("getBookBySlug", () => {
-        it("should return a single book with its content", async () => {
-            const slug = "mock-book-1";
-            const mockFileContent = "---\ntitle: Mock Book 1\n---\n\nThis is the note content.";
-            (fs.readFile as jest.Mock).mockResolvedValue(mockFileContent);
-
-            const book = await getBookBySlug(slug);
-
-            expect(book).not.toBeNull();
-            expect(book?.slug).toBe(slug);
-            expect(book?.title).toBe("Mock Book 1");
-            expect(book?.notes).toBe("\nThis is the note content.");
-            expect(fs.readFile).toHaveBeenCalledWith(
-                expect.stringContaining("__books/mock-book-1.md"),
-                "utf8",
-            );
-        });
-
-        it("should return null if the book is not in the manifest", async () => {
-            const slug = "non-existent-slug";
-            const book = await getBookBySlug(slug);
-            expect(book).toBeNull();
-            expect(fs.readFile).not.toHaveBeenCalled();
-        });
-    });
+  });
 });

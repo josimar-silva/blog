@@ -47,6 +47,7 @@ export type Book = {
   status: BookStatus;
   pages: number;
   notes: string;
+  notesPreview?: string;
   keyTakeaways: string[];
   category: string;
   links: {
@@ -54,5 +55,6 @@ export type Book = {
     goodreads?: string;
     arxiv?: string;
     paperswithcode?: string;
+    online?: string;
   };
 };

@@ -4,6 +4,10 @@ import { generateBooksManifest } from "./generate-books-manifest.mjs";
 
 console.log("Starting prebuild process...");
 
-Promise.all([generateManifest(), generateCategoriesData(), generateBooksManifest()]);
+Promise.all([
+  generateManifest(),
+  generateCategoriesData(),
+  generateBooksManifest(),
+]);
 
 console.log("Finished prebuild process...");

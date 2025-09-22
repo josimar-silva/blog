@@ -1,32 +1,35 @@
-import fs from 'fs/promises';
-import path from 'path';
-import matter from 'gray-matter';
+import fs from "fs/promises";
+import path from "path";
+import matter from "gray-matter";
 
-const booksDirectory = path.join(process.cwd(), '__books');
-const manifestPath = path.join(process.cwd(), 'src/lib/data/books.ts');
+const booksDirectory = path.join(process.cwd(), "__books");
+const manifestPath = path.join(process.cwd(), "src/lib/data/books.ts");
 
 async function getBooks() {
   const files = await fs.readdir(booksDirectory);
   const books = await Promise.all(
     files.map(async (file) => {
-      if (path.extname(file) !== '.md') return null;
-      const slug = file.replace(/\.md$/, '');
+      if (path.extname(file) !== ".md") return null;
+      const slug = file.replace(/\.md$/, "");
       const fullPath = path.join(booksDirectory, file);
-      const fileContents = await fs.readFile(fullPath, 'utf8');
-      const { data } = matter(fileContents);
+      const fileContents = await fs.readFile(fullPath, "utf8");
+      const { data, content } = matter(fileContents);
 
       return {
         ...data,
         slug,
+        notesPreview: content.substring(0, 200),
       };
     }),
   );
-  return books.filter(Boolean).sort((book1, book2) => (book1.dateRead > book2.dateRead ? -1 : 1));
+  return books
+    .filter(Boolean)
+    .sort((book1, book2) => (book1.dateRead > book2.dateRead ? -1 : 1));
 }
 
 export async function generateBooksManifest() {
   try {
-    console.log('Generating books manifest...');
+    console.log("Generating books manifest...");
     const books = await getBooks();
 
     const fileContent = `/**
@@ -64,7 +67,7 @@ export const books: Book[] = ${JSON.stringify(books, null, 2)};
     await fs.writeFile(manifestPath, fileContent);
     console.log(`Manifest generated successfully at ${manifestPath}`);
   } catch (error) {
-    console.error('Error generating books manifest:', error);
+    console.error("Error generating books manifest:", error);
     process.exit(1);
   }
 }

@@ -31,22 +31,22 @@ import { books } from "@/lib/data/books";
 const booksDirectory = join(process.cwd(), "__books");
 
 export const getBooks = async () => {
-    return Promise.resolve(books);
+  return Promise.resolve(books);
 };
 
 export const getBookBySlug = async (slug: string) => {
-    const bookFromManifest = books.find((p) => p.slug === slug);
+  const bookFromManifest = books.find((p) => p.slug === slug);
 
-    if (!bookFromManifest) {
-        return null;
-    }
+  if (!bookFromManifest) {
+    return null;
+  }
 
-    const fullPath = join(booksDirectory, `${bookFromManifest.slug}.md`);
-    const fileContents = await fs.readFile(fullPath, "utf8");
-    const { content } = matter(fileContents);
+  const fullPath = join(booksDirectory, `${bookFromManifest.slug}.md`);
+  const fileContents = await fs.readFile(fullPath, "utf8");
+  const { content } = matter(fileContents);
 
-    return {
-        ...bookFromManifest,
-        notes: content,
-    };
+  return {
+    ...bookFromManifest,
+    notes: content,
+  };
 };
