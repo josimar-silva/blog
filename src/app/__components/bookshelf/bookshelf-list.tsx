@@ -31,10 +31,11 @@ import { useState } from "react";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent } from "@/app/__components/ui/card";
-import { Book, BookStatus } from "@/interfaces/book";
+import type { BookSummary } from "@/interfaces/book";
+import { BookStatus, BookType } from "@/interfaces/book";
 
 interface BookshelfListProps {
-  books: Book[];
+  books: BookSummary[];
 }
 
 export function BookshelfList({ books }: Readonly<BookshelfListProps>) {
@@ -50,7 +51,7 @@ export function BookshelfList({ books }: Readonly<BookshelfListProps>) {
         ? books
         : books.filter((book) => book.category === selectedCategory),
     // Sort by date read (most recent first)
-    sortedBooks = filteredBooks.sort(
+    sortedBooks = [...filteredBooks].sort(
       (a, b) => new Date(b.dateRead).getTime() - new Date(a.dateRead).getTime(),
     ),
     renderStars = (rating: number) =>
@@ -60,6 +61,17 @@ export function BookshelfList({ books }: Readonly<BookshelfListProps>) {
           className={`h-4 w-4 ${i < rating ? "fill-primary text-primary" : "text-muted-foreground"}`}
         />
       ));
+
+  const bookStatusBadgeOf = (book: BookSummary) => {
+    switch (book.status) {
+      case BookStatus.COMPLETED:
+        return "default";
+      case BookStatus.READING:
+        return "secondary";
+      default:
+        return "destructive";
+    }
+  };
 
   return (
     <section className="pb-16 md:pb-20">
@@ -104,22 +116,14 @@ export function BookshelfList({ books }: Readonly<BookshelfListProps>) {
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        {book.type === "Book" ? (
+                        {book.type === BookType.BOOK ? (
                           <BookOpen className="h-4 w-4 text-muted-foreground" />
                         ) : (
                           <FileText className="h-4 w-4 text-muted-foreground" />
                         )}
                         <Badge variant="outline">{book.type}</Badge>
                         <Badge variant="secondary">{book.category}</Badge>
-                        <Badge
-                          variant={
-                            book.status === BookStatus.COMPLETED
-                              ? "default"
-                              : book.status === BookStatus.READING
-                                ? "secondary"
-                                : "destructive"
-                          }
-                        >
+                        <Badge variant={bookStatusBadgeOf(book)}>
                           {book.status}
                         </Badge>
                       </div>
@@ -133,7 +137,14 @@ export function BookshelfList({ books }: Readonly<BookshelfListProps>) {
                         <div className="flex items-center gap-1">
                           <Calendar className="h-4 w-4" />
                           <span>
-                            {new Date(book.dateRead).toLocaleDateString()}
+                            {new Date(book.dateRead).toLocaleDateString(
+                              undefined,
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              },
+                            )}
                           </span>
                         </div>
                         <span>•</span>
@@ -201,7 +212,9 @@ export function BookshelfList({ books }: Readonly<BookshelfListProps>) {
                   {/* Notes Preview */}
                   <div>
                     <p className="text-muted-foreground leading-relaxed">
-                      {book.notesPreview}...
+                      {book.notesPreview?.endsWith("...")
+                        ? book.notesPreview
+                        : `${book.notesPreview}...`}
                     </p>
                   </div>
 

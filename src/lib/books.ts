@@ -22,9 +22,10 @@
  * SOFTWARE.
  */
 
-import fs from "fs/promises";
+import fs from "node:fs/promises";
+import { join } from "node:path";
+
 import matter from "gray-matter";
-import { join } from "path";
 
 import { books } from "@/lib/data/books";
 
@@ -42,11 +43,18 @@ export const getBookBySlug = async (slug: string) => {
   }
 
   const fullPath = join(booksDirectory, `${bookFromManifest.slug}.md`);
-  const fileContents = await fs.readFile(fullPath, "utf8");
-  const { content } = matter(fileContents);
-
-  return {
-    ...bookFromManifest,
-    notes: content,
-  };
+  try {
+    const fileContents = await fs.readFile(fullPath, "utf8");
+    const { content } = matter(fileContents);
+    return {
+      ...bookFromManifest,
+      notes: content,
+    };
+  } catch (error) {
+    console.error(`Failed to read book file: ${fullPath}`, error);
+    return {
+      ...bookFromManifest,
+      notes: "Unable to load book notes.",
+    };
+  }
 };

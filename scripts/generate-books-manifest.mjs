@@ -9,7 +9,7 @@ async function getBooks() {
   const files = await fs.readdir(booksDirectory);
   const books = await Promise.all(
     files.map(async (file) => {
-      if (path.extname(file) !== ".md") return null;
+      if (path.extname(file).toLowerCase() !== ".md") return null;
       const slug = file.replace(/\.md$/, "");
       const fullPath = path.join(booksDirectory, file);
       const fileContents = await fs.readFile(fullPath, "utf8");
@@ -18,7 +18,8 @@ async function getBooks() {
       return {
         ...data,
         slug,
-        notesPreview: content.substring(0, 200),
+        notes: "",
+        notesPreview: content.replace(/\s+/g, " ").trim().slice(0, 200),
       };
     }),
   );
