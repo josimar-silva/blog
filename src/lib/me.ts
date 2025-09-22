@@ -88,9 +88,38 @@ const education = {
 };
 
 
-const skills = {
-  
-};
+const skills = [
+  {
+    title: "Frontend Development",
+    skills: [
+      { name: "React", level: 95, years: "4 years" },
+      { name: "TypeScript", level: 90, years: "3 years" },
+      { name: "Next.js", level: 85, years: "2 years" },
+      { name: "Tailwind CSS", level: 90, years: "3 years" },
+      { name: "JavaScript", level: 95, years: "5 years" },
+    ],
+  },
+  {
+    title: "Backend Development",
+    skills: [
+      { name: "Node.js", level: 85, years: "4 years" },
+      { name: "Express.js", level: 80, years: "3 years" },
+      { name: "PostgreSQL", level: 75, years: "3 years" },
+      { name: "MongoDB", level: 70, years: "2 years" },
+      { name: "REST APIs", level: 90, years: "4 years" },
+    ],
+  },
+  {
+    title: "Tools & Technologies",
+    skills: [
+      { name: "Git", level: 90, years: "5 years" },
+      { name: "Docker", level: 70, years: "2 years" },
+      { name: "AWS", level: 65, years: "2 years" },
+      { name: "Vercel", level: 85, years: "2 years" },
+      { name: "Jest", level: 80, years: "3 years" },
+    ],
+  },
+];
 
 const now = {
   lastUpdated: "January 2025",
