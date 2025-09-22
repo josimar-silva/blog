@@ -59,15 +59,14 @@ export function NowContent() {
             {/* Projects */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Current Projects</h2>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Working on a new open-source rate limiting library for Node.js
-                that I hope to release this quarter. It's designed to be more
-                flexible and performant than existing solutions.
-              </p>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm also redesigning this website to better showcase my writing
-                and projects, with a focus on performance and accessibility.
-              </p>
+              {me.now.projects.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-lg leading-relaxed text-muted-foreground"
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
 
             {/* Reading */}
