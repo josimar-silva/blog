@@ -54,7 +54,12 @@ export function Skills() {
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex} className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="font-medium">{skill.name}</span>
+                      <span
+                        className="font-medium"
+                        data-testid={`skill-name-${skill.name.toLowerCase().replace(/\s/g, "-")}`}
+                      >
+                        {skill.name}
+                      </span>
                       <span className="text-sm text-muted-foreground">
                         {skill.years}
                       </span>
