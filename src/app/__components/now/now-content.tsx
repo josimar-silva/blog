@@ -22,9 +22,9 @@
  * SOFTWARE.
  */
 
-export function NowContent() {
-  const lastUpdated = "January 2025";
+import me from "@/lib/me";
 
+export function NowContent() {
   return (
     <section className="pb-16 md:pb-20">
       <div className="container px-4 md:px-6 max-w-2xl">
@@ -146,7 +146,7 @@ export function NowContent() {
           {/* Last Updated */}
           <div className="mt-12 pt-8 border-t border-border/50">
             <p className="text-sm text-muted-foreground">
-              This page was last updated in <strong>{lastUpdated}</strong>.
+              This page was last updated in <strong>{me.now.lastUpdated}</strong>.
             </p>
             <p className="text-sm text-muted-foreground mt-2">
               Inspired by{" "}

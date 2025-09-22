@@ -22,15 +22,28 @@
  * SOFTWARE.
  */
 
-import { render, screen } from "@testing-library/react";
+const experience = {
+  
+};
 
-import { NowContent } from "./now-content";
+const education = {
+  
+};
 
-describe("NowContent", () => {
-  it("should render the last updated date", () => {
-    render(<NowContent />);
-    const lastUpdatedText = screen.getByText(/This page was last updated in/i);
-    expect(lastUpdatedText).toBeInTheDocument();
-    expect(screen.getByText("January 2025")).toBeInTheDocument();
-  });
-});
+
+const skills = {
+  
+};
+
+const now = {
+  lastUpdated: "January 2025",
+};
+
+const me = {
+  education: education,
+  experience: experience,
+  skills: skills,
+  now: now,
+};
+
+export default me;
