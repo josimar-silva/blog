@@ -72,16 +72,14 @@ export function NowContent() {
             {/* Reading */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Reading</h2>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Currently reading "Designing Data-Intensive Applications" by
-                Martin Kleppmann for the second time - it's one of those books
-                that reveals new insights on each read.
-              </p>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm also following the latest developments in React Server
-                Components and the evolving JavaScript ecosystem through various
-                newsletters and technical blogs.
-              </p>
+              {me.now.reading.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-lg leading-relaxed text-muted-foreground"
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
 
             {/* Life */}
