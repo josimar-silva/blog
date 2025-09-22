@@ -42,4 +42,13 @@ describe("NowContent", () => {
       ),
     ).toBeInTheDocument();
   });
+
+  it("should render the learning content", () => {
+    render(<NowContent />);
+    expect(
+      screen.getByText(
+        /I'm diving deep into Rust after participating in the Rinha de Backend challenge/i,
+      ),
+    ).toBeInTheDocument();
+  });
 });
