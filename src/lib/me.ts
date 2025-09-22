@@ -49,6 +49,10 @@ const now = {
     "Working on a new open-source rate limiting library for Node.js that I hope to release this quarter. It's designed to be more flexible and performant than existing solutions.",
     "I'm also redesigning this website to better showcase my writing and projects, with a focus on performance and accessibility.",
   ],
+  reading: [
+    "Currently reading \"Designing Data-Intensive Applications\" by Martin Kleppmann for the second time - it's one of those books that reveals new insights on each read.",
+    "I'm also following the latest developments in React Server Components and the evolving JavaScript ecosystem through various newsletters and technical blogs.",
+  ],
 };
 
 const me = {
