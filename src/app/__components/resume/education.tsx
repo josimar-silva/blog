@@ -32,50 +32,7 @@ import {
   CardTitle,
 } from "@/app/__components/ui/card";
 
-const education = [
-    {
-      institution: "University of California, Berkeley",
-      degree: "Bachelor of Science in Computer Science",
-      location: "Berkeley, CA",
-      period: "2015 - 2019",
-      gpa: "3.8/4.0",
-      description:
-        "Focused on software engineering, algorithms, and data structures. Completed senior capstone project building a full-stack web application for student course planning.",
-      coursework: [
-        "Data Structures & Algorithms",
-        "Software Engineering",
-        "Database Systems",
-        "Computer Networks",
-        "Web Development",
-        "Machine Learning",
-      ],
-      achievements: [
-        "Dean's List (6 semesters)",
-        "Computer Science Honor Society",
-        "Best Capstone Project Award",
-      ],
-    },
-  ],
-  certifications = [
-    {
-      name: "AWS Certified Developer - Associate",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      credentialId: "AWS-DEV-2023-001",
-    },
-    {
-      name: "React Developer Certification",
-      issuer: "Meta",
-      date: "2022",
-      credentialId: "META-REACT-2022-456",
-    },
-    {
-      name: "Google Analytics Certified",
-      issuer: "Google",
-      date: "2022",
-      credentialId: "GA-CERT-2022-789",
-    },
-  ];
+import me from "@/lib/me";
 
 export function Education() {
   return (
@@ -94,7 +51,7 @@ export function Education() {
           {/* Education */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold">Education</h3>
-            {education.map((edu, index) => (
+            {me.education.degrees.map((edu, index) => (
               <Card key={index}>
                 <CardHeader>
                   <CardTitle className="text-xl">{edu.degree}</CardTitle>
@@ -149,7 +106,7 @@ export function Education() {
           <div className="space-y-6">
             <h3 className="text-2xl font-bold">Professional Certifications</h3>
             <div className="space-y-4">
-              {certifications.map((cert, index) => (
+              {me.education.certifications.map((cert, index) => (
                 <Card key={index}>
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
