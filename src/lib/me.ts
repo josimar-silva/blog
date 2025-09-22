@@ -53,6 +53,11 @@ const now = {
     "Currently reading \"Designing Data-Intensive Applications\" by Martin Kleppmann for the second time - it's one of those books that reveals new insights on each read.",
     "I'm also following the latest developments in React Server Components and the evolving JavaScript ecosystem through various newsletters and technical blogs.",
   ],
+  life: [
+    "Living in San Francisco and really enjoying the tech community here. I've been attending more local meetups and conferences, which has been great for networking and learning from other developers.",
+    "I've gotten back into cycling and try to ride around the city on weekends. It's a great way to explore different neighborhoods and get some exercise away from the computer.",
+    "Trying to maintain a better work-life balance by setting boundaries around work hours and being more intentional about how I spend my free time.",
+  ],
 };
 
 const me = {

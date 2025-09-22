@@ -85,22 +85,14 @@ export function NowContent() {
             {/* Life */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Life</h2>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Living in San Francisco and really enjoying the tech community
-                here. I've been attending more local meetups and conferences,
-                which has been great for networking and learning from other
-                developers.
-              </p>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                I've gotten back into cycling and try to ride around the city on
-                weekends. It's a great way to explore different neighborhoods
-                and get some exercise away from the computer.
-              </p>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                Trying to maintain a better work-life balance by setting
-                boundaries around work hours and being more intentional about
-                how I spend my free time.
-              </p>
+              {me.now.life.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-lg leading-relaxed text-muted-foreground"
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
 
             {/* Goals */}

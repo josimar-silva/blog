@@ -67,4 +67,13 @@ describe("NowContent", () => {
       screen.getByText(/Currently reading "Designing Data-Intensive Applications"/i),
     ).toBeInTheDocument();
   });
+
+  it("should render the life content", () => {
+    render(<NowContent />);
+    expect(
+      screen.getByText(
+        /Living in San Francisco and really enjoying the tech community here/i,
+      ),
+    ).toBeInTheDocument();
+  });
 });
