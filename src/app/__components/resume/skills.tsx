@@ -29,7 +29,6 @@ import {
   CardTitle,
 } from "@/app/__components/ui/card";
 import { Progress } from "@/app/__components/ui/progress";
-
 import me from "@/lib/me";
 
 export function Skills() {

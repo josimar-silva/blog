@@ -130,7 +130,6 @@ const education = {
   ],
 };
 
-
 const skills = [
   {
     title: "Frontend Development",
@@ -179,7 +178,7 @@ const now = {
     "I'm also redesigning this website to better showcase my writing and projects, with a focus on performance and accessibility.",
   ],
   reading: [
-    "Currently reading \"Designing Data-Intensive Applications\" by Martin Kleppmann for the second time - it's one of those books that reveals new insights on each read.",
+    'Currently reading "Designing Data-Intensive Applications" by Martin Kleppmann for the second time - it\'s one of those books that reveals new insights on each read.',
     "I'm also following the latest developments in React Server Components and the evolving JavaScript ecosystem through various newsletters and technical blogs.",
   ],
   life: [

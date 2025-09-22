@@ -112,7 +112,8 @@ export function NowContent() {
           {/* Last Updated */}
           <div className="mt-12 pt-8 border-t border-border/50">
             <p className="text-sm text-muted-foreground">
-              This page was last updated in <strong>{me.now.lastUpdated}</strong>.
+              This page was last updated in{" "}
+              <strong>{me.now.lastUpdated}</strong>.
             </p>
             <p className="text-sm text-muted-foreground mt-2">
               Inspired by{" "}

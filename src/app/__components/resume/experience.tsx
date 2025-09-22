@@ -33,7 +33,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/app/__components/ui/card";
-
 import me from "@/lib/me";
 
 export function Experience() {
