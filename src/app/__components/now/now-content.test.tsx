@@ -51,4 +51,13 @@ describe("NowContent", () => {
       ),
     ).toBeInTheDocument();
   });
+
+  it("should render the projects content", () => {
+    render(<NowContent />);
+    expect(
+      screen.getByText(
+        /Working on a new open-source rate limiting library for Node.js/i,
+      ),
+    ).toBeInTheDocument();
+  });
 });

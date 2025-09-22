@@ -45,6 +45,10 @@ const now = {
     "I'm diving deep into Rust after participating in the Rinha de Backend challenge. The language's performance characteristics and memory safety model have me excited about systems programming again.",
     "I'm also experimenting with AI-assisted development using tools like GitHub Copilot and Gemini CLI, trying to understand how to use these tools effectively without becoming dependent on them.",
   ],
+  projects: [
+    "Working on a new open-source rate limiting library for Node.js that I hope to release this quarter. It's designed to be more flexible and performant than existing solutions.",
+    "I'm also redesigning this website to better showcase my writing and projects, with a focus on performance and accessibility.",
+  ],
 };
 
 const me = {
