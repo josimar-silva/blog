@@ -76,4 +76,11 @@ describe("NowContent", () => {
       ),
     ).toBeInTheDocument();
   });
+
+  it("should render the goals content", () => {
+    render(<NowContent />);
+    expect(
+      screen.getByText(/Publish at least 12 technical blog posts/i),
+    ).toBeInTheDocument();
+  });
 });

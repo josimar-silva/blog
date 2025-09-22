@@ -58,6 +58,13 @@ const now = {
     "I've gotten back into cycling and try to ride around the city on weekends. It's a great way to explore different neighborhoods and get some exercise away from the computer.",
     "Trying to maintain a better work-life balance by setting boundaries around work hours and being more intentional about how I spend my free time.",
   ],
+  goals: [
+    "Publish at least 12 technical blog posts",
+    "Release 2 open-source projects",
+    "Speak at a technical conference",
+    "Learn Rust well enough to build a production application",
+    "Cycle 500 miles throughout the year",
+  ],
 };
 
 const me = {
