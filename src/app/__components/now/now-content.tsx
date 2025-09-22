@@ -33,18 +33,14 @@ export function NowContent() {
             {/* Work */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Work</h2>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm currently working as a Senior Full-Stack Developer at
-                TechCorp, leading a team of 4 developers on a major product
-                redesign that serves over 100k users. We're rebuilding the
-                entire frontend with React and TypeScript while modernizing our
-                Node.js backend infrastructure.
-              </p>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                On the side, I'm exploring opportunities in the AI/ML space and
-                considering a transition into developer relations or technical
-                writing roles.
-              </p>
+              {me.now.work.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-lg leading-relaxed text-muted-foreground"
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
 
             {/* Learning */}

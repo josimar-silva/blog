@@ -37,6 +37,10 @@ const skills = {
 
 const now = {
   lastUpdated: "January 2025",
+  work: [
+    "I'm currently working as a Senior Full-Stack Developer at TechCorp, leading a team of 4 developers on a major product redesign that serves over 100k users. We're rebuilding the entire frontend with React and TypeScript while modernizing our Node.js backend infrastructure.",
+    "On the side, I'm exploring opportunities in the AI/ML space and considering a transition into developer relations or technical writing roles.",
+  ],
 };
 
 const me = {

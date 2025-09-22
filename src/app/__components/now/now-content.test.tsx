@@ -33,4 +33,13 @@ describe("NowContent", () => {
     expect(lastUpdatedText).toBeInTheDocument();
     expect(screen.getByText("January 2025")).toBeInTheDocument();
   });
+
+  it("should render the work content", () => {
+    render(<NowContent />);
+    expect(
+      screen.getByText(
+        /I'm currently working as a Senior Full-Stack Developer at TechCorp/i,
+      ),
+    ).toBeInTheDocument();
+  });
 });
