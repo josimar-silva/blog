@@ -22,12 +22,6 @@
  * SOFTWARE.
  */
 
-import fs from "fs/promises";
-
-import { books as mockBooks } from "@/lib/data/books";
-
-import { getBookBySlug, getBooks } from "./books";
-
 jest.mock("@/lib/data/books", () => ({
   books: [
     {
@@ -45,9 +39,15 @@ jest.mock("@/lib/data/books", () => ({
   ],
 }));
 
-jest.mock("fs/promises", () => ({
+jest.mock("node:fs/promises", () => ({
   readFile: jest.fn(),
 }));
+
+import fs from "fs/promises";
+
+import { books as mockBooks } from "@/lib/data/books";
+
+import { getBookBySlug, getBooks } from "./books";
 
 describe("books library", () => {
   afterEach(() => {
@@ -74,7 +74,7 @@ describe("books library", () => {
       expect(book).not.toBeNull();
       expect(book?.slug).toBe(slug);
       expect(book?.title).toBe("Mock Book 1");
-      expect(book?.notes).toBe("\nThis is the note content.");
+      expect(book?.notes?.trim()).toBe("This is the note content.");
       expect(fs.readFile).toHaveBeenCalledWith(
         expect.stringContaining("__books/mock-book-1.md"),
         "utf8",
@@ -86,6 +86,29 @@ describe("books library", () => {
       const book = await getBookBySlug(slug);
       expect(book).toBeNull();
       expect(fs.readFile).not.toHaveBeenCalled();
+    });
+
+    it("should handle errors when reading the book file", async () => {
+      const slug = "mock-book-1";
+      const consoleSpy = jest
+        .spyOn(console, "error")
+        .mockImplementation(() => {});
+      (fs.readFile as jest.Mock).mockRejectedValue(
+        new Error("File read error"),
+      );
+
+      const book = await getBookBySlug(slug);
+
+      expect(book).not.toBeNull();
+      expect(book?.slug).toBe(slug);
+      expect(book?.notes).toBe("Unable to load book notes.");
+      const path = await import("path");
+      const expectedSuffix = path.join("__books", "mock-book-1.md");
+      expect(fs.readFile).toHaveBeenCalledWith(
+        expect.stringContaining(expectedSuffix),
+        "utf8",
+      );
+      consoleSpy.mockRestore();
     });
   });
 });

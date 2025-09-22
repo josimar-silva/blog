@@ -24,10 +24,8 @@
 
 import {
   ArrowLeft,
-  BarChart3,
   BookOpen,
   Calendar,
-  Clock,
   ExternalLink,
   FileText,
   Star,
@@ -72,7 +70,7 @@ interface BookReviewProps {
   };
 }
 
-export function BookReview({ book }: BookReviewProps) {
+export function BookReview({ book }: Readonly<BookReviewProps>) {
   const renderStars = (rating: number) =>
     Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -131,7 +129,11 @@ export function BookReview({ book }: BookReviewProps) {
               <div>
                 <p className="text-sm font-medium">Date Read</p>
                 <p className="text-sm text-muted-foreground">
-                  {new Date(book.dateRead).toLocaleDateString()}
+                  {new Date(book.dateRead).toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
                 </p>
               </div>
             </div>
@@ -147,32 +149,11 @@ export function BookReview({ book }: BookReviewProps) {
             </div>
 
             <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-muted-foreground" />
-              <div>
-                <p className="text-sm font-medium">Time to Read</p>
-                <p className="text-sm text-muted-foreground">
-                  {book.timeToRead}
-                </p>
+              <div className="flex items-center gap-1">
+                {renderStars(book.rating)}
               </div>
+              <span className="text-lg font-medium">{book.rating}/5</span>
             </div>
-
-            <div className="flex items-center gap-2">
-              <BarChart3 className="h-4 w-4 text-muted-foreground" />
-              <div>
-                <p className="text-sm font-medium">Difficulty</p>
-                <p className="text-sm text-muted-foreground">
-                  {book.difficulty}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Rating */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="flex items-center gap-1">
-              {renderStars(book.rating)}
-            </div>
-            <span className="text-lg font-medium">{book.rating}/5</span>
           </div>
 
           {/* Publication Info */}

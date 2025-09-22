@@ -24,16 +24,15 @@
 
 /*eslint no-unused-vars: "off" */
 
-export const enum BookType {
-  PAPER = "Paper",
-  BOOK = "Book",
-}
+export const BookType = { PAPER: "Paper", BOOK: "Book" } as const;
+export type BookType = (typeof BookType)[keyof typeof BookType];
 
-export const enum BookStatus {
-  READING = "Reading",
-  COMPLETED = "Completed",
-  DROPPED = "Dropped",
-}
+export const BookStatus = {
+  READING: "Reading",
+  COMPLETED: "Completed",
+  DROPPED: "Dropped",
+} as const;
+export type BookStatus = (typeof BookStatus)[keyof typeof BookStatus];
 
 export type Book = {
   id: string;
@@ -46,7 +45,7 @@ export type Book = {
   rating: number;
   status: BookStatus;
   pages: number;
-  notes: string;
+  notes?: string;
   notesPreview?: string;
   keyTakeaways: string[];
   category: string;
@@ -58,3 +57,5 @@ export type Book = {
     online?: string;
   };
 };
+
+export type BookSummary = Omit<Book, "notes"> & { notesPreview: string };
