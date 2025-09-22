@@ -34,66 +34,7 @@ import {
   CardTitle,
 } from "@/app/__components/ui/card";
 
-const experiences = [
-  {
-    company: "TechCorp Inc.",
-    position: "Senior Full-Stack Developer",
-    location: "San Francisco, CA",
-    period: "2022 - Present",
-    type: "Full-time",
-    description:
-      "Lead development of customer-facing web applications serving 100k+ users. Architected and implemented microservices using Node.js and React, resulting in 40% improved performance.",
-    achievements: [
-      "Led a team of 4 developers on a major product redesign",
-      "Reduced application load time by 40% through optimization",
-      "Implemented CI/CD pipeline reducing deployment time by 60%",
-      "Mentored junior developers and conducted code reviews",
-    ],
-    technologies: [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "AWS",
-      "Docker",
-    ],
-    website: "https://techcorp.com",
-  },
-  {
-    company: "StartupXYZ",
-    position: "Full-Stack Developer",
-    location: "Remote",
-    period: "2020 - 2022",
-    type: "Full-time",
-    description:
-      "Built the entire web platform from scratch for a fintech startup. Developed both frontend and backend systems, handling everything from user authentication to payment processing.",
-    achievements: [
-      "Built MVP that secured $2M in Series A funding",
-      "Implemented secure payment processing with Stripe",
-      "Developed real-time dashboard with WebSocket integration",
-      "Achieved 99.9% uptime with proper monitoring and alerts",
-    ],
-    technologies: ["React", "Express.js", "MongoDB", "Stripe API", "Socket.io"],
-    website: "https://startupxyz.com",
-  },
-  {
-    company: "Digital Agency Pro",
-    position: "Frontend Developer",
-    location: "New York, NY",
-    period: "2019 - 2020",
-    type: "Full-time",
-    description:
-      "Developed responsive websites and web applications for various clients including e-commerce platforms, corporate websites, and marketing landing pages.",
-    achievements: [
-      "Delivered 20+ client projects on time and within budget",
-      "Improved client website performance by average of 35%",
-      "Implemented accessibility standards (WCAG 2.1)",
-      "Created reusable component library for team efficiency",
-    ],
-    technologies: ["JavaScript", "React", "SCSS", "WordPress", "PHP"],
-    website: "https://digitalagencypro.com",
-  },
-];
+import me from "@/lib/me";
 
 export function Experience() {
   return (
@@ -109,7 +50,7 @@ export function Experience() {
         </div>
 
         <div className="space-y-8">
-          {experiences.map((exp, index) => (
+          {me.experience.map((exp, index) => (
             <Card key={index} className="overflow-hidden">
               <CardHeader>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
