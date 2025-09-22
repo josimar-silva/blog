@@ -64,7 +64,9 @@ describe("NowContent", () => {
   it("should render the reading content", () => {
     render(<NowContent />);
     expect(
-      screen.getByText(/Currently reading "Designing Data-Intensive Applications"/i),
+      screen.getByText(
+        /Currently reading "Designing Data-Intensive Applications"/i,
+      ),
     ).toBeInTheDocument();
   });
 
