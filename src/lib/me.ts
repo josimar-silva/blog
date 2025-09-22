@@ -41,6 +41,10 @@ const now = {
     "I'm currently working as a Senior Full-Stack Developer at TechCorp, leading a team of 4 developers on a major product redesign that serves over 100k users. We're rebuilding the entire frontend with React and TypeScript while modernizing our Node.js backend infrastructure.",
     "On the side, I'm exploring opportunities in the AI/ML space and considering a transition into developer relations or technical writing roles.",
   ],
+  learning: [
+    "I'm diving deep into Rust after participating in the Rinha de Backend challenge. The language's performance characteristics and memory safety model have me excited about systems programming again.",
+    "I'm also experimenting with AI-assisted development using tools like GitHub Copilot and Gemini CLI, trying to understand how to use these tools effectively without becoming dependent on them.",
+  ],
 };
 
 const me = {

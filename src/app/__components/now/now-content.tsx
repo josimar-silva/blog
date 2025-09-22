@@ -46,17 +46,14 @@ export function NowContent() {
             {/* Learning */}
             <div>
               <h2 className="text-2xl font-bold mb-4">Learning</h2>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm diving deep into Rust after participating in the Rinha de
-                Backend challenge. The language's performance characteristics
-                and memory safety model have me excited about systems
-                programming again.
-              </p>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                I'm also experimenting with AI-assisted development using tools
-                like GitHub Copilot and Gemini CLI, trying to understand how to
-                use these tools effectively without becoming dependent on them.
-              </p>
+              {me.now.learning.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-lg leading-relaxed text-muted-foreground"
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
 
             {/* Projects */}
