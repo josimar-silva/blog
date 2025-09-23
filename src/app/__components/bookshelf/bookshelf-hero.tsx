@@ -32,7 +32,7 @@ export function BookshelfHero() {
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl">
             Books, papers, and articles that have shaped my thinking as a
-            developer. Each entry includes my notes, key takeaways, and honest
+            software engineer. Each entry includes my notes, key takeaways, and
             thoughts about what I've learned.
           </p>
         </div>

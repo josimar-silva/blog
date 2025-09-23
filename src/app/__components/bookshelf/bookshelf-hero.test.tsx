@@ -34,7 +34,7 @@ describe("BookshelfHero", () => {
       name: /Bookshelf/i,
     });
     const subheading = screen.getByText(
-      /Books, papers, and articles that have shaped my thinking as a developer/i,
+      /Books, papers, and articles that have shaped my thinking as a software engineer/i,
     );
 
     expect(heading).toBeInTheDocument();
