@@ -52,8 +52,7 @@ export async function FeaturedPosts() {
               data-testid="featured-posts-subtitle"
               className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
             >
-              My most popular and recent articles on web development and
-              technology.
+              My most recent articles on software engineering.
             </p>
           </div>
         </div>

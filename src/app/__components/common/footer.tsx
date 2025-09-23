@@ -42,8 +42,8 @@ export function Footer() {
               <span className="font-bold text-xl">Josimar Silva</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Full-stack developer sharing insights about web development,
-              technology, and building great products.
+              Software Engineer sharing insights on software engineering,
+              homelab, and more.
             </p>
             <div className="flex space-x-4">
               <Link
