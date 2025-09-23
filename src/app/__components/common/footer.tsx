@@ -151,14 +151,6 @@ export function Footer() {
                   Terms of Service
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/rss"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  RSS Feed
-                </Link>
-              </li>
             </ul>
           </div>
         </div>

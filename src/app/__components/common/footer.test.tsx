@@ -140,11 +140,4 @@ describe("Footer", () => {
       screen.getByRole("link", { name: /terms of service/i }),
     ).toHaveAttribute("href", "/terms");
   });
-
-  it("should contain rss feed link", () => {
-    expect(screen.getByRole("link", { name: /rss feed/i })).toHaveAttribute(
-      "href",
-      "/rss",
-    );
-  });
 });
