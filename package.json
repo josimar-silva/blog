@@ -76,7 +76,7 @@
     "@playwright/test": "1.55.1",
     "@swc/core": "1.13.20",
     "@swc/jest": "0.2.39",
-    "@tailwindcss/postcss": "4.1.13",
+    "@tailwindcss/postcss": "4.1.14",
     "@tailwindcss/typography": "0.5.19",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.0",
@@ -98,7 +98,7 @@
     "prettier": "3.6.2",
     "reading-time-estimator": "1.14.0",
     "serve": "14.2.5",
-    "tailwindcss": "4.1.13",
+    "tailwindcss": "4.1.14",
     "typescript": "5.9.3"
   }
 }
