@@ -1,4 +1,4 @@
-FROM node:22.20.0-trixie-slim@sha256:56ef5d0bb800d322889c771b3414f12a537f16c1d8da7f402f70d53a115e2bf9 AS deps
+FROM node:22.20.0-trixie-slim@sha256:5734b5fa015fff2e519adfe14e6fffa177a703d73b8b4a9c48cdce538e34b0fc AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json ./
@@ -7,7 +7,7 @@ COPY package.json package-lock.json ./
 RUN npm ci --frozen-lockfile --legacy-peer-deps --ignore-scripts
 
 # Rebuild the source code only when needed
-FROM node:22.20.0-trixie-slim@sha256:56ef5d0bb800d322889c771b3414f12a537f16c1d8da7f402f70d53a115e2bf9 AS builder
+FROM node:22.20.0-trixie-slim@sha256:5734b5fa015fff2e519adfe14e6fffa177a703d73b8b4a9c48cdce538e34b0fc AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
