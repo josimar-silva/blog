@@ -22,42 +22,63 @@
  * SOFTWARE.
  */
 
+import "@testing-library/jest-dom";
+
 import { render, screen } from "@testing-library/react";
 
 import { Education } from "./education";
 
+jest.mock("@/lib/me", () => ({
+  __esModule: true,
+  default: {
+    education: {
+      degrees: [
+        {
+          institution: "Test University",
+          degree: "Master of Science",
+          description: "Test description",
+          location: "Test Location",
+          period: "2020-2022",
+        },
+      ],
+      certifications: [
+        {
+          name: "Test Certification",
+          issuer: "Test Issuer",
+          date: "2023",
+          link: "https://example.com/credential",
+        },
+        {
+          name: "Another Test Certification",
+          issuer: "Another Test Issuer",
+          date: "2024",
+        },
+      ],
+    },
+  },
+}));
+
 describe("Education", () => {
-  it("renders the main heading", () => {
+  it("should render the education section with correct content", () => {
     render(<Education />);
-    expect(
-      screen.getByRole("heading", {
-        name: /Education & Certifications/i,
-        level: 2,
-      }),
-    ).toBeInTheDocument();
-  });
 
-  it("renders education details", () => {
-    render(<Education />);
     expect(
-      screen.getByText(/University of California, Berkeley/i),
+      screen.getByRole("heading", { name: /Education & Certifications/i }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(/Bachelor of Science in Computer Science/i),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(/Best Capstone Project Award/i),
-    ).toBeInTheDocument();
-  });
 
-  it("renders certification details", () => {
-    render(<Education />);
-    expect(
-      screen.getByText(/AWS Certified Developer - Associate/i),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(/React Developer Certification/i),
-    ).toBeInTheDocument();
-    expect(screen.getByText(/Google Analytics Certified/i)).toBeInTheDocument();
+    expect(screen.getByText("Master of Science")).toBeInTheDocument();
+    expect(screen.getByText("Test University")).toBeInTheDocument();
+
+    expect(screen.getByText("Test Certification")).toBeInTheDocument();
+    expect(screen.getByText("Test Issuer")).toBeInTheDocument();
+
+    const credentialLink = screen.getByRole("link", {
+      name: /Show credential/i,
+    });
+    expect(credentialLink).toBeInTheDocument();
+    expect(credentialLink).toHaveAttribute(
+      "href",
+      "https://example.com/credential",
+    );
   });
 });

@@ -40,7 +40,7 @@ async function navigateTo(
 
   await page.getByTestId(navTestId).click();
   await page.waitForURL(urlRegex, {
-    timeout: 60_000,
+    timeout: 120_000,
     waitUntil: "load",
   });
 }

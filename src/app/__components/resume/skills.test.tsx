@@ -36,15 +36,19 @@ describe("Skills", () => {
 
   it("renders all skill categories", () => {
     render(<Skills />);
-    expect(screen.getByText(/Frontend Development/i)).toBeInTheDocument();
-    expect(screen.getByText(/Backend Development/i)).toBeInTheDocument();
-    expect(screen.getByText(/Tools & Technologies/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Programming Languages, Frameworks & Data/i),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/Cloud & DevOps/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Software Engineering & Practices/i),
+    ).toBeInTheDocument();
   });
 
   it("renders specific skills within a category", () => {
     render(<Skills />);
-    expect(screen.getByText(/React/i)).toBeInTheDocument();
-    expect(screen.getByText(/Node.js/i)).toBeInTheDocument();
-    expect(screen.getByText(/Git/i)).toBeInTheDocument();
+    expect(screen.getByText(/^Java$/i)).toBeInTheDocument();
+    expect(screen.getByText(/Kotlin/i)).toBeInTheDocument();
+    expect(screen.getByText(/Python/i)).toBeInTheDocument();
   });
 });

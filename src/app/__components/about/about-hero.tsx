@@ -39,13 +39,13 @@ export function AboutHero() {
                 About Me
               </h1>
               <p className="text-xl text-muted-foreground">
-                Full-stack developer with a passion for creating exceptional
-                digital experiences
+                Software Engineer with a passion for fostering high-performing
+                teams.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-4 w-4" />
-                  <span>San Francisco, CA</span>
+                  <span>Berlin, Germany</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
@@ -56,16 +56,26 @@ export function AboutHero() {
 
             <div className="space-y-4">
               <p className="text-lg leading-relaxed">
-                I&apos;m a passionate full-stack developer who loves building
-                products that make a difference. With over 5 years of experience
-                in web development, I specialize in React, TypeScript, and
-                Node.js, creating scalable applications that users love.
+                I&apos;m a passionate Software Engineer who loves fostering
+                high-performing teams and building products. With over 10 years
+                of experience, I have knowledge in various frameworks, and
+                languages and practices across the software development
+                lifecycle. I specialize in JVM-based languages and cloud-native
+                applications, leveraging the JVM ecosystem to build scalable
+                solutions.
               </p>
               <p className="text-lg leading-relaxed">
-                When I&apos;m not coding, you&apos;ll find me writing technical
-                articles, contributing to open source, or exploring the latest
-                technologies. I believe in continuous learning and sharing
-                knowledge with the developer community.
+                When I&apos;m not coding, you&apos;ll find me playing games,
+                tinkering with my{" "}
+                <Link
+                  href="https://hello.from-gondor.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  homelab
+                </Link>
+                , running or drinking a hot cup of coffee.
               </p>
             </div>
 

@@ -36,22 +36,22 @@ describe("Experience", () => {
 
   it("renders all experience entries", () => {
     render(<Experience />);
-    expect(screen.getByText(/TechCorp Inc./i)).toBeInTheDocument();
-    expect(screen.getByText(/StartupXYZ/i)).toBeInTheDocument();
-    expect(screen.getByText(/Digital Agency Pro/i)).toBeInTheDocument();
+    expect(screen.getByText(/FRIDAY Insurance/i)).toBeInTheDocument();
+    expect(screen.getByText(/Youse Insurances/i)).toBeInTheDocument();
+    expect(screen.getByText(/Abaco Consultores/i)).toBeInTheDocument();
   });
 
   it("renders key achievements for an experience entry", () => {
     render(<Experience />);
     expect(
-      screen.getByText(
-        /Led a team of 4 developers on a major product redesign/i,
-      ),
-    ).toBeInTheDocument();
+      screen.getAllByText(
+        /Launched the first company insurance product for the French market with high technical standards and business value./i,
+      ).length,
+    ).toBeGreaterThan(0);
     expect(
-      screen.getByText(
-        /Reduced application load time by 40% through optimization/i,
-      ),
-    ).toBeInTheDocument();
+      screen.getAllByText(
+        /Implementation of integration to exchange documents of German insurance products with third parties through the BIPRO standard./i,
+      ).length,
+    ).toBeGreaterThan(0);
   });
 });
