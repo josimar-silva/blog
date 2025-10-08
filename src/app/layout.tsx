@@ -43,17 +43,18 @@ export const metadata: Metadata = {
   description: "Sharing my notes and insights about software engineering",
   keywords: ["software", "engineering", "tech", "blog"],
   authors: [{ name: "Josimar Silva" }],
+  manifest: "/manifest.json",
   icons: {
-    icon: "/favicon/favicon.png",
-    apple: "/favicon/apple-touch-icon.png",
+    icon: "/icons/icon.svg",
+    apple: "/icons/apple-touch-icon.png",
   },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
