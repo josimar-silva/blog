@@ -22,19 +22,48 @@
  * SOFTWARE.
  */
 
-export type Project = {
-  id: number;
+export type Skills = {
   title: string;
+  skills: Skill[];
+};
+
+export type Skill = {
+  name: string;
+  level: number;
+  years: string;
+};
+
+export type Experience = {
+  company: string;
+  website: string;
+  position: string;
+  location: string;
+  period: string;
+  type: string;
   description: string;
+  achievements?: string[];
   technologies: string[];
-  status: string;
-  year: string;
-  links: {
-    live?: string;
-    github?: string;
-    npm?: string;
-    maven?: string;
-    cargo?: string;
-  };
-  highlights: string[];
+};
+
+export type Degree = {
+  institution: string;
+  degree: string;
+  description: string;
+  location: string;
+  period: string;
+  coursework?: string[];
+  achievements?: string[];
+};
+
+export type Certification = {
+  name: string;
+  issuer: string;
+  date: string;
+  link?: string;
+  credentialId?: string;
+};
+
+export type Education = {
+  degrees: Degree[];
+  certifications: Certification[];
 };

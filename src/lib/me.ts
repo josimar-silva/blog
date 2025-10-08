@@ -22,143 +22,199 @@
  * SOFTWARE.
  */
 
-const experience = [
+import { Education, Experience, Skills } from "@/interfaces/me";
+import { Project } from "@/interfaces/project";
+
+const experience: Experience[] = [
   {
-    company: "TechCorp Inc.",
-    position: "Senior Full-Stack Developer",
-    location: "San Francisco, CA",
-    period: "2022 - Present",
+    company: "FRIDAY Insurance",
+    website: "https://friday.de",
+    position: "Software Engineer & Staff Software Engineer",
+    location: "Berlin, Germany",
+    period: "March 2020 - Present",
     type: "Full-time",
     description:
-      "Lead development of customer-facing web applications serving 100k+ users. Architected and implemented microservices using Node.js and React, resulting in 40% improved performance.",
+      "As a Staff Software Engineer since 2023, I am part of the architectural guild, focusing on guiding teams in their architectural decisions and ensuring technical alignment across the Engineering Chapter. \nAdditionally, I lead cross-chapter projects and initiatives. I mentor less experienced Engineers, fostering their growth with knowledge-sharing sessions, 1:1s, and feedback sessions. As a Software Engineer with a focus on the backend, I worked on policy management, implementing public and internal APIs, and process automation, with ownership of features and solutions from implementation to production. Using JVM-based languages such as Kotlin, Gosu, and Java with Micronaut, and SpringBoot frameworks on a cloud-native tech stack powered by AWS, Kubernetes, Helm, and Gitlab CI/CD.",
     achievements: [
-      "Led a team of 4 developers on a major product redesign",
-      "Reduced application load time by 40% through optimization",
-      "Implemented CI/CD pipeline reducing deployment time by 60%",
-      "Mentored junior developers and conducted code reviews",
+      "Launched the first company insurance product for the French market with high technical standards and business value.",
+      "Implementation of integration to exchange documents of German insurance products with third parties through the BIPRO standard.",
+      "Publishing a Sonar plugin for the Gosu language as open-source software.",
     ],
     technologies: [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
+      "Kotlin",
+      "Gosu",
+      "Java",
+      "Python",
+      "Micronaut",
+      "Spring Boot",
       "AWS",
-      "Docker",
+      "Kubernetes",
+      "Helm",
+      "Gitlab CI/CD",
     ],
-    website: "https://techcorp.com",
   },
   {
-    company: "StartupXYZ",
-    position: "Full-Stack Developer",
-    location: "Remote",
-    period: "2020 - 2022",
+    company: "Youse Insurances",
+    website: "https://www.youse.com.br",
+    position: "Software Engineer",
+    location: "São Paulo, Brazil",
+    period: "June 2017 - February 2020",
     type: "Full-time",
     description:
-      "Built the entire web platform from scratch for a fintech startup. Developed both frontend and backend systems, handling everything from user authentication to payment processing.",
+      "Working in an Agile-driven process environment with many different microservices and products that are integrated using an event-driven architecture. Developing customizations and new features on Guidewire's products used at the company. Developing microservices and tools to help improve the company's internal processes. Implementing new features, ML training, and managing the company's customer service chatbot project.",
     achievements: [
-      "Built MVP that secured $2M in Series A funding",
-      "Implemented secure payment processing with Stripe",
-      "Developed real-time dashboard with WebSocket integration",
-      "Achieved 99.9% uptime with proper monitoring and alerts",
+      "Launched the first company insurance product for the French market with high technical standards and business value.",
+      "Implementation of integration to exchange documents of German insurance products with third parties through the BIPRO standard.",
+      "Published a Sonar plugin for the Gosu language as open-source software.",
     ],
-    technologies: ["React", "Express.js", "MongoDB", "Stripe API", "Socket.io"],
-    website: "https://startupxyz.com",
+    technologies: [
+      "Gosu",
+      "Ruby",
+      "Typescript",
+      "RabbitMQ",
+      "NodeJS",
+      "Dialogflow (ApiAl)",
+      "Ruby on Rails",
+    ],
   },
   {
-    company: "Digital Agency Pro",
-    position: "Frontend Developer",
-    location: "New York, NY",
-    period: "2019 - 2020",
+    company: "Abaco Consultores",
+    website: "https://abacobr.consulting",
+    position: "Guidewire Consultant",
+    location: "Brasília, Brazil",
+    period: "September 2016 - May 2017",
     type: "Full-time",
     description:
-      "Developed responsive websites and web applications for various clients including e-commerce platforms, corporate websites, and marketing landing pages.",
+      "Developing customizations and new features on Guidewire's products (ClaimCenter, ContactCenter, BillingCenter, and PolicyCenter) at Youse Seguros.",
+    technologies: ["Gosu", "Tomcat", "MSSQL"],
+  },
+  {
+    company: "ITSS Soluções em Tecnologia",
+    website: "https://itsstecnologia.com.br",
+    position: "Java Consultant",
+    location: "Brasília, Brazil",
+    period: "August 2015 - August 2016",
+    type: "Full-time",
+    description:
+      "Development of integration middlewares and new applications to integrate with SAP ERP. Configuration and management of the application's test/homologation and production environments.",
+    technologies: ["Java", "Struts 2", "EJB 3", "Weblogic"],
+  },
+  {
+    company: "3Way Networks",
+    website: "https://www.3way.com.br/",
+    position: "Java Developer",
+    location: "Brasília, Brazil",
+    period: "February 2015 - July 2015",
+    type: "Full-time",
+    description:
+      "Maintenance of Federal Road Police's software. All the features were implemented on different frameworks from the Java ecosystem, such as applets, JSF, Struts 1, EJB 2.1, etc.",
+    technologies: ["Java", "JSF", "Struts 1", "EJB 2.1", "JBoss"],
+  },
+  {
+    company: "Grupo NT",
+    website: "https://www.grupont.com.br",
+    position: "Junior Java Developer",
+    location: "Brasília, Brazil",
+    period: "March 2014 - February 2015",
+    type: "Full-time",
+    description:
+      "Development and maintenance features on AVANT teaching platform. Transposition platform of ancient architecture features for JSR 286, to Liferay Portal. Implementation of new features on the platform. Technical assistance to a junior team in another branch office.",
+    technologies: ["Java", "Struts 2", "JBoss", "PostgreSQL"],
+  },
+  {
+    company: "CapuL",
+    website: "https://capul.coop.br",
+    position: "Software Developer",
+    location: "Unaí, Brazil",
+    period: "June 2012 - February 2014",
+    type: "Full-time",
+    description:
+      "Analysis and development of customizations in the ERP Protheus by ADVPL language.",
     achievements: [
-      "Delivered 20+ client projects on time and within budget",
-      "Improved client website performance by average of 35%",
-      "Implemented accessibility standards (WCAG 2.1)",
-      "Created reusable component library for team efficiency",
+      "Pioneered the adoption of Redmine and SVN, enhancing version control and project tracking for ADVPL customizations.",
     ],
-    technologies: ["JavaScript", "React", "SCSS", "WordPress", "PHP"],
-    website: "https://digitalagencypro.com",
+    technologies: ["ADVPL", "SVN"],
   },
 ];
 
-const education = {
+const education: Education = {
   degrees: [
     {
-      institution: "University of California, Berkeley",
-      degree: "Bachelor of Science in Computer Science",
-      location: "Berkeley, CA",
-      period: "2015 - 2019",
-      gpa: "3.8/4.0",
-      description:
-        "Focused on software engineering, algorithms, and data structures. Completed senior capstone project building a full-stack web application for student course planning.",
-      coursework: [
-        "Data Structures & Algorithms",
-        "Software Engineering",
-        "Database Systems",
-        "Computer Networks",
-        "Web Development",
-        "Machine Learning",
-      ],
-      achievements: [
-        "Dean's List (6 semesters)",
-        "Computer Science Honor Society",
-        "Best Capstone Project Award",
-      ],
+      institution: "Uninove",
+      degree: "Postgraduate Degree in Applied Statistics",
+      description: "Diving into statistics",
+      location: "Sao Paulo-SP, Brazil",
+      period: "July 2018 - July 2019",
+    },
+    {
+      institution: "INESC-CNEC",
+      degree: "Bachelor's Degree in Computer Information Systems",
+      description: "Diving into statistics",
+      location: "Unaí-MG, Brazil",
+      period: "August 2010 - July 2014",
     },
   ],
   certifications: [
     {
-      name: "AWS Certified Developer - Associate",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      credentialId: "AWS-DEV-2023-001",
+      name: "FJ-91, Architecture & Design of Java Projects",
+      issuer: "Caelum",
+      date: "2019",
     },
     {
-      name: "React Developer Certification",
-      issuer: "Meta",
-      date: "2022",
-      credentialId: "META-REACT-2022-456",
+      name: "LE-1, Linux Essentials",
+      issuer: "Linux Professional Institute",
+      date: "2019",
     },
     {
-      name: "Google Analytics Certified",
-      issuer: "Google",
-      date: "2022",
-      credentialId: "GA-CERT-2022-789",
+      name: "Oracle Certified Professional, Java SE 6 Programmer",
+      issuer: "Oracle",
+      date: "2015",
     },
   ],
 };
 
-const skills = [
+const skills: Skills[] = [
   {
-    title: "Frontend Development",
+    title: "Programming Languages, Frameworks & Data",
     skills: [
-      { name: "React", level: 95, years: "4 years" },
-      { name: "TypeScript", level: 90, years: "3 years" },
-      { name: "Next.js", level: 85, years: "2 years" },
-      { name: "Tailwind CSS", level: 90, years: "3 years" },
-      { name: "JavaScript", level: 95, years: "5 years" },
+      { name: "Java", level: 90, years: "10 years" },
+      { name: "Kotlin", level: 75, years: "5 years" },
+      { name: "Python", level: 30, years: "2 years" },
+      { name: "JavaScript", level: 80, years: "4 years" },
+      { name: "Spring Boot", level: 85, years: "5 years" },
+      { name: "Micronaut", level: 70, years: "5 years" },
+      { name: "Quarkus", level: 25, years: "1 years" },
+      { name: "NodeJS", level: 70, years: "3 years" },
+      { name: "SQL", level: 80, years: "5 years" },
+      { name: "Redis", level: 30, years: "2 years" },
+      { name: "DynamoDB", level: 70, years: "4 years" },
+      { name: "PostgreSQL", level: 80, years: "5 years" },
     ],
   },
   {
-    title: "Backend Development",
+    title: "Cloud & DevOps",
     skills: [
-      { name: "Node.js", level: 85, years: "4 years" },
-      { name: "Express.js", level: 80, years: "3 years" },
-      { name: "PostgreSQL", level: 75, years: "3 years" },
-      { name: "MongoDB", level: 70, years: "2 years" },
-      { name: "REST APIs", level: 90, years: "4 years" },
+      { name: "AWS", level: 75, years: "4 years" },
+      { name: "Docker", level: 80, years: "7 years" },
+      { name: "Kubernetes", level: 80, years: "5 years" },
+      { name: "Helm", level: 70, years: "4 years" },
+      { name: "Terraform", level: 55, years: "3 years" },
+      { name: "Git", level: 85, years: "8 years" },
+      { name: "Prometheus", level: 65, years: "4 years" },
+      { name: "Grafana", level: 60, years: "4 years" },
+      { name: "Github Actions", level: 60, years: "3 years" },
+      { name: "Gitlab", level: 75, years: "4 years" },
     ],
   },
   {
-    title: "Tools & Technologies",
+    title: "Software Engineering & Practices",
     skills: [
-      { name: "Git", level: 90, years: "5 years" },
-      { name: "Docker", level: 70, years: "2 years" },
-      { name: "AWS", level: 65, years: "2 years" },
-      { name: "Vercel", level: 85, years: "2 years" },
-      { name: "Jest", level: 80, years: "3 years" },
+      { name: "Software Development", level: 90, years: "10+ years" },
+      { name: "Project Leadership", level: 75, years: "3 years" },
+      { name: "API Design", level: 85, years: "5 years" },
+      { name: "E2E Testing", level: 75, years: "4 years" },
+      { name: "Performance Testing", level: 75, years: "5 years" },
+      { name: "Peer Mentorship", level: 65, years: "4 years" },
     ],
   },
 ];
@@ -195,11 +251,71 @@ const now = {
   ],
 };
 
+const projects: Project[] = [
+  {
+    id: 1,
+    title: "Homelab",
+    description:
+      "My Kubernetes cluster homelab. A place for experimentation, fun and never-ending YAML files.",
+    technologies: ["Kubernetes", "Helm", "Flux CD", "Talos OS"],
+    status: "Live",
+    year: "2025",
+    links: {
+      live: "https://hello.from-gondor.com",
+      github: "https://github.com/josimar-silva/homelab",
+    },
+    highlights: [
+      "Managed by GitOps principles with FluxCD, Renovate, and GitHub Actions.",
+      "Kubernetes cluster built on top of Talos OS.",
+      "Network segmentation with VLANs and OPNsense firewall.",
+      "Persistent storage with Longhorn and backups to a QNAP NAS.",
+      "Secret management with 1Password and the 1Password Connect Operator.",
+    ],
+  },
+  {
+    id: 2,
+    title: "Kaizen",
+    description:
+      "A solution a day keeps the rust away. My journal of Algorithm and System Design analysis.",
+    technologies: ["Rust", "Next.js", "TypeScript", "Github Actions"],
+    status: "Live",
+    year: "2024",
+    links: {
+      live: "https://kaizen.josimar-silva.com",
+      github: "https://github.com/josimar-silva/kaizen",
+    },
+    highlights: [
+      "A Rust-based CLI tool (`kaizen-parser`) automatically parses structured commit messages.",
+      "A Next.js frontend application (`website`) consumes this generated data to present a clean, minimalist interface.",
+      "Features a GitHub-style calendar heatmap and a chronological timeline of progress.",
+    ],
+  },
+  {
+    id: 3,
+    title: "Sonar Gosu Plugin",
+    description:
+      "Gosu Programming Language Plugin for SonarQube. The first OpenSource Sonarqube Gosu Plugin using ANTLR (Another Tool For Language Recognition) to execute static analysis of Gosu code.",
+    technologies: ["SonarQube", "Gosu", "ANTLR4", "Gradle", "Java"],
+    status: "Archived",
+    year: "2023",
+    links: {
+      github: "https://github.com/FRI-DAY/sonar-gosu-plugin",
+    },
+    highlights: [
+      "Uses ANTLR4 for static analysis of Gosu code.",
+      "Provides a plugin for SonarQube.",
+      "Available in the SonarQube Marketplace.",
+      "Supports SonarQube v8.9 and v9+.",
+    ],
+  },
+];
+
 const me = {
   education: education,
   experience: experience,
   skills: skills,
   now: now,
+  projects: projects,
 };
 
 export default me;
