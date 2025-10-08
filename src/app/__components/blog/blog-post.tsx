@@ -52,7 +52,7 @@ interface BlogPostProps {
   };
 }
 
-export function BlogPost({ post }: BlogPostProps) {
+export function BlogPost({ post }: Readonly<BlogPostProps>) {
   return (
     <article className="py-8">
       <div className="container px-4 md:px-6 max-w-4xl">
