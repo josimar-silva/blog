@@ -28,27 +28,13 @@ import Link from "next/link";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent } from "@/app/__components/ui/card";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  status: string;
-  year: string;
-  links: {
-    live?: string;
-    github?: string;
-    npm?: string;
-  };
-  highlights: string[];
-}
+import { Project } from "@/interfaces/project";
 
 interface ProjectsListProps {
   projects: Project[];
 }
 
-export function ProjectsList({ projects }: ProjectsListProps) {
+export function ProjectsList({ projects }: Readonly<ProjectsListProps>) {
   return (
     <section className="pb-16 md:pb-20">
       <div className="container px-4 md:px-6 max-w-4xl">
@@ -114,6 +100,30 @@ export function ProjectsList({ projects }: ProjectsListProps) {
                           </Link>
                         </Button>
                       )}
+                      {project.links.maven && (
+                        <Button variant="outline" size="sm" asChild>
+                          <Link
+                            href={project.links.maven}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Package className="mr-2 h-4 w-4" />
+                            Maven
+                          </Link>
+                        </Button>
+                      )}
+                      {project.links.cargo && (
+                        <Button variant="outline" size="sm" asChild>
+                          <Link
+                            href={project.links.cargo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Package className="mr-2 h-4 w-4" />
+                            Cargo
+                          </Link>
+                        </Button>
+                      )}
                     </div>
                   </div>
 
@@ -124,9 +134,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
 
                   {/* Highlights */}
                   <div>
-                    <h3 className="font-semibold mb-3">
-                      Key Features & Achievements:
-                    </h3>
+                    <h3 className="font-semibold mb-3">Key Features:</h3>
                     <ul className="space-y-2">
                       {project.highlights.map((highlight, highlightIndex) => (
                         <li
@@ -166,8 +174,7 @@ export function ProjectsList({ projects }: ProjectsListProps) {
         {/* Footer */}
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-4">
-            Interested in working together or have questions about any of these
-            projects?
+            Have questions about any of these projects?
           </p>
           <Button asChild>
             <Link href="/contact">Get In Touch</Link>

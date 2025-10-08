@@ -23,6 +23,7 @@
  */
 
 import { Award, Calendar, MapPin } from "lucide-react";
+import Link from "next/link";
 
 import { Badge } from "@/app/__components/ui/badge";
 import {
@@ -67,35 +68,40 @@ export function Education() {
                         <MapPin className="h-4 w-4" />
                         <span>{edu.location}</span>
                       </div>
-                      <Badge variant="outline">GPA: {edu.gpa}</Badge>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-muted-foreground">{edu.description}</p>
 
-                  <div>
-                    <h4 className="font-semibold mb-3">Relevant Coursework:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {edu.coursework.map((course, courseIndex) => (
-                        <Badge key={courseIndex} variant="secondary">
-                          {course}
-                        </Badge>
-                      ))}
+                  {edu.coursework && (
+                    <div>
+                      <h4 className="font-semibold mb-3">
+                        Relevant Coursework:
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {edu.coursework.map((course, courseIndex) => (
+                          <Badge key={courseIndex} variant="secondary">
+                            {course}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
-                  <div>
-                    <h4 className="font-semibold mb-3">Achievements:</h4>
-                    <ul className="space-y-2">
-                      {edu.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="flex items-start gap-2">
-                          <Award className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                          <span className="text-sm">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {edu.achievements && (
+                    <div>
+                      <h4 className="font-semibold mb-3">Achievements:</h4>
+                      <ul className="space-y-2">
+                        {edu.achievements.map((achievement, achIndex) => (
+                          <li key={achIndex} className="flex items-start gap-2">
+                            <Award className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                            <span className="text-sm">{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -124,9 +130,20 @@ export function Education() {
                             <Calendar className="h-3 w-3" />
                             <span>Issued {cert.date}</span>
                           </div>
-                          <Badge variant="outline" className="text-xs">
-                            ID: {cert.credentialId}
-                          </Badge>
+                          {cert.credentialId && (
+                            <Badge variant="outline" className="text-xs">
+                              ID: {cert.credentialId}
+                            </Badge>
+                          )}
+                          {cert.link && (
+                            <Link
+                              href={cert.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Badge variant="secondary">Show credential</Badge>
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>

@@ -46,11 +46,13 @@ describe("AboutHero", () => {
       screen.getByRole("heading", { name: /about me/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/full-stack developer with a passion/i),
+      screen.getByText(
+        /Software Engineer with a passion for fostering high-performing teams/i,
+      ),
     ).toBeInTheDocument();
 
     // Check for details
-    expect(screen.getByText(/san francisco, ca/i)).toBeInTheDocument();
+    expect(screen.getByText(/Berlin, Germany/i)).toBeInTheDocument();
     expect(screen.getByText(/10\+ years experience/i)).toBeInTheDocument();
 
     // Check for buttons

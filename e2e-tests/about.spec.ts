@@ -33,18 +33,53 @@ test.describe("About Page", () => {
     await expect(
       page.getByRole("heading", { name: "Work Experience" }),
     ).toBeVisible();
-    await expect(page.getByText("Senior Full-Stack Developer")).toBeVisible();
-    await expect(page.getByText("TechCorp Inc.")).toBeVisible();
+    await expect(
+      page.getByText("Software Engineer & Staff Software Engineer"),
+    ).toBeVisible();
+    await expect(page.getByText("FRIDAY Insurance")).toBeVisible();
   });
 
   test("should display skills section", async ({ page }) => {
     await expect(
       page.getByRole("heading", { name: "Skills & Expertise" }),
     ).toBeVisible();
-    await expect(page.getByText("Frontend Development")).toBeVisible();
-    await expect(page.getByTestId("skill-name-react")).toBeVisible();
-    await expect(page.getByTestId("skill-name-node.js")).toBeVisible();
-    await expect(page.getByTestId("skill-name-git")).toBeVisible();
+
+    await expect(
+      page.getByTestId("skill-category-tech-skills", {
+        name: "Programming Languages, Frameworks & Data",
+      }),
+    ).toBeVisible();
+    await expect(page.getByTestId("skill-name-java")).toBeVisible();
+    await expect(page.getByTestId("skill-name-kotlin")).toBeVisible();
+    await expect(page.getByTestId("skill-name-python")).toBeVisible();
+    await expect(page.getByTestId("skill-name-javascript")).toBeVisible();
+    await expect(page.getByTestId("skill-name-spring-boot")).toBeVisible();
+
+    await expect(
+      page.getByTestId("skill-category-infra-skills", {
+        name: "Cloud & DevOps",
+      }),
+    ).toBeVisible();
+    await expect(page.getByTestId("skill-name-aws")).toBeVisible();
+    await expect(page.getByTestId("skill-name-docker")).toBeVisible();
+    await expect(page.getByTestId("skill-name-kubernetes")).toBeVisible();
+    await expect(page.getByTestId("skill-name-helm")).toBeVisible();
+    await expect(page.getByTestId("skill-name-terraform")).toBeVisible();
+
+    await expect(
+      page.getByTestId("skill-category-strategic-skills", {
+        name: "Software Engineering & Practices",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByTestId("skill-name-software-development"),
+    ).toBeVisible();
+    await expect(page.getByTestId("skill-name-tech-leadership")).toBeVisible();
+    await expect(page.getByTestId("skill-name-api-design")).toBeVisible();
+    await expect(page.getByTestId("skill-name-e2e-testing")).toBeVisible();
+    await expect(
+      page.getByTestId("skill-name-performance-testing"),
+    ).toBeVisible();
   });
 
   test("should display education and certifications section", async ({
@@ -54,10 +89,10 @@ test.describe("About Page", () => {
       page.getByRole("heading", { name: "Education & Certifications" }),
     ).toBeVisible();
     await expect(
-      page.getByText("University of California, Berkeley"),
+      page.getByText("Bachelor's Degree in Computer Information Systems"),
     ).toBeVisible();
     await expect(
-      page.getByText("AWS Certified Developer - Associate"),
+      page.getByText("Oracle Certified Professional, Java SE 6 Programmer"),
     ).toBeVisible();
   });
 });

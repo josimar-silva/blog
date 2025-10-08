@@ -23,11 +23,13 @@
  */
 
 export type Skills = {
+  id: string;
   title: string;
   skills: Skill[];
 };
 
 export type Skill = {
+  id: string;
   name: string;
   level: number;
   years: string;

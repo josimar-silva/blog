@@ -45,18 +45,23 @@ export function Skills() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {me.skills.map((category, index) => (
-            <Card key={index}>
+          {me.skills.map((category) => (
+            <Card key={category.id}>
               <CardHeader>
-                <CardTitle className="text-xl">{category.title}</CardTitle>
+                <CardTitle
+                  className="text-xl"
+                  data-testid={`skill-category-${category.id}`}
+                >
+                  {category.title}
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
+                {category.skills.map((skill) => (
+                  <div key={skill.id} className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span
                         className="font-medium"
-                        data-testid={`skill-name-${skill.name.toLowerCase().replace(/\s/g, "-")}`}
+                        data-testid={`skill-name-${skill.id}`}
                       >
                         {skill.name}
                       </span>

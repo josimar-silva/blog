@@ -90,17 +90,19 @@ export function Experience() {
                   {exp.description}
                 </p>
 
-                <div>
-                  <h4 className="font-semibold mb-3">Key Achievements:</h4>
-                  <ul className="space-y-2">
-                    {exp.achievements.map((achievement, achIndex) => (
-                      <li key={achIndex} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                        <span className="text-sm">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {exp.achievements && (
+                  <div>
+                    <h4 className="font-semibold mb-3">Key Achievements:</h4>
+                    <ul className="space-y-2">
+                      {exp.achievements?.map((achievement, achIndex) => (
+                        <li key={achIndex} className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                          <span className="text-sm">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <div>
                   <h4 className="font-semibold mb-3">Technologies Used:</h4>
