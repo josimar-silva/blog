@@ -63,7 +63,10 @@ export async function FeaturedPosts() {
               className="overflow-hidden flex flex-col"
               data-testid="featured-post-item"
             >
-              <Link href={`/blog/${post.slug}`}>
+              <Link
+                href={`/blog/${post.slug}`}
+                data-testid="featured-post-link"
+              >
                 <Image
                   src={post.image || "/assets/blog/posts/placeholder.svg"}
                   alt={post.title}

@@ -5,7 +5,6 @@ import type { GitHubActionOptions } from "@estruyf/github-actions-reporter";
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -60,7 +59,12 @@ export default defineConfig({
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        contextOptions: {
+          permissions: ["clipboard-write", "clipboard-read"],
+        },
+      },
     },
 
     {
@@ -90,7 +94,13 @@ export default defineConfig({
     },
     {
       name: "google-chrome",
-      use: { ...devices["Desktop Chrome"], channel: "chrome" },
+      use: {
+        ...devices["Desktop Chrome"],
+        channel: "chrome",
+        contextOptions: {
+          permissions: ["clipboard-write", "clipboard-read"],
+        },
+      },
     },
   ],
 

@@ -22,13 +22,13 @@
  * SOFTWARE.
  */
 
-import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import BlogPostContent from "@/app/__components/blog/blog-post-content";
 import { BlogPostNavigation } from "@/app/__components/blog/blog-post-navigation";
-import {ShareButton} from "@/app/__components/blog/share-button";
+import ShareModal from "@/app/__components/blog/share-modal";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 
@@ -70,7 +70,10 @@ export function BlogPost({ post }: Readonly<BlogPostProps>) {
 
         {/* Header */}
         <header className="mb-8">
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl mb-4">
+          <h1
+            className="text-4xl font-bold tracking-tight lg:text-5xl mb-4"
+            data-testid="blog-post-title"
+          >
             {post.title}
           </h1>
 
@@ -89,10 +92,7 @@ export function BlogPost({ post }: Readonly<BlogPostProps>) {
               </div>
             </div>
 
-            <Button variant="outline" size="sm">
-              <Share2 className="mr-2 h-4 w-4" />
-              Share
-            </Button>
+            <ShareModal title={post.title} slug={post.slug} />
           </div>
 
           {/* Metadata */}
