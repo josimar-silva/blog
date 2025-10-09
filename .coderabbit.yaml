@@ -57,10 +57,7 @@ reviews:
 
   # Specify file patterns to include or exclude in a review using glob patterns (e.g., !dist/**, src/**). These patterns also apply to 'git sparse-checkout', including specified patterns and ignoring excluded ones (starting with '!') when cloning the repository.
   # Default: []
-  path_filters: [
-    "!__posts/**/*",
-    "!__books/**/*"
-  ]
+  path_filters: ["!__posts/**/*", "!__books/**/*"]
 
   # Path Instructions - Provide specific additional guidelines for code review based on file paths.
   # Default: []
@@ -69,13 +66,8 @@ reviews:
   # Configuration for auto review
   auto_review:
     enabled: true
-    labels: [
-      "!automated",
-      "!dev-dependencies"
-    ]
-    ignore_usernames: [
-      radagastbot
-    ]
+    labels: ["!automated", "!dev-dependencies"]
+    ignore_usernames: [radagastbot]
 
   # Configuration for finishing touches
   finishing_touches:
