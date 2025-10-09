@@ -36,7 +36,7 @@ export function HeroSection() {
           {/* Photo - appears first on mobile, second on desktop */}
           <div className="flex items-center justify-center order-1 lg:order-2">
             <Image
-              src="/assets/me.jpg"
+              src="/assets/me-300x300.jpeg"
               alt="Josimar Silva"
               width={300}
               height={300}
