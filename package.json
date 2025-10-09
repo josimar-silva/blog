@@ -59,6 +59,7 @@
     "react-hook-form": "7.64.0",
     "react-markdown": "10.1.0",
     "react-resizable-panels": "3.0.6",
+    "react-share": "5.2.2",
     "react-syntax-highlighter": "15.6.6",
     "recharts": "3.2.1",
     "rehype-raw": "7.0.0",
@@ -70,9 +71,9 @@
     "vaul": "1.1.2"
   },
   "devDependencies": {
-    "@estruyf/github-actions-reporter": "1.10.0",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.37.0",
+    "@estruyf/github-actions-reporter": "1.10.0",
     "@playwright/test": "1.56.0",
     "@swc/core": "1.13.20",
     "@swc/jest": "0.2.39",
