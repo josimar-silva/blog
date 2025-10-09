@@ -57,19 +57,18 @@ import { Input } from "@/app/__components/ui/input";
 import { Label } from "@/app/__components/ui/label";
 import { Separator } from "@/app/__components/ui/separator";
 import { useToast } from "@/app/__components/ui/use-toast";
+import config from "@/lib/config";
 
 interface ShareModalProps {
   title: string;
   slug: string;
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-
 const ShareModal = ({ title, slug }: ShareModalProps) => {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
-  const shareUrl = `${siteUrl}/blog/${slug}`;
+  const shareUrl = `${config.siteUrl}/blog/${slug}`;
 
   const handleCopyLink = () => {
     navigator.clipboard

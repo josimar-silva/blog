@@ -27,7 +27,9 @@ import { notFound } from "next/navigation";
 import { BlogPost } from "@/app/__components/blog/blog-post";
 import { Footer } from "@/app/__components/common/footer";
 import { Header } from "@/app/__components/common/header";
+import { generateMetadata } from "@/lib/metadata";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
+export { generateMetadata };
 
 export default async function BlogPostPage({
   params,

@@ -22,14 +22,54 @@
  * SOFTWARE.
  */
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const postsConfig = {
-  postsManifestFile: "src/lib/data/posts-manifest.json",
-};
+import type { Metadata } from "next";
 
-const config = {
-  siteUrl,
-  posts: postsConfig,
-};
+import config from "./config";
+import { getPostBySlug } from "./posts";
 
-export default config;
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const post = await getPostBySlug(params.slug, [
+    "title",
+    "excerpt",
+    "image",
+    "date",
+    "author",
+  ]);
+
+  if (!post || Object.keys(post).length === 0) {
+    return {};
+  }
+
+  const ogImageUrl = new URL(post.image, config.siteUrl).toString();
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `${config.siteUrl}/blog/${params.slug}`,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author],
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [ogImageUrl],
+    },
+  };
+}
