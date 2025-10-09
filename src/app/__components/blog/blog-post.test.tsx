@@ -57,6 +57,7 @@ jest.mock("./blog-post-content", () => ({
 }));
 
 const mockPost = {
+  slug: "test-blog-post-title",
   title: "Test Blog Post Title",
   content: "This is the content of the test blog post.",
   date: "2025-08-25T10:00:00Z",
@@ -104,10 +105,10 @@ describe("BlogPost", () => {
     expect(backButton).toHaveAttribute("href", "/blog");
   });
 
-  it("displays the Share button", () => {
+  it("displays the ShareModal button", () => {
     render(<BlogPost post={mockPost} />);
 
-    const shareButton = screen.getByRole("button", { name: /Share/i });
-    expect(shareButton).toBeInTheDocument();
+    const shareModalButton = screen.getByRole("button", { name: /share/i });
+    expect(shareModalButton).toBeInTheDocument();
   });
 });
