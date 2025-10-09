@@ -33,7 +33,7 @@ import { ThemeProvider } from "@/app/__components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const viewport: Viewport = {
-  themeColor: "purple",
+  themeColor: "#6d28d9",
   width: "device-width",
   initialScale: 1,
 };

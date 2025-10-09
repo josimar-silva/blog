@@ -99,7 +99,7 @@ export function AboutHero() {
           <div className="flex items-center justify-center">
             <div className="relative">
               <Image
-                src="/assets/me.jpg"
+                src="/assets/me-400x500.jpeg"
                 alt="Josimar Silva - Professional Photo"
                 width={400}
                 height={500}
