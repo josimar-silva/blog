@@ -35,6 +35,7 @@ export default async function BlogPostPage({
   params: { slug: string };
 }) {
   const post = await getPostBySlug(params.slug, [
+    "slug",
     "title",
     "date",
     "readTime",

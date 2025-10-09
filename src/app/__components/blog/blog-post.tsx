@@ -28,6 +28,7 @@ import Link from "next/link";
 
 import BlogPostContent from "@/app/__components/blog/blog-post-content";
 import { BlogPostNavigation } from "@/app/__components/blog/blog-post-navigation";
+import {ShareButton} from "@/app/__components/blog/share-button";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 
@@ -38,6 +39,7 @@ interface PostNavigationProps {
 
 interface BlogPostProps {
   post: {
+    slug: string;
     title: string;
     content: string;
     date: string;
