@@ -36,7 +36,7 @@ jobs:
       - name: 🇳 Setup Node.js
         uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
         with:
-          node-version: "22.21.0"
+          node-version: "24.10.0"
 
       - name: 💾 Cache Node.js modules
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
@@ -81,7 +81,7 @@ jobs:
       - name: 🇳 Setup Node.js
         uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
         with:
-          node-version: "22.21.0"
+          node-version: "24.10.0"
 
       - name: 💾 Cache Node.js modules
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
@@ -133,7 +133,7 @@ jobs:
       - name: 🇳 Setup Node.js
         uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
         with:
-          node-version: "22.21.0"
+          node-version: "24.10.0"
 
       - name: 💾 Cache Node.js modules
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
@@ -200,7 +200,7 @@ jobs:
       - name: 🇳 Setup Node.js
         uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6
         with:
-          node-version: "22.21.0"
+          node-version: "24.10.0"
 
       - name: 💾 Cache Node.js modules
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
