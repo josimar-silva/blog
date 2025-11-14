@@ -34,11 +34,10 @@ export async function generateStaticParams() {
   return books.map((book) => ({ slug: book.slug }));
 }
 
-export default async function BookReviewPage({
-  params,
-}: {
-  params: { slug: string };
+export default async function BookReviewPage(props: {
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await props.params;
   const book = await getBookBySlug(params.slug);
 
   if (!book) {

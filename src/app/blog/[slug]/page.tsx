@@ -31,11 +31,10 @@ import { generateMetadata } from "@/lib/metadata";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 export { generateMetadata };
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
+export default async function BlogPostPage(props: {
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await props.params;
   const post = await getPostBySlug(params.slug, [
     "slug",
     "title",
