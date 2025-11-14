@@ -47,7 +47,7 @@ export function MarkdownContent({
     const flushListItems = () => {
       if (listItems.length > 0) {
         elements.push(
-          <ul key={`list-${elements.length}`} role="list">
+          <ul key={`list-${elements.length}`}>
             {listItems.map((item, i) => (
               <li key={i}>{processInlineMarkdown(item)}</li>
             ))}
