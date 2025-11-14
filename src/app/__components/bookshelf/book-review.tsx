@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+"use client";
+
 import {
   ArrowLeft,
   BookOpen,
@@ -35,6 +37,7 @@ import Link from "next/link";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent } from "@/app/__components/ui/card";
+import { MarkdownContent } from "@/app/__components/ui/markdown-content";
 
 interface BookReviewProps {
   book: {
@@ -258,13 +261,7 @@ export function BookReview({ book }: Readonly<BookReviewProps>) {
             <Card>
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-6">My Review</h2>
-                <div className="prose prose-gray max-w-none dark:prose-invert lg:prose-lg">
-                  {book.notes.split("\n\n").map((paragraph, index) => (
-                    <p key={index} className="mb-4 leading-relaxed">
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+                <MarkdownContent content={book.notes} />
               </CardContent>
             </Card>
           </div>

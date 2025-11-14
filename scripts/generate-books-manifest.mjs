@@ -18,7 +18,7 @@ async function getBooks() {
       return {
         ...data,
         slug,
-        notes: "",
+        notes: content,
         notesPreview: content.replace(/\s+/g, " ").trim().slice(0, 200),
       };
     }),

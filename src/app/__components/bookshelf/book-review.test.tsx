@@ -187,4 +187,110 @@ describe("BookReview", () => {
     expect(backLink).toBeInTheDocument();
     expect(backLink).toHaveAttribute("href", "/bookshelf");
   });
+
+  describe("when rendering markdown notes", () => {
+    it("should render markdown bold text", () => {
+      const bookWithMarkdown = {
+        ...mockBook,
+        notes: "This is **bold** text",
+      };
+      render(<BookReview book={bookWithMarkdown} />);
+      const boldElement = screen.getByText("bold");
+      expect(boldElement.tagName).toBe("STRONG");
+    });
+
+    it("should render markdown italic text", () => {
+      const bookWithMarkdown = {
+        ...mockBook,
+        notes: "This is _italic_ text",
+      };
+      render(<BookReview book={bookWithMarkdown} />);
+      const italicElement = screen.getByText("italic");
+      expect(italicElement.tagName).toBe("EM");
+    });
+
+    it("should render markdown links with proper attributes", () => {
+      const bookWithMarkdown = {
+        ...mockBook,
+        notes: "Check out [this link](https://example.com) for more info",
+      };
+      render(<BookReview book={bookWithMarkdown} />);
+      const link = screen.getByRole("link", { name: "this link" });
+      expect(link).toHaveAttribute("href", "https://example.com");
+    });
+
+    it("should render markdown headings", () => {
+      const bookWithMarkdown = {
+        ...mockBook,
+        notes: "## Section Title\n\nSome content here",
+      };
+      render(<BookReview book={bookWithMarkdown} />);
+      expect(
+        screen.getByRole("heading", { name: "Section Title", level: 2 }),
+      ).toBeInTheDocument();
+    });
+
+    it("should render markdown unordered lists", () => {
+      const bookWithMarkdown = {
+        ...mockBook,
+        notes: "Key points:\n\n- First point\n- Second point\n- Third point",
+      };
+      render(<BookReview book={bookWithMarkdown} />);
+      // Check that list items are rendered
+      expect(screen.getByText("First point")).toBeInTheDocument();
+      expect(screen.getByText("Second point")).toBeInTheDocument();
+      expect(screen.getByText("Third point")).toBeInTheDocument();
+      // Verify there are lists (including key takeaways)
+      expect(screen.getAllByRole("list").length).toBeGreaterThanOrEqual(1);
+    });
+
+    it("should render markdown code inline", () => {
+      const bookWithMarkdown = {
+        ...mockBook,
+        notes: "Use the `useState` hook for state management",
+      };
+      render(<BookReview book={bookWithMarkdown} />);
+      const code = screen.getByText("useState");
+      expect(code.tagName).toBe("CODE");
+    });
+
+    it("should render markdown code blocks", () => {
+      const bookWithMarkdown = {
+        ...mockBook,
+        notes:
+          "Example code:\n\n```javascript\nconst greeting = 'Hello';\nconsole.log(greeting);\n```",
+      };
+      render(<BookReview book={bookWithMarkdown} />);
+      expect(screen.getByText(/const greeting/)).toBeInTheDocument();
+      expect(screen.getByText(/console\.log/)).toBeInTheDocument();
+    });
+
+    it("should render markdown blockquotes", () => {
+      const bookWithMarkdown = {
+        ...mockBook,
+        notes: "> This is a quote from the book",
+      };
+      render(<BookReview book={bookWithMarkdown} />);
+      const quote = screen.getByText("This is a quote from the book");
+      expect(quote.closest("blockquote")).toBeInTheDocument();
+    });
+
+    it("should handle complex markdown with multiple elements", () => {
+      const bookWithMarkdown = {
+        ...mockBook,
+        notes:
+          "# Introduction\n\nThis book covers **important** topics:\n\n- Design patterns\n- Best practices\n\nLearn more at [official site](https://example.com).",
+      };
+      render(<BookReview book={bookWithMarkdown} />);
+      expect(
+        screen.getByRole("heading", { name: "Introduction" }),
+      ).toBeInTheDocument();
+      expect(screen.getByText("important").tagName).toBe("STRONG");
+      expect(screen.getByText("Design patterns")).toBeInTheDocument();
+      expect(screen.getByText("Best practices")).toBeInTheDocument();
+      expect(
+        screen.getByRole("link", { name: "official site" }),
+      ).toHaveAttribute("href", "https://example.com");
+    });
+  });
 });
