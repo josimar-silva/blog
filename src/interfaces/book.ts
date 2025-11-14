@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-/*eslint no-unused-vars: "off" */
+/*eslint no-unused-vars: "off", no-redeclare: "off" */
 
 export const BookType = { PAPER: "Paper", BOOK: "Book" } as const;
 export type BookType = (typeof BookType)[keyof typeof BookType];

@@ -25,7 +25,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
+import React, { useSyncExternalStore } from "react";
 import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
@@ -42,12 +42,14 @@ interface BlogPostContentProps {
 }
 
 export default function BlogPostContent({ content }: BlogPostContentProps) {
-  const { theme } = useTheme(),
-    [mounted, setMounted] = useState(false);
+  const { theme } = useTheme();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Use useSyncExternalStore to detect client-side mounting
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   if (!mounted) {
     return null; // Render nothing on the server to prevent hydration mismatch

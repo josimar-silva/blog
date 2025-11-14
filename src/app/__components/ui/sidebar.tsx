@@ -60,10 +60,10 @@ type SidebarContext = {
   toggleSidebar: () => void;
 };
 
-const SidebarContext = React.createContext<SidebarContext | null>(null);
+const SidebarContextValue = React.createContext<SidebarContext | null>(null);
 
 function useSidebar() {
-  const context = React.useContext(SidebarContext);
+  const context = React.useContext(SidebarContextValue);
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider.");
   }
@@ -109,6 +109,7 @@ const SidebarProvider = React.forwardRef<
           // This sets the cookie to keep the sidebar state.
           document.cookie = `${SIDEBAR_COOKIE_NAME}=${openState}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
         },
+        // eslint-disable-next-line react-hooks/preserve-manual-memoization
         [setOpenProp, open],
       ),
       // Helper to toggle the sidebar.
@@ -159,7 +160,7 @@ const SidebarProvider = React.forwardRef<
       );
 
     return (
-      <SidebarContext.Provider value={contextValue}>
+      <SidebarContextValue.Provider value={contextValue}>
         <TooltipProvider delayDuration={0}>
           <div
             style={
@@ -179,7 +180,7 @@ const SidebarProvider = React.forwardRef<
             {children}
           </div>
         </TooltipProvider>
-      </SidebarContext.Provider>
+      </SidebarContextValue.Provider>
     );
   },
 );
@@ -668,9 +669,8 @@ const SidebarMenuSkeleton = React.forwardRef<
   }
 >(({ className, showIcon = false, ...props }, ref) => {
   // Random width between 50 to 90%.
-  const width = React.useMemo(
+  const [width] = React.useState(
     () => `${Math.floor(Math.random() * 40) + 50}%`,
-    [],
   );
 
   return (
