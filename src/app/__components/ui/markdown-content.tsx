@@ -68,7 +68,19 @@ export function MarkdownContent({
   );
 
   if (!isClientMounted) {
-    return null;
+    return (
+      <div
+        className={className}
+        aria-hidden="true"
+        style={{ minHeight: "100px" }}
+      >
+        <div className="animate-pulse">
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4" />
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full mb-4" />
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6 mb-4" />
+        </div>
+      </div>
+    );
   }
 
   const codeStyle = theme === "dark" ? materialDark : materialLight;
@@ -79,13 +91,12 @@ export function MarkdownContent({
         remarkPlugins={[remarkFrontmatter, remarkGfm, remarkMath]}
         rehypePlugins={[rehypeRaw]}
         components={{
-          code({ _node, className: codeClassName, children, ...props }) {
+          code({ className: codeClassName, children, ...props }) {
             const match = /language-(\w+)/.exec(codeClassName || "");
 
             return match ? (
               <SyntaxHighlighter
-                // @ts-ignore
-                style={codeStyle}
+                style={codeStyle as Record<string, React.CSSProperties>}
                 PreTag="div"
                 language={match[1]}
                 {...props}
