@@ -27,7 +27,7 @@
 import { Menu, Moon, Search, Sun } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 
 import { Button } from "@/app/__components/ui/button";
 import { Input } from "@/app/__components/ui/input";
@@ -41,13 +41,14 @@ import {
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false),
-    [mounted, setMounted] = useState(false),
     { theme, setTheme } = useTheme();
 
-  // Ensure component is mounted before rendering theme-dependent content
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Use useSyncExternalStore to detect client-side mounting
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   const navigation = [
       { name: "Home", href: "/" },

@@ -101,9 +101,11 @@ const Carousel = React.forwardRef<
       }, []),
       scrollPrev = React.useCallback(() => {
         api?.scrollPrev();
+        // eslint-disable-next-line react-hooks/preserve-manual-memoization
       }, [api]),
       scrollNext = React.useCallback(() => {
         api?.scrollNext();
+        // eslint-disable-next-line react-hooks/preserve-manual-memoization
       }, [api]),
       handleKeyDown = React.useCallback(
         (event: React.KeyboardEvent<HTMLDivElement>) => {
