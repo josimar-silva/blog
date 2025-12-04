@@ -36,7 +36,7 @@ describe("Experience", () => {
 
   it("renders all experience entries", () => {
     render(<Experience />);
-    expect(screen.getByText(/FRIDAY Insurance/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/FRIDAY Insurance/i).length).toBe(2);
     expect(screen.getByText(/Youse Insurances/i)).toBeInTheDocument();
     expect(screen.getByText(/Abaco Consultores/i)).toBeInTheDocument();
   });
@@ -45,12 +45,12 @@ describe("Experience", () => {
     render(<Experience />);
     expect(
       screen.getAllByText(
-        /Launched the first company insurance product for the French market with high technical standards and business value./i,
+        /Delivered FRIDAY's first French insurance product with high-availability, high-performance APIs/i,
       ).length,
     ).toBeGreaterThan(0);
     expect(
       screen.getAllByText(
-        /Implementation of integration to exchange documents of German insurance products with third parties through the BIPRO standard./i,
+        /Implemented BiPRO standard integration to exchange documents with third parties for German insurance products/i,
       ).length,
     ).toBeGreaterThan(0);
   });

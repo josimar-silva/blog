@@ -34,9 +34,11 @@ test.describe("About Page", () => {
       page.getByRole("heading", { name: "Work Experience" }),
     ).toBeVisible();
     await expect(
-      page.getByText("Software Engineer & Staff Software Engineer"),
+      page.getByText("Staff Software Engineer", { exact: true }),
     ).toBeVisible();
-    await expect(page.getByText("FRIDAY Insurance")).toBeVisible();
+    await expect(page.getByText("FRIDAY Insurance")).toHaveCount(2);
+    await expect(page.getByText("FRIDAY Insurance").first()).toBeVisible();
+    await expect(page.getByText("FRIDAY Insurance").last()).toBeVisible();
   });
 
   test("should display skills section", async ({ page }) => {

@@ -45,36 +45,32 @@ test.describe("Now Page", () => {
     // Verify content from each section
     await expect(
       page.getByText(
-        /I'm currently working as a Senior Full-Stack Developer at TechCorp/,
+        /Working as a Staff Software Engineer at FRIDAY Insurance in Berlin/,
       ),
     ).toBeVisible();
     await expect(
       page.getByText(
-        /I'm diving deep into Rust after participating in the Rinha de Backend challenge/,
+        /Refreshing Data Structures and Algorithms as part of my Kaizen Journal project/,
+      ),
+    ).toBeVisible();
+    await expect(
+      page.getByText(/Maintaining my Kubernetes homelab built with Talos OS/),
+    ).toBeVisible();
+    await expect(
+      page.getByText(
+        /Actively following the latest developments in Kubernetes/,
       ),
     ).toBeVisible();
     await expect(
       page.getByText(
-        /Working on a new open-source rate limiting library for Node.js/,
+        /Improving my German proficiency to apply for German citizenship/,
       ),
     ).toBeVisible();
-    await expect(
-      page.getByText(
-        /Currently reading "Designing Data-Intensive Applications" by Martin Kleppmann/,
-      ),
-    ).toBeVisible();
-    await expect(
-      page.getByText(
-        /Living in San Francisco and really enjoying the tech community here/,
-      ),
-    ).toBeVisible();
-    await expect(
-      page.getByText(/Publish at least 12 technical blog posts/),
-    ).toBeVisible();
+    await expect(page.getByText(/Read 12 books in 2025/)).toBeVisible();
 
     // Verify last updated date
     await expect(
-      page.getByText(/This page was last updated in January 2025/),
+      page.getByText(/This page was last updated in December 2025/),
     ).toBeVisible();
   });
 });

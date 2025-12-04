@@ -31,14 +31,14 @@ describe("NowContent", () => {
     render(<NowContent />);
     const lastUpdatedText = screen.getByText(/This page was last updated in/i);
     expect(lastUpdatedText).toBeInTheDocument();
-    expect(screen.getByText("January 2025")).toBeInTheDocument();
+    expect(screen.getByText("December 2025")).toBeInTheDocument();
   });
 
   it("should render the work content", () => {
     render(<NowContent />);
     expect(
       screen.getByText(
-        /I'm currently working as a Senior Full-Stack Developer at TechCorp/i,
+        /Working as a Staff Software Engineer at FRIDAY Insurance in Berlin/i,
       ),
     ).toBeInTheDocument();
   });
@@ -47,7 +47,7 @@ describe("NowContent", () => {
     render(<NowContent />);
     expect(
       screen.getByText(
-        /I'm diving deep into Rust after participating in the Rinha de Backend challenge/i,
+        /Refreshing Data Structures and Algorithms as part of my Kaizen Journal project/i,
       ),
     ).toBeInTheDocument();
   });
@@ -56,7 +56,7 @@ describe("NowContent", () => {
     render(<NowContent />);
     expect(
       screen.getByText(
-        /Working on a new open-source rate limiting library for Node.js/i,
+        /Maintaining my Kubernetes homelab built with Talos OS/i,
       ),
     ).toBeInTheDocument();
   });
@@ -65,7 +65,7 @@ describe("NowContent", () => {
     render(<NowContent />);
     expect(
       screen.getByText(
-        /Currently reading "Designing Data-Intensive Applications"/i,
+        /Actively following the latest developments in Kubernetes/i,
       ),
     ).toBeInTheDocument();
   });
@@ -74,15 +74,13 @@ describe("NowContent", () => {
     render(<NowContent />);
     expect(
       screen.getByText(
-        /Living in San Francisco and really enjoying the tech community here/i,
+        /Improving my German proficiency to apply for German citizenship/i,
       ),
     ).toBeInTheDocument();
   });
 
   it("should render the goals content", () => {
     render(<NowContent />);
-    expect(
-      screen.getByText(/Publish at least 12 technical blog posts/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Read 12 books in 2025/i)).toBeInTheDocument();
   });
 });
