@@ -29,28 +29,61 @@ const experience: Experience[] = [
   {
     company: "FRIDAY Insurance",
     website: "https://friday.de",
-    position: "Software Engineer & Staff Software Engineer",
+    position: "Staff Software Engineer",
     location: "Berlin, Germany",
-    period: "March 2020 - Present",
+    period: "January 2023 - Present",
     type: "Full-time",
     description:
-      "As a Staff Software Engineer since 2023, I am part of the architectural guild, focusing on guiding teams in their architectural decisions and ensuring technical alignment across the Engineering Chapter. \nAdditionally, I lead cross-chapter projects and initiatives. I mentor less experienced Engineers, fostering their growth with knowledge-sharing sessions, 1:1s, and feedback sessions. As a Software Engineer with a focus on the backend, I worked on policy management, implementing public and internal APIs, and process automation, with ownership of features and solutions from implementation to production. Using JVM-based languages such as Kotlin, Gosu, and Java with Micronaut, and SpringBoot frameworks on a cloud-native tech stack powered by AWS, Kubernetes, Helm, and Gitlab CI/CD.",
+      "Architectural guild member, guiding teams in architectural decisions and driving technical alignment across the Engineering Chapter. Leading cross-chapter initiatives and projects, establishing technical standards and best practices organization-wide.",
     achievements: [
-      "Launched the first company insurance product for the French market with high technical standards and business value.",
-      "Implementation of integration to exchange documents of German insurance products with third parties through the BIPRO standard.",
-      "Publishing a Sonar plugin for the Gosu language as open-source software.",
+      "Reduced security fix deployment time by 10% by standardizing base images for JVM-based systems and automating security updates with RenovateBot and nightly container image rebuilds",
+      "Automated and consolidated DORA-inspired engineering maturity metrics (Security Issues, Code Quality, Time to Response, Defect Ratio) to identify and address team pain points systematically",
+      "Mentored 4 junior/mid-level engineers, with 2 achieving salary raises within 6 months through focused 1:1s, knowledge-sharing sessions, and actionable feedback",
+      "Led PolicyCenter v9 to v10 migration managing a team of 3 engineers with zero delays, reducing maintenance costs by 10% while improving developer experience—earning CTO recognition for execution excellence",
+      "Actively contributed to hiring process, reviewing code challenges and conducting technical interviews for Software Engineer candidates",
     ],
     technologies: [
       "Kotlin",
-      "Gosu",
       "Java",
-      "Python",
-      "Micronaut",
+      "Gosu",
       "Spring Boot",
+      "Micronaut",
+      "Kubernetes",
+      "Helm",
+      "AWS",
+      "GitLab CI/CD",
+      "RenovateBot",
+      "Terraform",
+    ],
+  },
+  {
+    company: "FRIDAY Insurance",
+    website: "https://friday.de",
+    position: "Software Engineer",
+    location: "Berlin, Germany",
+    period: "March 2020 - December 2022",
+    type: "Full-time",
+    description:
+      "Backend-focused software engineer working on policy management, implementing public and internal APIs, and process automation, with ownership of features and solutions from implementation to production.",
+    achievements: [
+      "Delivered FRIDAY's first French insurance product with high-availability, high-performance APIs, enabling market expansion with technical excellence and business value",
+      "Implemented BiPRO standard integration to exchange documents with third parties for German insurance products, streamlining partner communication",
+      "Led workshops on Kubernetes and Helm fundamentals for new joiners, fostering knowledge-sharing and accelerating team onboarding",
+      "Published open-source SonarQube plugin for Gosu language, contributing tooling to the Gosu open-source community",
+      "Developed and owned features end-to-end in policy management domain, implementing public and internal APIs focused on process automation",
+    ],
+    technologies: [
+      "Kotlin",
+      "Java",
+      "Gosu",
+      "Spring Boot",
+      "Micronaut",
       "AWS",
       "Kubernetes",
       "Helm",
-      "Gitlab CI/CD",
+      "GitLab CI/CD",
+      "PostgreSQL",
+      "DynamoDB",
     ],
   },
   {
@@ -61,20 +94,21 @@ const experience: Experience[] = [
     period: "June 2017 - February 2020",
     type: "Full-time",
     description:
-      "Working in an Agile-driven process environment with many different microservices and products that are integrated using an event-driven architecture. Developing customizations and new features on Guidewire's products used at the company. Developing microservices and tools to help improve the company's internal processes. Implementing new features, ML training, and managing the company's customer service chatbot project.",
+      "Working in an Agile-driven process environment with many different microservices and products integrated using an event-driven architecture. Developing customizations and new features on Guidewire's products, building microservices and automation tools to improve internal processes, and implementing features for the company's customer service chatbot project.",
     achievements: [
-      "Launched the first company insurance product for the French market with high technical standards and business value.",
-      "Implementation of integration to exchange documents of German insurance products with third parties through the BIPRO standard.",
-      "Published a Sonar plugin for the Gosu language as open-source software.",
+      "Led a 2-person team developing a chatbot project to reduce customer inquiry response time on social media channels (Facebook, WhatsApp), improving customer experience",
+      "Improved billing platform stability by systematically tackling long-standing technical debt, reducing production incidents",
+      "Developed customizations and new features for Guidewire products (PolicyCenter, ClaimCenter, BillingCenter) in Agile environment",
+      "Implemented features and managed customer service chatbot infrastructure using Dialogflow",
     ],
     technologies: [
-      "Gosu",
       "Ruby",
-      "Typescript",
+      "Gosu",
+      "Node.js",
       "RabbitMQ",
-      "NodeJS",
-      "Dialogflow (ApiAl)",
-      "Ruby on Rails",
+      "Dialogflow (API.AI)",
+      "Guidewire Platform",
+      "Microservices",
     ],
   },
   {
@@ -107,7 +141,10 @@ const experience: Experience[] = [
     period: "February 2015 - July 2015",
     type: "Full-time",
     description:
-      "Maintenance of Federal Road Police's software. All the features were implemented on different frameworks from the Java ecosystem, such as applets, JSF, Struts 1, EJB 2.1, etc.",
+      "Maintenance and development of Federal Road Police's software. Worked with various frameworks from the Java ecosystem, including applets, JSF, Struts 1, and EJB 2.1.",
+    achievements: [
+      "Refactored legacy applet for radar image analysis for Federal Road Police, reducing maintenance overhead and improving performance",
+    ],
     technologies: ["Java", "JSF", "Struts 1", "EJB 2.1", "JBoss"],
   },
   {
@@ -118,7 +155,10 @@ const experience: Experience[] = [
     period: "March 2014 - February 2015",
     type: "Full-time",
     description:
-      "Development and maintenance features on AVANT teaching platform. Transposition platform of ancient architecture features for JSR 286, to Liferay Portal. Implementation of new features on the platform. Technical assistance to a junior team in another branch office.",
+      "Developed and maintained features on the AVANT teaching platform, migrating legacy architecture to JSR 286 specification for Liferay Portal integration.",
+    achievements: [
+      "Provided technical assistance to a junior team in another branch office, supporting knowledge transfer and team development",
+    ],
     technologies: ["Java", "Struts 2", "JBoss", "PostgreSQL"],
   },
   {
@@ -251,34 +291,31 @@ const skills: Skills[] = [
 ];
 
 const now = {
-  lastUpdated: "January 2025",
+  lastUpdated: "December 2025",
   work: [
-    "I'm currently working as a Senior Full-Stack Developer at TechCorp, leading a team of 4 developers on a major product redesign that serves over 100k users. We're rebuilding the entire frontend with React and TypeScript while modernizing our Node.js backend infrastructure.",
-    "On the side, I'm exploring opportunities in the AI/ML space and considering a transition into developer relations or technical writing roles.",
+    "Working as a Staff Software Engineer at FRIDAY Insurance in Berlin, where I'm part of the architectural guild guiding teams in architectural decisions and leading cross-chapter initiatives.",
+    "Mentoring engineers across the organization on system design, technical decision-making, and career development.",
   ],
   learning: [
-    "I'm diving deep into Rust after participating in the Rinha de Backend challenge. The language's performance characteristics and memory safety model have me excited about systems programming again.",
-    "I'm also experimenting with AI-assisted development using tools like GitHub Copilot and Gemini CLI, trying to understand how to use these tools effectively without becoming dependent on them.",
+    "Refreshing Data Structures and Algorithms as part of my Kaizen Journal project.",
+    "Exploring Rust and Golang for specific use cases on my homelab and side projects.",
+    "Experimenting with AI-assisted development tools (Claude Code, Gemini CLI, Coderabbit, Amp Code) while maintaining coding fundamentals and avoiding over-reliance.",
   ],
   projects: [
-    "Working on a new open-source rate limiting library for Node.js that I hope to release this quarter. It's designed to be more flexible and performant than existing solutions.",
-    "I'm also redesigning this website to better showcase my writing and projects, with a focus on performance and accessibility.",
+    "Maintaining my Kubernetes homelab built with Talos OS, implementing GitOps with FluxCD for automated deployments.",
+    "Working on Kaizen, a journal of Algorithm and System Design solutions built with Rust and Next.js.",
   ],
   reading: [
-    'Currently reading "Designing Data-Intensive Applications" by Martin Kleppmann for the second time - it\'s one of those books that reveals new insights on each read.',
-    "I'm also following the latest developments in React Server Components and the evolving JavaScript ecosystem through various newsletters and technical blogs.",
+    "Actively following the latest developments in Kubernetes, cloud-native technologies, and the evolving JVM ecosystem through various newsletters and technical blogs.",
   ],
   life: [
-    "Living in San Francisco and really enjoying the tech community here. I've been attending more local meetups and conferences, which has been great for networking and learning from other developers.",
-    "I've gotten back into cycling and try to ride around the city on weekends. It's a great way to explore different neighborhoods and get some exercise away from the computer.",
-    "Trying to maintain a better work-life balance by setting boundaries around work hours and being more intentional about how I spend my free time.",
+    "Improving my German proficiency to apply for German citizenship.",
+    "Maintaining work-life balance by setting boundaries around work hours and being intentional about how I spend my free time.",
   ],
   goals: [
-    "Publish at least 12 technical blog posts",
-    "Release 2 open-source projects",
-    "Speak at a technical conference",
-    "Learn Rust well enough to build a production application",
-    "Cycle 500 miles throughout the year",
+    "Read 12 books in 2025",
+    "Publish 2 technical articles on my blog in 2025",
+    "Reach B2 level in German by the end of 2025",
   ],
 };
 
@@ -287,7 +324,7 @@ const projects: Project[] = [
     id: 1,
     title: "Homelab",
     description:
-      "My Kubernetes cluster homelab. A place for experimentation, fun and never-ending YAML files.",
+      "My Kubernetes homelab. A place for experimentation, fun and never-ending YAML files.",
     technologies: ["Kubernetes", "Helm", "Flux CD", "Talos OS"],
     status: "Live",
     year: "2025",
@@ -299,7 +336,7 @@ const projects: Project[] = [
       "Managed by GitOps principles with FluxCD, Renovate, and GitHub Actions.",
       "Kubernetes cluster built on top of Talos OS.",
       "Network segmentation with VLANs and OPNsense firewall.",
-      "Persistent storage with Longhorn and backups to a QNAP NAS.",
+      "Persistent storage with Longhorn and backups to a NAS.",
       "Secret management with 1Password and the 1Password Connect Operator.",
     ],
   },
@@ -333,8 +370,6 @@ const projects: Project[] = [
       github: "https://github.com/FRI-DAY/sonar-gosu-plugin",
     },
     highlights: [
-      "Uses ANTLR4 for static analysis of Gosu code.",
-      "Provides a plugin for SonarQube.",
       "Available in the SonarQube Marketplace.",
       "Supports SonarQube v8.9 and v9+.",
     ],
