@@ -22,22 +22,14 @@
  * SOFTWARE.
  */
 
-/** @type {import('next').NextConfig} */
-
-const nextConfig = {
-  output: "export",
-  distDir: "dist/blog",
-  trailingSlash: false,
-  reactStrictMode: true,
-  turbopack: {},
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
-    loader: "custom",
-    loaderFile: "./src/lib/image-loader.ts",
-  },
+/** @type {import('@serwist/cli').CliOptions} */
+module.exports = {
+  swSrc: "src/lib/sw.ts",
+  swDest: "dist/blog/sw.js",
+  globDirectory: "dist/blog",
+  globPatterns: [
+    "**/*.{html,js,css,png,jpg,jpeg,svg,ico,json,woff,woff2,ttf,eot}",
+  ],
+  globIgnores: ["**/node_modules/**/*", "sw.js", "workbox-*.js"],
+  maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5MB
 };
-
-export default nextConfig;
