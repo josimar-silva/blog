@@ -84,6 +84,7 @@ export function BlogPost({ post }: Readonly<BlogPostProps>) {
                 alt={post.author}
                 width={40}
                 height={40}
+                quality={70}
                 className="rounded-full"
               />
               <div>
@@ -115,6 +116,7 @@ export function BlogPost({ post }: Readonly<BlogPostProps>) {
             alt={post.title}
             width={800}
             height={400}
+            quality={85}
             className="aspect-video w-full rounded-lg object-cover"
           />
         </div>

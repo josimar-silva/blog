@@ -121,6 +121,7 @@ export function BlogSidebar({ posts }: BlogSidebarProps) {
                 alt={post.title}
                 width={60}
                 height={60}
+                quality={70}
                 className="aspect-square rounded object-cover shrink-0"
               />
               <div className="space-y-1">

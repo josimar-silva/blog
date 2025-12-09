@@ -79,6 +79,7 @@ export async function RecentPosts() {
                       alt={post.title}
                       width={300}
                       height={150}
+                      quality={75}
                       className="aspect-video w-full object-cover transition-transform hover:scale-105 md:aspect-square"
                     />
                   </Link>

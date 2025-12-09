@@ -72,6 +72,7 @@ export async function FeaturedPosts() {
                   alt={post.title}
                   width={400}
                   height={200}
+                  quality={85}
                   className="aspect-video w-full object-cover transition-transform hover:scale-105"
                 />
               </Link>

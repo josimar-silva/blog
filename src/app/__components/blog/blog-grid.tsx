@@ -71,6 +71,7 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
                       alt={post.title}
                       width={500}
                       height={300}
+                      quality={85}
                       className="aspect-video w-full object-cover transition-transform group-hover:scale-105"
                     />
                     <Badge className="absolute top-4 left-4">Featured</Badge>
@@ -130,6 +131,7 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
                   alt={post.title}
                   width={400}
                   height={250}
+                  quality={80}
                   className="aspect-video w-full object-cover transition-transform group-hover:scale-105"
                 />
               </Link>
