@@ -6,6 +6,7 @@
   "scripts": {
     "prebuild": "node scripts/prebuild.mjs",
     "build": "next build",
+    "postbuild": "serwist inject-manifest",
     "predev": "node scripts/prebuild.mjs",
     "dev": "next dev --turbopack",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
@@ -75,6 +76,7 @@
     "@eslint/js": "9.39.1",
     "@estruyf/github-actions-reporter": "1.10.0",
     "@playwright/test": "1.57.0",
+    "@serwist/cli": "9.2.3",
     "@swc/core": "1.15.3",
     "@swc/jest": "0.2.39",
     "@tailwindcss/postcss": "4.1.17",
@@ -99,6 +101,7 @@
     "prettier": "3.7.4",
     "reading-time-estimator": "2.0.4",
     "serve": "14.2.5",
+    "serwist": "9.2.3",
     "tailwindcss": "4.1.17",
     "typescript": "5.9.3"
   }

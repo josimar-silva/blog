@@ -48,6 +48,11 @@ export const metadata: Metadata = {
     icon: "/icons/icon.svg",
     apple: "/icons/apple-touch-icon.png",
   },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "JS Blog",
+  },
 };
 
 export default function RootLayout({
