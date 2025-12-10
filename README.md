@@ -81,6 +81,7 @@
 ## 📝 Introduction
 
 This is a personal website and blog built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Markdown](https://www.markdownguide.org/). 
+
 It serves as a platform for sharing thoughts on software engineering, homelab experiments, and other technical topics.
 
 **Key Features:**
