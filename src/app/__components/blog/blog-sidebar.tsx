@@ -35,6 +35,7 @@ import {
   CardTitle,
 } from "@/app/__components/ui/card";
 import { Input } from "@/app/__components/ui/input";
+import { formatDate } from "@/lib/utils";
 
 interface BlogPost {
   id: number;
@@ -131,7 +132,7 @@ export function BlogSidebar({ posts }: BlogSidebarProps) {
                   </h4>
                 </Link>
                 <p className="text-xs text-muted-foreground">
-                  {new Date(post.date).toLocaleDateString()}
+                  {formatDate(post.date)}
                 </p>
               </div>
             </div>

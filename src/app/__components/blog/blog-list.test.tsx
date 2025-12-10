@@ -148,9 +148,7 @@ describe("BlogList", () => {
     const post1Article = post1Title.closest("article");
     expect(post1Title).toBeInTheDocument();
     expect(within(post1Article).getByText("Excerpt 1")).toBeInTheDocument();
-    expect(
-      within(post1Article).getByText("January 1, 2025"),
-    ).toBeInTheDocument();
+    expect(within(post1Article).getByText("01/01/2025")).toBeInTheDocument();
     expect(
       within(post1Article).getByText("Category A", { selector: "span" }),
     ).toBeInTheDocument();
@@ -160,9 +158,7 @@ describe("BlogList", () => {
     const post2Article = post2Title.closest("article");
     expect(post2Title).toBeInTheDocument();
     expect(within(post2Article).getByText("Excerpt 2")).toBeInTheDocument();
-    expect(
-      within(post2Article).getByText("January 2, 2025"),
-    ).toBeInTheDocument();
+    expect(within(post2Article).getByText("02/01/2025")).toBeInTheDocument();
     expect(
       within(post2Article).getByText("Category B", { selector: "span" }),
     ).toBeInTheDocument();

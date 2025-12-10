@@ -30,6 +30,7 @@ import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
 import { getFeaturedPosts } from "@/lib/posts";
+import { formatDate } from "@/lib/utils";
 
 export async function FeaturedPosts() {
   const featuredPosts = await getFeaturedPosts();
@@ -82,7 +83,7 @@ export async function FeaturedPosts() {
                   <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                     <div className="flex items-center space-x-1">
                       <Calendar className="h-3 w-3" />
-                      <span>{new Date(post.date).toLocaleDateString()}</span>
+                      <span>{formatDate(post.date)}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Clock className="h-3 w-3" />
