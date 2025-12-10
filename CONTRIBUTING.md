@@ -10,7 +10,57 @@ This project is released with a Contributor [Code of Conduct](CODE_OF_CONDUCT.md
 
 Happy coding :-).
 
-### Writing a Guess Blog Post
+### Writing a Guest Blog Post
+
+We welcome guest blog posts! Here's how to contribute one:
+
+#### 1. Create Your Blog Post File
+
+Create a new Markdown file in the `__posts/` directory with the following naming convention:
+
+```
+__posts/YYYY-MM-DD-your-post-title.md
+```
+
+Example: `__posts/2025-01-15-introduction-to-rust.md`
+
+#### 2. Add Frontmatter Metadata
+
+Every blog post must start with YAML frontmatter containing the following fields:
+
+```yaml
+---
+title: "Your Post Title"
+excerpt: "A brief summary of your post (1-2 sentences)"
+date: "YYYY-MM-DD"
+category: "Programming" # or "DevOps", "Architecture", etc.
+tags: ["tag1", "tag2", "tag3"] # Relevant topics
+author: "Your Name"
+authorPhoto: "/assets/blog/authors/your-name.png"
+image: "/assets/blog/posts/your-image.svg" # Featured image for the post
+featured: false # Set to true if this should appear on homepage
+---
+```
+
+#### 3. Write Your Content
+
+Write your blog post in Markdown below the frontmatter. Some guidelines:
+
+- Use clear headings to organize your content (start with `##`)
+- Include code examples with proper syntax highlighting
+- Keep paragraphs concise and readable
+- Use links to reference relevant resources
+- Ensure spelling and grammar are correct
+
+#### 4. Prepare Your Assets
+
+- Add your author photo to `/public/assets/blog/authors/` if you don't have one already
+- Add a featured image to `/public/assets/blog/posts/`
+- Images should be optimized for web (PNG, SVG, or JPEG)
+
+#### 5. Submit Your Contribution
+
+Follow the [Submitting a Pull Request](#submitting-a-pull-request) section below to submit your guest blog post.
 
 ### Submitting a pull request
 

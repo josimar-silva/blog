@@ -107,7 +107,7 @@ Follow these instructions to get the project running on your local machine.
 1.  Clone the repository.
 2.  Navigate to the `blog` directory:
     ```bash
-    cd website
+    cd blog
     ```
 3.  Install the dependencies using `npm`:
     ```bash
@@ -161,7 +161,7 @@ Check the [Releasing](./RELEASING.md) documentation for information about releas
 
 ## 🤝 Contributing
 
-We welcome contributions to the blog project! If you're interested in contributing, enhancing the frontend, adding new features, or writing guess blog posts please see our [Contributing Guidelines](./CONTRIBUTING.md) for more information.
+We welcome contributions to the blog project! If you're interested in contributing, enhancing the frontend, adding new features, or writing guest blog posts please see our [Contributing Guidelines](./CONTRIBUTING.md) for more information.
 
 ## 📄 License
 Copyright (C) 2025 Josimar Silva
