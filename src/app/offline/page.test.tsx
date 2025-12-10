@@ -57,7 +57,7 @@ describe("OfflinePage", () => {
   it("should display the WiFi off icon", () => {
     render(<OfflinePage />);
 
-    const icon = document.querySelector(".h-24.w-24");
+    const icon = screen.getByTestId("wifi-off-icon");
     expect(icon).toBeInTheDocument();
   });
 

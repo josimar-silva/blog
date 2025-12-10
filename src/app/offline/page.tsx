@@ -59,7 +59,7 @@ export default function OfflinePage() {
     <div className="flex min-h-screen flex-col items-center justify-center px-4">
       <div className="text-center space-y-6 max-w-md">
         <div className="flex justify-center">
-          <WifiOff className="h-24 w-24 text-muted-foreground" />
+          <WifiOff data-testid="wifi-off-icon" className="h-24 w-24 text-muted-foreground" />
         </div>
         <h1 className="text-4xl font-bold">You're Offline</h1>
         <p className="text-lg text-muted-foreground">
