@@ -29,8 +29,8 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 
 import { Badge } from "@/app/__components/ui/badge";
+import { FormattedDate } from "@/app/__components/ui/formatted-date";
 import { getCategories } from "@/lib/categories";
-import { formatDate } from "@/lib/utils";
 
 interface BlogPost {
   id: number;
@@ -120,7 +120,7 @@ function BlogListComponent({ posts }: Readonly<BlogListProps>) {
                 <Link href={`/blog/${post.slug}`} className="block">
                   <div className="space-y-3">
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <time dateTime={post.date}>{formatDate(post.date)}</time>
+                      <FormattedDate date={post.date} />
                       <span>•</span>
                       <span data-testid="post-category">{post.category}</span>
                       <span>•</span>

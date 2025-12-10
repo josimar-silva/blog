@@ -28,7 +28,7 @@ import Link from "next/link";
 
 import { Badge } from "@/app/__components/ui/badge";
 import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
-import { formatDate } from "@/lib/utils";
+import { FormattedDate } from "@/app/__components/ui/formatted-date";
 
 interface BlogPost {
   id: number;
@@ -84,7 +84,7 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
                     <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                       <div className="flex items-center space-x-1">
                         <Calendar className="h-3 w-3" />
-                        <span>{formatDate(post.date)}</span>
+                        <FormattedDate date={post.date} />
                       </div>
                       <div className="flex items-center space-x-1">
                         <Clock className="h-3 w-3" />
@@ -141,7 +141,7 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
                   <Badge variant="outline">{post.category}</Badge>
                   <div className="flex items-center space-x-2 text-xs text-muted-foreground">
                     <Calendar className="h-3 w-3" />
-                    <span>{formatDate(post.date)}</span>
+                    <FormattedDate date={post.date} />
                   </div>
                 </div>
                 <Link href={`/blog/${post.slug}`}>

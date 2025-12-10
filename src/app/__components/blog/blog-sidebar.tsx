@@ -34,8 +34,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/app/__components/ui/card";
+import { FormattedDate } from "@/app/__components/ui/formatted-date";
 import { Input } from "@/app/__components/ui/input";
-import { formatDate } from "@/lib/utils";
 
 interface BlogPost {
   id: number;
@@ -131,9 +131,10 @@ export function BlogSidebar({ posts }: BlogSidebarProps) {
                     {post.title}
                   </h4>
                 </Link>
-                <p className="text-xs text-muted-foreground">
-                  {formatDate(post.date)}
-                </p>
+                <FormattedDate
+                  date={post.date}
+                  className="text-xs text-muted-foreground"
+                />
               </div>
             </div>
           ))}

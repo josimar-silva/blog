@@ -22,52 +22,31 @@
  * SOFTWARE.
  */
 
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { formatDate } from "@/lib/utils";
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+interface FormattedDateProps {
+  date: string | Date;
+  className?: string;
 }
 
 /**
- * Default locale for date formatting across the application.
- * Using en-GB for consistent dd/MM/yyyy format.
- */
-export const DEFAULT_DATE_LOCALE = "en-GB";
-
-/**
- * Default options for date formatting.
- * Format: "dd/MM/yyyy" (e.g., "15/01/2025")
- */
-export const DEFAULT_DATE_OPTIONS: Intl.DateTimeFormatOptions = {
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric",
-};
-
-/**
- * Formats a date string or Date object to "dd/MM/yyyy" format.
+ * Renders a semantic time element with formatted date.
+ * Provides machine-readable datetime attribute in ISO format
+ * and human-readable display text.
  *
  * @param date - Date string (ISO format) or Date object
- * @returns Formatted date string (e.g., "15/01/2025")
- * @throws Error if date is invalid, null, or undefined
- *
- * @example
- * ```tsx
- * formatDate("2025-01-15") // "15/01/2025"
- * formatDate(new Date("2025-01-15")) // "15/01/2025"
- * ```
+ * @param className - Optional CSS class name
  */
-export function formatDate(date: string | Date): string {
-  if (!date) {
-    throw new Error("Date is required");
-  }
-
+export function FormattedDate({
+  date,
+  className,
+}: Readonly<FormattedDateProps>) {
   const dateObj = typeof date === "string" ? new Date(date) : date;
+  const isoDate = dateObj.toISOString().split("T")[0]; // YYYY-MM-DD
 
-  if (Number.isNaN(dateObj.getTime())) {
-    throw new TypeError("Invalid date");
-  }
-
-  return dateObj.toLocaleDateString(DEFAULT_DATE_LOCALE, DEFAULT_DATE_OPTIONS);
+  return (
+    <time dateTime={isoDate} className={className}>
+      {formatDate(date)}
+    </time>
+  );
 }
