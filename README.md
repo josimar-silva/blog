@@ -70,7 +70,7 @@
 
 ## 📖 Table of Contents
 
-- [Introduction](#introduction)
+- [📝 Introduction](#-introduction)
 - [🏁 Getting Started](#-getting-started)
 - [🛠️ Available Scripts](#️-available-scripts)
 - [🧪 Testing](#-testing)
@@ -78,9 +78,10 @@
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
 
-## Introduction
+## 📝 Introduction
 
-This is a personal website and blog built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Markdown](https://www.markdownguide.org/). It serves as a platform for sharing thoughts on software engineering, homelab experiments, and other technical topics.
+This is a personal website and blog built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Markdown](https://www.markdownguide.org/). 
+It serves as a platform for sharing thoughts on software engineering, homelab experiments, and other technical topics.
 
 **Key Features:**
 - Static site generation with Next.js for optimal performance and SEO
