@@ -68,23 +68,100 @@
   <a href="https://josimar-silva.com">Josimar Silva</a>.
 </div>
 
-## Table of Contents
+## 📖 Table of Contents
 
 - [Introduction](#introduction)
-- [Developing](#developing)
-- [Releasing](#releasing)
-- [Contributing](#contributing)
-- [License](#license)
+- [🏁 Getting Started](#-getting-started)
+- [🛠️ Available Scripts](#️-available-scripts)
+- [🧪 Testing](#-testing)
+- [🚢 Releasing](#-releasing)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
-# Introduction
+## Introduction
 
-# Developing
+This is a personal website and blog built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Markdown](https://www.markdownguide.org/). It serves as a platform for sharing thoughts on software engineering, homelab experiments, and other technical topics.
 
-# Releasing
+**Key Features:**
+- Static site generation with Next.js for optimal performance and SEO
+- Type-safe development with TypeScript
+- Markdown-based content management for blog posts and book reviews
+- Comprehensive test coverage with Jest and Playwright
+- Responsive design with Tailwind CSS
+- Progressive Web App (PWA) support
+- High code quality standards with ESLint and SonarCloud
+- Automated CI/CD pipeline with GitHub Actions
 
-# Contributing
+## 🏁 Getting Started
 
-## License
+Follow these instructions to get the project running on your local machine.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v24.x or later)
+
+### Installation
+
+1.  Clone the repository.
+2.  Navigate to the `blog` directory:
+    ```bash
+    cd website
+    ```
+3.  Install the dependencies using `npm`:
+    ```bash
+    npm install
+    ```
+
+    Alternatively, you can use the `just` command:
+    ```bash
+    just install
+    ```
+
+### Running the Development Server
+
+To start the development server, run:
+
+```bash
+just dev
+```
+
+The application will be available at [http://localhost:3000](http://localhost:3000).
+
+## 🛠️ Available Scripts
+
+This project uses `just` as a command runner for convenience.
+
+- `just dev`: Starts the development server with Turbopack.
+- `just build`: Builds the application for production.
+- `just start`: Starts the production server (requires a build first).
+- `just check`: Runs both linting and formatting checks.
+- `just lint`: Lints the codebase using ESLint.
+- `just format`: Formats the code using Prettier and fixes linting issues.
+- `just test`: Runs all unit tests with Jest.
+- `just test-e2e`: Builds the app and runs all end-to-end tests with Playwright.
+
+## 🧪 Testing
+
+The project includes both unit and end-to-end tests.
+
+- **Unit Tests**: Run all unit tests using Jest:
+  ```bash
+  just test
+  ```
+- **End-to-End Tests**: Run all E2E tests using Playwright. This command will first build the application and then run the tests against the production build.
+  ```bash
+  just test-e2e
+  ```
+
+## 🚢 Releasing
+
+Check the [Releasing](./RELEASING.md) documentation for information about releasing to Cloudflare Pages.
+
+## 🤝 Contributing
+
+We welcome contributions to the blog project! If you're interested in contributing, enhancing the frontend, adding new features, or writing guess blog posts please see our [Contributing Guidelines](./CONTRIBUTING.md) for more information.
+
+## 📄 License
 Copyright (C) 2025 Josimar Silva
 
 Unless otherwise specified:
