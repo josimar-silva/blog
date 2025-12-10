@@ -79,7 +79,7 @@ describe("BlogPost", () => {
     expect(screen.getByText("React")).toBeInTheDocument(); // Tag badge
     expect(screen.getByText("Next.js")).toBeInTheDocument(); // Tag badge
     expect(screen.getByText("Testing")).toBeInTheDocument(); // Tag badge
-    expect(screen.getByText("8/25/2025")).toBeInTheDocument(); // Formatted date
+    expect(screen.getByText("25/08/2025")).toBeInTheDocument(); // Formatted date
     expect(screen.getByText(mockPost.readTime)).toBeInTheDocument();
 
     const postImage = screen.getByAltText(mockPost.title);

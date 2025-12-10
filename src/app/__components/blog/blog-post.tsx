@@ -31,6 +31,7 @@ import { BlogPostNavigation } from "@/app/__components/blog/blog-post-navigation
 import ShareModal from "@/app/__components/blog/share-modal";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
+import { formatDate } from "@/lib/utils";
 
 interface PostNavigationProps {
   slug: string;
@@ -100,7 +101,7 @@ export function BlogPost({ post }: Readonly<BlogPostProps>) {
           <div className="flex items-center space-x-4 text-sm text-muted-foreground mb-6">
             <div className="flex items-center space-x-1">
               <Calendar className="h-4 w-4" />
-              <span>{new Date(post.date).toLocaleDateString()}</span>
+              <span>{formatDate(post.date)}</span>
             </div>
             <div className="flex items-center space-x-1">
               <Clock className="h-4 w-4" />

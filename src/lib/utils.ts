@@ -28,3 +28,46 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+/**
+ * Default locale for date formatting across the application.
+ * Using en-GB for consistent dd/MM/yyyy format.
+ */
+export const DEFAULT_DATE_LOCALE = "en-GB";
+
+/**
+ * Default options for date formatting.
+ * Format: "dd/MM/yyyy" (e.g., "15/01/2025")
+ */
+export const DEFAULT_DATE_OPTIONS: Intl.DateTimeFormatOptions = {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+};
+
+/**
+ * Formats a date string or Date object to "dd/MM/yyyy" format.
+ *
+ * @param date - Date string (ISO format) or Date object
+ * @returns Formatted date string (e.g., "15/01/2025")
+ * @throws Error if date is invalid, null, or undefined
+ *
+ * @example
+ * ```tsx
+ * formatDate("2025-01-15") // "15/01/2025"
+ * formatDate(new Date("2025-01-15")) // "15/01/2025"
+ * ```
+ */
+export function formatDate(date: string | Date): string {
+  if (!date) {
+    throw new Error("Date is required");
+  }
+
+  const dateObj = typeof date === "string" ? new Date(date) : date;
+
+  if (isNaN(dateObj.getTime())) {
+    throw new Error("Invalid date");
+  }
+
+  return dateObj.toLocaleDateString(DEFAULT_DATE_LOCALE, DEFAULT_DATE_OPTIONS);
+}

@@ -157,7 +157,7 @@ describe("BlogGrid", () => {
     expect(screen.getByText("Technology")).toBeInTheDocument();
     expect(screen.getByText("AI")).toBeInTheDocument();
     expect(screen.getByText("Machine Learning")).toBeInTheDocument();
-    expect(screen.getByText("1/15/2025")).toBeInTheDocument();
+    expect(screen.getByText("15/01/2025")).toBeInTheDocument();
     expect(screen.getByText("8 min read")).toBeInTheDocument();
     expect(screen.getByText("Featured")).toBeInTheDocument();
   });
@@ -182,7 +182,7 @@ describe("BlogGrid", () => {
     expect(screen.getByText("Science")).toBeInTheDocument();
     expect(screen.getByText("Physics")).toBeInTheDocument();
     expect(screen.getByText("Quantum")).toBeInTheDocument();
-    expect(screen.getByText("2/20/2025")).toBeInTheDocument();
+    expect(screen.getByText("20/02/2025")).toBeInTheDocument();
     expect(screen.getByText("5 min read")).toBeInTheDocument();
 
     // Check regular post 2 details
@@ -195,7 +195,7 @@ describe("BlogGrid", () => {
     expect(screen.getByText("History")).toBeInTheDocument();
     expect(screen.getByText("Ancient")).toBeInTheDocument();
     expect(screen.getByText("Rome")).toBeInTheDocument();
-    expect(screen.getByText("3/10/2025")).toBeInTheDocument();
+    expect(screen.getByText("10/03/2025")).toBeInTheDocument();
     expect(screen.getByText("12 min read")).toBeInTheDocument();
   });
 
