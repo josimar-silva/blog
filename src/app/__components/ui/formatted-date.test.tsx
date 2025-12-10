@@ -62,4 +62,40 @@ describe("FormattedDate", () => {
     const timeElement = screen.getByText("15/06/2025");
     expect(timeElement).toHaveAttribute("dateTime", "2025-06-15");
   });
+
+  describe("error handling", () => {
+    beforeEach(() => {
+      jest.spyOn(console, "error").mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+
+    it("should render fallback UI for invalid date string", () => {
+      render(<FormattedDate date="invalid-date" />);
+
+      expect(screen.getByText(/invalid date/i)).toBeInTheDocument();
+    });
+
+    it("should render fallback UI for null date", () => {
+      render(<FormattedDate date={null as unknown as string} />);
+
+      expect(screen.getByText(/invalid date/i)).toBeInTheDocument();
+    });
+
+    it("should render fallback UI for undefined date", () => {
+      render(<FormattedDate date={undefined as unknown as string} />);
+
+      expect(screen.getByText(/invalid date/i)).toBeInTheDocument();
+    });
+
+    it("should render fallback UI for invalid Date object", () => {
+      const invalidDate = new Date("not a date");
+
+      render(<FormattedDate date={invalidDate} />);
+
+      expect(screen.getByText(/invalid date/i)).toBeInTheDocument();
+    });
+  });
 });

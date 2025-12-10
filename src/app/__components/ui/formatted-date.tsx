@@ -24,29 +24,58 @@
 
 import { formatDate } from "@/lib/utils";
 
+import { ErrorBoundary } from "./error-boundary";
+
 interface FormattedDateProps {
   date: string | Date;
   className?: string;
 }
 
 /**
- * Renders a semantic time element with formatted date.
- * Provides machine-readable datetime attribute in ISO format
- * and human-readable display text.
- *
- * @param date - Date string (ISO format) or Date object
- * @param className - Optional CSS class name
+ * Internal component that renders the formatted date.
+ * Throws errors for invalid dates, caught by ErrorBoundary wrapper.
  */
-export function FormattedDate({
+function FormattedDateContent({
   date,
   className,
 }: Readonly<FormattedDateProps>) {
+  const formattedDate = formatDate(date);
   const dateObj = typeof date === "string" ? new Date(date) : date;
   const isoDate = dateObj.toISOString().split("T")[0]; // YYYY-MM-DD
 
   return (
     <time dateTime={isoDate} className={className}>
-      {formatDate(date)}
+      {formattedDate}
     </time>
+  );
+}
+
+/**
+ * Renders a semantic time element with formatted date.
+ * Automatically handles invalid dates with a graceful fallback UI.
+ *
+ * Features:
+ * - Provides machine-readable datetime attribute in ISO format
+ * - Human-readable display text for valid dates
+ * - Graceful error handling for invalid dates with error boundary
+ *
+ * @returns Formatted time element, or error fallback UI for invalid dates
+ *
+ * @example
+ * ```tsx
+ * <FormattedDate date="2025-01-15" />
+ * <FormattedDate date={new Date()} className="text-sm" />
+ * // Invalid dates automatically show: "Invalid date"
+ * <FormattedDate date="invalid-date" />
+ * ```
+ * @param props
+ */
+export function FormattedDate(props: Readonly<FormattedDateProps>) {
+  return (
+    <ErrorBoundary
+      fallback={<span className="text-sm text-gray-500">Invalid date</span>}
+    >
+      <FormattedDateContent {...props} />
+    </ErrorBoundary>
   );
 }
