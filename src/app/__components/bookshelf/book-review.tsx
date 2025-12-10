@@ -37,6 +37,7 @@ import Link from "next/link";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent } from "@/app/__components/ui/card";
+import { FormattedDate } from "@/app/__components/ui/formatted-date";
 import { MarkdownContent } from "@/app/__components/ui/markdown-content";
 
 interface BookReviewProps {
@@ -131,13 +132,10 @@ export function BookReview({ book }: Readonly<BookReviewProps>) {
               <Calendar className="h-4 w-4 text-muted-foreground" />
               <div>
                 <p className="text-sm font-medium">Date Read</p>
-                <p className="text-sm text-muted-foreground">
-                  {new Date(book.dateRead).toLocaleDateString(undefined, {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </p>
+                <FormattedDate
+                  date={book.dateRead}
+                  className="text-sm text-muted-foreground"
+                />
               </div>
             </div>
 

@@ -31,6 +31,7 @@ import { useState } from "react";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent } from "@/app/__components/ui/card";
+import { FormattedDate } from "@/app/__components/ui/formatted-date";
 import type { BookSummary } from "@/interfaces/book";
 import { BookStatus, BookType } from "@/interfaces/book";
 
@@ -136,16 +137,7 @@ export function BookshelfList({ books }: Readonly<BookshelfListProps>) {
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <div className="flex items-center gap-1">
                           <Calendar className="h-4 w-4" />
-                          <span>
-                            {new Date(book.dateRead).toLocaleDateString(
-                              undefined,
-                              {
-                                year: "numeric",
-                                month: "short",
-                                day: "numeric",
-                              },
-                            )}
-                          </span>
+                          <FormattedDate date={book.dateRead} />
                         </div>
                         <span>•</span>
                         <span>{book.pages} pages</span>

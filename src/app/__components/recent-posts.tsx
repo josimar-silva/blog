@@ -29,8 +29,8 @@ import Link from "next/link";
 import { Badge } from "@/app/__components/ui/badge";
 import { Button } from "@/app/__components/ui/button";
 import { Card, CardContent, CardHeader } from "@/app/__components/ui/card";
+import { FormattedDate } from "@/app/__components/ui/formatted-date";
 import { getAllPosts } from "@/lib/posts";
-import { formatDate } from "@/lib/utils";
 
 export async function RecentPosts() {
   const recentPosts = await getAllPosts([
@@ -91,7 +91,7 @@ export async function RecentPosts() {
                       <Badge variant="outline">{post.category}</Badge>
                       <div className="flex items-center space-x-2 text-xs text-muted-foreground">
                         <Calendar className="h-3 w-3" />
-                        <span>{formatDate(post.date)}</span>
+                        <FormattedDate date={post.date} />
                         <Clock className="h-3 w-3" />
                         <span>{post.readTime}</span>
                       </div>
