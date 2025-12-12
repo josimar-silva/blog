@@ -22,11 +22,13 @@
  * SOFTWARE.
  */
 
+import { getBooks } from "@/lib/books";
 import { getAllPosts } from "@/lib/posts";
 
 import sitemap from "./sitemap";
 
 jest.mock("@/lib/posts");
+jest.mock("@/lib/books");
 
 describe("sitemap", () => {
   it("should generate the correct sitemap", async () => {
@@ -34,11 +36,16 @@ describe("sitemap", () => {
       { slug: "post-1", date: "2025-01-01" },
       { slug: "post-2", date: "2025-01-02" },
     ];
+    const mockBooks = [
+      { slug: "book-1", dateRead: "2025-01-15" },
+      { slug: "book-2", dateRead: "2025-01-20" },
+    ];
     (getAllPosts as jest.Mock).mockResolvedValue(mockPosts);
+    (getBooks as jest.Mock).mockResolvedValue(mockBooks);
 
     const result = await sitemap();
 
-    expect(result).toHaveLength(11); // 9 static pages + 2 posts
+    expect(result).toHaveLength(13); // 9 static pages + 2 posts + 2 books
     expect(result).toContainEqual({
       url: "https://josimar-silva.com/blog/post-1",
       lastModified: new Date("2025-01-01"),
@@ -46,6 +53,14 @@ describe("sitemap", () => {
     expect(result).toContainEqual({
       url: "https://josimar-silva.com/blog/post-2",
       lastModified: new Date("2025-01-02"),
+    });
+    expect(result).toContainEqual({
+      url: "https://josimar-silva.com/bookshelf/book-1",
+      lastModified: new Date("2025-01-15"),
+    });
+    expect(result).toContainEqual({
+      url: "https://josimar-silva.com/bookshelf/book-2",
+      lastModified: new Date("2025-01-20"),
     });
     expect(result).toContainEqual({
       url: "https://josimar-silva.com/",

@@ -24,6 +24,7 @@
 
 import { MetadataRoute } from "next";
 
+import { getBooks } from "@/lib/books";
 import { getAllPosts } from "@/lib/posts";
 
 export const dynamic = "force-static";
@@ -32,10 +33,16 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://josimar-silva.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPosts(["slug", "date"]);
+  const books = await getBooks();
 
   const postUrls = posts.map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,
     lastModified: new Date(post.date),
+  }));
+
+  const bookUrls = books.map((book) => ({
+    url: `${siteUrl}/bookshelf/${book.slug}`,
+    lastModified: new Date(book.dateRead),
   }));
 
   const staticPages = [
@@ -50,5 +57,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${siteUrl}/terms`, lastModified: new Date() },
   ];
 
-  return [...staticPages, ...postUrls];
+  return [...staticPages, ...postUrls, ...bookUrls];
 }
