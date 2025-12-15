@@ -1,7 +1,7 @@
 ---
 title: "Lessons from Rinha de Backend 2025"
 excerpt: "My notes and thoughts on building a solution for Zanfranceschi's backend coding challenge with Rust and Gemini CLI."
-date: "2025-01-21"
+date: "2025-08-21"
 category: "Software Engineering"
 tags: ["Rust", "Backend", "AI", "LLMs", "Development Tools"]
 author: "Josimar Silva"
