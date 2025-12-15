@@ -46,6 +46,7 @@ export default async function BlogPostPage(props: {
     "content",
     "tags",
     "category",
+    "image",
     "previousPost",
     "nextPost",
   ]);

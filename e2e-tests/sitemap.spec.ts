@@ -27,7 +27,15 @@ test.describe("Sitemap", () => {
     const response = await request.get("/sitemap.xml");
     const sitemap = await response.text();
     expect(sitemap).toContain(
-      "<loc>https://josimar-silva.com/blog/2025-01-21-rinha-de-backend-2025</loc>",
+      "<loc>https://josimar-silva.com/blog/2025-08-21-rinha-de-backend-2025</loc>",
+    );
+  });
+
+  test("should contain bookshelf notes", async ({ request }) => {
+    const response = await request.get("/sitemap.xml");
+    const sitemap = await response.text();
+    expect(sitemap).toContain(
+      "<loc>https://josimar-silva.com/bookshelf/the-staff-engineers-path</loc>",
     );
   });
 });

@@ -32,6 +32,7 @@ OPNsense
 QNAP
 QL
 Rinha
+rinha
 SSD
 Sata
 uptime
@@ -70,3 +71,19 @@ VLAN
 Mischa
 Lempa
 Geerling
+Zanfranceschi
+Zanfranceschi's
+Doomers
+CLIs
+Gosu
+JVM
+Doernenburg's
+StackOverflow
+LinkedIn
+liveness
+leaderboard
+Github
+Actix
+ExpressJS
+Confraria
+gaslighting
