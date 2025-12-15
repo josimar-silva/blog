@@ -34,10 +34,10 @@ test.describe("Footer", () => {
     test("should navigate with to posts filtered by selected category", async ({
       page,
     }) => {
-      await page.getByTestId("category-development").click();
-      await page.waitForURL("**/blog?category=development");
+      await page.getByTestId("category-software-engineering").click();
+      await page.waitForURL("**/blog?category=software-engineering");
 
-      await expect(page).toHaveURL("/blog?category=development");
+      await expect(page).toHaveURL("/blog?category=software-engineering");
       await expect(page).toHaveTitle("Josimar Silva");
 
       const posts = await page.locator("article").all();
@@ -45,7 +45,7 @@ test.describe("Footer", () => {
 
       for (const post of posts) {
         const category = await post.getByTestId("post-category").textContent();
-        expect(category).toBe("Development");
+        expect(category).toBe("Software Engineering");
       }
     });
   });
