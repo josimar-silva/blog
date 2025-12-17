@@ -64,4 +64,13 @@ describe("HeroSection", () => {
       "mailto:me@josimar-silva.com",
     );
   });
+
+  it("renders hero image with priority for LCP optimization", () => {
+    render(<HeroSection />);
+
+    const heroImage = screen.getByAltText("Josimar Silva");
+    expect(heroImage).toBeInTheDocument();
+    expect(heroImage).toHaveAttribute("loading", "eager");
+    expect(heroImage).toHaveAttribute("fetchpriority", "high");
+  });
 });
