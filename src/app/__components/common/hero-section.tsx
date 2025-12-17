@@ -41,7 +41,7 @@ export function HeroSection() {
               width={300}
               height={300}
               quality={85}
-              priority
+              preload
               fetchPriority="high"
               className="aspect-square overflow-hidden rounded-full object-cover"
             />
