@@ -55,6 +55,7 @@ export const metadata: Metadata = {
   },
   other: {
     preconnect: ["https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+    imagePreload: ["/assets/me-300x300.jpeg"],
   },
 };
 
@@ -65,6 +66,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/me-300x300.jpeg"
+          fetchPriority="high"
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
