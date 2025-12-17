@@ -104,6 +104,8 @@ export function AboutHero() {
                 width={400}
                 height={500}
                 quality={85}
+                preload
+                fetchPriority="high"
                 className="aspect-4/5 overflow-hidden rounded-2xl object-cover"
               />
               <div className="absolute inset-0 rounded-2xl bg-linear-to-t from-background/20 to-transparent" />

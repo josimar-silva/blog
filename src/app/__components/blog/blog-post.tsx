@@ -86,6 +86,8 @@ export function BlogPost({ post }: Readonly<BlogPostProps>) {
                 width={40}
                 height={40}
                 quality={70}
+                priority
+                fetchPriority="high"
                 sizes="40px"
                 className="rounded-full"
               />
