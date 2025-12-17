@@ -108,4 +108,16 @@ describe("FeaturedPosts", () => {
 
     expect(screen.queryByTestId("featured-post-item")).not.toBeInTheDocument();
   });
+
+  it("renders post images with responsive sizes for mobile optimization", async () => {
+    render(await FeaturedPosts());
+
+    const images = screen.getAllByRole("img");
+    images.forEach((img) => {
+      expect(img).toHaveAttribute("sizes");
+      const sizes = img.getAttribute("sizes");
+      expect(sizes).toContain("100vw");
+      expect(sizes).toContain("400px");
+    });
+  });
 });
