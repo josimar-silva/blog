@@ -88,10 +88,10 @@ pre-release:
     sed -i "s/APP_VERSION: \"[0-9.]*\"/APP_VERSION: \"${new_version}\"/" next.config.mjs
 
     echo "Updating blog version in README.md"
-    sed -i "s/blog-v[0-9.]*/blog-v${new_version}/" ../README.md
+    sed -i "s/blog-v[0-9.]*/blog-v${new_version}/" README.md
 
     echo "Committing version bump..."
-    git add package.json package-lock.json next.config.mjs ../README.md
+    git add package.json package-lock.json next.config.mjs README.md
     git commit -m "chore(release): prepare blog for release v${new_version}"
 
     echo "Pre-release for version ${new_version} is ready."
