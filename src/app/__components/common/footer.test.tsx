@@ -73,14 +73,25 @@ jest.mock("@/app/__components/common/categories-list", () => {
 });
 
 describe("Footer", () => {
+  const originalEnv = process.env;
+
   beforeEach(() => {
+    process.env = { ...originalEnv, APP_VERSION: "0.1.0" };
     render(<Footer />);
+  });
+
+  afterEach(() => {
+    process.env = originalEnv;
   });
 
   it("should contain copyright text", () => {
     expect(
       screen.getByText(/josimar silva\. all rights reserved\./i),
     ).toBeInTheDocument();
+  });
+
+  it("should display the version number", () => {
+    expect(screen.getByText(/v0\.1\.0/i)).toBeInTheDocument();
   });
 
   it("should contain navigation links", () => {

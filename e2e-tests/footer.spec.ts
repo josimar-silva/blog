@@ -30,6 +30,10 @@ test.describe("Footer", () => {
     await page.goto("/");
   });
 
+  test("should display the version number", async ({ page }) => {
+    await expect(page.locator("footer")).toContainText(/v0\.1\.0/i);
+  });
+
   test.describe("Categories section", () => {
     test("should navigate with to posts filtered by selected category", async ({
       page,

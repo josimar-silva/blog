@@ -28,6 +28,8 @@ import Link from "next/link";
 import CategoriesList from "@/app/__components/common/categories-list";
 
 export function Footer() {
+  const version = process.env.APP_VERSION;
+
   return (
     <footer className="border-t bg-background">
       <div className="container px-4 md:px-6 py-12">
@@ -159,6 +161,7 @@ export function Footer() {
           <p>
             &copy; {new Date().getFullYear()} Josimar Silva. All rights
             reserved.
+            {version && ` v${version}`}
           </p>
         </div>
       </div>
