@@ -30,8 +30,12 @@ test.describe("Footer", () => {
     await page.goto("/");
   });
 
-  test("should display the version number", async ({ page }) => {
-    await expect(page.locator("footer")).toContainText(/v0\.1\.0/i);
+  test("should display the correct footer version", async ({ page }) => {
+    const currentYear = new Date().getFullYear();
+    const expectedVersionText = `© ${currentYear} Josimar Silva. All rights reserved. v\\d+\\.\\d+\\.\\d+`;
+    await expect(page.getByTestId("footer-copyright")).toHaveText(
+      new RegExp(expectedVersionText),
+    );
   });
 
   test.describe("Categories section", () => {

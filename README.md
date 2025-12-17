@@ -12,7 +12,7 @@
   </a>
   <!-- Blog Version -->
   <a href="https://josimar-silva.com/">
-    <img src="https://img.shields.io/badge/blog-v0.1.0-purple.svg" alt="Blog Version" />
+    <img src="https://img.shields.io/badge/blog-v1.0.0-purple.svg" alt="Blog Version" />
   </a>
   <!-- Blog Health -->
   <a href="https://josimar-silva.com/">

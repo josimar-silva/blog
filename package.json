@@ -1,6 +1,6 @@
 {
   "name": "js-blog",
-  "version": "1.0.0-SNAPSHOT",
+  "version": "1.0.0",
   "private": true,
   "license": "(MIT OR CC-BY-NC-4.0)",
   "scripts": {
