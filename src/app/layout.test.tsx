@@ -54,4 +54,12 @@ describe("RootLayout", () => {
       }),
     );
   });
+
+  it("exports metadata with preconnect hints for external resources", () => {
+    const { metadata } = require("./layout");
+
+    expect(metadata.other).toBeDefined();
+    expect(metadata.other.preconnect).toContain("https://fonts.googleapis.com");
+    expect(metadata.other.preconnect).toContain("https://fonts.gstatic.com");
+  });
 });
