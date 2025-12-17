@@ -62,4 +62,12 @@ describe("RootLayout", () => {
     expect(metadata.other.preconnect).toContain("https://fonts.googleapis.com");
     expect(metadata.other.preconnect).toContain("https://fonts.gstatic.com");
   });
+
+  it("exports metadata with image preload for LCP element", () => {
+    const { metadata } = require("./layout");
+
+    expect(metadata.other).toBeDefined();
+    expect(metadata.other.imagePreload).toBeDefined();
+    expect(metadata.other.imagePreload).toContain("/assets/me-300x300.jpeg");
+  });
 });
