@@ -86,6 +86,7 @@ export function BlogPost({ post }: Readonly<BlogPostProps>) {
                 width={40}
                 height={40}
                 quality={70}
+                sizes="40px"
                 className="rounded-full"
               />
               <div>
@@ -118,6 +119,9 @@ export function BlogPost({ post }: Readonly<BlogPostProps>) {
             width={800}
             height={400}
             quality={85}
+            priority
+            fetchPriority="high"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 800px"
             className="aspect-video w-full rounded-lg object-cover"
           />
         </div>
