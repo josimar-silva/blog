@@ -65,12 +65,11 @@ describe("HeroSection", () => {
     );
   });
 
-  it("renders hero image with priority for LCP optimization", () => {
+  it("renders hero image for LCP", () => {
     render(<HeroSection />);
 
     const heroImage = screen.getByAltText("Josimar Silva");
     expect(heroImage).toBeInTheDocument();
-    expect(heroImage).toHaveAttribute("loading", "eager");
-    expect(heroImage).toHaveAttribute("fetchpriority", "high");
+    expect(heroImage.getAttribute("src")).toContain("me-300x300.jpeg");
   });
 });

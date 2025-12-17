@@ -30,7 +30,7 @@ import type React from "react";
 
 import { ThemeProvider } from "@/app/__components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const viewport: Viewport = {
   themeColor: "#6d28d9",
