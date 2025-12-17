@@ -37,6 +37,7 @@ const nextConfig = {
     unoptimized: true,
     loader: "custom",
     loaderFile: "./src/lib/image-loader.ts",
+    qualities: [70, 75, 85, 80, 90, 95, 100],
   },
   env: {
     APP_VERSION: "0.1.0",
