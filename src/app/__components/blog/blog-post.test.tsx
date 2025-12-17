@@ -25,16 +25,18 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 
-import { BlogPost } from "./blog-post";
-
 // Mock next/image
+/* eslint-disable @next/next/no-img-element */
 jest.mock("next/image", () => ({
   __esModule: true,
   default: (props: any) => {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img alt={props.alt || ""} {...props} />;
+    const { fetchPriority, ...imgProps } = props;
+    return (
+      <img alt={props.alt || ""} fetchpriority={fetchPriority} {...imgProps} />
+    );
   },
 }));
+/* eslint-enable @next/next/no-img-element */
 
 // Mock next/link
 jest.mock("next/link", () => ({
@@ -56,6 +58,15 @@ jest.mock("./blog-post-content", () => ({
   ),
 }));
 
+// Mock ShareModal component
+jest.mock("./share-modal", () => ({
+  __esModule: true,
+  default: () => <button>Share</button>,
+}));
+
+// Import BlogPost AFTER all mocks are defined
+import { BlogPost } from "./blog-post";
+
 const mockPost = {
   slug: "test-blog-post-title",
   title: "Test Blog Post Title",
@@ -64,6 +75,7 @@ const mockPost = {
   readTime: "10 min read",
   category: "Technology",
   author: "Josimar Silva",
+  authorPhoto: "/assets/placeholder.svg",
   image: "/assets/test-image.jpg",
   tags: ["React", "Next.js", "Testing"],
 };
@@ -85,6 +97,7 @@ describe("BlogPost", () => {
     const postImage = screen.getByAltText(mockPost.title);
     expect(postImage).toBeInTheDocument();
     expect(postImage).toHaveAttribute("src", mockPost.image);
+    expect(postImage).toHaveAttribute("fetchpriority", "high");
 
     const authorImage = screen.getByAltText(mockPost.author);
     expect(authorImage).toBeInTheDocument();

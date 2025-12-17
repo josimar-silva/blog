@@ -84,7 +84,7 @@ function BlogListComponent({ posts }: Readonly<BlogListProps>) {
     <section className="pb-16 md:pb-20">
       <div className="container px-4 md:px-6 max-w-4xl">
         {/* Category Filter */}
-        <div className="mb-12">
+        <div className="mb-12 min-h-[60px]">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((category) => (
               <Badge
