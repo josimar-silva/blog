@@ -53,6 +53,9 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     title: "JS Blog",
   },
+  other: {
+    preconnect: ["https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+  },
 };
 
 export default function RootLayout({
