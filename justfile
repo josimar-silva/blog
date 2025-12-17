@@ -69,7 +69,8 @@ pre-release:
     echo "Running checks and tests..."
     just check
     just test
-    just test-e2e
+    just build
+    just test-e2e-on mobile-chrome
 
     current_version=$(node -p "require('./package.json').version")
     echo "Current version is ${current_version}"
@@ -83,9 +84,15 @@ pre-release:
     echo "Bumping version to ${new_version}..."
     npm version --no-git-tag-version ${new_version}
 
+    echo "Updating APP_VERSION in next.config.mjs"
+    sed -i "s/APP_VERSION: \"[0-9.]*\"/APP_VERSION: \"${new_version}\"/" next.config.mjs
+
+    echo "Updating blog version in README.md"
+    sed -i "s/blog-v[0-9.]*/blog-v${new_version}/" ../README.md
+
     echo "Committing version bump..."
-    git add package.json package-lock.json
-    git commit -m "chore(release): prepare for release v${new_version}"
+    git add package.json package-lock.json next.config.mjs ../README.md
+    git commit -m "chore(release): prepare blog for release v${new_version}"
 
     echo "Pre-release for version ${new_version} is ready."
     echo "You can now push the changes to trigger the release workflow."

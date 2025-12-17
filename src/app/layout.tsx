@@ -54,7 +54,6 @@ export const metadata: Metadata = {
     title: "JS Blog",
   },
   other: {
-    preconnect: ["https://fonts.googleapis.com", "https://fonts.gstatic.com"],
     imagePreload: ["/assets/me-300x300.jpeg"],
   },
 };

@@ -97,18 +97,21 @@ jobs:
         with:
           subject-path: "${{ github.workspace }}/blog-${{ env.RELEASE_VERSION }}.tar.gz"
 
+      - name: 🛠️ Setup git
+        run: |
+          git config --global user.name "radagastbot[bot]"
+          git config --global user.email "radagastbot[bot]@users.noreply.github.com"
+
       - name: 🔖 Create Git Tag
         run: |
-          git config user.name "radagastbot[bot]"
-          git config user.email "radagastbot[bot]@users.noreply.github.com"
-          git tag "v${{ env.RELEASE_VERSION }}"
+          git tag "v${{ env.RELEASE_VERSION }}" "${{ github.event.workflow_run.head_sha }}"
           git push origin "v${{ env.RELEASE_VERSION }}"
 
       - name: 📝 Generate changelog
         uses: orhun/git-cliff-action@e16f179f0be49ecdfe63753837f20b9531642772 # v4
         with:
           config: cliff.toml
-          args: -vv --latest --strip header
+          args: -v --latest --strip header
         env:
           OUTPUT: CHANGELOG.md
           GITHUB_REPO: ${{ github.repository }}

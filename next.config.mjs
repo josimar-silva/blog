@@ -38,6 +38,9 @@ const nextConfig = {
     loader: "custom",
     loaderFile: "./src/lib/image-loader.ts",
   },
+  env: {
+    APP_VERSION: "0.1.0",
+  },
 };
 
 export default nextConfig;

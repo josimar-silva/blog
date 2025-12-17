@@ -10,6 +10,10 @@
   <a href="./LICENSE-CC-BY-NC">
     <img src="https://img.shields.io/badge/Content-CC%20BY--NC%204.0-lightgrey.svg" alt="CC license" />
   </a>
+  <!-- Blog Version -->
+  <a href="https://josimar-silva.com/">
+    <img src="https://img.shields.io/badge/blog-v0.1.0-purple.svg" alt="Blog Version" />
+  </a>
   <!-- Blog Health -->
   <a href="https://josimar-silva.com/">
     <img src="https://status.from-gondor.com/api/v1/endpoints/external_personal-website/health/badge.svg" alt="Blog Health" />
