@@ -101,7 +101,7 @@
     "prettier": "3.7.4",
     "reading-time-estimator": "2.0.4",
     "serve": "14.2.5",
-    "serwist": "9.3.0",
+    "serwist": "9.4.1",
     "tailwindcss": "4.1.18",
     "typescript": "5.9.3"
   }
