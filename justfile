@@ -70,7 +70,7 @@ pre-release:
     just check
     just test
     just build
-    just test-e2e-on mobile-chrome
+    just test-e2e-on google-chrome
 
     current_version=$(node -p "require('./package.json').version")
     echo "Current version is ${current_version}"
