@@ -31,7 +31,7 @@ const experience: Experience[] = [
     website: "https://friday.de",
     position: "Staff Software Engineer",
     location: "Berlin, Germany",
-    period: "January 2023 - Present",
+    period: "January 2023 - April 2026",
     type: "Full-time",
     description:
       "Architectural guild member, guiding teams in architectural decisions and driving technical alignment across the Engineering Chapter. Leading cross-chapter initiatives and projects, establishing technical standards and best practices organization-wide.",
@@ -291,10 +291,9 @@ const skills: Skills[] = [
 ];
 
 const now = {
-  lastUpdated: "December 2025",
+  lastUpdated: "January 2026",
   work: [
-    "Working as a Staff Software Engineer at FRIDAY Insurance in Berlin, where I'm part of the architectural guild guiding teams in architectural decisions and leading cross-chapter initiatives.",
-    "Mentoring engineers across the organization on system design, technical decision-making, and career development.",
+    "As FRIDAY is seizing operations in April, I'm looking forward to my next oportunity.",
   ],
   learning: [
     "Refreshing Data Structures and Algorithms as part of my Kaizen Journal project.",
@@ -313,9 +312,9 @@ const now = {
     "Maintaining work-life balance by setting boundaries around work hours and being intentional about how I spend my free time.",
   ],
   goals: [
-    "Read 12 books in 2025",
-    "Publish 2 technical articles on my blog in 2025",
-    "Reach B2 level in German by the end of 2025",
+    "Read 12 books in 2026",
+    "Publish 6 technical articles on my blog in 2026",
+    "Reach B2 level in German by the end of 2026",
   ],
 };
 
