@@ -50,6 +50,7 @@ interface BlogPostProps {
     authorPhoto: string;
     image: string;
     tags: string[];
+    blurDataUrl?: string;
     previousPost?: PostNavigationProps | null;
     nextPost?: PostNavigationProps | null;
   };
@@ -125,6 +126,10 @@ export function BlogPost({ post }: Readonly<BlogPostProps>) {
             fetchPriority="high"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 800px, 800px"
             className="aspect-video w-full rounded-lg object-cover"
+            {...(post.blurDataUrl && {
+              placeholder: "blur",
+              blurDataURL: post.blurDataUrl,
+            })}
           />
         </div>
 

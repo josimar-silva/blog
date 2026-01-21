@@ -37,4 +37,5 @@ export type Post = {
   readTime: string;
   category: string;
   tags: string[];
+  blurDataUrl?: string;
 };
