@@ -41,6 +41,7 @@ interface BlogPost {
   readTime: string;
   slug: string;
   featured: boolean;
+  blurDataUrl?: string;
 }
 
 interface BlogGridProps {
@@ -74,6 +75,10 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
                       height={300}
                       quality={85}
                       className="aspect-video w-full object-cover transition-transform group-hover:scale-105"
+                      {...(post.blurDataUrl && {
+                        placeholder: "blur",
+                        blurDataURL: post.blurDataUrl,
+                      })}
                     />
                     <Badge className="absolute top-4 left-4">Featured</Badge>
                   </div>
@@ -134,6 +139,10 @@ export function BlogGrid({ featuredPosts, regularPosts }: BlogGridProps) {
                   height={250}
                   quality={80}
                   className="aspect-video w-full object-cover transition-transform group-hover:scale-105"
+                  {...(post.blurDataUrl && {
+                    placeholder: "blur",
+                    blurDataURL: post.blurDataUrl,
+                  })}
                 />
               </Link>
               <CardHeader className="pb-2">

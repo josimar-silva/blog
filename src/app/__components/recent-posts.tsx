@@ -44,6 +44,7 @@ export async function RecentPosts() {
     "category",
     "excerpt",
     "image",
+    "blurDataUrl",
   ]);
 
   return (
@@ -82,6 +83,10 @@ export async function RecentPosts() {
                       height={150}
                       quality={75}
                       className="aspect-video w-full object-cover transition-transform hover:scale-105 md:aspect-square"
+                      {...(post.blurDataUrl && {
+                        placeholder: "blur",
+                        blurDataURL: post.blurDataUrl,
+                      })}
                     />
                   </Link>
                 </div>
