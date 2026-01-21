@@ -32,6 +32,8 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { highlight } from "remark-sugar-high";
 
+import { MarkdownImage } from "./markdown-image";
+
 interface MarkdownContentProps {
   content: string;
   className?: string;
@@ -81,6 +83,15 @@ export function MarkdownContent({
       <Markdown
         remarkPlugins={[remarkFrontmatter, remarkGfm, remarkMath, highlight]}
         rehypePlugins={[rehypeRaw]}
+        components={{
+          img: (props) => (
+            <MarkdownImage
+              src={props.src}
+              alt={props.alt}
+              title={props.title}
+            />
+          ),
+        }}
       >
         {content}
       </Markdown>
