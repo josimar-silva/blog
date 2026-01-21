@@ -52,13 +52,21 @@ const shouldBypassTransformation = (src: string): boolean => {
 /**
  * Build Cloudflare Image Resizing parameters.
  *
+ * Prioritizes AVIF format for modern browsers while maintaining compatibility
+ * with older browsers via automatic fallback to WebP/JPEG.
+ *
+ * Format priority:
+ * 1. AVIF (modern browsers: ~80% support)
+ * 2. WebP (fallback for older browsers)
+ * 3. JPEG/PNG (final fallback)
+ *
  * @param width
  * @param quality
  */
 const buildImageParams = (width: number, quality?: number) => {
   const params: string[] = [
     `width=${width}`,
-    "format=auto", // Auto-serve WebP/AVIF to supporting browsers
+    "format=avif", // Prioritize AVIF for better compression
     "fit=scale-down", // Never upscale images
   ];
 
