@@ -24,18 +24,13 @@
 
 "use client";
 
-import { useTheme } from "next-themes";
-import React, { useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import Markdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  materialDark,
-  materialLight,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import { highlight } from "remark-sugar-high";
 
 interface MarkdownContentProps {
   content: string;
@@ -59,8 +54,6 @@ export function MarkdownContent({
   content,
   className = "prose prose-gray max-w-none dark:prose-invert lg:prose-lg",
 }: Readonly<MarkdownContentProps>) {
-  const { theme } = useTheme();
-
   const isClientMounted = useSyncExternalStore(
     () => () => {},
     () => true,
@@ -83,33 +76,11 @@ export function MarkdownContent({
     );
   }
 
-  const codeStyle = theme === "dark" ? materialDark : materialLight;
-
   return (
     <div className={className}>
       <Markdown
-        remarkPlugins={[remarkFrontmatter, remarkGfm, remarkMath]}
+        remarkPlugins={[remarkFrontmatter, remarkGfm, remarkMath, highlight]}
         rehypePlugins={[rehypeRaw]}
-        components={{
-          code({ className: codeClassName, children, ...props }) {
-            const match = /language-(\w+)/.exec(codeClassName || "");
-
-            return match ? (
-              <SyntaxHighlighter
-                style={codeStyle as Record<string, React.CSSProperties>}
-                PreTag="div"
-                language={match[1]}
-                {...props}
-              >
-                {String(children).replace(/\n$/, "")}
-              </SyntaxHighlighter>
-            ) : (
-              <code className={codeClassName} {...props}>
-                {children}
-              </code>
-            );
-          },
-        }}
       >
         {content}
       </Markdown>

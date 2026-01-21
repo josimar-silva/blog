@@ -24,68 +24,18 @@
 
 "use client";
 
-import { useTheme } from "next-themes";
-import React, { useSyncExternalStore } from "react";
-import Markdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  materialDark,
-  materialLight,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
-import rehypeRaw from "rehype-raw";
-import remarkFrontmatter from "remark-frontmatter";
-import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
+import { MarkdownContent } from "@/app/__components/ui/markdown-content";
 
 interface BlogPostContentProps {
   content: string;
 }
 
-export default function BlogPostContent({ content }: BlogPostContentProps) {
-  const { theme } = useTheme();
-
-  // Use useSyncExternalStore to detect client-side mounting
-  const mounted = useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false,
-  );
-
-  if (!mounted) {
-    return null; // Render nothing on the server to prevent hydration mismatch
-  }
-
-  const codeStyle = theme === "dark" ? materialDark : materialLight;
-
+export default function BlogPostContent({
+  content,
+}: Readonly<BlogPostContentProps>) {
   return (
-    <div className="prose prose-gray max-w-none dark:prose-invert lg:prose-lg markdown-content">
-      <Markdown
-        remarkPlugins={[remarkFrontmatter, remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeRaw]}
-        components={{
-          code({ _node, className, children: codeChildren, ...props }) {
-            const match = /language-(\w+)/.exec(className || "");
-
-            return match ? (
-              <SyntaxHighlighter
-                // @ts-ignore
-                style={codeStyle}
-                PreTag="div"
-                language={match[1]}
-                {...props}
-              >
-                {String(codeChildren).replace(/\n$/, "")}
-              </SyntaxHighlighter>
-            ) : (
-              <code className={className} {...props}>
-                {codeChildren}
-              </code>
-            );
-          },
-        }}
-      >
-        {content}
-      </Markdown>
+    <div className="markdown-content">
+      <MarkdownContent content={content} />
     </div>
   );
 }

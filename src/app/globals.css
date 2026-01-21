@@ -147,6 +147,8 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 270 5.9% 91%;
     --sidebar-ring: 262.1 83.3% 57.8%;
+    --code-block-bg: #f8fafc;
+    --code-block-border: #e2e8f0;
   }
 
   .dark {
@@ -177,6 +179,8 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 270 3.7% 15.9%;
     --sidebar-ring: 263.4 70% 50.4%;
+    --code-block-bg: #1e293b;
+    --code-block-border: #334155;
   }
 }
 
@@ -187,4 +191,46 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Sugar-high syntax highlighting theme - Light mode */
+:root {
+  --sh-class: #2563eb;
+  --sh-identifier: #1f2937;
+  --sh-sign: #4b5563;
+  --sh-string: #047857;
+  --sh-keyword: #be123c;
+  --sh-comment: #6b7280;
+  --sh-jsxliterals: #1d4ed8;
+  --sh-property: #b45309;
+  --sh-entity: #7c3aed;
+}
+
+/* Sugar-high syntax highlighting theme - Dark mode */
+.dark {
+  --sh-class: #79c0ff;
+  --sh-identifier: #c9d1d9;
+  --sh-sign: #8b949e;
+  --sh-string: #a5d6ff;
+  --sh-keyword: #ff7b72;
+  --sh-comment: #8b949e;
+  --sh-jsxliterals: #7ee787;
+  --sh-property: #ffa657;
+  --sh-entity: #d2a8ff;
+}
+
+/* Code block styling for markdown content */
+.markdown-content pre {
+  background-color: var(--code-block-bg);
+  border: 1px solid var(--code-block-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.markdown-content pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 0.875em;
+  color: inherit;
 }
