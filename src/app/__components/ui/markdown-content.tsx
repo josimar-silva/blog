@@ -32,6 +32,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import { highlight } from "remark-sugar-high";
 
+import { CodeBlock } from "./code-block";
 import { MarkdownImage } from "./markdown-image";
 
 interface MarkdownContentProps {
@@ -84,6 +85,7 @@ export function MarkdownContent({
         remarkPlugins={[remarkFrontmatter, remarkGfm, remarkMath, highlight]}
         rehypePlugins={[rehypeRaw]}
         components={{
+          pre: (props) => <CodeBlock {...props} />,
           img: (props) => (
             <MarkdownImage
               src={props.src}
