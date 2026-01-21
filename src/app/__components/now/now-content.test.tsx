@@ -31,14 +31,14 @@ describe("NowContent", () => {
     render(<NowContent />);
     const lastUpdatedText = screen.getByText(/This page was last updated in/i);
     expect(lastUpdatedText).toBeInTheDocument();
-    expect(screen.getByText("December 2025")).toBeInTheDocument();
+    expect(screen.getByText("January 2026")).toBeInTheDocument();
   });
 
   it("should render the work content", () => {
     render(<NowContent />);
     expect(
       screen.getByText(
-        /Working as a Staff Software Engineer at FRIDAY Insurance in Berlin/i,
+        /As FRIDAY is seizing operations in April, I'm looking forward to my next oportunity./i,
       ),
     ).toBeInTheDocument();
   });
@@ -81,6 +81,6 @@ describe("NowContent", () => {
 
   it("should render the goals content", () => {
     render(<NowContent />);
-    expect(screen.getByText(/Read 12 books in 2025/i)).toBeInTheDocument();
+    expect(screen.getByText(/Read 12 books in 2026/i)).toBeInTheDocument();
   });
 });

@@ -45,7 +45,7 @@ test.describe("Now Page", () => {
     // Verify content from each section
     await expect(
       page.getByText(
-        /Working as a Staff Software Engineer at FRIDAY Insurance in Berlin/,
+        /As FRIDAY is seizing operations in April, I'm looking forward to my next oportunity./,
       ),
     ).toBeVisible();
     await expect(
@@ -66,11 +66,11 @@ test.describe("Now Page", () => {
         /Improving my German proficiency to apply for German citizenship/,
       ),
     ).toBeVisible();
-    await expect(page.getByText(/Read 12 books in 2025/)).toBeVisible();
+    await expect(page.getByText(/Read 12 books in 2026/)).toBeVisible();
 
     // Verify last updated date
     await expect(
-      page.getByText(/This page was last updated in December 2025/),
+      page.getByText(/This page was last updated in January 2026/),
     ).toBeVisible();
   });
 });
