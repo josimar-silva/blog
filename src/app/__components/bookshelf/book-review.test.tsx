@@ -261,8 +261,9 @@ describe("BookReview", () => {
           "Example code:\n\n```javascript\nconst greeting = 'Hello';\nconsole.log(greeting);\n```",
       };
       render(<BookReview book={bookWithMarkdown} />);
-      expect(screen.getByText(/const greeting/)).toBeInTheDocument();
-      expect(screen.getByText(/console\.log/)).toBeInTheDocument();
+      const codeElement = screen.getByRole("code");
+      expect(codeElement).toHaveTextContent(/const greeting = 'Hello';/);
+      expect(codeElement).toHaveTextContent(/console\.log\(greeting\);/);
     });
 
     it("should render markdown blockquotes", () => {
