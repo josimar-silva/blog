@@ -136,7 +136,7 @@ describe("cloudflareImageLoader", () => {
       });
 
       expect(result).toBe(
-        "/cdn-cgi/image/width=800,format=auto,fit=scale-down,quality=85/assets/image.jpg",
+        "/cdn-cgi/image/width=800,format=avif,fit=scale-down,quality=85/assets/image.jpg",
       );
     });
 
@@ -148,7 +148,7 @@ describe("cloudflareImageLoader", () => {
       });
 
       expect(result).toBe(
-        "/cdn-cgi/image/width=800,format=auto,fit=scale-down,quality=85/assets/image.jpg",
+        "/cdn-cgi/image/width=800,format=avif,fit=scale-down,quality=85/assets/image.jpg",
       );
     });
 
@@ -159,7 +159,7 @@ describe("cloudflareImageLoader", () => {
       });
 
       expect(result).toBe(
-        "/cdn-cgi/image/width=800,format=auto,fit=scale-down/assets/image.jpg",
+        "/cdn-cgi/image/width=800,format=avif,fit=scale-down/assets/image.jpg",
       );
     });
 
@@ -171,7 +171,7 @@ describe("cloudflareImageLoader", () => {
       });
 
       expect(result).toBe(
-        "/cdn-cgi/image/width=400,format=auto,fit=scale-down,quality=75/assets/image.jpg",
+        "/cdn-cgi/image/width=400,format=avif,fit=scale-down,quality=75/assets/image.jpg",
       );
     });
 
@@ -183,7 +183,7 @@ describe("cloudflareImageLoader", () => {
       });
 
       expect(result).toBe(
-        "/cdn-cgi/image/width=800,format=auto,fit=scale-down,quality=80/assets/blog/posts/image.jpg",
+        "/cdn-cgi/image/width=800,format=avif,fit=scale-down,quality=80/assets/blog/posts/image.jpg",
       );
     });
   });
@@ -208,7 +208,7 @@ describe("cloudflareImageLoader", () => {
 
       expect(result).not.toContain("quality");
       expect(result).toBe(
-        "/cdn-cgi/image/width=800,format=auto,fit=scale-down/assets/image.jpg",
+        "/cdn-cgi/image/width=800,format=avif,fit=scale-down/assets/image.jpg",
       );
     });
 
@@ -225,13 +225,13 @@ describe("cloudflareImageLoader", () => {
   });
 
   describe("format and fit parameters", () => {
-    it("should always include format=auto", () => {
+    it("should prioritize AVIF format for better compression", () => {
       const result = cloudflareImageLoader({
         src: "/assets/image.jpg",
         width: 800,
       });
 
-      expect(result).toContain("format=auto");
+      expect(result).toContain("format=avif");
     });
 
     it("should always include fit=scale-down", () => {
@@ -241,6 +241,29 @@ describe("cloudflareImageLoader", () => {
       });
 
       expect(result).toContain("fit=scale-down");
+    });
+
+    it("should prioritize AVIF with quality parameter", () => {
+      const result = cloudflareImageLoader({
+        src: "/assets/image.jpg",
+        width: 800,
+        quality: 80,
+      });
+
+      expect(result).toBe(
+        "/cdn-cgi/image/width=800,format=avif,fit=scale-down,quality=80/assets/image.jpg",
+      );
+    });
+
+    it("should prioritize AVIF without quality parameter", () => {
+      const result = cloudflareImageLoader({
+        src: "/assets/image.jpg",
+        width: 800,
+      });
+
+      expect(result).toBe(
+        "/cdn-cgi/image/width=800,format=avif,fit=scale-down/assets/image.jpg",
+      );
     });
   });
 
@@ -253,7 +276,7 @@ describe("cloudflareImageLoader", () => {
       });
 
       expect(result).toBe(
-        "/cdn-cgi/image/width=800,format=auto,fit=scale-down,quality=85/assets/my-image_2024 (1).jpg",
+        "/cdn-cgi/image/width=800,format=avif,fit=scale-down,quality=85/assets/my-image_2024 (1).jpg",
       );
     });
 
@@ -265,7 +288,7 @@ describe("cloudflareImageLoader", () => {
       });
 
       expect(result).toBe(
-        "/cdn-cgi/image/width=800,format=auto,fit=scale-down,quality=85/assets/image.jpg?v=123",
+        "/cdn-cgi/image/width=800,format=avif,fit=scale-down,quality=85/assets/image.jpg?v=123",
       );
     });
   });
