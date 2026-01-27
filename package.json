@@ -100,7 +100,7 @@
     "jest-environment-jsdom": "30.2.0",
     "monocart-reporter": "2.9.23",
     "prettier": "3.8.1",
-    "reading-time-estimator": "2.0.4",
+    "reading-time-estimator": "2.1.1",
     "serve": "14.2.5",
     "serwist": "9.5.0",
     "tailwindcss": "4.1.18",
