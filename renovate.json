@@ -68,6 +68,13 @@
       "groupName": "playwright packages"
     },
     {
+      "matchPackageNames": [
+        "serwist",
+        "@serwist/cli"
+      ],
+      "groupName": "serwist packages"
+    },
+    {
       "matchDepTypes": [
         "dependencies"
       ],
