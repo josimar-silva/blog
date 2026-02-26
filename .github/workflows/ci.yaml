@@ -102,7 +102,7 @@ jobs:
         run: just test
 
       - name: ⬆️ Upload coverage report
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         with:
           name: test-coverage
           path: coverage/
@@ -154,7 +154,7 @@ jobs:
         run: just build
 
       - name: ⬆️ Upload static website artifact
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         with:
           name: blog-${{ github.sha }}
           path: dist/blog
@@ -235,7 +235,7 @@ jobs:
         run: npx playwright install chrome
 
       - name: ⬇️ Download generated distribution
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8
         with:
           name: blog-${{ github.sha }}
           path: dist/blog
@@ -248,7 +248,7 @@ jobs:
 
       - name: ⬆️ Upload coverage report
         if: matrix.browser == 'chromium'
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         with:
           name: test-e2e-coverage-${{ matrix.browser }}
           path: e2e-tests-report/coverage/ui-lcov.info
@@ -277,13 +277,13 @@ jobs:
           fetch-depth: 0
 
       - name: ⬇️ Download test coverage report
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8
         with:
           name: test-coverage
           path: coverage/
 
       - name: ⬇️ Download test-e2e coverage report
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8
         with:
           name: test-e2e-coverage-chromium
           path: e2e-tests-report/coverage
