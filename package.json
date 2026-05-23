@@ -78,7 +78,7 @@
     "@estruyf/github-actions-reporter": "1.12.0",
     "@playwright/test": "1.59.1",
     "@serwist/cli": "9.5.7",
-    "@swc/core": "1.15.24",
+    "@swc/core": "1.15.40",
     "@swc/jest": "0.2.39",
     "@tailwindcss/postcss": "4.3.0",
     "@tailwindcss/typography": "0.5.19",
