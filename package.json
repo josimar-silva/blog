@@ -98,7 +98,7 @@
     "globals": "17.6.0",
     "jest": "30.3.0",
     "jest-environment-jsdom": "30.4.1",
-    "monocart-reporter": "2.10.0",
+    "monocart-reporter": "2.12.2",
     "prettier": "3.8.3",
     "reading-time-estimator": "2.6.0",
     "serve": "14.2.6",
