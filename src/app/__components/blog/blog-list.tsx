@@ -26,7 +26,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 
 import { Badge } from "@/app/__components/ui/badge";
 import { FormattedDate } from "@/app/__components/ui/formatted-date";
@@ -61,11 +61,12 @@ function BlogListComponent({ posts }: Readonly<BlogListProps>) {
 
   const [selectedCategory, setSelectedCategory] =
     useState(getInitialCategory());
+  const [prevCategoryKey, setPrevCategoryKey] = useState(categoryKey);
 
-  useEffect(() => {
+  if (prevCategoryKey !== categoryKey) {
+    setPrevCategoryKey(categoryKey);
     setSelectedCategory(getInitialCategory());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoryKey]);
+  }
 
   const categories = getCategories()
       .map((category) => category.name)
