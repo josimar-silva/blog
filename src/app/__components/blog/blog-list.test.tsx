@@ -178,6 +178,24 @@ describe("BlogList", () => {
     ).toBeInTheDocument();
   });
 
+  it("updates the selected category when the URL category changes", () => {
+    const useSearchParamsSpy = jest
+      .spyOn(require("next/navigation"), "useSearchParams")
+      .mockReturnValue({ get: () => "category-a" });
+    const { rerender } = render(<BlogList posts={mockPosts} />);
+    expect(
+      screen.getByText(`Showing 2 articles in "Category A"`),
+    ).toBeInTheDocument();
+
+    useSearchParamsSpy.mockReturnValue({ get: () => "category-b" });
+    rerender(<BlogList posts={mockPosts} />);
+    expect(
+      screen.getByText(`Showing 1 article in "Category B"`),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Post 2")).toBeInTheDocument();
+    expect(screen.queryByText("Post 1")).not.toBeInTheDocument();
+  });
+
   it('shows all posts after clicking "View all posts"', () => {
     render(<BlogList posts={mockPosts} />);
 
