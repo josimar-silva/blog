@@ -13,17 +13,25 @@ async function openShareModal(page: Page): Promise<Locator> {
   return modal;
 }
 
-async function getSharePopupFor(label: string, page: Page) {
-  const [popup] = await Promise.all([
-    page.waitForEvent("popup"),
-    page.getByLabel(label).click(),
-  ]);
-  return popup;
-}
+/**
+ * Captures the URL a share button passes to window.open without opening a
+ * real popup. Hitting the actual share endpoints (x.com, linkedin.com, ...)
+ * is flaky: branded browsers follow their redirects before the URL can be
+ * asserted, and the external requests slow down or hang the suite.
+ */
+async function getSharedUrlFor(label: string, page: Page): Promise<string> {
+  await page.evaluate(() => {
+    window.open = (url?: string | URL) => {
+      (window as unknown as { __sharedUrl?: string }).__sharedUrl = String(url);
+      return null;
+    };
+  });
 
-function getUrlParam(url: string, name: string) {
-  const params = new URLSearchParams(new URL(url).search);
-  return params.get(name);
+  await page.getByLabel(label).click();
+
+  return page.evaluate(
+    () => (window as unknown as { __sharedUrl?: string }).__sharedUrl ?? "",
+  );
 }
 
 test.describe("ShareModal", () => {
@@ -92,45 +100,41 @@ test.describe("ShareModal", () => {
   test("should share on Twitter", async ({ page }) => {
     await openShareModal(page);
 
-    const popup = await getSharePopupFor("Share on Twitter", page);
+    const sharedUrl = await getSharedUrlFor("Share on Twitter", page);
 
-    expect(popup.url()).toContain("x.com/intent/tweet?url=");
-    expect(popup.url()).toContain(`${encodeURIComponent(blogPostTitle)}`);
-    expect(popup.url()).toContain(`${encodeURIComponent(blogPostUrl)}`);
+    expect(sharedUrl).toMatch(/(?:twitter|x)\.com\/intent\/tweet\?url=/);
+    expect(sharedUrl).toContain(`${encodeURIComponent(blogPostTitle)}`);
+    expect(sharedUrl).toContain(`${encodeURIComponent(blogPostUrl)}`);
   });
 
   test("should share on Telegram", async ({ page }) => {
     await openShareModal(page);
 
-    const popup = await getSharePopupFor("Share on Telegram", page);
+    const sharedUrl = await getSharedUrlFor("Share on Telegram", page);
 
-    expect(popup.url()).toContain("telegram.me/share/url?url=");
-    expect(popup.url()).toContain(`${encodeURIComponent(blogPostTitle)}`);
-    expect(popup.url()).toContain(`${encodeURIComponent(blogPostUrl)}`);
+    expect(sharedUrl).toContain("telegram.me/share/url?url=");
+    expect(sharedUrl).toContain(`${encodeURIComponent(blogPostTitle)}`);
+    expect(sharedUrl).toContain(`${encodeURIComponent(blogPostUrl)}`);
   });
 
   test("should share on LinkedIn", async ({ page }) => {
     await openShareModal(page);
 
-    const popup = await getSharePopupFor("Share on LinkedIn", page);
+    const sharedUrl = await getSharedUrlFor("Share on LinkedIn", page);
+    const decodedSharedUrl = decodeURIComponent(sharedUrl);
 
-    const sessionRedirect = getUrlParam(popup.url(), "session_redirect");
-    expect(sessionRedirect).not.toBeNull();
-
-    const decodedRedirectUrl = decodeURIComponent(sessionRedirect as string);
-
-    expect(decodedRedirectUrl).toContain("linkedin.com/shareArticle");
-    expect(decodedRedirectUrl).toContain(blogPostTitle);
-    expect(decodedRedirectUrl).toContain(blogPostUrl);
+    expect(decodedSharedUrl).toContain("linkedin.com/shareArticle");
+    expect(decodedSharedUrl).toContain(blogPostTitle);
+    expect(decodedSharedUrl).toContain(blogPostUrl);
   });
 
   test("should share on WhatsApp", async ({ page }) => {
     await openShareModal(page);
 
-    const popup = await getSharePopupFor("Share on WhatsApp", page);
+    const sharedUrl = await getSharedUrlFor("Share on WhatsApp", page);
 
-    expect(popup.url()).toContain("whatsapp.com/send");
-    expect(popup.url()).toContain(`${encodeURIComponent(blogPostTitle)}`);
-    expect(popup.url()).toContain(`${encodeURIComponent(blogPostUrl)}`);
+    expect(sharedUrl).toContain("whatsapp.com/send");
+    expect(sharedUrl).toContain(`${encodeURIComponent(blogPostTitle)}`);
+    expect(sharedUrl).toContain(`${encodeURIComponent(blogPostUrl)}`);
   });
 });
