@@ -24,16 +24,7 @@
 
 "use client";
 
-import {
-  Check,
-  Copy,
-  Linkedin,
-  Mail,
-  MessageCircle,
-  Send,
-  Share2,
-  Twitter,
-} from "lucide-react";
+import { Check, Copy, Mail, MessageCircle, Send, Share2 } from "lucide-react";
 import { useState } from "react";
 import {
   EmailShareButton,
@@ -43,6 +34,7 @@ import {
   WhatsappShareButton,
 } from "react-share";
 
+import { Linkedin, Twitter } from "@/app/__components/ui/brand-icons";
 import { Button } from "@/app/__components/ui/button";
 import {
   Dialog,

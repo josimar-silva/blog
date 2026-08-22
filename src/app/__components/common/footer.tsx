@@ -22,10 +22,11 @@
  * SOFTWARE.
  */
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Link from "next/link";
 
 import CategoriesList from "@/app/__components/common/categories-list";
+import { Github, Linkedin } from "@/app/__components/ui/brand-icons";
 
 export function Footer() {
   const version = process.env.APP_VERSION;
