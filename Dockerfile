@@ -24,3 +24,6 @@ USER nginx
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /app/dist/blog /usr/share/nginx/html
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget -qO- http://localhost:9091/api/health || exit 1
