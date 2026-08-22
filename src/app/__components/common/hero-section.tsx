@@ -22,10 +22,11 @@
  * SOFTWARE.
  */
 
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Github, Linkedin } from "@/app/__components/ui/brand-icons";
 import { Button } from "@/app/__components/ui/button";
 
 export function HeroSection() {

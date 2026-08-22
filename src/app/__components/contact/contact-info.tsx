@@ -22,8 +22,10 @@
  * SOFTWARE.
  */
 
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import Link from "next/link";
+
+import { Github, Linkedin } from "@/app/__components/ui/brand-icons";
 
 export function ContactInfo() {
   return (
