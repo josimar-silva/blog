@@ -36,6 +36,7 @@ describe("Experience", () => {
 
   it("renders all experience entries", () => {
     render(<Experience />);
+    expect(screen.getByText(/^Yape$/i)).toBeInTheDocument();
     expect(screen.getAllByText(/FRIDAY Insurance/i).length).toBe(2);
     expect(screen.getByText(/Youse Insurances/i)).toBeInTheDocument();
     expect(screen.getByText(/Abaco Consultores/i)).toBeInTheDocument();

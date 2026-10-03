@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { test, expect } from "./_shared/fixtures";
+import { expect, test } from "./_shared/fixtures";
 
 test.describe("Now Page", () => {
   test.beforeEach(async ({ page }) => {
@@ -45,7 +45,7 @@ test.describe("Now Page", () => {
     // Verify content from each section
     await expect(
       page.getByText(
-        /As FRIDAY is seizing operations in April, I'm looking forward to my next oportunity./,
+        /Joined Yape, Peru's leading digital wallet, as Lead Software Architect in May 2026/,
       ),
     ).toBeVisible();
     await expect(
@@ -70,7 +70,7 @@ test.describe("Now Page", () => {
 
     // Verify last updated date
     await expect(
-      page.getByText(/This page was last updated in January 2026/),
+      page.getByText(/This page was last updated in October 2026/),
     ).toBeVisible();
   });
 });

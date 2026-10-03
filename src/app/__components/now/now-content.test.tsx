@@ -31,14 +31,14 @@ describe("NowContent", () => {
     render(<NowContent />);
     const lastUpdatedText = screen.getByText(/This page was last updated in/i);
     expect(lastUpdatedText).toBeInTheDocument();
-    expect(screen.getByText("January 2026")).toBeInTheDocument();
+    expect(screen.getByText("October 2026")).toBeInTheDocument();
   });
 
   it("should render the work content", () => {
     render(<NowContent />);
     expect(
       screen.getByText(
-        /As FRIDAY is seizing operations in April, I'm looking forward to my next oportunity./i,
+        /Joined Yape, Peru's leading digital wallet, as Lead Software Architect in May 2026/i,
       ),
     ).toBeInTheDocument();
   });

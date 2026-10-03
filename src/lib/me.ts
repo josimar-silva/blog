@@ -27,6 +27,38 @@ import { Project } from "@/interfaces/project";
 
 const experience: Experience[] = [
   {
+    company: "Yape",
+    website: "https://www.yape.com.pe",
+    position: "Lead Software Architect",
+    location: "Berlin, Germany",
+    period: "May 2026 - Present",
+    type: "Full-time",
+    description:
+      "Defining the enterprise architecture in line with business strategy, establishing architectural principles and standards across engineering teams. Embedded within delivery teams as a hands-on architect, contributing production code and prototyping solutions rather than dictating from the top.",
+    achievements: [
+      "Design scalable, resilient, and secure technology solutions leveraging cloud and microservices architectures",
+      "Implement and govern architectural review processes, managing technical debt and evaluating new technologies for adoption",
+      "Ensure the correct adoption of engineering best practices across the organization",
+      "Mentor and lead technical teams to strengthen internal capabilities and foster technical excellence",
+    ],
+    technologies: [
+      "Java",
+      "Go",
+      "Rust",
+      "TypeScript",
+      "Quarkus",
+      "NestJS",
+      "Kafka",
+      "Kubernetes",
+      "Helm",
+      "Azure",
+      "GitHub Actions",
+      "Terraform",
+      "Temporal IO",
+      "PostgreSQL",
+    ],
+  },
+  {
     company: "FRIDAY Insurance",
     website: "https://friday.de",
     position: "Staff Software Engineer",
@@ -291,9 +323,9 @@ const skills: Skills[] = [
 ];
 
 const now = {
-  lastUpdated: "January 2026",
+  lastUpdated: "October 2026",
   work: [
-    "As FRIDAY is seizing operations in April, I'm looking forward to my next oportunity.",
+    "Joined Yape, Peru's leading digital wallet, as Lead Software Architect in May 2026. Working on the architecture of its payments platform and on the engineering standards, libraries, and review processes behind it.",
   ],
   learning: [
     "Refreshing Data Structures and Algorithms as part of my Kaizen Journal project.",

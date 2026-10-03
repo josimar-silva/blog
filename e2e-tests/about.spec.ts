@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { test, expect } from "./_shared/fixtures";
+import { expect, test } from "./_shared/fixtures";
 
 test.describe("About Page", () => {
   test.beforeEach(async ({ page }) => {
@@ -33,6 +33,10 @@ test.describe("About Page", () => {
     await expect(
       page.getByRole("heading", { name: "Work Experience" }),
     ).toBeVisible();
+    await expect(
+      page.getByText("Lead Software Architect", { exact: true }),
+    ).toBeVisible();
+    await expect(page.getByText("Yape", { exact: true })).toBeVisible();
     await expect(
       page.getByText("Staff Software Engineer", { exact: true }),
     ).toBeVisible();
