@@ -33,6 +33,12 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    // `typescript` is aliased to @typescript/typescript6, which ships `tsc6`
+    // instead of `tsc`. Use the TypeScript API so Next does not look for a
+    // `typescript/bin/tsc` binary that the alias does not provide.
+    useTypeScriptCli: false,
+  },
   images: {
     unoptimized: true,
     loader: "custom",
