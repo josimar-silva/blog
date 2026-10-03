@@ -84,11 +84,14 @@ pre-release:
     echo "Bumping version to ${new_version}..."
     npm version --no-git-tag-version ${new_version}
 
+    # `sed -i.bak` works on both GNU and BSD (macOS) sed; plain `sed -i` does not.
     echo "Updating APP_VERSION in next.config.mjs"
-    sed -i "s/APP_VERSION: \"[0-9.]*\"/APP_VERSION: \"${new_version}\"/" next.config.mjs
+    sed -i.bak "s/APP_VERSION: \"[0-9.]*\"/APP_VERSION: \"${new_version}\"/" next.config.mjs
+    rm -f next.config.mjs.bak
 
     echo "Updating blog version in README.md"
-    sed -i "s/blog-v[0-9.]*/blog-v${new_version}/" README.md
+    sed -i.bak "s/blog-v[0-9.]*/blog-v${new_version}/" README.md
+    rm -f README.md.bak
 
     echo "Committing version bump..."
     git add package.json package-lock.json next.config.mjs README.md
