@@ -212,6 +212,13 @@ const experience: Experience[] = [
 const education: Education = {
   degrees: [
     {
+      institution: "PUC Minas",
+      degree: "Postgraduate Degree in Distributed Software Architecture",
+      description: "Formalizing software architecture knowledge.",
+      location: "EAD",
+      period: "August 2026 - February 2028",
+    },
+    {
       institution: "Uninove",
       degree: "Postgraduate Degree in Applied Statistics",
       description: "Diving into statistics.",
