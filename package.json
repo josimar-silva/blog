@@ -99,7 +99,7 @@
     "jest": "30.5.0",
     "jest-environment-jsdom": "30.5.2",
     "monocart-reporter": "2.12.6",
-    "prettier": "3.9.6",
+    "prettier": "3.9.9",
     "reading-time-estimator": "2.15.0",
     "serve": "14.2.6",
     "serwist": "9.5.12",
