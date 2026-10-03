@@ -373,6 +373,24 @@ const projects: Project[] = [
       "Supports SonarQube v8.9 and v9+.",
     ],
   },
+  {
+    id: 4,
+    title: "Kafka: The definitive guide animated",
+    description:
+      "My unofficial, fan-made companion to Kafka: The Definitive Guide with all diagrams animated for better learning experience.",
+    technologies: ["HTML", "Vanilla JS", "SVG", "SMIL"],
+    status: "Live",
+    year: "2026",
+    links: {
+      live: "https://kafka-animated.josimar-silva.com",
+      github:
+        "https://github.com/josimar-silva/kafka-the-definitive-guide-animated",
+    },
+    highlights: [
+      "Pure SVG with SMIL/CSS animation. No bundler and no runtime dependencies: every animation is a single self-contained `.svg` that plays in any browser on its own.",
+      "Navigation mirrors the book: a small hash-routed app organizes the animations across the fourteen chapters with prev/next in book order and playback controls.",
+    ],
+  },
 ];
 
 const me = {
