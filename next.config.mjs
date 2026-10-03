@@ -46,7 +46,7 @@ const nextConfig = {
     qualities: [70, 75, 85, 80, 90, 95, 100],
   },
   env: {
-    APP_VERSION: "1.1.0",
+    APP_VERSION: "1.1.1",
   },
 };
 
